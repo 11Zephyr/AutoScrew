@@ -1,0 +1,169 @@
+﻿using AutoScrewSys.Frm;
+using AutoScrewSys.Properties;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ZimaBlueScrew.Frm;
+namespace AutoScrewSys
+{
+    public partial class MainFm : Form
+    {
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HTCAPTION = 0x2;
+        private Image[] radioBtnSelectedImg;
+        private List<UserControl> formList;
+        private int nCurTag;
+
+        public MainFm()
+        {
+            InitializeComponent();       
+
+        }
+        private void MainFm_Load(object sender, EventArgs e)
+        {
+            radioBtnSelectedImg = new Image[]
+            {                
+                global :: AutoScrewSys.Properties.Resources.User,
+                global::AutoScrewSys.Properties.Resources.MainPage,
+                
+            };
+
+            //Image img = AutoScrewSys.Properties.Resources.User;
+            this.formList = new System.Collections.Generic.List<UserControl>();
+
+            RunUI runUI = new RunUI();
+            runUI.Dock = DockStyle.Fill;
+            runUI.Parent = this.tpContainer;
+            this.formList.Add(runUI);
+
+            HistoryDataUI historyDataUI = new HistoryDataUI();
+            historyDataUI.Dock = DockStyle.Fill;
+            historyDataUI.Parent = this.tpContainer;
+            this.formList.Add(historyDataUI);
+
+            TaskParametersUI taskParametersUI = new TaskParametersUI();
+            taskParametersUI.Dock = DockStyle.Fill;
+            taskParametersUI.Parent = this.tpContainer;
+            this.formList.Add(taskParametersUI);
+
+            ParameterSettingUI parameterSettingUI = new ParameterSettingUI();
+            parameterSettingUI.Dock = DockStyle.Fill;
+            parameterSettingUI.Parent = this.tpContainer;
+            this.formList.Add(parameterSettingUI);
+
+            IOMonitorUI ioMonitorUI = new IOMonitorUI();
+            ioMonitorUI.Dock = DockStyle.Fill;
+            ioMonitorUI.Parent = this.tpContainer;
+            this.formList.Add(ioMonitorUI);
+
+            runUI.Tag = 0;
+            historyDataUI.Tag = 1;
+            taskParametersUI.Tag = 2;
+            parameterSettingUI.Tag = 3;
+            ioMonitorUI.Tag = 4;
+
+            this.radioBtnRunFrm.Tag = 0;
+            this.radioBtnHistoryData.Tag = 1;
+            this.radioBtnTaskParam.Tag = 2;
+            this.radioBtnParamSet.Tag = 3;
+            this.radioBtnIOMonitor.Tag = 4;
+            this.nCurTag = 0;
+            this.radioBtnRunFrm.Checked = true;
+            //this.WindowState = FormWindowState.Maximized;
+
+            //LoadControlToPanel(new HistoryDataUI());
+
+        }
+        private void radioBtnPageChoose(object sender, EventArgs e)
+        {
+            if (sender is RadioButton rBtn)
+            {
+                int tag = Convert.ToInt32(rBtn.Tag);
+                if (tag < this.formList.Count)
+                {
+                    if (tag != nCurTag)
+                    {
+                        nCurTag = tag;
+
+                        // 切换显示页面
+                        tpContainer.Controls.Clear();
+                        var uc = formList[tag];
+                        uc.Dock = DockStyle.Fill;
+                        tpContainer.Controls.Add(uc);
+                    }
+                    //rBtn.BackgroundImage = rBtn.Checked ? radioBtnSelectedImg[tag] : radioBtnUnselectedImg[tag];
+                   // rBtn.ForeColor = rBtn.Checked ? Color.White : Color.Black;
+
+                    //if (rBtn.Checked)
+                    //{
+                    //    formList[tag].Show();
+
+                    //}
+                    //else
+                    //{
+                    //    formList[tag].Hide();
+                    //}
+                }
+            }
+        }
+
+        private void Panel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
+
+        private void btnToggleSize_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                tpContainer.Controls.ToString();
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                tpContainer.Dock = DockStyle.Fill;
+            }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Settings.Default.Save();
+            var result = MessageBox.Show("确认要退出程序吗？", "退出提示",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
+        }
+        private void radioBtnLogin_Click_1(object sender, EventArgs e)
+        {
+            LoginFrm frm = new LoginFrm();
+            frm.ShowDialog();
+        }
+
+        private void radioBtnStatusAction_Click(object sender, EventArgs e)
+        {
+            MonitorFrm frm = new MonitorFrm();
+            frm.Show();
+        }
+    }
+}
