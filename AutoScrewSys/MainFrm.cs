@@ -26,7 +26,6 @@ namespace AutoScrewSys
         private Image[] radioBtnSelectedImg;
         private List<UserControl> formList;
         private int nCurTag;
-
         public MainFm()
         {
             InitializeComponent();       
@@ -131,16 +130,16 @@ namespace AutoScrewSys
 
         private void btnToggleSize_Click(object sender, EventArgs e)
         {
-            if (this.WindowState != FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                tpContainer.Controls.ToString();
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-                tpContainer.Dock = DockStyle.Fill;
-            }
+            //if (this.WindowState != FormWindowState.Maximized)
+            //{
+            //    this.WindowState = FormWindowState.Maximized;
+            //    tpContainer.Controls.ToString();
+            //}
+            //else
+            //{
+            //    this.WindowState = FormWindowState.Normal;
+            //    tpContainer.Dock = DockStyle.Fill;
+            //}
 
         }
 

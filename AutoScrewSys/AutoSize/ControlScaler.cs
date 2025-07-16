@@ -5,45 +5,38 @@ using System.Windows.Forms;
 
 public class ControlScaler
 {
-    private Dictionary<Control, Rectangle> originalBounds = new Dictionary<Control, Rectangle>();
-    private Size originalContainerSize;
+    private Dictionary<Control, Rectangle> originalControlBounds = new Dictionary<Control, Rectangle>();
 
-    public void RecordOriginalSizes(Control container)
+    public void Init(Control root)
     {
-        originalBounds.Clear();
-        originalContainerSize = container.Size;
-        SaveBounds(container);
+        originalControlBounds.Clear();
+        SaveOriginalBounds(root);
     }
 
-    private void SaveBounds(Control ctrl)
+    private void SaveOriginalBounds(Control parent)
     {
-        originalBounds[ctrl] = ctrl.Bounds;
-        foreach (Control child in ctrl.Controls)
+        foreach (Control ctrl in parent.Controls)
         {
-            SaveBounds(child);
+            originalControlBounds[ctrl] = ctrl.Bounds;
+            if (ctrl.HasChildren)
+                SaveOriginalBounds(ctrl);
         }
     }
 
-    public void ScaleUserControlToPanel(Control userControl, Size panelSize, Size designSize)
+    public void Scale(Control root, float scaleX, float scaleY)
     {
-        // 先清空之前的缩放（手动重置大小）
-        userControl.Size = designSize;
-
-        // 计算缩放比例（按最小缩放因子，保持等比）
-        float scaleX = (float)panelSize.Width / designSize.Width;
-        float scaleY = (float)panelSize.Height / designSize.Height;
-        float scale = Math.Min(scaleX, scaleY);
-
-        // 执行等比缩放
-        userControl.Scale(new SizeF(scale, scale));
-
-        // 可选：居中显示
-        int offsetX = (panelSize.Width - userControl.Width) / 2;
-        int offsetY = (panelSize.Height - userControl.Height) / 2;
-        userControl.Location = new Point(offsetX, offsetY);
+        foreach (var kvp in originalControlBounds)
+        {
+            Control ctrl = kvp.Key;
+            Rectangle original = kvp.Value;
+            ctrl.Bounds = new Rectangle(
+                (int)(original.X * scaleX),
+                (int)(original.Y * scaleY),
+                (int)(original.Width * scaleX),
+                (int)(original.Height * scaleY));
+        }
     }
-
-
 }
+
 
 
