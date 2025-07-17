@@ -31,61 +31,61 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblMesTextR = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ztextBoxRua1 = new ZimaBlueUI.ZtextBoxRua();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.materialComboBox3 = new MaterialSkin.Controls.MaterialComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ztextBoxRua1 = new ZimaBlueUI.ZtextBoxRua();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialComboBox3 = new MaterialSkin.Controls.MaterialComboBox();
             this.materialComboBox4 = new MaterialSkin.Controls.MaterialComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro6 = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel1 = new ZimaBlueUI.Tpanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.materialComboBox5 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cbxPort = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.materialComboBox6 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cbxBaudRate = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel3 = new ZimaBlueUI.Tpanel();
             this.label8 = new System.Windows.Forms.Label();
-            this.materialComboBox7 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cbxParity = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel4 = new ZimaBlueUI.Tpanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.materialComboBox8 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cbxDataBits = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel5 = new ZimaBlueUI.Tpanel();
             this.label11 = new System.Windows.Forms.Label();
-            this.materialComboBox9 = new MaterialSkin.Controls.MaterialComboBox();
+            this.cbxStopBits = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
             this.label12 = new System.Windows.Forms.Label();
+            this.ztextBoxRua2 = new ZimaBlueUI.ZtextBoxRua();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
+            this.ztextBoxRua3 = new ZimaBlueUI.ZtextBoxRua();
             this.label13 = new System.Windows.Forms.Label();
             this.tpanel8 = new ZimaBlueUI.Tpanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.ztextBoxRua2 = new ZimaBlueUI.ZtextBoxRua();
-            this.ztextBoxRua3 = new ZimaBlueUI.ZtextBoxRua();
             this.ztextBoxRua4 = new ZimaBlueUI.ZtextBoxRua();
+            this.label14 = new System.Windows.Forms.Label();
             this.tpanel9 = new ZimaBlueUI.Tpanel();
             this.ztextBoxRua5 = new ZimaBlueUI.ZtextBoxRua();
             this.label15 = new System.Windows.Forms.Label();
             this.tpanel10 = new ZimaBlueUI.Tpanel();
-            this.materialButtonpro1 = new MaterialSkin.Controls.MaterialButtonpro();
             this.materialButtonpro2 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro1 = new MaterialSkin.Controls.MaterialButtonpro();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnConnect = new MaterialSkin.Controls.MaterialButtonpro();
             this.ztextBoxRua7 = new ZimaBlueUI.ZtextBoxRua();
             this.ztextBoxRua6 = new ZimaBlueUI.ZtextBoxRua();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro6 = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -149,50 +149,6 @@
             this.panel1.Size = new System.Drawing.Size(925, 58);
             this.panel1.TabIndex = 41;
             // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.ztextBoxRua1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 125);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(925, 58);
-            this.panel2.TabIndex = 42;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.materialComboBox2);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(3, 189);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(925, 58);
-            this.panel3.TabIndex = 43;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.materialComboBox3);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(3, 253);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(925, 58);
-            this.panel4.TabIndex = 44;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(0, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 54);
-            this.label10.TabIndex = 201;
-            this.label10.Text = "扭力单位:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // materialComboBox1
             // 
             this.materialComboBox1.AutoResize = false;
@@ -225,71 +181,29 @@
             this.materialComboBox1.TabIndex = 202;
             this.materialComboBox1.Triangle = true;
             // 
-            // label1
+            // label10
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 56);
-            this.label1.TabIndex = 202;
-            this.label1.Text = "数据保存路径:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 54);
+            this.label10.TabIndex = 201;
+            this.label10.Text = "扭力单位:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // panel2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 54);
-            this.label2.TabIndex = 202;
-            this.label2.Text = "数据保存时长:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 54);
-            this.label3.TabIndex = 202;
-            this.label3.Text = "日志保存时长:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.materialComboBox4);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(3, 317);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(925, 58);
-            this.panel5.TabIndex = 45;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 54);
-            this.label4.TabIndex = 202;
-            this.label4.Text = "权限自动注销时长:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.ztextBoxRua1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 125);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(925, 58);
+            this.panel2.TabIndex = 42;
             // 
             // ztextBoxRua1
             // 
@@ -307,6 +221,30 @@
             this.ztextBoxRua1.TextBorderRadius = 5;
             this.ztextBoxRua1.TextBorderSize = 1;
             this.ztextBoxRua1.TextBorderWidth = 2;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 56);
+            this.label1.TabIndex = 202;
+            this.label1.Text = "数据保存路径:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.materialComboBox2);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(3, 189);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(925, 58);
+            this.panel3.TabIndex = 43;
             // 
             // materialComboBox2
             // 
@@ -340,6 +278,30 @@
             this.materialComboBox2.TabIndex = 203;
             this.materialComboBox2.Triangle = true;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 54);
+            this.label2.TabIndex = 202;
+            this.label2.Text = "数据保存时长:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.materialComboBox3);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Location = new System.Drawing.Point(3, 253);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(925, 58);
+            this.panel4.TabIndex = 44;
+            // 
             // materialComboBox3
             // 
             this.materialComboBox3.AutoResize = false;
@@ -372,6 +334,30 @@
             this.materialComboBox3.TabIndex = 203;
             this.materialComboBox3.Triangle = true;
             // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 54);
+            this.label3.TabIndex = 202;
+            this.label3.Text = "日志保存时长:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.materialComboBox4);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(3, 317);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(925, 58);
+            this.panel5.TabIndex = 45;
+            // 
             // materialComboBox4
             // 
             this.materialComboBox4.AutoResize = false;
@@ -403,6 +389,56 @@
             this.materialComboBox4.StartIndex = 0;
             this.materialComboBox4.TabIndex = 203;
             this.materialComboBox4.Triangle = true;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 54);
+            this.label4.TabIndex = 202;
+            this.label4.Text = "权限自动注销时长:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // materialButtonpro5
+            // 
+            this.materialButtonpro5.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.materialButtonpro5.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro5.Buttonmodel = 0;
+            this.materialButtonpro5.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro5.Constant = 0;
+            this.materialButtonpro5.Depth = 0;
+            this.materialButtonpro5.Location = new System.Drawing.Point(3, 381);
+            this.materialButtonpro5.MaxV = 0;
+            this.materialButtonpro5.MinV = 0;
+            this.materialButtonpro5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro5.Name = "materialButtonpro5";
+            this.materialButtonpro5.Size = new System.Drawing.Size(95, 30);
+            this.materialButtonpro5.TabIndex = 206;
+            this.materialButtonpro5.Text = "读取";
+            this.materialButtonpro5.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro6
+            // 
+            this.materialButtonpro6.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.materialButtonpro6.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro6.Buttonmodel = 0;
+            this.materialButtonpro6.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro6.Constant = 0;
+            this.materialButtonpro6.Depth = 0;
+            this.materialButtonpro6.Location = new System.Drawing.Point(3, 417);
+            this.materialButtonpro6.MaxV = 0;
+            this.materialButtonpro6.MinV = 0;
+            this.materialButtonpro6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro6.Name = "materialButtonpro6";
+            this.materialButtonpro6.Size = new System.Drawing.Size(95, 30);
+            this.materialButtonpro6.TabIndex = 205;
+            this.materialButtonpro6.Text = "保存";
+            this.materialButtonpro6.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
             // 
@@ -445,7 +481,7 @@
             this.tpanel1.Alpha = 50;
             this.tpanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel1.Controls.Add(this.label6);
-            this.tpanel1.Controls.Add(this.materialComboBox5);
+            this.tpanel1.Controls.Add(this.cbxPort);
             this.tpanel1.Location = new System.Drawing.Point(3, 50);
             this.tpanel1.Name = "tpanel1";
             this.tpanel1.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -469,44 +505,40 @@
             this.label6.Text = "串口号:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialComboBox5
+            // cbxPort
             // 
-            this.materialComboBox5.AutoResize = false;
-            this.materialComboBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox5.Borderwidht = 7;
-            this.materialComboBox5.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox5.Commodel = 0;
-            this.materialComboBox5.Depth = 0;
-            this.materialComboBox5.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox5.DropDownHeight = 217;
-            this.materialComboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox5.DropDownWidth = 121;
-            this.materialComboBox5.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox5.FormattingEnabled = true;
-            this.materialComboBox5.IntegralHeight = false;
-            this.materialComboBox5.ItemHeight = 43;
-            this.materialComboBox5.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox5.Location = new System.Drawing.Point(205, -1);
-            this.materialComboBox5.MaxDropDownItems = 5;
-            this.materialComboBox5.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox5.Name = "materialComboBox5";
-            this.materialComboBox5.ShowScrollbar = false;
-            this.materialComboBox5.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox5.StartIndex = 0;
-            this.materialComboBox5.TabIndex = 203;
-            this.materialComboBox5.Triangle = true;
+            this.cbxPort.AutoResize = false;
+            this.cbxPort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxPort.Borderwidht = 7;
+            this.cbxPort.ComboxColor = System.Drawing.Color.White;
+            this.cbxPort.Commodel = 0;
+            this.cbxPort.Depth = 0;
+            this.cbxPort.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxPort.DropDownHeight = 217;
+            this.cbxPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPort.DropDownWidth = 121;
+            this.cbxPort.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxPort.FormattingEnabled = true;
+            this.cbxPort.IntegralHeight = false;
+            this.cbxPort.ItemHeight = 43;
+            this.cbxPort.Location = new System.Drawing.Point(205, -1);
+            this.cbxPort.MaxDropDownItems = 5;
+            this.cbxPort.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxPort.Name = "cbxPort";
+            this.cbxPort.ShowScrollbar = false;
+            this.cbxPort.Size = new System.Drawing.Size(137, 49);
+            this.cbxPort.StartIndex = 0;
+            this.cbxPort.TabIndex = 203;
+            this.cbxPort.Triangle = true;
+            this.cbxPort.DropDown += new System.EventHandler(this.cbxPort_DropDown);
+            this.cbxPort.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel2
             // 
             this.tpanel2.Alpha = 50;
             this.tpanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel2.Controls.Add(this.label7);
-            this.tpanel2.Controls.Add(this.materialComboBox6);
+            this.tpanel2.Controls.Add(this.cbxBaudRate);
             this.tpanel2.Location = new System.Drawing.Point(3, 105);
             this.tpanel2.Name = "tpanel2";
             this.tpanel2.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -530,44 +562,45 @@
             this.label7.Text = "波特率:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialComboBox6
+            // cbxBaudRate
             // 
-            this.materialComboBox6.AutoResize = false;
-            this.materialComboBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox6.Borderwidht = 7;
-            this.materialComboBox6.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox6.Commodel = 0;
-            this.materialComboBox6.Depth = 0;
-            this.materialComboBox6.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox6.DropDownHeight = 217;
-            this.materialComboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox6.DropDownWidth = 121;
-            this.materialComboBox6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox6.FormattingEnabled = true;
-            this.materialComboBox6.IntegralHeight = false;
-            this.materialComboBox6.ItemHeight = 43;
-            this.materialComboBox6.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox6.Location = new System.Drawing.Point(205, -1);
-            this.materialComboBox6.MaxDropDownItems = 5;
-            this.materialComboBox6.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox6.Name = "materialComboBox6";
-            this.materialComboBox6.ShowScrollbar = false;
-            this.materialComboBox6.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox6.StartIndex = 0;
-            this.materialComboBox6.TabIndex = 203;
-            this.materialComboBox6.Triangle = true;
+            this.cbxBaudRate.AutoResize = false;
+            this.cbxBaudRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxBaudRate.Borderwidht = 7;
+            this.cbxBaudRate.ComboxColor = System.Drawing.Color.White;
+            this.cbxBaudRate.Commodel = 0;
+            this.cbxBaudRate.Depth = 0;
+            this.cbxBaudRate.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxBaudRate.DropDownHeight = 217;
+            this.cbxBaudRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxBaudRate.DropDownWidth = 121;
+            this.cbxBaudRate.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxBaudRate.FormattingEnabled = true;
+            this.cbxBaudRate.IntegralHeight = false;
+            this.cbxBaudRate.ItemHeight = 43;
+            this.cbxBaudRate.Items.AddRange(new object[] {
+            "4800",
+            "9600",
+            "19200",
+            "57600",
+            "115200"});
+            this.cbxBaudRate.Location = new System.Drawing.Point(205, -1);
+            this.cbxBaudRate.MaxDropDownItems = 5;
+            this.cbxBaudRate.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxBaudRate.Name = "cbxBaudRate";
+            this.cbxBaudRate.ShowScrollbar = false;
+            this.cbxBaudRate.Size = new System.Drawing.Size(137, 49);
+            this.cbxBaudRate.StartIndex = 0;
+            this.cbxBaudRate.TabIndex = 203;
+            this.cbxBaudRate.Triangle = true;
+            this.cbxBaudRate.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel3
             // 
             this.tpanel3.Alpha = 50;
             this.tpanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel3.Controls.Add(this.label8);
-            this.tpanel3.Controls.Add(this.materialComboBox7);
+            this.tpanel3.Controls.Add(this.cbxParity);
             this.tpanel3.Location = new System.Drawing.Point(3, 160);
             this.tpanel3.Name = "tpanel3";
             this.tpanel3.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -591,44 +624,53 @@
             this.label8.Text = "校验位:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialComboBox7
+            // cbxParity
             // 
-            this.materialComboBox7.AutoResize = false;
-            this.materialComboBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox7.Borderwidht = 7;
-            this.materialComboBox7.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox7.Commodel = 0;
-            this.materialComboBox7.Depth = 0;
-            this.materialComboBox7.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox7.DropDownHeight = 217;
-            this.materialComboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox7.DropDownWidth = 121;
-            this.materialComboBox7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox7.FormattingEnabled = true;
-            this.materialComboBox7.IntegralHeight = false;
-            this.materialComboBox7.ItemHeight = 43;
-            this.materialComboBox7.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox7.Location = new System.Drawing.Point(205, -1);
-            this.materialComboBox7.MaxDropDownItems = 5;
-            this.materialComboBox7.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox7.Name = "materialComboBox7";
-            this.materialComboBox7.ShowScrollbar = false;
-            this.materialComboBox7.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox7.StartIndex = 0;
-            this.materialComboBox7.TabIndex = 203;
-            this.materialComboBox7.Triangle = true;
+            this.cbxParity.AutoResize = false;
+            this.cbxParity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxParity.Borderwidht = 7;
+            this.cbxParity.ComboxColor = System.Drawing.Color.White;
+            this.cbxParity.Commodel = 0;
+            this.cbxParity.Depth = 0;
+            this.cbxParity.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxParity.DropDownHeight = 217;
+            this.cbxParity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxParity.DropDownWidth = 121;
+            this.cbxParity.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxParity.FormattingEnabled = true;
+            this.cbxParity.IntegralHeight = false;
+            this.cbxParity.ItemHeight = 43;
+            this.cbxParity.Items.AddRange(new object[] {
+            "None",
+            "",
+            "",
+            "Odd",
+            "",
+            "",
+            "Even",
+            "",
+            "",
+            "Mark",
+            "",
+            "",
+            "Space"});
+            this.cbxParity.Location = new System.Drawing.Point(205, -1);
+            this.cbxParity.MaxDropDownItems = 5;
+            this.cbxParity.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxParity.Name = "cbxParity";
+            this.cbxParity.ShowScrollbar = false;
+            this.cbxParity.Size = new System.Drawing.Size(137, 49);
+            this.cbxParity.StartIndex = 0;
+            this.cbxParity.TabIndex = 203;
+            this.cbxParity.Triangle = true;
+            this.cbxParity.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel4
             // 
             this.tpanel4.Alpha = 50;
             this.tpanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel4.Controls.Add(this.label9);
-            this.tpanel4.Controls.Add(this.materialComboBox8);
+            this.tpanel4.Controls.Add(this.cbxDataBits);
             this.tpanel4.Location = new System.Drawing.Point(3, 215);
             this.tpanel4.Name = "tpanel4";
             this.tpanel4.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -652,44 +694,44 @@
             this.label9.Text = "数据位:";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialComboBox8
+            // cbxDataBits
             // 
-            this.materialComboBox8.AutoResize = false;
-            this.materialComboBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox8.Borderwidht = 7;
-            this.materialComboBox8.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox8.Commodel = 0;
-            this.materialComboBox8.Depth = 0;
-            this.materialComboBox8.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox8.DropDownHeight = 217;
-            this.materialComboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox8.DropDownWidth = 121;
-            this.materialComboBox8.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox8.FormattingEnabled = true;
-            this.materialComboBox8.IntegralHeight = false;
-            this.materialComboBox8.ItemHeight = 43;
-            this.materialComboBox8.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox8.Location = new System.Drawing.Point(205, -1);
-            this.materialComboBox8.MaxDropDownItems = 5;
-            this.materialComboBox8.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox8.Name = "materialComboBox8";
-            this.materialComboBox8.ShowScrollbar = false;
-            this.materialComboBox8.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox8.StartIndex = 0;
-            this.materialComboBox8.TabIndex = 203;
-            this.materialComboBox8.Triangle = true;
+            this.cbxDataBits.AutoResize = false;
+            this.cbxDataBits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxDataBits.Borderwidht = 7;
+            this.cbxDataBits.ComboxColor = System.Drawing.Color.White;
+            this.cbxDataBits.Commodel = 0;
+            this.cbxDataBits.Depth = 0;
+            this.cbxDataBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxDataBits.DropDownHeight = 217;
+            this.cbxDataBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDataBits.DropDownWidth = 121;
+            this.cbxDataBits.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxDataBits.FormattingEnabled = true;
+            this.cbxDataBits.IntegralHeight = false;
+            this.cbxDataBits.ItemHeight = 43;
+            this.cbxDataBits.Items.AddRange(new object[] {
+            "5",
+            "6",
+            "7",
+            "8"});
+            this.cbxDataBits.Location = new System.Drawing.Point(205, -1);
+            this.cbxDataBits.MaxDropDownItems = 5;
+            this.cbxDataBits.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxDataBits.Name = "cbxDataBits";
+            this.cbxDataBits.ShowScrollbar = false;
+            this.cbxDataBits.Size = new System.Drawing.Size(137, 49);
+            this.cbxDataBits.StartIndex = 0;
+            this.cbxDataBits.TabIndex = 203;
+            this.cbxDataBits.Triangle = true;
+            this.cbxDataBits.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel5
             // 
             this.tpanel5.Alpha = 50;
             this.tpanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel5.Controls.Add(this.label11);
-            this.tpanel5.Controls.Add(this.materialComboBox9);
+            this.tpanel5.Controls.Add(this.cbxStopBits);
             this.tpanel5.Location = new System.Drawing.Point(3, 270);
             this.tpanel5.Name = "tpanel5";
             this.tpanel5.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -713,37 +755,37 @@
             this.label11.Text = "停止位:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialComboBox9
+            // cbxStopBits
             // 
-            this.materialComboBox9.AutoResize = false;
-            this.materialComboBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox9.Borderwidht = 7;
-            this.materialComboBox9.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox9.Commodel = 0;
-            this.materialComboBox9.Depth = 0;
-            this.materialComboBox9.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox9.DropDownHeight = 217;
-            this.materialComboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox9.DropDownWidth = 121;
-            this.materialComboBox9.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox9.FormattingEnabled = true;
-            this.materialComboBox9.IntegralHeight = false;
-            this.materialComboBox9.ItemHeight = 43;
-            this.materialComboBox9.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox9.Location = new System.Drawing.Point(205, -1);
-            this.materialComboBox9.MaxDropDownItems = 5;
-            this.materialComboBox9.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox9.Name = "materialComboBox9";
-            this.materialComboBox9.ShowScrollbar = false;
-            this.materialComboBox9.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox9.StartIndex = 0;
-            this.materialComboBox9.TabIndex = 203;
-            this.materialComboBox9.Triangle = true;
+            this.cbxStopBits.AutoResize = false;
+            this.cbxStopBits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxStopBits.Borderwidht = 7;
+            this.cbxStopBits.ComboxColor = System.Drawing.Color.White;
+            this.cbxStopBits.Commodel = 0;
+            this.cbxStopBits.Depth = 0;
+            this.cbxStopBits.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxStopBits.DropDownHeight = 217;
+            this.cbxStopBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxStopBits.DropDownWidth = 121;
+            this.cbxStopBits.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxStopBits.FormattingEnabled = true;
+            this.cbxStopBits.IntegralHeight = false;
+            this.cbxStopBits.ItemHeight = 43;
+            this.cbxStopBits.Items.AddRange(new object[] {
+            "None",
+            "One",
+            "OnePointFive",
+            "Two"});
+            this.cbxStopBits.Location = new System.Drawing.Point(205, -1);
+            this.cbxStopBits.MaxDropDownItems = 5;
+            this.cbxStopBits.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxStopBits.Name = "cbxStopBits";
+            this.cbxStopBits.ShowScrollbar = false;
+            this.cbxStopBits.Size = new System.Drawing.Size(137, 49);
+            this.cbxStopBits.StartIndex = 0;
+            this.cbxStopBits.TabIndex = 203;
+            this.cbxStopBits.Triangle = true;
+            this.cbxStopBits.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel6
             // 
@@ -774,6 +816,23 @@
             this.label12.Text = "发送超时:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // ztextBoxRua2
+            // 
+            this.ztextBoxRua2.BackColor = System.Drawing.Color.Black;
+            this.ztextBoxRua2.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.ztextBoxRua2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ztextBoxRua2.Location = new System.Drawing.Point(205, 10);
+            this.ztextBoxRua2.Name = "ztextBoxRua2";
+            this.ztextBoxRua2.ReadOnly = false;
+            this.ztextBoxRua2.Size = new System.Drawing.Size(137, 28);
+            this.ztextBoxRua2.TabIndex = 204;
+            this.ztextBoxRua2.Tag = "Text";
+            this.ztextBoxRua2.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.ztextBoxRua2.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.ztextBoxRua2.TextBorderRadius = 5;
+            this.ztextBoxRua2.TextBorderSize = 1;
+            this.ztextBoxRua2.TextBorderWidth = 2;
+            // 
             // tpanel7
             // 
             this.tpanel7.Alpha = 50;
@@ -789,6 +848,23 @@
             this.tpanel7.PanelText = "";
             this.tpanel7.Size = new System.Drawing.Size(438, 49);
             this.tpanel7.TabIndex = 48;
+            // 
+            // ztextBoxRua3
+            // 
+            this.ztextBoxRua3.BackColor = System.Drawing.Color.Black;
+            this.ztextBoxRua3.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.ztextBoxRua3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ztextBoxRua3.Location = new System.Drawing.Point(205, 11);
+            this.ztextBoxRua3.Name = "ztextBoxRua3";
+            this.ztextBoxRua3.ReadOnly = false;
+            this.ztextBoxRua3.Size = new System.Drawing.Size(137, 28);
+            this.ztextBoxRua3.TabIndex = 205;
+            this.ztextBoxRua3.Tag = "Text";
+            this.ztextBoxRua3.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.ztextBoxRua3.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.ztextBoxRua3.TextBorderRadius = 5;
+            this.ztextBoxRua3.TextBorderSize = 1;
+            this.ztextBoxRua3.TextBorderWidth = 2;
             // 
             // label13
             // 
@@ -819,53 +895,6 @@
             this.tpanel8.Size = new System.Drawing.Size(438, 49);
             this.tpanel8.TabIndex = 49;
             // 
-            // label14
-            // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(93, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 32);
-            this.label14.TabIndex = 202;
-            this.label14.Text = "名称:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // ztextBoxRua2
-            // 
-            this.ztextBoxRua2.BackColor = System.Drawing.Color.Black;
-            this.ztextBoxRua2.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.ztextBoxRua2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ztextBoxRua2.Location = new System.Drawing.Point(205, 10);
-            this.ztextBoxRua2.Name = "ztextBoxRua2";
-            this.ztextBoxRua2.ReadOnly = false;
-            this.ztextBoxRua2.Size = new System.Drawing.Size(137, 28);
-            this.ztextBoxRua2.TabIndex = 204;
-            this.ztextBoxRua2.Tag = "Text";
-            this.ztextBoxRua2.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ztextBoxRua2.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.ztextBoxRua2.TextBorderRadius = 5;
-            this.ztextBoxRua2.TextBorderSize = 1;
-            this.ztextBoxRua2.TextBorderWidth = 2;
-            // 
-            // ztextBoxRua3
-            // 
-            this.ztextBoxRua3.BackColor = System.Drawing.Color.Black;
-            this.ztextBoxRua3.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.ztextBoxRua3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ztextBoxRua3.Location = new System.Drawing.Point(205, 11);
-            this.ztextBoxRua3.Name = "ztextBoxRua3";
-            this.ztextBoxRua3.ReadOnly = false;
-            this.ztextBoxRua3.Size = new System.Drawing.Size(137, 28);
-            this.ztextBoxRua3.TabIndex = 205;
-            this.ztextBoxRua3.Tag = "Text";
-            this.ztextBoxRua3.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ztextBoxRua3.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.ztextBoxRua3.TextBorderRadius = 5;
-            this.ztextBoxRua3.TextBorderSize = 1;
-            this.ztextBoxRua3.TextBorderWidth = 2;
-            // 
             // ztextBoxRua4
             // 
             this.ztextBoxRua4.BackColor = System.Drawing.Color.Black;
@@ -882,6 +911,19 @@
             this.ztextBoxRua4.TextBorderRadius = 5;
             this.ztextBoxRua4.TextBorderSize = 1;
             this.ztextBoxRua4.TextBorderWidth = 2;
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(93, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 32);
+            this.label14.TabIndex = 202;
+            this.label14.Text = "名称:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tpanel9
             // 
@@ -945,24 +987,6 @@
             this.tpanel10.Size = new System.Drawing.Size(438, 49);
             this.tpanel10.TabIndex = 51;
             // 
-            // materialButtonpro1
-            // 
-            this.materialButtonpro1.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro1.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro1.Buttonmodel = 0;
-            this.materialButtonpro1.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro1.Constant = 0;
-            this.materialButtonpro1.Depth = 0;
-            this.materialButtonpro1.Location = new System.Drawing.Point(98, 10);
-            this.materialButtonpro1.MaxV = 0;
-            this.materialButtonpro1.MinV = 0;
-            this.materialButtonpro1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro1.Name = "materialButtonpro1";
-            this.materialButtonpro1.Size = new System.Drawing.Size(95, 30);
-            this.materialButtonpro1.TabIndex = 203;
-            this.materialButtonpro1.Text = "保存";
-            this.materialButtonpro1.UseVisualStyleBackColor = true;
-            // 
             // materialButtonpro2
             // 
             this.materialButtonpro2.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -981,10 +1005,28 @@
             this.materialButtonpro2.Text = "读取";
             this.materialButtonpro2.UseVisualStyleBackColor = true;
             // 
+            // materialButtonpro1
+            // 
+            this.materialButtonpro1.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.materialButtonpro1.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro1.Buttonmodel = 0;
+            this.materialButtonpro1.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro1.Constant = 0;
+            this.materialButtonpro1.Depth = 0;
+            this.materialButtonpro1.Location = new System.Drawing.Point(98, 10);
+            this.materialButtonpro1.MaxV = 0;
+            this.materialButtonpro1.MinV = 0;
+            this.materialButtonpro1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro1.Name = "materialButtonpro1";
+            this.materialButtonpro1.Size = new System.Drawing.Size(95, 30);
+            this.materialButtonpro1.TabIndex = 203;
+            this.materialButtonpro1.Text = "保存";
+            this.materialButtonpro1.UseVisualStyleBackColor = true;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.materialButtonpro3);
-            this.panel6.Controls.Add(this.materialButtonpro4);
+            this.panel6.Controls.Add(this.btnConnect);
             this.panel6.Controls.Add(this.ztextBoxRua7);
             this.panel6.Controls.Add(this.ztextBoxRua6);
             this.panel6.Controls.Add(this.label17);
@@ -993,6 +1035,43 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(438, 150);
             this.panel6.TabIndex = 53;
+            // 
+            // materialButtonpro3
+            // 
+            this.materialButtonpro3.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.materialButtonpro3.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro3.Buttonmodel = 0;
+            this.materialButtonpro3.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro3.Constant = 0;
+            this.materialButtonpro3.Depth = 0;
+            this.materialButtonpro3.Location = new System.Drawing.Point(247, 92);
+            this.materialButtonpro3.MaxV = 0;
+            this.materialButtonpro3.MinV = 0;
+            this.materialButtonpro3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro3.Name = "materialButtonpro3";
+            this.materialButtonpro3.Size = new System.Drawing.Size(95, 30);
+            this.materialButtonpro3.TabIndex = 209;
+            this.materialButtonpro3.Text = "读取测试";
+            this.materialButtonpro3.UseVisualStyleBackColor = true;
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnConnect.ButtonColor = System.Drawing.Color.White;
+            this.btnConnect.Buttonmodel = 0;
+            this.btnConnect.ClickColor = System.Drawing.Color.White;
+            this.btnConnect.Constant = 0;
+            this.btnConnect.Depth = 0;
+            this.btnConnect.Location = new System.Drawing.Point(98, 92);
+            this.btnConnect.MaxV = 0;
+            this.btnConnect.MinV = 0;
+            this.btnConnect.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(95, 30);
+            this.btnConnect.TabIndex = 208;
+            this.btnConnect.Text = "连接";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
             // ztextBoxRua7
             // 
@@ -1054,78 +1133,6 @@
             this.label16.Text = "名称:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // materialButtonpro3
-            // 
-            this.materialButtonpro3.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro3.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Buttonmodel = 0;
-            this.materialButtonpro3.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Constant = 0;
-            this.materialButtonpro3.Depth = 0;
-            this.materialButtonpro3.Location = new System.Drawing.Point(247, 92);
-            this.materialButtonpro3.MaxV = 0;
-            this.materialButtonpro3.MinV = 0;
-            this.materialButtonpro3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro3.Name = "materialButtonpro3";
-            this.materialButtonpro3.Size = new System.Drawing.Size(95, 30);
-            this.materialButtonpro3.TabIndex = 209;
-            this.materialButtonpro3.Text = "读取测试";
-            this.materialButtonpro3.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro4
-            // 
-            this.materialButtonpro4.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Buttonmodel = 0;
-            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Constant = 0;
-            this.materialButtonpro4.Depth = 0;
-            this.materialButtonpro4.Location = new System.Drawing.Point(98, 92);
-            this.materialButtonpro4.MaxV = 0;
-            this.materialButtonpro4.MinV = 0;
-            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro4.Name = "materialButtonpro4";
-            this.materialButtonpro4.Size = new System.Drawing.Size(95, 30);
-            this.materialButtonpro4.TabIndex = 208;
-            this.materialButtonpro4.Text = "连接";
-            this.materialButtonpro4.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro5
-            // 
-            this.materialButtonpro5.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro5.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro5.Buttonmodel = 0;
-            this.materialButtonpro5.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro5.Constant = 0;
-            this.materialButtonpro5.Depth = 0;
-            this.materialButtonpro5.Location = new System.Drawing.Point(3, 381);
-            this.materialButtonpro5.MaxV = 0;
-            this.materialButtonpro5.MinV = 0;
-            this.materialButtonpro5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro5.Name = "materialButtonpro5";
-            this.materialButtonpro5.Size = new System.Drawing.Size(95, 30);
-            this.materialButtonpro5.TabIndex = 206;
-            this.materialButtonpro5.Text = "读取";
-            this.materialButtonpro5.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro6
-            // 
-            this.materialButtonpro6.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro6.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro6.Buttonmodel = 0;
-            this.materialButtonpro6.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro6.Constant = 0;
-            this.materialButtonpro6.Depth = 0;
-            this.materialButtonpro6.Location = new System.Drawing.Point(3, 417);
-            this.materialButtonpro6.MaxV = 0;
-            this.materialButtonpro6.MinV = 0;
-            this.materialButtonpro6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro6.Name = "materialButtonpro6";
-            this.materialButtonpro6.Size = new System.Drawing.Size(95, 30);
-            this.materialButtonpro6.TabIndex = 205;
-            this.materialButtonpro6.Text = "保存";
-            this.materialButtonpro6.UseVisualStyleBackColor = true;
-            // 
             // ParameterSettingUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1179,19 +1186,19 @@
         private System.Windows.Forms.Label label5;
         private ZimaBlueUI.Tpanel tpanel1;
         private System.Windows.Forms.Label label6;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox5;
+        private MaterialSkin.Controls.MaterialComboBox cbxPort;
         private ZimaBlueUI.Tpanel tpanel2;
         private System.Windows.Forms.Label label7;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox6;
+        private MaterialSkin.Controls.MaterialComboBox cbxBaudRate;
         private ZimaBlueUI.Tpanel tpanel3;
         private System.Windows.Forms.Label label8;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox7;
+        private MaterialSkin.Controls.MaterialComboBox cbxParity;
         private ZimaBlueUI.Tpanel tpanel4;
         private System.Windows.Forms.Label label9;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox8;
+        private MaterialSkin.Controls.MaterialComboBox cbxDataBits;
         private ZimaBlueUI.Tpanel tpanel5;
         private System.Windows.Forms.Label label11;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox9;
+        private MaterialSkin.Controls.MaterialComboBox cbxStopBits;
         private ZimaBlueUI.Tpanel tpanel6;
         private System.Windows.Forms.Label label12;
         private ZimaBlueUI.Tpanel tpanel7;
@@ -1209,7 +1216,7 @@
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro1;
         private System.Windows.Forms.Panel panel6;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro4;
+        private MaterialSkin.Controls.MaterialButtonpro btnConnect;
         private ZimaBlueUI.ZtextBoxRua ztextBoxRua7;
         private ZimaBlueUI.ZtextBoxRua ztextBoxRua6;
         private System.Windows.Forms.Label label17;

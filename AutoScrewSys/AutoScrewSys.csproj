@@ -36,6 +36,9 @@
     <Reference Include="MaterialSkin">
       <HintPath>..\..\Co-Development\MaterialSkin\MaterialSkin\MaterialSkin-master\MaterialSkin\bin\x64\Debug\MaterialSkin.dll</HintPath>
     </Reference>
+    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -55,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSize\ControlScaler.cs" />
+    <Compile Include="Base\GlobalMonitor.cs" />
+    <Compile Include="BLL\DataResult.cs" />
+    <Compile Include="BLL\IndustrialBLL.cs" />
     <Compile Include="Frm\HistoryDataUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,12 +103,15 @@
     <Compile Include="Frm\TaskParametersUI.Designer.cs">
       <DependentUpon>TaskParametersUI.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICommunicationBase.cs" />
     <Compile Include="MainFrm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainFrm.Designer.cs">
       <DependentUpon>MainFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modbus\ModbusSerialInfo.cs" />
+    <Compile Include="Modbus\RTU.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Frm\HistoryDataUI.resx">
@@ -142,6 +151,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -155,5 +165,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

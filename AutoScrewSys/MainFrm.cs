@@ -153,7 +153,7 @@ namespace AutoScrewSys
             }
 
         }
-        private void radioBtnLogin_Click_1(object sender, EventArgs e)
+        private void radioBtnLogin_Click(object sender, EventArgs e)
         {
             LoginFrm frm = new LoginFrm();
             frm.ShowDialog();

@@ -343,7 +343,7 @@ namespace AutoScrewSys
             this.radioBtnLogin.Text = "登录";
             this.radioBtnLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioBtnLogin.UseVisualStyleBackColor = true;
-            this.radioBtnLogin.Click += new System.EventHandler(this.radioBtnLogin_Click_1);
+            this.radioBtnLogin.Click += new System.EventHandler(this.radioBtnLogin_Click);
             // 
             // MainFm
             // 

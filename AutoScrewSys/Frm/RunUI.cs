@@ -20,17 +20,6 @@ namespace AutoScrewSys.Frm
             InitializeComponent();
         }
 
- 
-        private void chart2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void PositionView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void zRoundButton1_Click(object sender, EventArgs e)
         {
 
