@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoScrewSys.Base;
+using AutoScrewSys.VariableName;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +16,24 @@ namespace AutoScrewSys.Frm
     {
         ControlScaler scaler;
         bool isResize = false;
-
+        private Timer refreshTimer;
         public RunUI()
         {
             InitializeComponent();
+
+            refreshTimer = new Timer();
+            refreshTimer.Interval = 500; // 刷新间隔 1 秒
+            refreshTimer.Tick += RefreshTimer_Tick;
+            //refreshTimer.Start();
         }
-
-        private void zRoundButton1_Click(object sender, EventArgs e)
+        private void RefreshTimer_Tick(object sender, EventArgs e)
         {
-
+            // 实时读取 Settings 并刷新显示
+            TaskNumber.Text = AddrName.Default.TaskNumber.ToString();
+        }
+        private void RunUI_Load(object sender, EventArgs e)
+        {
+            LogHelper.InitializeLogBox(rtbLog, Color.White);
         }
     }
 }

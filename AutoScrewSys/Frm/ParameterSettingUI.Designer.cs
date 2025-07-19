@@ -579,8 +579,8 @@
             this.cbxBaudRate.IntegralHeight = false;
             this.cbxBaudRate.ItemHeight = 43;
             this.cbxBaudRate.Items.AddRange(new object[] {
-            "4800",
             "9600",
+            "4800",
             "19200",
             "57600",
             "115200"});
@@ -711,10 +711,10 @@
             this.cbxDataBits.IntegralHeight = false;
             this.cbxDataBits.ItemHeight = 43;
             this.cbxDataBits.Items.AddRange(new object[] {
+            "8",
             "5",
             "6",
-            "7",
-            "8"});
+            "7"});
             this.cbxDataBits.Location = new System.Drawing.Point(205, -1);
             this.cbxDataBits.MaxDropDownItems = 5;
             this.cbxDataBits.MouseState = MaterialSkin.MouseState.OUT;
@@ -772,8 +772,8 @@
             this.cbxStopBits.IntegralHeight = false;
             this.cbxStopBits.ItemHeight = 43;
             this.cbxStopBits.Items.AddRange(new object[] {
-            "None",
             "One",
+            "None",
             "OnePointFive",
             "Two"});
             this.cbxStopBits.Location = new System.Drawing.Point(205, -1);

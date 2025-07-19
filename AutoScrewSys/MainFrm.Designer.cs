@@ -32,10 +32,10 @@ namespace AutoScrewSys
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFm));
             this.tpTitlebar = new ZimaBlueUI.Tpanel();
-            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.btnToggleSize = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Panel();
             this.lblMesTextR = new System.Windows.Forms.Label();
+            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.tpContainer = new ZimaBlueUI.Tpanel();
             this.tpanel1 = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -74,17 +74,6 @@ namespace AutoScrewSys
             this.tpTitlebar.TabIndex = 1;
             this.tpTitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
-            // LogoPictureBox
-            // 
-            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.LogoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoPictureBox.Image")));
-            this.LogoPictureBox.Location = new System.Drawing.Point(0, 3);
-            this.LogoPictureBox.Name = "LogoPictureBox";
-            this.LogoPictureBox.Size = new System.Drawing.Size(158, 72);
-            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoPictureBox.TabIndex = 40;
-            this.LogoPictureBox.TabStop = false;
-            // 
             // btnToggleSize
             // 
             this.btnToggleSize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleSize.BackgroundImage")));
@@ -121,6 +110,17 @@ namespace AutoScrewSys
             this.lblMesTextR.Text = "智 能 电 批 系 统";
             this.lblMesTextR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMesTextR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
+            // 
+            // LogoPictureBox
+            // 
+            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.LogoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoPictureBox.Image")));
+            this.LogoPictureBox.Location = new System.Drawing.Point(0, 3);
+            this.LogoPictureBox.Name = "LogoPictureBox";
+            this.LogoPictureBox.Size = new System.Drawing.Size(158, 72);
+            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPictureBox.TabIndex = 40;
+            this.LogoPictureBox.TabStop = false;
             // 
             // tpContainer
             // 

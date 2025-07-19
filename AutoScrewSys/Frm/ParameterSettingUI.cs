@@ -1,5 +1,6 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.Properties;
+using AutoScrewSys.VariableName;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace AutoScrewSys.Frm
                  // 串口打开成功时回调，打开主窗口
                  () =>
                  {
-                     MessageBox.Show("成功");
+                     MessageBox.Show("连接成功");
 
                  },
                  // 串口打开失败时回调，错误消息提醒，并退出程序
@@ -83,6 +84,10 @@ namespace AutoScrewSys.Frm
             LoadComboBoxSetting(cbxParity);
             LoadComboBoxSetting(cbxDataBits);
             LoadComboBoxSetting(cbxStopBits);
+        }
+
+        private void materialButtonpro3_Click(object sender, EventArgs e)
+        {
         }
     }
 }

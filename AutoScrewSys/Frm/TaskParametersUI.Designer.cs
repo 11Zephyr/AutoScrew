@@ -49,21 +49,21 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ztextBoxRua1 = new ZimaBlueUI.ZtextBoxRua();
+            this.label10 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.materialButtonpro7 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro8 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro10 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro9 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.InputBox = new ZimaBlueUI.ZtextBoxRua();
+            this.materialButtonpro6 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.materialButtonpro1 = new MaterialSkin.Controls.MaterialButtonpro();
             this.materialButtonpro2 = new MaterialSkin.Controls.MaterialButtonpro();
             this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro6 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.InputBox = new ZimaBlueUI.ZtextBoxRua();
-            this.materialButtonpro7 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro8 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro9 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro10 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.label10 = new System.Windows.Forms.Label();
-            this.ztextBoxRua1 = new ZimaBlueUI.ZtextBoxRua();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,7 +111,12 @@
             this.listBox1.Items.AddRange(new object[] {
             "任务一",
             "任务二",
-            "任务三"});
+            "任务三",
+            "任务四",
+            "任务五",
+            "任务六",
+            "任务七",
+            "任务八"});
             this.listBox1.Location = new System.Drawing.Point(3, 76);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(140, 671);
@@ -231,6 +236,190 @@
             this.panel1.Size = new System.Drawing.Size(836, 239);
             this.panel1.TabIndex = 69;
             // 
+            // ztextBoxRua1
+            // 
+            this.ztextBoxRua1.BackColor = System.Drawing.Color.Black;
+            this.ztextBoxRua1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.ztextBoxRua1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ztextBoxRua1.Location = new System.Drawing.Point(130, 130);
+            this.ztextBoxRua1.Name = "ztextBoxRua1";
+            this.ztextBoxRua1.ReadOnly = false;
+            this.ztextBoxRua1.Size = new System.Drawing.Size(448, 43);
+            this.ztextBoxRua1.TabIndex = 202;
+            this.ztextBoxRua1.Tag = "Text";
+            this.ztextBoxRua1.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.ztextBoxRua1.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.ztextBoxRua1.TextBorderRadius = 5;
+            this.ztextBoxRua1.TextBorderSize = 1;
+            this.ztextBoxRua1.TextBorderWidth = 2;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(57, 132);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 38);
+            this.label10.TabIndex = 201;
+            this.label10.Text = "名称:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.checkBox1.Location = new System.Drawing.Point(466, 193);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(112, 33);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "当前任务";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro7
+            // 
+            this.materialButtonpro7.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro7.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro7.Buttonmodel = 0;
+            this.materialButtonpro7.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro7.Constant = 0;
+            this.materialButtonpro7.Depth = 0;
+            this.materialButtonpro7.Location = new System.Drawing.Point(711, 130);
+            this.materialButtonpro7.MaxV = 0;
+            this.materialButtonpro7.MinV = 0;
+            this.materialButtonpro7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro7.Name = "materialButtonpro7";
+            this.materialButtonpro7.Size = new System.Drawing.Size(94, 43);
+            this.materialButtonpro7.TabIndex = 162;
+            this.materialButtonpro7.Text = "写入驱动";
+            this.materialButtonpro7.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro8
+            // 
+            this.materialButtonpro8.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro8.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro8.Buttonmodel = 0;
+            this.materialButtonpro8.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro8.Constant = 0;
+            this.materialButtonpro8.Depth = 0;
+            this.materialButtonpro8.Location = new System.Drawing.Point(711, 187);
+            this.materialButtonpro8.MaxV = 0;
+            this.materialButtonpro8.MinV = 0;
+            this.materialButtonpro8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro8.Name = "materialButtonpro8";
+            this.materialButtonpro8.Size = new System.Drawing.Size(94, 43);
+            this.materialButtonpro8.TabIndex = 161;
+            this.materialButtonpro8.Text = "保存文件";
+            this.materialButtonpro8.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro10
+            // 
+            this.materialButtonpro10.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro10.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro10.Buttonmodel = 0;
+            this.materialButtonpro10.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro10.Constant = 0;
+            this.materialButtonpro10.Depth = 0;
+            this.materialButtonpro10.Location = new System.Drawing.Point(592, 130);
+            this.materialButtonpro10.MaxV = 0;
+            this.materialButtonpro10.MinV = 0;
+            this.materialButtonpro10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro10.Name = "materialButtonpro10";
+            this.materialButtonpro10.Size = new System.Drawing.Size(94, 43);
+            this.materialButtonpro10.TabIndex = 163;
+            this.materialButtonpro10.Text = "读取驱动";
+            this.materialButtonpro10.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro9
+            // 
+            this.materialButtonpro9.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro9.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro9.Buttonmodel = 0;
+            this.materialButtonpro9.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro9.Constant = 0;
+            this.materialButtonpro9.Depth = 0;
+            this.materialButtonpro9.Location = new System.Drawing.Point(592, 187);
+            this.materialButtonpro9.MaxV = 0;
+            this.materialButtonpro9.MinV = 0;
+            this.materialButtonpro9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro9.Name = "materialButtonpro9";
+            this.materialButtonpro9.Size = new System.Drawing.Size(94, 43);
+            this.materialButtonpro9.TabIndex = 160;
+            this.materialButtonpro9.Text = "读取文件";
+            this.materialButtonpro9.UseVisualStyleBackColor = true;
+            // 
+            // InputBox
+            // 
+            this.InputBox.BackColor = System.Drawing.Color.Black;
+            this.InputBox.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.InputBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.InputBox.Location = new System.Drawing.Point(384, 70);
+            this.InputBox.Name = "InputBox";
+            this.InputBox.ReadOnly = false;
+            this.InputBox.Size = new System.Drawing.Size(448, 50);
+            this.InputBox.TabIndex = 159;
+            this.InputBox.Tag = "Text";
+            this.InputBox.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.InputBox.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.InputBox.TextBorderRadius = 5;
+            this.InputBox.TextBorderSize = 1;
+            this.InputBox.TextBorderWidth = 2;
+            // 
+            // materialButtonpro6
+            // 
+            this.materialButtonpro6.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro6.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro6.Buttonmodel = 0;
+            this.materialButtonpro6.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro6.Constant = 0;
+            this.materialButtonpro6.Depth = 0;
+            this.materialButtonpro6.Location = new System.Drawing.Point(257, 70);
+            this.materialButtonpro6.MaxV = 0;
+            this.materialButtonpro6.MinV = 0;
+            this.materialButtonpro6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro6.Name = "materialButtonpro6";
+            this.materialButtonpro6.Size = new System.Drawing.Size(121, 50);
+            this.materialButtonpro6.TabIndex = 3;
+            this.materialButtonpro6.Text = "自由";
+            this.materialButtonpro6.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro5
+            // 
+            this.materialButtonpro5.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro5.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro5.Buttonmodel = 0;
+            this.materialButtonpro5.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro5.Constant = 0;
+            this.materialButtonpro5.Depth = 0;
+            this.materialButtonpro5.Location = new System.Drawing.Point(130, 70);
+            this.materialButtonpro5.MaxV = 0;
+            this.materialButtonpro5.MinV = 0;
+            this.materialButtonpro5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro5.Name = "materialButtonpro5";
+            this.materialButtonpro5.Size = new System.Drawing.Size(121, 50);
+            this.materialButtonpro5.TabIndex = 2;
+            this.materialButtonpro5.Text = "拧松";
+            this.materialButtonpro5.UseVisualStyleBackColor = true;
+            // 
+            // materialButtonpro4
+            // 
+            this.materialButtonpro4.AngleColor = System.Drawing.Color.Transparent;
+            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
+            this.materialButtonpro4.Buttonmodel = 0;
+            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
+            this.materialButtonpro4.Constant = 0;
+            this.materialButtonpro4.Depth = 0;
+            this.materialButtonpro4.Location = new System.Drawing.Point(3, 70);
+            this.materialButtonpro4.MaxV = 0;
+            this.materialButtonpro4.MinV = 0;
+            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButtonpro4.Name = "materialButtonpro4";
+            this.materialButtonpro4.Size = new System.Drawing.Size(121, 50);
+            this.materialButtonpro4.TabIndex = 1;
+            this.materialButtonpro4.Text = "拧紧";
+            this.materialButtonpro4.UseVisualStyleBackColor = true;
+            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.materialButtonpro1);
@@ -295,190 +484,6 @@
             this.materialButtonpro3.TabIndex = 2;
             this.materialButtonpro3.Text = "自由";
             this.materialButtonpro3.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro4
-            // 
-            this.materialButtonpro4.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Buttonmodel = 0;
-            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Constant = 0;
-            this.materialButtonpro4.Depth = 0;
-            this.materialButtonpro4.Location = new System.Drawing.Point(3, 70);
-            this.materialButtonpro4.MaxV = 0;
-            this.materialButtonpro4.MinV = 0;
-            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro4.Name = "materialButtonpro4";
-            this.materialButtonpro4.Size = new System.Drawing.Size(121, 50);
-            this.materialButtonpro4.TabIndex = 1;
-            this.materialButtonpro4.Text = "拧紧";
-            this.materialButtonpro4.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro5
-            // 
-            this.materialButtonpro5.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro5.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro5.Buttonmodel = 0;
-            this.materialButtonpro5.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro5.Constant = 0;
-            this.materialButtonpro5.Depth = 0;
-            this.materialButtonpro5.Location = new System.Drawing.Point(130, 70);
-            this.materialButtonpro5.MaxV = 0;
-            this.materialButtonpro5.MinV = 0;
-            this.materialButtonpro5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro5.Name = "materialButtonpro5";
-            this.materialButtonpro5.Size = new System.Drawing.Size(121, 50);
-            this.materialButtonpro5.TabIndex = 2;
-            this.materialButtonpro5.Text = "拧松";
-            this.materialButtonpro5.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro6
-            // 
-            this.materialButtonpro6.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro6.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro6.Buttonmodel = 0;
-            this.materialButtonpro6.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro6.Constant = 0;
-            this.materialButtonpro6.Depth = 0;
-            this.materialButtonpro6.Location = new System.Drawing.Point(257, 70);
-            this.materialButtonpro6.MaxV = 0;
-            this.materialButtonpro6.MinV = 0;
-            this.materialButtonpro6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro6.Name = "materialButtonpro6";
-            this.materialButtonpro6.Size = new System.Drawing.Size(121, 50);
-            this.materialButtonpro6.TabIndex = 3;
-            this.materialButtonpro6.Text = "自由";
-            this.materialButtonpro6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBox1.Location = new System.Drawing.Point(466, 193);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(112, 33);
-            this.checkBox1.TabIndex = 8;
-            this.checkBox1.Text = "当前任务";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // InputBox
-            // 
-            this.InputBox.BackColor = System.Drawing.Color.Black;
-            this.InputBox.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.InputBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.InputBox.Location = new System.Drawing.Point(384, 70);
-            this.InputBox.Name = "InputBox";
-            this.InputBox.ReadOnly = false;
-            this.InputBox.Size = new System.Drawing.Size(448, 50);
-            this.InputBox.TabIndex = 159;
-            this.InputBox.Tag = "Text";
-            this.InputBox.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.InputBox.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.InputBox.TextBorderRadius = 5;
-            this.InputBox.TextBorderSize = 1;
-            this.InputBox.TextBorderWidth = 2;
-            // 
-            // materialButtonpro7
-            // 
-            this.materialButtonpro7.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro7.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro7.Buttonmodel = 0;
-            this.materialButtonpro7.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro7.Constant = 0;
-            this.materialButtonpro7.Depth = 0;
-            this.materialButtonpro7.Location = new System.Drawing.Point(711, 130);
-            this.materialButtonpro7.MaxV = 0;
-            this.materialButtonpro7.MinV = 0;
-            this.materialButtonpro7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro7.Name = "materialButtonpro7";
-            this.materialButtonpro7.Size = new System.Drawing.Size(94, 43);
-            this.materialButtonpro7.TabIndex = 162;
-            this.materialButtonpro7.Text = "写入驱动";
-            this.materialButtonpro7.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro8
-            // 
-            this.materialButtonpro8.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro8.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro8.Buttonmodel = 0;
-            this.materialButtonpro8.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro8.Constant = 0;
-            this.materialButtonpro8.Depth = 0;
-            this.materialButtonpro8.Location = new System.Drawing.Point(711, 187);
-            this.materialButtonpro8.MaxV = 0;
-            this.materialButtonpro8.MinV = 0;
-            this.materialButtonpro8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro8.Name = "materialButtonpro8";
-            this.materialButtonpro8.Size = new System.Drawing.Size(94, 43);
-            this.materialButtonpro8.TabIndex = 161;
-            this.materialButtonpro8.Text = "保存文件";
-            this.materialButtonpro8.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro9
-            // 
-            this.materialButtonpro9.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro9.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro9.Buttonmodel = 0;
-            this.materialButtonpro9.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro9.Constant = 0;
-            this.materialButtonpro9.Depth = 0;
-            this.materialButtonpro9.Location = new System.Drawing.Point(592, 187);
-            this.materialButtonpro9.MaxV = 0;
-            this.materialButtonpro9.MinV = 0;
-            this.materialButtonpro9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro9.Name = "materialButtonpro9";
-            this.materialButtonpro9.Size = new System.Drawing.Size(94, 43);
-            this.materialButtonpro9.TabIndex = 160;
-            this.materialButtonpro9.Text = "读取文件";
-            this.materialButtonpro9.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro10
-            // 
-            this.materialButtonpro10.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro10.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro10.Buttonmodel = 0;
-            this.materialButtonpro10.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro10.Constant = 0;
-            this.materialButtonpro10.Depth = 0;
-            this.materialButtonpro10.Location = new System.Drawing.Point(592, 130);
-            this.materialButtonpro10.MaxV = 0;
-            this.materialButtonpro10.MinV = 0;
-            this.materialButtonpro10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro10.Name = "materialButtonpro10";
-            this.materialButtonpro10.Size = new System.Drawing.Size(94, 43);
-            this.materialButtonpro10.TabIndex = 163;
-            this.materialButtonpro10.Text = "读取驱动";
-            this.materialButtonpro10.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(57, 132);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 38);
-            this.label10.TabIndex = 201;
-            this.label10.Text = "名称:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ztextBoxRua1
-            // 
-            this.ztextBoxRua1.BackColor = System.Drawing.Color.Black;
-            this.ztextBoxRua1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.ztextBoxRua1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ztextBoxRua1.Location = new System.Drawing.Point(130, 130);
-            this.ztextBoxRua1.Name = "ztextBoxRua1";
-            this.ztextBoxRua1.ReadOnly = false;
-            this.ztextBoxRua1.Size = new System.Drawing.Size(448, 43);
-            this.ztextBoxRua1.TabIndex = 202;
-            this.ztextBoxRua1.Tag = "Text";
-            this.ztextBoxRua1.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ztextBoxRua1.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.ztextBoxRua1.TextBorderRadius = 5;
-            this.ztextBoxRua1.TextBorderSize = 1;
-            this.ztextBoxRua1.TextBorderWidth = 2;
             // 
             // dataGridView1
             // 

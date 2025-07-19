@@ -1,4 +1,5 @@
 ﻿using AutoScrewSys.Frm;
+using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
 using System;
 using System.Collections.Generic;
@@ -145,6 +146,7 @@ namespace AutoScrewSys
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            
             Settings.Default.Save();
             var result = MessageBox.Show("确认要退出程序吗？", "退出提示",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
@@ -163,6 +165,11 @@ namespace AutoScrewSys
         {
             MonitorFrm frm = new MonitorFrm();
             frm.Show();
+        }
+
+        private void btnClose_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
