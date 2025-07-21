@@ -1141,6 +1141,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "ParameterSettingUI";
             this.Size = new System.Drawing.Size(1378, 753);
+            this.Load += new System.EventHandler(this.ParameterSettingUI_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

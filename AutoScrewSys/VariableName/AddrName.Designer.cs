@@ -74,18 +74,6 @@ namespace AutoScrewSys.VariableName {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int TightenResult {
-            get {
-                return ((int)(this["TightenResult"]));
-            }
-            set {
-                this["TightenResult"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int AlarmInfo {
             get {
                 return ((int)(this["AlarmInfo"]));
@@ -110,24 +98,24 @@ namespace AutoScrewSys.VariableName {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int ScrewResult {
-            get {
-                return ((int)(this["ScrewResult"]));
-            }
-            set {
-                this["ScrewResult"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int RotateSpeed {
             get {
                 return ((int)(this["RotateSpeed"]));
             }
             set {
                 this["RotateSpeed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double RealTVoltage {
+            get {
+                return ((double)(this["RealTVoltage"]));
+            }
+            set {
+                this["RealTVoltage"] = value;
             }
         }
     }

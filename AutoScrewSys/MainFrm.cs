@@ -1,4 +1,5 @@
-﻿using AutoScrewSys.Frm;
+﻿using AutoScrewSys.Base;
+using AutoScrewSys.Frm;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
 using System;
@@ -33,7 +34,8 @@ namespace AutoScrewSys
 
         }
         private void MainFm_Load(object sender, EventArgs e)
-        {
+        {  
+          
             radioBtnSelectedImg = new Image[]
             {                
                 global :: AutoScrewSys.Properties.Resources.User,
@@ -86,6 +88,7 @@ namespace AutoScrewSys
 
             //LoadControlToPanel(new HistoryDataUI());
 
+          
         }
         private void radioBtnPageChoose(object sender, EventArgs e)
         {

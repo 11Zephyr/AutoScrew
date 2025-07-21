@@ -82,5 +82,41 @@ namespace AutoScrewSys.Properties {
                 this["cbxStopBits"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tighten")]
+        public string CurrentState {
+            get {
+                return ((string)(this["CurrentState"]));
+            }
+            set {
+                this["CurrentState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int CurrentTask {
+            get {
+                return ((int)(this["CurrentTask"]));
+            }
+            set {
+                this["CurrentTask"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string CurrTaskStr {
+            get {
+                return ((string)(this["CurrTaskStr"]));
+            }
+            set {
+                this["CurrTaskStr"] = value;
+            }
+        }
     }
 }

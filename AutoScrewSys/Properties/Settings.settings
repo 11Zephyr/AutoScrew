@@ -17,5 +17,14 @@
     <Setting Name="cbxStopBits" Type="System.String" Scope="User">
       <Value Profile="(Default)">One</Value>
     </Setting>
+    <Setting Name="CurrentState" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tighten</Value>
+    </Setting>
+    <Setting Name="CurrentTask" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="CurrTaskStr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,6 +1,7 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,7 @@ namespace AutoScrewSys.Frm
                  // 串口打开成功时回调，打开主窗口
                  () =>
                  {
-                     MessageBox.Show("连接成功");
+                     LogHelper.WriteLog("串口连接成功...", LogType.Run);
 
                  },
                  // 串口打开失败时回调，错误消息提醒，并退出程序
@@ -86,8 +87,18 @@ namespace AutoScrewSys.Frm
             LoadComboBoxSetting(cbxStopBits);
         }
 
-        private void materialButtonpro3_Click(object sender, EventArgs e)
+        private void ParameterSettingUI_Load(object sender, EventArgs e)
         {
+            ////启动全局监控
+            //GlobalMonitor.Start(
+            //     () =>
+            //     {
+            //         LogHelper.WriteLog("串口连接成功!", LogType.Run);
+            //     },
+            //     (msg) =>
+            //     {
+            //         LogHelper.WriteLog("串口连接失败...", LogType.Run);
+            //     });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using AutoScrewSys.Interface;
+﻿using AutoScrewSys.Base;
+using AutoScrewSys.Interface;
 using Modbus.Device;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,14 @@ namespace AutoScrewSys.Modbus
                 return _instance;
             }
         }
-
+        public static RTU GetInstance()
+        {
+            if (_instance == null)
+            {
+                throw new InvalidOperationException("RTU 未初始化...");
+            }
+            return _instance;
+        }
         public void Close()
         {
             throw new NotImplementedException();
@@ -77,19 +85,36 @@ namespace AutoScrewSys.Modbus
 
         public ushort[] ReadRegisters(byte slaveId, ushort startAddress, ushort numRegisters)
         {
-            if (!IsConnected)
-                throw new InvalidOperationException("未连接 Modbus 设备");
+            try
+            {
+                if (!IsConnected)
+                    throw new InvalidOperationException("未连接 Modbus 设备");
 
-            return _master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
+                return _master.ReadHoldingRegisters(slaveId, startAddress, numRegisters);
+            }
+            catch (Exception ex)
+            {
+
+                LogHelper.WriteLog($"读取失败:{ex.Message}", LogType.Error);
+                return null;
+            }
+         
         }
 
-        public void WriteSingleRegister(byte slaveId, ushort address, ushort value)
+        public bool WriteSingleRegister(byte slaveId, ushort address, ushort value)
         {
-            if (!IsConnected)
-                throw new InvalidOperationException("未连接 Modbus 设备");
-
-            _master.WriteSingleRegister(slaveId, address, value);
+            try
+            {
+                if (!IsConnected) return false;
+                _master.WriteSingleRegister(slaveId, address, value);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
+
 
         public void Dispose()
         {

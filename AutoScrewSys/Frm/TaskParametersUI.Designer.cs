@@ -42,9 +42,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.TaskLists = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.PositionView = new System.Windows.Forms.DataGridView();
+            this.dgvStepView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,11 +59,11 @@
             this.InputBox = new ZimaBlueUI.ZtextBoxRua();
             this.materialButtonpro6 = new MaterialSkin.Controls.MaterialButtonpro();
             this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnTightenMove = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.materialButtonpro1 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro2 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnTighten = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnLoosen = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnFree = new MaterialSkin.Controls.MaterialButtonpro();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +72,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStepView)).BeginInit();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,7 +81,7 @@
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label9);
-            this.flowLayoutPanel2.Controls.Add(this.listBox1);
+            this.flowLayoutPanel2.Controls.Add(this.TaskLists);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -102,29 +102,21 @@
             this.label9.Text = "任务列表";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // listBox1
+            // TaskLists
             // 
-            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.listBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 29;
-            this.listBox1.Items.AddRange(new object[] {
-            "任务一",
-            "任务二",
-            "任务三",
-            "任务四",
-            "任务五",
-            "任务六",
-            "任务七",
-            "任务八"});
-            this.listBox1.Location = new System.Drawing.Point(3, 76);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(140, 671);
-            this.listBox1.TabIndex = 3;
+            this.TaskLists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.TaskLists.ForeColor = System.Drawing.SystemColors.Window;
+            this.TaskLists.FormattingEnabled = true;
+            this.TaskLists.ItemHeight = 29;
+            this.TaskLists.Location = new System.Drawing.Point(3, 76);
+            this.TaskLists.Name = "TaskLists";
+            this.TaskLists.Size = new System.Drawing.Size(140, 671);
+            this.TaskLists.TabIndex = 3;
+            this.TaskLists.SelectedIndexChanged += new System.EventHandler(this.TaskLists_SelectedIndexChanged);
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.PositionView);
+            this.flowLayoutPanel1.Controls.Add(this.dgvStepView);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(142, 0);
@@ -132,34 +124,34 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1236, 252);
             this.flowLayoutPanel1.TabIndex = 4;
             // 
-            // PositionView
+            // dgvStepView
             // 
-            this.PositionView.AllowUserToAddRows = false;
-            this.PositionView.AllowUserToDeleteRows = false;
-            this.PositionView.AllowUserToResizeColumns = false;
-            this.PositionView.AllowUserToResizeRows = false;
+            this.dgvStepView.AllowUserToAddRows = false;
+            this.dgvStepView.AllowUserToDeleteRows = false;
+            this.dgvStepView.AllowUserToResizeColumns = false;
+            this.dgvStepView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.PositionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.PositionView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.PositionView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvStepView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStepView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStepView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.dgvStepView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.PositionView.ColumnHeadersHeight = 32;
-            this.PositionView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvStepView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStepView.ColumnHeadersHeight = 32;
+            this.dgvStepView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
-            this.PositionView.EnableHeadersVisualStyles = false;
-            this.PositionView.GridColor = System.Drawing.Color.Black;
-            this.PositionView.Location = new System.Drawing.Point(3, 3);
-            this.PositionView.MultiSelect = false;
-            this.PositionView.Name = "PositionView";
-            this.PositionView.ReadOnly = true;
+            this.dgvStepView.EnableHeadersVisualStyles = false;
+            this.dgvStepView.GridColor = System.Drawing.Color.Black;
+            this.dgvStepView.Location = new System.Drawing.Point(3, 3);
+            this.dgvStepView.MultiSelect = false;
+            this.dgvStepView.Name = "dgvStepView";
+            this.dgvStepView.ReadOnly = true;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
@@ -167,23 +159,23 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.PositionView.RowHeadersVisible = false;
-            this.PositionView.RowHeadersWidth = 20;
+            this.dgvStepView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvStepView.RowHeadersVisible = false;
+            this.dgvStepView.RowHeadersWidth = 20;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.PositionView.RowTemplate.Height = 30;
-            this.PositionView.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.PositionView.ShowCellErrors = false;
-            this.PositionView.ShowCellToolTips = false;
-            this.PositionView.ShowEditingIcon = false;
-            this.PositionView.ShowRowErrors = false;
-            this.PositionView.Size = new System.Drawing.Size(388, 239);
-            this.PositionView.TabIndex = 68;
-            this.PositionView.TabStop = false;
+            this.dgvStepView.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvStepView.RowTemplate.Height = 30;
+            this.dgvStepView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgvStepView.ShowCellErrors = false;
+            this.dgvStepView.ShowCellToolTips = false;
+            this.dgvStepView.ShowEditingIcon = false;
+            this.dgvStepView.ShowRowErrors = false;
+            this.dgvStepView.Size = new System.Drawing.Size(388, 239);
+            this.dgvStepView.TabIndex = 68;
+            this.dgvStepView.TabStop = false;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -228,7 +220,7 @@
             this.panel1.Controls.Add(this.InputBox);
             this.panel1.Controls.Add(this.materialButtonpro6);
             this.panel1.Controls.Add(this.materialButtonpro5);
-            this.panel1.Controls.Add(this.materialButtonpro4);
+            this.panel1.Controls.Add(this.btnTightenMove);
             this.panel1.Controls.Add(this.flowLayoutPanel3);
             this.panel1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.panel1.Location = new System.Drawing.Point(397, 3);
@@ -402,88 +394,92 @@
             this.materialButtonpro5.Text = "拧松";
             this.materialButtonpro5.UseVisualStyleBackColor = true;
             // 
-            // materialButtonpro4
+            // btnTightenMove
             // 
-            this.materialButtonpro4.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Buttonmodel = 0;
-            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Constant = 0;
-            this.materialButtonpro4.Depth = 0;
-            this.materialButtonpro4.Location = new System.Drawing.Point(3, 70);
-            this.materialButtonpro4.MaxV = 0;
-            this.materialButtonpro4.MinV = 0;
-            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro4.Name = "materialButtonpro4";
-            this.materialButtonpro4.Size = new System.Drawing.Size(121, 50);
-            this.materialButtonpro4.TabIndex = 1;
-            this.materialButtonpro4.Text = "拧紧";
-            this.materialButtonpro4.UseVisualStyleBackColor = true;
+            this.btnTightenMove.AngleColor = System.Drawing.Color.Transparent;
+            this.btnTightenMove.ButtonColor = System.Drawing.Color.White;
+            this.btnTightenMove.Buttonmodel = 0;
+            this.btnTightenMove.ClickColor = System.Drawing.Color.White;
+            this.btnTightenMove.Constant = 0;
+            this.btnTightenMove.Depth = 0;
+            this.btnTightenMove.Location = new System.Drawing.Point(3, 70);
+            this.btnTightenMove.MaxV = 0;
+            this.btnTightenMove.MinV = 0;
+            this.btnTightenMove.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTightenMove.Name = "btnTightenMove";
+            this.btnTightenMove.Size = new System.Drawing.Size(121, 50);
+            this.btnTightenMove.TabIndex = 1;
+            this.btnTightenMove.Text = "拧紧";
+            this.btnTightenMove.UseVisualStyleBackColor = true;
+            this.btnTightenMove.Click += new System.EventHandler(this.btnTightenMove_Click);
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.materialButtonpro1);
-            this.flowLayoutPanel3.Controls.Add(this.materialButtonpro2);
-            this.flowLayoutPanel3.Controls.Add(this.materialButtonpro3);
+            this.flowLayoutPanel3.Controls.Add(this.btnTighten);
+            this.flowLayoutPanel3.Controls.Add(this.btnLoosen);
+            this.flowLayoutPanel3.Controls.Add(this.btnFree);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(836, 65);
             this.flowLayoutPanel3.TabIndex = 0;
             // 
-            // materialButtonpro1
+            // btnTighten
             // 
-            this.materialButtonpro1.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro1.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro1.Buttonmodel = 0;
-            this.materialButtonpro1.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro1.Constant = 0;
-            this.materialButtonpro1.Depth = 0;
-            this.materialButtonpro1.Location = new System.Drawing.Point(3, 3);
-            this.materialButtonpro1.MaxV = 0;
-            this.materialButtonpro1.MinV = 0;
-            this.materialButtonpro1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro1.Name = "materialButtonpro1";
-            this.materialButtonpro1.Size = new System.Drawing.Size(277, 53);
-            this.materialButtonpro1.TabIndex = 0;
-            this.materialButtonpro1.Text = "拧紧";
-            this.materialButtonpro1.UseVisualStyleBackColor = true;
+            this.btnTighten.AngleColor = System.Drawing.Color.Transparent;
+            this.btnTighten.ButtonColor = System.Drawing.Color.White;
+            this.btnTighten.Buttonmodel = 0;
+            this.btnTighten.ClickColor = System.Drawing.Color.White;
+            this.btnTighten.Constant = 0;
+            this.btnTighten.Depth = 0;
+            this.btnTighten.Location = new System.Drawing.Point(3, 3);
+            this.btnTighten.MaxV = 0;
+            this.btnTighten.MinV = 0;
+            this.btnTighten.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTighten.Name = "btnTighten";
+            this.btnTighten.Size = new System.Drawing.Size(277, 53);
+            this.btnTighten.TabIndex = 0;
+            this.btnTighten.Text = "拧紧";
+            this.btnTighten.UseVisualStyleBackColor = true;
+            this.btnTighten.Click += new System.EventHandler(this.btnTighten_Click);
             // 
-            // materialButtonpro2
+            // btnLoosen
             // 
-            this.materialButtonpro2.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro2.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro2.Buttonmodel = 0;
-            this.materialButtonpro2.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro2.Constant = 0;
-            this.materialButtonpro2.Depth = 0;
-            this.materialButtonpro2.Location = new System.Drawing.Point(286, 3);
-            this.materialButtonpro2.MaxV = 0;
-            this.materialButtonpro2.MinV = 0;
-            this.materialButtonpro2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro2.Name = "materialButtonpro2";
-            this.materialButtonpro2.Size = new System.Drawing.Size(276, 53);
-            this.materialButtonpro2.TabIndex = 1;
-            this.materialButtonpro2.Text = "拧松";
-            this.materialButtonpro2.UseVisualStyleBackColor = true;
+            this.btnLoosen.AngleColor = System.Drawing.Color.Transparent;
+            this.btnLoosen.ButtonColor = System.Drawing.Color.White;
+            this.btnLoosen.Buttonmodel = 0;
+            this.btnLoosen.ClickColor = System.Drawing.Color.White;
+            this.btnLoosen.Constant = 0;
+            this.btnLoosen.Depth = 0;
+            this.btnLoosen.Location = new System.Drawing.Point(286, 3);
+            this.btnLoosen.MaxV = 0;
+            this.btnLoosen.MinV = 0;
+            this.btnLoosen.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLoosen.Name = "btnLoosen";
+            this.btnLoosen.Size = new System.Drawing.Size(276, 53);
+            this.btnLoosen.TabIndex = 1;
+            this.btnLoosen.Text = "拧松";
+            this.btnLoosen.UseVisualStyleBackColor = true;
+            this.btnLoosen.Click += new System.EventHandler(this.btnLoosen_Click);
             // 
-            // materialButtonpro3
+            // btnFree
             // 
-            this.materialButtonpro3.AngleColor = System.Drawing.Color.Transparent;
-            this.materialButtonpro3.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Buttonmodel = 0;
-            this.materialButtonpro3.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Constant = 0;
-            this.materialButtonpro3.Depth = 0;
-            this.materialButtonpro3.Location = new System.Drawing.Point(568, 3);
-            this.materialButtonpro3.MaxV = 0;
-            this.materialButtonpro3.MinV = 0;
-            this.materialButtonpro3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro3.Name = "materialButtonpro3";
-            this.materialButtonpro3.Size = new System.Drawing.Size(264, 53);
-            this.materialButtonpro3.TabIndex = 2;
-            this.materialButtonpro3.Text = "自由";
-            this.materialButtonpro3.UseVisualStyleBackColor = true;
+            this.btnFree.AngleColor = System.Drawing.Color.Transparent;
+            this.btnFree.ButtonColor = System.Drawing.Color.White;
+            this.btnFree.Buttonmodel = 0;
+            this.btnFree.ClickColor = System.Drawing.Color.White;
+            this.btnFree.Constant = 0;
+            this.btnFree.Depth = 0;
+            this.btnFree.Location = new System.Drawing.Point(568, 3);
+            this.btnFree.MaxV = 0;
+            this.btnFree.MinV = 0;
+            this.btnFree.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnFree.Name = "btnFree";
+            this.btnFree.Size = new System.Drawing.Size(264, 53);
+            this.btnFree.TabIndex = 2;
+            this.btnFree.Text = "自由";
+            this.btnFree.UseVisualStyleBackColor = true;
+            this.btnFree.Click += new System.EventHandler(this.btnFree_Click);
             // 
             // dataGridView1
             // 
@@ -596,7 +592,7 @@
             this.Size = new System.Drawing.Size(1378, 753);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStepView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
@@ -609,20 +605,20 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox TaskLists;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.DataGridView PositionView;
+        private System.Windows.Forms.DataGridView dgvStepView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro1;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro2;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
+        private MaterialSkin.Controls.MaterialButtonpro btnTighten;
+        private MaterialSkin.Controls.MaterialButtonpro btnLoosen;
+        private MaterialSkin.Controls.MaterialButtonpro btnFree;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro6;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro5;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro4;
+        private MaterialSkin.Controls.MaterialButtonpro btnTightenMove;
         private System.Windows.Forms.CheckBox checkBox1;
         private ZimaBlueUI.ZtextBoxRua InputBox;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro7;

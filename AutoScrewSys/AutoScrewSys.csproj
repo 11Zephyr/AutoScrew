@@ -105,6 +105,8 @@
     <Compile Include="BLL\DataResult.cs" />
     <Compile Include="BLL\IndustrialBLL.cs" />
     <Compile Include="DAL\DataAccess.cs" />
+    <Compile Include="Enums\TaskNumber.cs" />
+    <Compile Include="Enums\WorkState.cs" />
     <Compile Include="Frm\HistoryDataUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
