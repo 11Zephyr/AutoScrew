@@ -25,12 +25,13 @@ namespace AutoScrewSys.Frm
             LoadSettings();
             InitTaskList();
             InitBtn();
+            InitDgv();
         }
         private void InitBtn()
         {
             btnTightenMove.Tag = false;  // 初始为 false，点击后写入 1
-            //btnLoosen.Tag = false;
-            //btnFree.Tag = false;
+            btnLoosenMove.Tag = false;
+            btnFreeMove.Tag = false;
         }
         private void InitTaskList()
         {
@@ -60,6 +61,8 @@ namespace AutoScrewSys.Frm
         {
             try
             {
+                if (!GlobalMonitor.isInit) return;
+
                 string param1 = string.Empty;
                 switch (currentState)
                 {
@@ -78,17 +81,17 @@ namespace AutoScrewSys.Frm
 
                 string param2 = currentTask.ToString();
 
-                var mdsInfo = ModbusAddressConfig.Instance.GetAddressItem(param1, param2);
-                if (mdsInfo == null) return;
-                LogHelper.WriteLog($"{mdsInfo.Description}", LogType.Run);
+                var addr = ModbusAddressConfig.Instance.GetAddressItem(param1, param2);
+                if (addr == null) return;
+                //LogHelper.WriteLog($"{addr.Description}", LogType.Run);
 
-                ushort[] result = RTU.GetInstance().ReadRegisters(
-                           (byte)mdsInfo.SlaveAddress,
-                           (ushort)mdsInfo.StartAddress,
-                           (ushort)mdsInfo.Length
+                ushort[] result = ModbusRtuHelper.Instance.ReadRegisters(
+                           (byte)addr.SlaveAddress,
+                           (ushort)addr.StartAddress,
+                           (ushort)addr.Length
                        );
 
-                dgvStepView.Rows.Clear(); // 先清除旧行（可选）
+                dgvStepView?.Rows?.Clear();
 
                 for (int i = 0; i < result.Length; i += 2)
                 {
@@ -99,7 +102,7 @@ namespace AutoScrewSys.Frm
 
                     dgvStepView.Rows.Add(
                     stepName,
-                    currentState== WorkState.Tighten ? value1 : value2,
+                    currentState == WorkState.Tighten ? value1 / 100 : value2 / 100,
                     currentState == WorkState.Tighten ? value2 : value1
                                           );
                 }
@@ -136,45 +139,87 @@ namespace AutoScrewSys.Frm
         {
             currentState = WorkState.Free;
             SaveSettings();
-            //UpdateModbusAddress();
+            UpdateModbusAddress();
         }
 
         private void btnTightenMove_Click(object sender, EventArgs e)
         {
-            
-            WriteToggle(btnTightenMove,523);
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("Tighten", "TightenAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
-        // 写入函数（简洁封装）
-        private void WriteToggle(Button btn, ushort address)
-        {
-            try
-            {
-                bool state = btn.Tag is bool b && b;
-                ushort valueToWrite = state ? (ushort)0 : (ushort)1;
-                 ModbusRtuHelper.Instance.WriteSingleRegister(
-                     1,
-                     address,
-                     valueToWrite
-                 );
-                btn.Tag = !state;  // 翻转状态
-
-             
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLog($"{ex.Message}", LogType.Error);
-            }
-
-        }
-
         private void btnLoosenMove_Click(object sender, EventArgs e)
         {
-
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("Loosen", "LoosenAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         private void btnFreeMove_Click(object sender, EventArgs e)
         {
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("Free", "FreeAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+        }
 
+        private void btnReadParam_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void InitDgv()
+        {
+            // 中文参数名列表
+            string[] paramNames = new string[]
+            {
+                "拧紧旋转方向",           // 0
+                "目标扭力mN.M",           // 1
+                "上限偏差mN.M",           // 2
+                "下限偏差mN.M",           // 3
+                "保持时间ms",             // 4
+                "浮高滑牙检测开关",       // 5
+                "浮高界定圈数（0.01圈）", // 6
+                "滑牙界定圈数（0.01圈）", // 7
+                "触发速度切换的扭力比值", // 8
+                "切换后速度(保留参数)",   // 9
+                "扭力补偿值mN.M",         // 10
+                "扭力免检圈数",           // 11
+                "免检圈数内扭力限定mN.M", // 12
+                "拧松扭力",               // 13
+                "偏移角度"                // 14
+             };
+
+            dgvParam?.Rows?.Clear();
+            foreach (string name in paramNames)
+            {
+                dgvParam.Rows.Add(name); // 第一列写名称，第二列初始为空
+            }
+            RefreshDgv();
+        }
+        private void RefreshDgv()
+        {
+            string[] paramKeys = new string[]
+            {
+                  "TightenDirection",              // 拧紧旋转方向
+                  "TargetTorque",              // 目标扭力mN.M
+                  "TorqueUpperDeviation",      // 上限偏差mN.M
+                  "TorqueLowerDeviation",      // 下限偏差mN.M
+                  "HoldTime",                   // 保持时间ms
+                  "FloatThreadCheckEnable",        // 浮高滑牙检测开关
+                  "FloatLimitTurns",           // 浮高界定圈数（0.01圈）
+                  "ThreadSlipLimitTurns",      // 滑牙界定圈数（0.01圈）
+                  "TorqueSwitchRatio",             // 触发速度切换的扭力比值
+                  "SpeedAfterSwitch",              // 切换后速度(保留参数)
+                  "TorqueOffset",              // 扭力补偿值mN.M
+                  "NoCheckTurns",                  // 扭力免检圈数
+                  "LimitTorqueInNoCheck",      // 免检圈数内扭力限定mN.M
+                  "LoosenTorque",                  // 拧松扭力
+                  "OffsetAngle"                    // 偏移角度
+            };
+
+            foreach (string name in paramKeys)
+            {
+                var addr = ModbusAddressConfig.Instance.GetAddressItem($"{name}{(int)currentTask}");
+                if ( addr == null )continue;
+
+            }
+                
         }
     }
 }

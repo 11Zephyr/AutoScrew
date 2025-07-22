@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AutoScrewSys.Base
 {
@@ -172,13 +173,15 @@ namespace AutoScrewSys.Base
                         var prop = type.GetProperty(p.Name);
                         prop?.SetValue(cfg, Convert.ChangeType(val, p.PropertyType));
 
-                        if(i == cfg.Properties.Count)
+                        #region 调试使用
+                        if (i == cfg.Properties.Count)
                         {
                             LogHelper.WriteLog("========================================", LogType.Error);
-                            i= 0;
+                            i = 0;
                         }
                         LogHelper.WriteLog($"{addr.Description}:{val}", LogType.Error);
-                        i++;
+                        i++; 
+                        #endregion
                     }
                     catch (Exception ex)
                     {
@@ -189,6 +192,25 @@ namespace AutoScrewSys.Base
             }
 
             //cfg.Save();
+        }
+
+        public static void ElectricBatchAction(object sender, byte slaveId, ushort address)
+        {
+            try
+            {
+                if (sender is Button btn)
+                {
+                    bool state = btn.Tag is bool b && b;
+                    ushort valueToWrite = state ? (ushort)0 : (ushort)1;
+
+                    ModbusRtuHelper.Instance.WriteSingleRegister(slaveId, address, valueToWrite);
+                    btn.Tag = !state;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.Message, LogType.Error);
+            }
         }
     }
 }
