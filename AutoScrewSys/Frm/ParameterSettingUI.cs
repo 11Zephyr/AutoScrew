@@ -25,13 +25,14 @@ namespace AutoScrewSys.Frm
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
+          
             ///启动全局监控
             GlobalMonitor.Start(
                  // 串口打开成功时回调，打开主窗口
                  () =>
                  {
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
-
+                     MessageBox.Show("串口连接成功");
                  },
                  // 串口打开失败时回调，错误消息提醒，并退出程序
                  (msg) =>

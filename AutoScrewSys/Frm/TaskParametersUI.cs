@@ -141,7 +141,8 @@ namespace AutoScrewSys.Frm
 
         private void btnTightenMove_Click(object sender, EventArgs e)
         {
-            WriteToggle(btnTightenMove,3);
+            
+            WriteToggle(btnTightenMove,523);
         }
         // 写入函数（简洁封装）
         private void WriteToggle(Button btn, ushort address)
@@ -150,26 +151,29 @@ namespace AutoScrewSys.Frm
             {
                 bool state = btn.Tag is bool b && b;
                 ushort valueToWrite = state ? (ushort)0 : (ushort)1;
-
-                bool success = RTU.GetInstance().WriteSingleRegister(
+                 ModbusRtuHelper.Instance.WriteSingleRegister(
                      1,
                      address,
                      valueToWrite
                  );
-                if (success)
-                {
-                    LogHelper.WriteLog($"{btn.Text} 写入成功：{valueToWrite}", LogType.Run);
-                    btn.Tag = !state;  // 翻转状态
-                }
-                else
-                {
-                    LogHelper.WriteLog($"{btn.Text} 写入失败", LogType.Run);
-                }
+                btn.Tag = !state;  // 翻转状态
+
+             
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog($"{ex.Message}", LogType.Error);
             }
+
+        }
+
+        private void btnLoosenMove_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFreeMove_Click(object sender, EventArgs e)
+        {
 
         }
     }

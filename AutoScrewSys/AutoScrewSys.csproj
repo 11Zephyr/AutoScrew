@@ -156,6 +156,7 @@
     <Compile Include="MainFrm.Designer.cs">
       <DependentUpon>MainFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modbus\ModbusRtuHelper.cs" />
     <Compile Include="Modbus\ModbusSerialInfo.cs" />
     <Compile Include="Modbus\RTU.cs" />
     <Compile Include="Model\ModbusConfigItem.cs" />

@@ -1,4 +1,6 @@
 ﻿using AutoScrewSys.Base;
+using AutoScrewSys.BLL;
+using AutoScrewSys.Modbus;
 using AutoScrewSys.VariableName;
 using System;
 using System.Collections.Generic;
@@ -14,8 +16,7 @@ namespace AutoScrewSys.Frm
 {
     public partial class RunUI : UserControl
     {
-        ControlScaler scaler;
-        bool isResize = false;
+
         private Timer refreshTimer;
         public RunUI()
         {
@@ -34,6 +35,17 @@ namespace AutoScrewSys.Frm
         private void RunUI_Load(object sender, EventArgs e)
         {
             LogHelper.InitializeLogBox(rtbLog, Color.White);
+            TaskNumber.DataBindings.Add("Text", AddrName.Default, "TaskNumber", false, DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        private void zRoundButton1_Click(object sender, EventArgs e)
+        {
+            if (GlobalMonitor.isInit)
+            {
+                 ModbusRtuHelper.Instance.WriteSingleRegister(1, 3891, 9);
+               // LogHelper.WriteLog($"{string.Join(",",result)}", LogType.Run);
+
+            }
         }
     }
 }

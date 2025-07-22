@@ -110,12 +110,48 @@ namespace AutoScrewSys.VariableName {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public double RealTVoltage {
+        public int RealTVoltage {
             get {
-                return ((double)(this["RealTVoltage"]));
+                return ((int)(this["RealTVoltage"]));
             }
             set {
                 this["RealTVoltage"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ScrewResult {
+            get {
+                return ((int)(this["ScrewResult"]));
+            }
+            set {
+                this["ScrewResult"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int StateBits {
+            get {
+                return ((int)(this["StateBits"]));
+            }
+            set {
+                this["StateBits"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ScrewsTotal {
+            get {
+                return ((int)(this["ScrewsTotal"]));
+            }
+            set {
+                this["ScrewsTotal"] = value;
             }
         }
     }
