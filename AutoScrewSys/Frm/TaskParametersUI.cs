@@ -2,6 +2,7 @@
 using AutoScrewSys.Enums;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
+using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
@@ -161,8 +162,38 @@ namespace AutoScrewSys.Frm
 
         private void btnReadParam_Click(object sender, EventArgs e)
         {
-
+            //Settings.Default.RunStateStr = ScrewStatus.NG.ToString();
+            LoadTaskParameters();
         }
+        public void LoadTaskParameters()
+        {
+            int taskIndex = (int)currentTask - 1;
+            if (taskIndex < 0 || taskIndex >= AddressTable.GetLength(1))
+            {
+                LogHelper.WriteLog("任务号索引无效！", LogType.Fault);
+                return;
+            }
+
+            // 遍历 DataGridView 的每一行
+            for (int row = 0; row < dgvParam.Rows.Count; row++)
+            {
+                try
+                {
+                    ushort address = AddressTable[row, taskIndex];//后面要从文件中读取
+                    ushort[] values = ModbusRtuHelper.Instance.ReadRegisters(1, address, 1);
+
+                    dgvParam.Rows[row].Cells[1].Value = values[0];
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.WriteLog($"读取第 {row + 1} 行参数失败: {ex.Message}", LogType.Error);
+                    dgvParam.Rows[row].Cells[1].Value = "错误";
+                    dgvParam.Rows[row].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+
+
         private void InitDgv()
         {
             // 中文参数名列表
@@ -182,7 +213,9 @@ namespace AutoScrewSys.Frm
                 "扭力免检圈数",           // 11
                 "免检圈数内扭力限定mN.M", // 12
                 "拧松扭力",               // 13
-                "偏移角度"                // 14
+                "自由转速度",              // 14
+                "自由转扭力",             // 15
+                "偏移角度"              // 16
              };
 
             dgvParam?.Rows?.Clear();
@@ -190,36 +223,27 @@ namespace AutoScrewSys.Frm
             {
                 dgvParam.Rows.Add(name); // 第一列写名称，第二列初始为空
             }
-            RefreshDgv();
+
         }
-        private void RefreshDgv()
+        private static readonly ushort[,] AddressTable = new ushort[,]
         {
-            string[] paramKeys = new string[]
-            {
-                  "TightenDirection",              // 拧紧旋转方向
-                  "TargetTorque",              // 目标扭力mN.M
-                  "TorqueUpperDeviation",      // 上限偏差mN.M
-                  "TorqueLowerDeviation",      // 下限偏差mN.M
-                  "HoldTime",                   // 保持时间ms
-                  "FloatThreadCheckEnable",        // 浮高滑牙检测开关
-                  "FloatLimitTurns",           // 浮高界定圈数（0.01圈）
-                  "ThreadSlipLimitTurns",      // 滑牙界定圈数（0.01圈）
-                  "TorqueSwitchRatio",             // 触发速度切换的扭力比值
-                  "SpeedAfterSwitch",              // 切换后速度(保留参数)
-                  "TorqueOffset",              // 扭力补偿值mN.M
-                  "NoCheckTurns",                  // 扭力免检圈数
-                  "LimitTorqueInNoCheck",      // 免检圈数内扭力限定mN.M
-                  "LoosenTorque",                  // 拧松扭力
-                  "OffsetAngle"                    // 偏移角度
-            };
-
-            foreach (string name in paramKeys)
-            {
-                var addr = ModbusAddressConfig.Instance.GetAddressItem($"{name}{(int)currentTask}");
-                if ( addr == null )continue;
-
-            }
-                
-        }
+            { 5888, 5952, 6016, 6080, 6144, 6208, 6272, 6336 }, // 拧紧旋转方向
+            { 5889, 5953, 6017, 6081, 6145, 6209, 6273, 6337 }, // 目标扭力mN.M
+            { 5925, 5989, 6053, 6117, 6181, 6245, 6309, 6373 }, // 上限偏差mN.M
+            { 5926, 5990, 6054, 6118, 6182, 6246, 6310, 6374 }, // 下限偏差mN.M
+            { 5893, 5957, 6021, 6085, 6149, 6213, 6277, 6341 }, // 保持时间ms
+            { 5921, 5985, 6049, 6113, 6177, 6241, 6305, 6369 }, // 浮高滑牙检测开关
+            { 5894, 5958, 6022, 6086, 6150, 6214, 6278, 6342 }, // 浮高界定圈数（0.01圈）
+            { 5895, 5959, 6023, 6087, 6151, 6215, 6279, 6343 }, // 滑牙界定圈数（0.01圈）
+            { 5898, 5962, 6026, 6090, 6154, 6218, 6282, 6346 }, // 触发速度切换的扭力比值
+            { 5899, 5963, 6027, 6091, 6155, 6219, 6283, 6347 }, // 切换后速度(保留参数)
+            { 5917, 5981, 6045, 6109, 6173, 6237, 6301, 6365 }, // 扭力补偿值mN.M
+            { 5918, 5982, 6046, 6110, 6174, 6238, 6302, 6366 }, // 扭力免检圈数
+            { 5919, 5983, 6047, 6111, 6175, 6239, 6303, 6367 }, // 免检圈数内扭力限定mN.M
+            { 5920, 5984, 6048, 6112, 6176, 6240, 6304, 6368 }, // 4 拧松扭力mN.M
+            { 5916, 5980, 6044, 6108, 6172, 6236, 6300, 6364 }, // 19 自由转速度
+            { 5922, 5986, 6050, 6114, 6178, 6242, 6306, 6370 }, // 20 自由转扭力mN.M
+            { 5927, 5991, 6055, 6119, 6183, 6247, 6311, 6375 }, // 21 偏移角度
+        };
     }
 }

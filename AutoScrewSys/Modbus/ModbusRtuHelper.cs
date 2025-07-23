@@ -13,7 +13,7 @@ namespace AutoScrewSys.Modbus
     {
         private static ModbusRtuHelper _instance;
         private static readonly object _lock = new object();
-        public bool Debug { get; set; } = true;
+        public bool Debug { get; set; } = false;
         private SerialPort _serialPort;
         private readonly object _portLock = new object();
 

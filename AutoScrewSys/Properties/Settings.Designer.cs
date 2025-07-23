@@ -118,5 +118,41 @@ namespace AutoScrewSys.Properties {
                 this["CurrTaskStr"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CurrentRunState {
+            get {
+                return ((bool)(this["CurrentRunState"]));
+            }
+            set {
+                this["CurrentRunState"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Ready")]
+        public string RunStateStr {
+            get {
+                return ((string)(this["RunStateStr"]));
+            }
+            set {
+                this["RunStateStr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ProductionDataPath {
+            get {
+                return ((string)(this["ProductionDataPath"]));
+            }
+            set {
+                this["ProductionDataPath"] = value;
+            }
+        }
     }
 }

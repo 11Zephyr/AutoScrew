@@ -1,5 +1,6 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.Frm;
+using AutoScrewSys.Interface;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
 using System;
@@ -22,7 +23,7 @@ namespace AutoScrewSys
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
+        private IRefreshable currentRefreshable = null;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
         private Image[] radioBtnSelectedImg;
@@ -30,17 +31,17 @@ namespace AutoScrewSys
         private int nCurTag;
         public MainFm()
         {
-            InitializeComponent();       
+            InitializeComponent();
 
         }
         private void MainFm_Load(object sender, EventArgs e)
-        {  
-          
+        {
+
             radioBtnSelectedImg = new Image[]
-            {                
+            {
                 global :: AutoScrewSys.Properties.Resources.User,
                 global::AutoScrewSys.Properties.Resources.MainPage,
-                
+
             };
 
             //Image img = AutoScrewSys.Properties.Resources.User;
@@ -88,7 +89,7 @@ namespace AutoScrewSys
 
             //LoadControlToPanel(new HistoryDataUI());
 
-          
+
         }
         private void radioBtnPageChoose(object sender, EventArgs e)
         {
@@ -100,15 +101,24 @@ namespace AutoScrewSys
                     if (tag != nCurTag)
                     {
                         nCurTag = tag;
-
-                        // 切换显示页面
+                        currentRefreshable?.StopRefreshing();
                         tpContainer.Controls.Clear();
                         var uc = formList[tag];
                         uc.Dock = DockStyle.Fill;
                         tpContainer.Controls.Add(uc);
+                        // 启动新页面的刷新（如果支持）
+                        if (uc is IRefreshable refreshable)
+                        {
+                            currentRefreshable = refreshable;
+                            refreshable.StartRefreshing();
+                        }
+                        else
+                        {
+                            currentRefreshable = null;
+                        }
                     }
                     //rBtn.BackgroundImage = rBtn.Checked ? radioBtnSelectedImg[tag] : radioBtnUnselectedImg[tag];
-                   // rBtn.ForeColor = rBtn.Checked ? Color.White : Color.Black;
+                    // rBtn.ForeColor = rBtn.Checked ? Color.White : Color.Black;
 
                     //if (rBtn.Checked)
                     //{
@@ -149,9 +159,9 @@ namespace AutoScrewSys
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            
+
             Settings.Default.Save();
-            var result = MessageBox.Show("确认要退出程序吗？", "退出提示",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var result = MessageBox.Show("确认要退出程序吗？", "退出提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();

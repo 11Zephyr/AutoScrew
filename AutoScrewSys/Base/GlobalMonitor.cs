@@ -1,4 +1,5 @@
 ﻿using AutoScrewSys.BLL;
+using AutoScrewSys.Enums;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
@@ -17,11 +18,17 @@ namespace AutoScrewSys.Base
 {
     public class GlobalMonitor
     {
+        private static bool _collecting = false;
+        private static bool _running = true;
+        private static int currentAddress = 1;
+        private  const int MaxAddress = 1000;
+        private const int ReadBlockSize = 10;
+        public static event Action<DateTime[], ushort[]> OnTorqueWaveUpdated;
+        public static event Action<string> OnResultsUpdated;
         public static List<StorageModel> StorageList { get; set; }
         public static ModbusSerialInfo SerialInfo { get; set; }
         public static bool isInit { get; private set; }
         static Task mainTask = null;
-
         static Thread _modbusSyncThread;
 
         public static void Start(Action successAction, Action<string> faultAction)
@@ -37,123 +44,39 @@ namespace AutoScrewSys.Base
                     {
                         faultAction.Invoke(si.Message); return;
                     }
-
-                    #region 注释:读取excel方式获取数据地址
-                    /// 初始化存储区
-                    //var sa = bll.InitStorageArea(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ModbusAddr.xlsx"));
-                    //if (sa.State) StorageList = sa.Data;
-                    //else
-                    //{
-                    //    faultAction.Invoke(sa.Message); return;
-                    //} 
-                    #endregion
-
+            
                     // 初始化串口一次
                     if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits))
                     {
                         isInit = true;
                         successAction?.Invoke();
 
-                        _modbusSyncThread = new Thread(UpdateSettingsFromModbus)
+                        _modbusSyncThread = new Thread(MainThread)
                         {
                             IsBackground = true,
                             Priority = ThreadPriority.Highest // 设置为最高优先级
                         };
                         _modbusSyncThread.Start();
+                    
                     }
                     else
                     {
                         faultAction.Invoke("打开串口失败...");
                     }
-                    #region 使用库函数读写
-                    //var rtu = rtu.getinstance(serialinfo);
-
-                    ///// 连接
-                    //if (rtu.connection())
-                    //{
-                    //    successaction?.invoke();
-                    //    while (false)
-                    //    {
-                    //        //loghelper.writelog($"步1", logtype.run);
-
-                    //        thread.sleep(100);
-                    //        // rtu.readregisters((byte)item.slaveaddress, (byte)item.startaddress, (byte)item.length);
-
-                    //        var runstatus = modbusaddressconfig.instance.getaddressitem("realtvoltage");
-
-                    //        ushort[] runstatusresult = rtu.readregisters(
-                    //            (byte)runstatus.slaveaddress,
-                    //            (ushort)runstatus.startaddress,
-                    //            (ushort)runstatus.length
-                    //            );
-                    //        ushort r = runstatusresult[0];
-
-                    //        loghelper.writelog($"电压:{r}", logtype.run);
-
-                    //        #region 暂时注释
-                    //        //return;
-                    //        //if (r == 0) continue;
-
-                    //        //if (r == 2 || r == 3 || r == 4)
-                    //        //{
-                    //        //    //单次结束
-                    //        //}
-
-                    //        //foreach (var prop in typeof(addrname).getproperties())
-                    //        //{
-
-                    //        //    var modbusinfo = modbusaddressconfig.instance.getaddressitem(prop.name);
-                    //        //    if (modbusinfo == null) continue;
-
-                    //        //    // 调用 modbus rtu 读取方法
-                    //        //    ushort[] result = rtu.readregisters(
-                    //        //        (byte)modbusinfo.slaveaddress,
-                    //        //        (ushort)modbusinfo.startaddress,
-                    //        //        (ushort)modbusinfo.length
-                    //        //    );
-
-                    //        //    object value;
-
-                    //        //    // 进行类型判断转换
-                    //        //    if (prop.propertytype == typeof(int))
-                    //        //        value = (int)result[0];
-                    //        //    else if (prop.propertytype == typeof(bool))
-                    //        //        value = result[0] != 0;
-                    //        //    else if (prop.propertytype == typeof(string))
-                    //        //        value = result[0].tostring();
-                    //        //    else if (prop.propertytype == typeof(ushort))
-                    //        //        value = result[0];
-                    //        //    else if (prop.propertytype == typeof(double))
-                    //        //        value = (double)result[0];
-                    //        //    else
-                    //        //        continue;
-
-                    //        //    prop.setvalue(addrname.default, value);
-                    //        //} 
-                    //        #endregion
-
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    faultaction.invoke("串口连接初始化失败！请检查设备是否连接正常。");
-                    //} 
-                    #endregion
                 }));
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog($"{ex.Message}", LogType.Error);
             }
-
         }
 
-        public static void UpdateSettingsFromModbus()
+        public static void MainThread()
         {
             var cfg = AddrName.Default;
             var type = cfg.GetType();
-            ushort i = 0;
-            while (false)
+            //ushort i = 0;
+            while (isInit)
             {
                 foreach (SettingsProperty p in cfg.Properties)
                 {
@@ -173,20 +96,22 @@ namespace AutoScrewSys.Base
                         var prop = type.GetProperty(p.Name);
                         prop?.SetValue(cfg, Convert.ChangeType(val, p.PropertyType));
 
+                        RunStatusMonitor();
                         #region 调试使用
-                        if (i == cfg.Properties.Count)
-                        {
-                            LogHelper.WriteLog("========================================", LogType.Error);
-                            i = 0;
-                        }
-                        LogHelper.WriteLog($"{addr.Description}:{val}", LogType.Error);
-                        i++; 
+                        //if (i == cfg.Properties.Count)
+                        //{
+                        //    LogHelper.WriteLog("========================================", LogType.Error);
+                        //    i = 0;
+                        //}
+                        //LogHelper.WriteLog($"{addr.Description}:{val}", LogType.Error);
+                        //i++; 
                         #endregion
                     }
                     catch (Exception ex)
                     {
                         LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
                     }
+                    //if (AddrName.Default.ScrewResult == 1) LogHelper.WriteLog($"{addr.Description}:{addr.StartAddress}-运行中", LogType.Run);
                 }
                 Thread.Sleep(5);
             }
@@ -194,6 +119,90 @@ namespace AutoScrewSys.Base
             //cfg.Save();
         }
 
+        private static void RunStatusMonitor()
+        {
+            try
+            {
+                var status = (ScrewStatus)AddrName.Default.ScrewResult;
+
+                if (status == ScrewStatus.Running && !_collecting)
+                {
+                    currentAddress = 1;
+                    _collecting = true;
+                    Settings.Default.CurrentRunState = true;
+                    Settings.Default.RunStateStr = status.ToString();
+                    Task.Run(() => CollectTorqueData());
+                }
+                else if (status == ScrewStatus.OK && _collecting)
+                {
+                    _collecting = false;
+                    OnResultsUpdated?.Invoke(status.ToString());
+                    Settings.Default.RunStateStr = status.ToString();
+                }
+                else if (status == ScrewStatus.NG && _collecting)
+                {
+                    _collecting = false;
+                    Settings.Default.RunStateStr = status.ToString();
+                    OnResultsUpdated?.Invoke(status.ToString());
+
+                }
+                else if (status == ScrewStatus.Incomplete && _collecting)
+                {
+                    _collecting = false;
+                    Settings.Default.RunStateStr = status.ToString();
+                    OnResultsUpdated?.Invoke(status.ToString());
+
+                }
+                else if (status == ScrewStatus.Ready)
+                {
+                    //_collecting = false;
+                    //Settings.Default.RunStateStr = status.ToString();
+                    //OnResultsUpdated?.Invoke(status.ToString());
+
+                }
+                else
+                {
+                    //_collecting = false;
+                }
+
+                Thread.Sleep(5); // 检查状态间隔
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"波形状态监控失败：{ex.Message}", LogType.Error);
+            }
+        }
+        private static void CollectTorqueData()
+        {
+            while (_collecting)
+            {
+                try
+                {
+                    // 读取地址11208~12207，1000个16位无符号
+                    ushort[] data = ModbusRtuHelper.Instance.ReadRegisters(1, (ushort)currentAddress, ReadBlockSize);
+
+                    currentAddress += ReadBlockSize;
+                    if (currentAddress > MaxAddress)
+                        currentAddress = 1;
+
+                    if (data != null)
+                    {
+                        DateTime startTime = DateTime.Now;
+
+                        DateTime[] timeAxis = Enumerable.Range(0, 10)
+                            .Select(i => startTime.AddMilliseconds(i)).ToArray();
+
+                        OnTorqueWaveUpdated?.Invoke(timeAxis, data);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.WriteLog($"采集扭力波形失败：{ex.Message}", LogType.Error);
+                }
+
+                Thread.Sleep(5); // 1秒采集1次1000个点
+            }
+        }
         public static void ElectricBatchAction(object sender, byte slaveId, ushort address)
         {
             try

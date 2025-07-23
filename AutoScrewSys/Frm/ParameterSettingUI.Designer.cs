@@ -34,7 +34,6 @@
             this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ztextBoxRua1 = new ZimaBlueUI.ZtextBoxRua();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
@@ -86,6 +85,7 @@
             this.ztextBoxRua6 = new ZimaBlueUI.ZtextBoxRua();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.tbxSaveDataPath = new ZimaBlueUI.ZtextBoxRua();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -198,29 +198,12 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.ztextBoxRua1);
+            this.panel2.Controls.Add(this.tbxSaveDataPath);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(3, 125);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(925, 58);
             this.panel2.TabIndex = 42;
-            // 
-            // ztextBoxRua1
-            // 
-            this.ztextBoxRua1.BackColor = System.Drawing.Color.Black;
-            this.ztextBoxRua1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.ztextBoxRua1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ztextBoxRua1.Location = new System.Drawing.Point(189, 6);
-            this.ztextBoxRua1.Name = "ztextBoxRua1";
-            this.ztextBoxRua1.ReadOnly = false;
-            this.ztextBoxRua1.Size = new System.Drawing.Size(729, 43);
-            this.ztextBoxRua1.TabIndex = 203;
-            this.ztextBoxRua1.Tag = "Text";
-            this.ztextBoxRua1.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.ztextBoxRua1.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.ztextBoxRua1.TextBorderRadius = 5;
-            this.ztextBoxRua1.TextBorderSize = 1;
-            this.ztextBoxRua1.TextBorderWidth = 2;
             // 
             // label1
             // 
@@ -530,7 +513,6 @@
             this.cbxPort.StartIndex = 0;
             this.cbxPort.TabIndex = 203;
             this.cbxPort.Triangle = true;
-            this.cbxPort.DropDown += new System.EventHandler(this.cbxPort_DropDown);
             this.cbxPort.SelectedIndexChanged += new System.EventHandler(this.SaveComboBoxSetting);
             // 
             // tpanel2
@@ -578,12 +560,6 @@
             this.cbxBaudRate.FormattingEnabled = true;
             this.cbxBaudRate.IntegralHeight = false;
             this.cbxBaudRate.ItemHeight = 43;
-            this.cbxBaudRate.Items.AddRange(new object[] {
-            "9600",
-            "4800",
-            "19200",
-            "57600",
-            "115200"});
             this.cbxBaudRate.Location = new System.Drawing.Point(205, -1);
             this.cbxBaudRate.MaxDropDownItems = 5;
             this.cbxBaudRate.MouseState = MaterialSkin.MouseState.OUT;
@@ -640,20 +616,6 @@
             this.cbxParity.FormattingEnabled = true;
             this.cbxParity.IntegralHeight = false;
             this.cbxParity.ItemHeight = 43;
-            this.cbxParity.Items.AddRange(new object[] {
-            "None",
-            "",
-            "",
-            "Odd",
-            "",
-            "",
-            "Even",
-            "",
-            "",
-            "Mark",
-            "",
-            "",
-            "Space"});
             this.cbxParity.Location = new System.Drawing.Point(205, -1);
             this.cbxParity.MaxDropDownItems = 5;
             this.cbxParity.MouseState = MaterialSkin.MouseState.OUT;
@@ -710,11 +672,6 @@
             this.cbxDataBits.FormattingEnabled = true;
             this.cbxDataBits.IntegralHeight = false;
             this.cbxDataBits.ItemHeight = 43;
-            this.cbxDataBits.Items.AddRange(new object[] {
-            "8",
-            "5",
-            "6",
-            "7"});
             this.cbxDataBits.Location = new System.Drawing.Point(205, -1);
             this.cbxDataBits.MaxDropDownItems = 5;
             this.cbxDataBits.MouseState = MaterialSkin.MouseState.OUT;
@@ -771,11 +728,6 @@
             this.cbxStopBits.FormattingEnabled = true;
             this.cbxStopBits.IntegralHeight = false;
             this.cbxStopBits.ItemHeight = 43;
-            this.cbxStopBits.Items.AddRange(new object[] {
-            "One",
-            "None",
-            "OnePointFive",
-            "Two"});
             this.cbxStopBits.Location = new System.Drawing.Point(205, -1);
             this.cbxStopBits.MaxDropDownItems = 5;
             this.cbxStopBits.MouseState = MaterialSkin.MouseState.OUT;
@@ -1133,6 +1085,25 @@
             this.label16.Text = "名称:";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // tbxSaveDataPath
+            // 
+            this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
+            this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSaveDataPath.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
+            this.tbxSaveDataPath.Name = "tbxSaveDataPath";
+            this.tbxSaveDataPath.ReadOnly = false;
+            this.tbxSaveDataPath.Size = new System.Drawing.Size(729, 43);
+            this.tbxSaveDataPath.TabIndex = 203;
+            this.tbxSaveDataPath.Tag = "Text";
+            this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
+            this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSaveDataPath.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.TextBorderRadius = 5;
+            this.tbxSaveDataPath.TextBorderSize = 1;
+            this.tbxSaveDataPath.TextBorderWidth = 2;
+            // 
             // ParameterSettingUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1179,7 +1150,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
-        private ZimaBlueUI.ZtextBoxRua ztextBoxRua1;
+        private ZimaBlueUI.ZtextBoxRua tbxSaveDataPath;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox3;
         private MaterialSkin.Controls.MaterialComboBox materialComboBox4;

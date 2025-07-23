@@ -26,5 +26,14 @@
     <Setting Name="CurrTaskStr" Type="System.String" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="CurrentRunState" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="RunStateStr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Ready</Value>
+    </Setting>
+    <Setting Name="ProductionDataPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

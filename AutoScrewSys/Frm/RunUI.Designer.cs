@@ -31,6 +31,7 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,7 +41,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.SDbut = new System.Windows.Forms.Button();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.homerevolutions = new System.Windows.Forms.Label();
+            this.StartTorque = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.RotationalSpeed = new System.Windows.Forms.Label();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.homeTorque = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.PositionView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +63,6 @@
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel1 = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel3 = new ZimaBlueUI.Tpanel();
@@ -65,7 +78,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
-            this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
@@ -92,9 +104,14 @@
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel9 = new ZimaBlueUI.Tpanel();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).BeginInit();
+            this.lblRunState = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel15.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).BeginInit();
             this.tpanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tpanel3.SuspendLayout();
@@ -110,55 +127,79 @@
             this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // chart2
+            // flowLayoutPanel1
             // 
-            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.chart2.BorderlineColor = System.Drawing.Color.Black;
+            this.flowLayoutPanel1.Controls.Add(this.panel12);
+            this.flowLayoutPanel1.Controls.Add(this.PositionView);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(651, 753);
+            this.flowLayoutPanel1.TabIndex = 65;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel12.Controls.Add(this.chart1);
+            this.panel12.Controls.Add(this.SDbut);
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Controls.Add(this.StartTorque);
+            this.panel12.Controls.Add(this.label21);
+            this.panel12.Controls.Add(this.panel14);
+            this.panel12.Controls.Add(this.panel13);
+            this.panel12.Controls.Add(this.label25);
+            this.panel12.Controls.Add(this.label26);
+            this.panel12.Location = new System.Drawing.Point(3, 3);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(642, 352);
+            this.panel12.TabIndex = 65;
+            // 
+            // chart1
+            // 
+            this.chart1.BackColor = System.Drawing.Color.Transparent;
+            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisX.LabelAutoFitMaxFontSize = 8;
             chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Aquamarine;
-            chartArea1.AxisX.LineColor = System.Drawing.Color.Red;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
             chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
             chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisX.Title = "Time";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("思源黑体 CN Regular", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea1.AxisX.TitleForeColor = System.Drawing.SystemColors.Window;
+            chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
             chartArea1.AxisY.LabelAutoFitMinFontSize = 8;
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.AxisY.LineColor = System.Drawing.Color.Red;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
             chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
-            chartArea1.AxisY.MaximumAutoSize = 100F;
             chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "Torque";
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea1.AxisY.TitleForeColor = System.Drawing.SystemColors.Window;
+            chartArea1.AxisY.Title = "扭力 (mN·m)";
+            chartArea1.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             chartArea1.Position.Auto = false;
             chartArea1.Position.Height = 90F;
             chartArea1.Position.Width = 100F;
             chartArea1.Position.Y = 10F;
-            this.chart2.ChartAreas.Add(chartArea1);
+            this.chart1.ChartAreas.Add(chartArea1);
             legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             legend1.ShadowColor = System.Drawing.Color.Black;
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(3, 2);
-            this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chart2.Name = "chart2";
-            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 75);
+            this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackImageTransparentColor = System.Drawing.Color.WhiteSmoke;
-            series1.BackSecondaryColor = System.Drawing.Color.Black;
-            series1.BorderColor = System.Drawing.Color.Transparent;
+            series1.BackImageTransparentColor = System.Drawing.Color.White;
+            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series1.BorderColor = System.Drawing.Color.Lime;
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
@@ -167,10 +208,155 @@
             series1.LegendText = "Kgf";
             series1.Name = "Series1";
             series1.ShadowColor = System.Drawing.Color.Black;
-            this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(645, 380);
-            this.chart2.TabIndex = 63;
-            this.chart2.Text = "chart1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(544, 221);
+            this.chart1.TabIndex = 58;
+            this.chart1.Text = "chart1";
+            // 
+            // SDbut
+            // 
+            this.SDbut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SDbut.BackgroundImage")));
+            this.SDbut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SDbut.FlatAppearance.BorderSize = 0;
+            this.SDbut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
+            this.SDbut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
+            this.SDbut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SDbut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.SDbut.Location = new System.Drawing.Point(12, 32);
+            this.SDbut.Name = "SDbut";
+            this.SDbut.Size = new System.Drawing.Size(45, 45);
+            this.SDbut.TabIndex = 57;
+            this.SDbut.UseVisualStyleBackColor = true;
+            // 
+            // panel15
+            // 
+            this.panel15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel15.BackgroundImage")));
+            this.panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel15.Controls.Add(this.homerevolutions);
+            this.panel15.Location = new System.Drawing.Point(578, 225);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(65, 65);
+            this.panel15.TabIndex = 37;
+            // 
+            // homerevolutions
+            // 
+            this.homerevolutions.AccessibleName = "圈数";
+            this.homerevolutions.BackColor = System.Drawing.Color.Transparent;
+            this.homerevolutions.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
+            this.homerevolutions.ForeColor = System.Drawing.Color.White;
+            this.homerevolutions.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.homerevolutions.Location = new System.Drawing.Point(0, 15);
+            this.homerevolutions.Name = "homerevolutions";
+            this.homerevolutions.Size = new System.Drawing.Size(71, 37);
+            this.homerevolutions.TabIndex = 39;
+            this.homerevolutions.Tag = "Text";
+            this.homerevolutions.Text = "0";
+            this.homerevolutions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // StartTorque
+            // 
+            this.StartTorque.BackColor = System.Drawing.Color.Transparent;
+            this.StartTorque.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
+            this.StartTorque.ForeColor = System.Drawing.Color.Transparent;
+            this.StartTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.StartTorque.Location = new System.Drawing.Point(555, 10);
+            this.StartTorque.Name = "StartTorque";
+            this.StartTorque.Size = new System.Drawing.Size(112, 28);
+            this.StartTorque.TabIndex = 43;
+            this.StartTorque.Tag = "AccessibleName";
+            this.StartTorque.Text = "扭力kgf";
+            this.StartTorque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
+            this.label21.ForeColor = System.Drawing.Color.Transparent;
+            this.label21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label21.Location = new System.Drawing.Point(574, 198);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(75, 28);
+            this.label21.TabIndex = 41;
+            this.label21.Text = "圈数r";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel14
+            // 
+            this.panel14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel14.BackgroundImage")));
+            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel14.Controls.Add(this.RotationalSpeed);
+            this.panel14.Location = new System.Drawing.Point(578, 133);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(65, 65);
+            this.panel14.TabIndex = 36;
+            // 
+            // RotationalSpeed
+            // 
+            this.RotationalSpeed.AccessibleName = "转速";
+            this.RotationalSpeed.BackColor = System.Drawing.Color.Transparent;
+            this.RotationalSpeed.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.RotationalSpeed.ForeColor = System.Drawing.Color.White;
+            this.RotationalSpeed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.RotationalSpeed.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.RotationalSpeed.Location = new System.Drawing.Point(-3, 15);
+            this.RotationalSpeed.Name = "RotationalSpeed";
+            this.RotationalSpeed.Size = new System.Drawing.Size(74, 37);
+            this.RotationalSpeed.TabIndex = 38;
+            this.RotationalSpeed.Tag = "Text";
+            this.RotationalSpeed.Text = "0";
+            this.RotationalSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel13
+            // 
+            this.panel13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel13.BackgroundImage")));
+            this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel13.Controls.Add(this.homeTorque);
+            this.panel13.Location = new System.Drawing.Point(577, 38);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(65, 65);
+            this.panel13.TabIndex = 35;
+            // 
+            // homeTorque
+            // 
+            this.homeTorque.AccessibleName = "扭力";
+            this.homeTorque.BackColor = System.Drawing.Color.Transparent;
+            this.homeTorque.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.homeTorque.ForeColor = System.Drawing.Color.Transparent;
+            this.homeTorque.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.homeTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.homeTorque.Location = new System.Drawing.Point(-3, 14);
+            this.homeTorque.Name = "homeTorque";
+            this.homeTorque.Size = new System.Drawing.Size(74, 37);
+            this.homeTorque.TabIndex = 42;
+            this.homeTorque.Tag = "Text";
+            this.homeTorque.Text = "0";
+            this.homeTorque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.Transparent;
+            this.label25.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
+            this.label25.ForeColor = System.Drawing.Color.Transparent;
+            this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label25.Location = new System.Drawing.Point(552, 102);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(118, 28);
+            this.label25.TabIndex = 40;
+            this.label25.Text = "转速r/min";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.BackColor = System.Drawing.Color.Transparent;
+            this.label26.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label26.Location = new System.Drawing.Point(26, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(125, 33);
+            this.label26.TabIndex = 34;
+            this.label26.Text = "电批数据";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PositionView
             // 
@@ -200,7 +386,7 @@
             this.dataGridViewTextBoxColumn8});
             this.PositionView.EnableHeadersVisualStyles = false;
             this.PositionView.GridColor = System.Drawing.Color.Black;
-            this.PositionView.Location = new System.Drawing.Point(3, 387);
+            this.PositionView.Location = new System.Drawing.Point(3, 361);
             this.PositionView.MultiSelect = false;
             this.PositionView.Name = "PositionView";
             this.PositionView.ReadOnly = true;
@@ -224,8 +410,8 @@
             this.PositionView.ShowCellToolTips = false;
             this.PositionView.ShowEditingIcon = false;
             this.PositionView.ShowRowErrors = false;
-            this.PositionView.Size = new System.Drawing.Size(645, 363);
-            this.PositionView.TabIndex = 64;
+            this.PositionView.Size = new System.Drawing.Size(642, 383);
+            this.PositionView.TabIndex = 66;
             this.PositionView.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
@@ -302,16 +488,6 @@
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.chart2);
-            this.flowLayoutPanel1.Controls.Add(this.PositionView);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(651, 753);
-            this.flowLayoutPanel1.TabIndex = 65;
             // 
             // tpanel1
             // 
@@ -505,7 +681,7 @@
             // 
             this.tpanel2.Alpha = 50;
             this.tpanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel2.Controls.Add(this.label6);
+            this.tpanel2.Controls.Add(this.lblRunState);
             this.tpanel2.Controls.Add(this.checkBox1);
             this.tpanel2.Controls.Add(this.label5);
             this.tpanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -518,18 +694,6 @@
             this.tpanel2.PanelText = "";
             this.tpanel2.Size = new System.Drawing.Size(727, 132);
             this.tpanel2.TabIndex = 67;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("思源黑体 CN Bold", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(249, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(222, 120);
-            this.label6.TabIndex = 200;
-            this.label6.Text = "OK";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkBox1
             // 
@@ -833,7 +997,6 @@
             this.zRoundButton1.Size = new System.Drawing.Size(122, 46);
             this.zRoundButton1.TabIndex = 1;
             this.zRoundButton1.Text = "随机码";
-            this.zRoundButton1.Click += new System.EventHandler(this.zRoundButton1_Click);
             // 
             // flowLayoutPanel4
             // 
@@ -872,6 +1035,18 @@
             this.rtbLog.TabIndex = 1;
             this.rtbLog.Text = "";
             // 
+            // lblRunState
+            // 
+            this.lblRunState.Font = new System.Drawing.Font("思源黑体 CN Bold", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblRunState.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblRunState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRunState.Location = new System.Drawing.Point(201, 2);
+            this.lblRunState.Name = "lblRunState";
+            this.lblRunState.Size = new System.Drawing.Size(380, 120);
+            this.lblRunState.TabIndex = 200;
+            this.lblRunState.Text = "Ready";
+            this.lblRunState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RunUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -887,9 +1062,13 @@
             this.Name = "RunUI";
             this.Size = new System.Drawing.Size(1378, 753);
             this.Load += new System.EventHandler(this.RunUI_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel15.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PositionView)).EndInit();
             this.tpanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tpanel3.ResumeLayout(false);
@@ -909,15 +1088,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
-        private System.Windows.Forms.DataGridView PositionView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private ZimaBlueUI.Tpanel tpanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
@@ -933,7 +1103,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblRunState;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private ZimaBlueUI.CustomPanel customPanel1;
@@ -961,5 +1131,26 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.RichTextBox rtbLog;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button SDbut;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Label homerevolutions;
+        private System.Windows.Forms.Label StartTorque;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Label RotationalSpeed;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Label homeTorque;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.DataGridView PositionView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

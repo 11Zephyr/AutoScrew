@@ -41,10 +41,6 @@ namespace AutoScrewSys.Frm
                  });
         }
 
-        private void cbxPort_DropDown(object sender, EventArgs e)
-        {
-            cbxPort.DataSource = SerialPort.GetPortNames();
-        }
         private void SaveComboBoxSetting(object sender, EventArgs e)
         {
             if (sender is ComboBox comboBox)
@@ -68,28 +64,10 @@ namespace AutoScrewSys.Frm
                 }
             }
         }
-        private void LoadComboBoxSetting(ComboBox comboBox)
-        {
-            string settingName = comboBox.Name;
-            string savedValue = Properties.Settings.Default[settingName]?.ToString();
-
-            if (!string.IsNullOrEmpty(savedValue) && comboBox.Items.Contains(savedValue))
-            {
-                comboBox.SelectedItem = savedValue;
-            }
-        }
-
-        private void SettingsControl_Load(object sender, EventArgs e)
-        {
-            LoadComboBoxSetting(cbxPort);
-            LoadComboBoxSetting(cbxBaudRate);
-            LoadComboBoxSetting(cbxParity);
-            LoadComboBoxSetting(cbxDataBits);
-            LoadComboBoxSetting(cbxStopBits);
-        }
 
         private void ParameterSettingUI_Load(object sender, EventArgs e)
         {
+            LoadSerialPortSettings();
             ////启动全局监控
             //GlobalMonitor.Start(
             //     () =>
@@ -101,5 +79,64 @@ namespace AutoScrewSys.Frm
             //         LogHelper.WriteLog("串口连接失败...", LogType.Run);
             //     });
         }
+        private void LoadSerialPortSettings()
+        {
+            // 1. 串口号
+            string[] ports = SerialPort.GetPortNames();
+            Array.Sort(ports);
+            cbxPort.Items.Clear();
+            cbxPort.Items.AddRange(ports);
+
+            string savedPort = Settings.Default.cbxPort;
+            if (ports.Contains(savedPort))
+                cbxPort.SelectedItem = savedPort;
+            else if (ports.Length > 0)
+                cbxPort.SelectedIndex = 0;
+
+            // 2. 波特率
+            string[] baudRates = { "9600", "19200", "38400", "57600", "115200" };
+            cbxBaudRate.Items.Clear();
+            cbxBaudRate.Items.AddRange(baudRates);
+
+            string savedBaud = Settings.Default.cbxBaudRate;
+            if (baudRates.Contains(savedBaud))
+                cbxBaudRate.SelectedItem = savedBaud;
+            else
+                cbxBaudRate.SelectedIndex = 0;
+
+            // 3. 校验位
+            string[] parities = Enum.GetNames(typeof(Parity)); // None, Odd, Even, Mark, Space
+            cbxParity.Items.Clear();
+            cbxParity.Items.AddRange(parities);
+
+            string savedParity = Settings.Default.cbxParity;
+            if (parities.Contains(savedParity))
+                cbxParity.SelectedItem = savedParity;
+            else
+                cbxParity.SelectedIndex = 0;
+
+            // 4. 数据位
+            string[] dataBits = {"5","6","7", "8" };
+            cbxDataBits.Items.Clear();
+            cbxDataBits.Items.AddRange(dataBits);
+
+            string savedDataBits = Settings.Default.cbxDataBits;
+            if (dataBits.Contains(savedDataBits))
+                cbxDataBits.SelectedItem = savedDataBits;
+            else
+                cbxDataBits.SelectedIndex = 0;
+
+            // 5. 停止位
+            string[] stopBits = {"0", "1", "1.5", "2" };
+            cbxStopBits.Items.Clear();
+            cbxStopBits.Items.AddRange(stopBits);
+
+            string savedStopBits = Settings.Default.cbxStopBits;
+            if (stopBits.Contains(savedStopBits))
+                cbxStopBits.SelectedItem = savedStopBits;
+            else
+                cbxStopBits.SelectedIndex = 0;
+        }
+
     }
 }
