@@ -130,26 +130,22 @@ namespace AutoScrewSys.Base
                     currentAddress = 1;
                     _collecting = true;
                     Settings.Default.CurrentRunState = true;
-                    Settings.Default.RunStateStr = status.ToString();
                     Task.Run(() => CollectTorqueData());
                 }
                 else if (status == ScrewStatus.OK && _collecting)
                 {
                     _collecting = false;
                     OnResultsUpdated?.Invoke(status.ToString());
-                    Settings.Default.RunStateStr = status.ToString();
                 }
                 else if (status == ScrewStatus.NG && _collecting)
                 {
                     _collecting = false;
-                    Settings.Default.RunStateStr = status.ToString();
                     OnResultsUpdated?.Invoke(status.ToString());
 
                 }
                 else if (status == ScrewStatus.Incomplete && _collecting)
                 {
                     _collecting = false;
-                    Settings.Default.RunStateStr = status.ToString();
                     OnResultsUpdated?.Invoke(status.ToString());
 
                 }

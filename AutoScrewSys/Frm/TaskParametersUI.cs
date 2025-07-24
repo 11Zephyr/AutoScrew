@@ -145,18 +145,18 @@ namespace AutoScrewSys.Frm
 
         private void btnTightenMove_Click(object sender, EventArgs e)
         {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("Tighten", "TightenAction");
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
         private void btnLoosenMove_Click(object sender, EventArgs e)
         {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("Loosen", "LoosenAction");
+            var addr = ModbusAddressConfig.Instance.GetAddressItem( "LoosenAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         private void btnFreeMove_Click(object sender, EventArgs e)
         {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("Free", "FreeAction");
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 

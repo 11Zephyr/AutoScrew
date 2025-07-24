@@ -1,5 +1,6 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.BLL;
+using AutoScrewSys.Enums;
 using AutoScrewSys.Interface;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
@@ -12,7 +13,9 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static AutoScrewSys.Base.GlobalMonitor;
@@ -22,22 +25,22 @@ namespace AutoScrewSys.Frm
 {
     public partial class RunUI : UserControl, IRefreshable
     {
-
-        private Timer refreshTimer;
+        // 上一次的值（类字段）
+        int lastStateBits, lastTighten, lastLoosen, lastFree;
+        bool isFirst = true;
+        private Thread _refreshThread;
+        private bool _isRunning;
         public RunUI()
         {
             InitializeComponent();
         }
         private void RunUI_Load(object sender, EventArgs e)
         {
-            refreshTimer = new Timer();
-            refreshTimer.Interval = 1000; // 每秒刷新一次
-            refreshTimer.Tick += (s, e) => RefreshUI();
             EnableChartZoomAndPan();
             InitTorqueChart();
             InitResultDgv();
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
-   
+
         }
 
         private void InitTorqueChart()
@@ -51,7 +54,7 @@ namespace AutoScrewSys.Frm
                         chart1.Series[0].Points.Clear();
                         Settings.Default.CurrentRunState = false;
                     }
-                    
+
                     for (int i = 0; i < torqueArray.Length; i++)
                     {
                         chart1.Series[0].Points.AddXY(timeArray[i].ToString("HH:mm:ss.fff"), torqueArray[i]);
@@ -65,7 +68,8 @@ namespace AutoScrewSys.Frm
         {
             GlobalMonitor.OnResultsUpdated += (string result) =>
             {
-                this.Invoke((Action)(() => {
+                this.Invoke((Action)(() =>
+                {
 
                     int rowIndex = PositionView.Rows.Count + 1;
 
@@ -222,13 +226,89 @@ namespace AutoScrewSys.Frm
 
         public void StartRefreshing()
         {
-            throw new NotImplementedException();
+            if (_refreshThread != null && _refreshThread.IsAlive)
+                return;
+
+            _isRunning = true;
+            _refreshThread = new Thread(() =>
+            {
+                while (_isRunning)
+                {
+                    Thread.Sleep(5);
+                    Invoke(new Action(() =>
+                    {
+                        lblTaskNumber.Text = AddrName.Default.TaskNumber.ToString();
+                        lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
+                        lblTorque.Text = AddrName.Default.Torque.ToString();
+                        lblLaps.Text = AddrName.Default.LapsNum.ToString();
+                        lalAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
+                        lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
+                        UpdateActionStatus();
+                    }));
+                }
+            });
+            _refreshThread.IsBackground = true;
+            _refreshThread.Start();
         }
 
         public void StopRefreshing()
         {
-            throw new NotImplementedException();
+            _isRunning = false;
+            if (_refreshThread != null && _refreshThread.IsAlive)
+            {
+                _refreshThread.Join(200); // 可选：等待线程结束
+            }
+            _refreshThread = null;
         }
 
+        public static string GetAlarmMessage(int code)
+        {
+            switch (code)
+            {
+                case 0: return "无报警";
+                case 1: return "滑牙";
+                case 2: return "浮高";
+                case 3: return "过扭力";
+                case 4: return "编码器报警";
+                case 5: return "过压";
+                case 6: return "扭力上限报警";
+                case 7: return "扭力下限报警";
+                case 8: return "电批报警";
+                default: return "未知报警代码";
+            }
+        }
+        public void UpdateActionStatus()
+        {
+            int s = AddrName.Default.StateBits;
+            int t = AddrName.Default.TightenAction;
+            int l = AddrName.Default.LoosenAction;
+            int f = AddrName.Default.FreeAction;
+
+            if (isFirst || s != lastStateBits || t != lastTighten || l != lastLoosen || f != lastFree)
+            {
+                UpdateStateLabels(s,t,l,f);
+
+                // 更新旧值
+                lastStateBits = s;
+                lastTighten = t;
+                lastLoosen = l;
+                lastFree = f;
+                isFirst = false;
+            }
+        }
+        private void UpdateStateLabels(int stateBits,int tightenSignal,int lossenSignal,int freeSignal)
+        {
+            
+            System.Windows.Forms.Label[] labels = { lblBusySignal, lblEndSignal, lblAlarmSignal};
+
+            for (int i = 0; i < labels.Length; i++)
+            {
+                bool isActive = ((stateBits >> i) & 1) == 0; // 0表示有效
+                labels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+            }
+            lblTightenSignal.BackColor = tightenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+            lblLoosenSignal.BackColor = lossenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+            lblLdlingSignal.BackColor = freeSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+        }
     }
 }

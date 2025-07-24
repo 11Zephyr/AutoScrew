@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoScrewSys.Interface;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,19 @@ using System.Windows.Forms;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class IOMonitorUI : UserControl
+    public partial class IOMonitorUI : UserControl, IRefreshable
     {
         public IOMonitorUI()
         {
             InitializeComponent();
+        }
+
+        public void StartRefreshing()
+        {
+        }
+
+        public void StopRefreshing()
+        {
         }
     }
 }

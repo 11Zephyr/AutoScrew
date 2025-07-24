@@ -107,7 +107,7 @@ namespace AutoScrewSys
             this.lblMesTextR.Size = new System.Drawing.Size(386, 58);
             this.lblMesTextR.TabIndex = 39;
             this.lblMesTextR.Tag = "AccessibleName";
-            this.lblMesTextR.Text = "智 能 电 批 系 统";
+            this.lblMesTextR.Text = "SCREW  SYSTEM";
             this.lblMesTextR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMesTextR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
@@ -311,6 +311,7 @@ namespace AutoScrewSys
             this.radioBtnStatusAction.Text = "状态操作";
             this.radioBtnStatusAction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioBtnStatusAction.UseVisualStyleBackColor = true;
+            this.radioBtnStatusAction.Visible = false;
             this.radioBtnStatusAction.Click += new System.EventHandler(this.radioBtnStatusAction_Click);
             // 
             // panel1

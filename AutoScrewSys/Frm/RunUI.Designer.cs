@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -66,45 +66,49 @@
             this.tpanel1 = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel3 = new ZimaBlueUI.Tpanel();
-            this.TaskNumber = new System.Windows.Forms.Label();
+            this.lblTaskNumber = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpanel4 = new ZimaBlueUI.Tpanel();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lalCT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lblTorque = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tpanel5 = new ZimaBlueUI.Tpanel();
-            this.label24 = new System.Windows.Forms.Label();
+            this.lblLaps = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
+            this.lblRunState = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lalAlarm = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.customPanel1 = new ZimaBlueUI.CustomPanel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTightenSignal = new System.Windows.Forms.Label();
+            this.lblLoosenSignal = new System.Windows.Forms.Label();
+            this.lblLdlingSignal = new System.Windows.Forms.Label();
+            this.lblBusySignal = new System.Windows.Forms.Label();
+            this.lblEndSignal = new System.Windows.Forms.Label();
+            this.lblAlarmSignal = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpanel9 = new ZimaBlueUI.Tpanel();
+            this.rtbLog = new System.Windows.Forms.RichTextBox();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tpanel8 = new ZimaBlueUI.Tpanel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.zRoundButton1 = new ZimaBlueUI.ZRoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblBadScrews = new System.Windows.Forms.Label();
+            this.lblScrews = new System.Windows.Forms.Label();
+            this.lblGoodScrews = new System.Windows.Forms.Label();
+            this.lblScrewsTotal = new System.Windows.Forms.Label();
             this.zGradientProgressBar1 = new ZimaBlueUI.ZGradientProgressBar();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpanel8 = new ZimaBlueUI.Tpanel();
-            this.label20 = new System.Windows.Forms.Label();
-            this.zRoundButton1 = new ZimaBlueUI.ZRoundButton();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tpanel9 = new ZimaBlueUI.Tpanel();
-            this.rtbLog = new System.Windows.Forms.RichTextBox();
-            this.lblRunState = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -120,11 +124,11 @@
             this.tpanel5.SuspendLayout();
             this.tpanel2.SuspendLayout();
             this.tpanel7.SuspendLayout();
-            this.customPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.tpanel8.SuspendLayout();
-            this.flowLayoutPanel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -152,63 +156,63 @@
             this.panel12.Controls.Add(this.label26);
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(642, 352);
+            this.panel12.Size = new System.Drawing.Size(642, 326);
             this.panel12.TabIndex = 65;
             // 
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisX.LabelAutoFitMaxFontSize = 8;
-            chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
-            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisX.MajorGrid.Enabled = false;
-            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
-            chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea1.AxisY.LabelAutoFitMinFontSize = 8;
-            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea1.AxisY.MajorGrid.Enabled = false;
-            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
-            chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "扭力 (mN·m)";
-            chartArea1.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
-            chartArea1.BackColor = System.Drawing.Color.Transparent;
-            chartArea1.Name = "ChartArea1";
-            chartArea1.Position.Auto = false;
-            chartArea1.Position.Height = 90F;
-            chartArea1.Position.Width = 100F;
-            chartArea1.Position.Y = 10F;
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.Transparent;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            legend1.ForeColor = System.Drawing.Color.White;
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            legend1.ShadowColor = System.Drawing.Color.Black;
-            this.chart1.Legends.Add(legend1);
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.LabelAutoFitMaxFontSize = 8;
+            chartArea2.AxisX.LabelAutoFitMinFontSize = 8;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
+            chartArea2.AxisX.Minimum = 0D;
+            chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea2.AxisY.LabelAutoFitMinFontSize = 8;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.Title = "扭力 (mN·m)";
+            chartArea2.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 90F;
+            chartArea2.Position.Width = 100F;
+            chartArea2.Position.Y = 10F;
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            legend2.ShadowColor = System.Drawing.Color.Black;
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(6, 75);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series1.BackImageTransparentColor = System.Drawing.Color.White;
-            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series1.BorderColor = System.Drawing.Color.Lime;
-            series1.BorderWidth = 2;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series1.Color = System.Drawing.Color.Lime;
-            series1.Legend = "Legend1";
-            series1.LegendText = "Kgf";
-            series1.Name = "Series1";
-            series1.ShadowColor = System.Drawing.Color.Black;
-            this.chart1.Series.Add(series1);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackImageTransparentColor = System.Drawing.Color.White;
+            series2.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series2.BorderColor = System.Drawing.Color.Lime;
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series2.Color = System.Drawing.Color.Lime;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Kgf";
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Black;
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(544, 221);
             this.chart1.TabIndex = 58;
             this.chart1.Text = "chart1";
@@ -364,17 +368,17 @@
             this.PositionView.AllowUserToDeleteRows = false;
             this.PositionView.AllowUserToResizeColumns = false;
             this.PositionView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.PositionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PositionView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.PositionView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.PositionView.ColumnHeadersHeight = 32;
             this.PositionView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -386,41 +390,41 @@
             this.dataGridViewTextBoxColumn8});
             this.PositionView.EnableHeadersVisualStyles = false;
             this.PositionView.GridColor = System.Drawing.Color.Black;
-            this.PositionView.Location = new System.Drawing.Point(3, 361);
+            this.PositionView.Location = new System.Drawing.Point(3, 335);
             this.PositionView.MultiSelect = false;
             this.PositionView.Name = "PositionView";
             this.PositionView.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.PositionView.RowHeadersVisible = false;
             this.PositionView.RowHeadersWidth = 20;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.PositionView.RowTemplate.Height = 30;
             this.PositionView.ShowCellErrors = false;
             this.PositionView.ShowCellToolTips = false;
             this.PositionView.ShowEditingIcon = false;
             this.PositionView.ShowRowErrors = false;
-            this.PositionView.Size = new System.Drawing.Size(642, 383);
+            this.PositionView.Size = new System.Drawing.Size(642, 410);
             this.PositionView.TabIndex = 66;
             this.PositionView.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -428,8 +432,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn2.HeaderText = "SN 码";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -439,9 +443,9 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("思源黑体 CN Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("思源黑体 CN Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn3.HeaderText = "时间";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -451,8 +455,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn4.HeaderText = "点位";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -462,8 +466,8 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn5.HeaderText = "圈数";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -521,7 +525,7 @@
             // 
             this.tpanel3.Alpha = 50;
             this.tpanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel3.Controls.Add(this.TaskNumber);
+            this.tpanel3.Controls.Add(this.lblTaskNumber);
             this.tpanel3.Controls.Add(this.label3);
             this.tpanel3.Location = new System.Drawing.Point(3, 3);
             this.tpanel3.Name = "tpanel3";
@@ -533,17 +537,17 @@
             this.tpanel3.Size = new System.Drawing.Size(362, 68);
             this.tpanel3.TabIndex = 68;
             // 
-            // TaskNumber
+            // lblTaskNumber
             // 
-            this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.TaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.TaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TaskNumber.Location = new System.Drawing.Point(148, 18);
-            this.TaskNumber.Name = "TaskNumber";
-            this.TaskNumber.Size = new System.Drawing.Size(179, 33);
-            this.TaskNumber.TabIndex = 197;
-            this.TaskNumber.Text = "0";
-            this.TaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTaskNumber.Location = new System.Drawing.Point(148, 18);
+            this.lblTaskNumber.Name = "lblTaskNumber";
+            this.lblTaskNumber.Size = new System.Drawing.Size(179, 33);
+            this.lblTaskNumber.TabIndex = 197;
+            this.lblTaskNumber.Text = "0";
+            this.lblTaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -561,7 +565,7 @@
             // 
             this.tpanel4.Alpha = 50;
             this.tpanel4.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel4.Controls.Add(this.label23);
+            this.tpanel4.Controls.Add(this.lalCT);
             this.tpanel4.Controls.Add(this.label1);
             this.tpanel4.Location = new System.Drawing.Point(371, 3);
             this.tpanel4.Name = "tpanel4";
@@ -573,17 +577,17 @@
             this.tpanel4.Size = new System.Drawing.Size(353, 68);
             this.tpanel4.TabIndex = 69;
             // 
-            // label23
+            // lalCT
             // 
-            this.label23.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.label23.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label23.Location = new System.Drawing.Point(143, 18);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(67, 33);
-            this.label23.TabIndex = 198;
-            this.label23.Text = "0";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lalCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lalCT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lalCT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lalCT.Location = new System.Drawing.Point(143, 18);
+            this.lalCT.Name = "lalCT";
+            this.lalCT.Size = new System.Drawing.Size(179, 33);
+            this.lalCT.TabIndex = 198;
+            this.lalCT.Text = "0";
+            this.lalCT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -601,7 +605,7 @@
             // 
             this.tpanel6.Alpha = 50;
             this.tpanel6.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel6.Controls.Add(this.label22);
+            this.tpanel6.Controls.Add(this.lblTorque);
             this.tpanel6.Controls.Add(this.label2);
             this.tpanel6.Location = new System.Drawing.Point(3, 77);
             this.tpanel6.Name = "tpanel6";
@@ -613,17 +617,17 @@
             this.tpanel6.Size = new System.Drawing.Size(362, 71);
             this.tpanel6.TabIndex = 68;
             // 
-            // label22
+            // lblTorque
             // 
-            this.label22.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label22.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label22.Location = new System.Drawing.Point(148, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(67, 33);
-            this.label22.TabIndex = 198;
-            this.label22.Text = "0";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTorque.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTorque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorque.Location = new System.Drawing.Point(148, 19);
+            this.lblTorque.Name = "lblTorque";
+            this.lblTorque.Size = new System.Drawing.Size(179, 33);
+            this.lblTorque.TabIndex = 198;
+            this.lblTorque.Text = "0";
+            this.lblTorque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -641,7 +645,7 @@
             // 
             this.tpanel5.Alpha = 50;
             this.tpanel5.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel5.Controls.Add(this.label24);
+            this.tpanel5.Controls.Add(this.lblLaps);
             this.tpanel5.Controls.Add(this.label4);
             this.tpanel5.Location = new System.Drawing.Point(371, 77);
             this.tpanel5.Name = "tpanel5";
@@ -653,17 +657,17 @@
             this.tpanel5.Size = new System.Drawing.Size(353, 71);
             this.tpanel5.TabIndex = 70;
             // 
-            // label24
+            // lblLaps
             // 
-            this.label24.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.label24.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label24.Location = new System.Drawing.Point(143, 19);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(67, 33);
-            this.label24.TabIndex = 198;
-            this.label24.Text = "0";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLaps.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblLaps.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLaps.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblLaps.Location = new System.Drawing.Point(143, 19);
+            this.lblLaps.Name = "lblLaps";
+            this.lblLaps.Size = new System.Drawing.Size(179, 33);
+            this.lblLaps.TabIndex = 198;
+            this.lblLaps.Text = "0";
+            this.lblLaps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -695,6 +699,18 @@
             this.tpanel2.Size = new System.Drawing.Size(727, 132);
             this.tpanel2.TabIndex = 67;
             // 
+            // lblRunState
+            // 
+            this.lblRunState.Font = new System.Drawing.Font("思源黑体 CN Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblRunState.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblRunState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblRunState.Location = new System.Drawing.Point(201, 2);
+            this.lblRunState.Name = "lblRunState";
+            this.lblRunState.Size = new System.Drawing.Size(380, 120);
+            this.lblRunState.TabIndex = 200;
+            this.lblRunState.Text = "Ready";
+            this.lblRunState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -723,7 +739,7 @@
             // 
             this.tpanel7.Alpha = 50;
             this.tpanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel7.Controls.Add(this.label8);
+            this.tpanel7.Controls.Add(this.lalAlarm);
             this.tpanel7.Controls.Add(this.label7);
             this.tpanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tpanel7.Location = new System.Drawing.Point(651, 283);
@@ -736,17 +752,17 @@
             this.tpanel7.Size = new System.Drawing.Size(727, 72);
             this.tpanel7.TabIndex = 68;
             // 
-            // label8
+            // lalAlarm
             // 
-            this.label8.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label8.Location = new System.Drawing.Point(227, 15);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(138, 48);
-            this.label8.TabIndex = 199;
-            this.label8.Text = "无故障";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lalAlarm.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lalAlarm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lalAlarm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lalAlarm.Location = new System.Drawing.Point(155, 15);
+            this.lalAlarm.Name = "lalAlarm";
+            this.lalAlarm.Size = new System.Drawing.Size(566, 48);
+            this.lalAlarm.TabIndex = 199;
+            this.lalAlarm.Text = "无故障";
+            this.lalAlarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -760,104 +776,206 @@
             this.label7.Text = "报警";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // customPanel1
+            // flowLayoutPanel5
             // 
-            this.customPanel1.ColumnCount = 3;
-            this.customPanel1.Controls.Add(this.label14);
-            this.customPanel1.Controls.Add(this.label13);
-            this.customPanel1.Controls.Add(this.label12);
-            this.customPanel1.Controls.Add(this.label11);
-            this.customPanel1.Controls.Add(this.label10);
-            this.customPanel1.Controls.Add(this.label9);
-            this.customPanel1.CornerRadius = 10;
-            this.customPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.customPanel1.FillColor = System.Drawing.Color.DodgerBlue;
-            this.customPanel1.Location = new System.Drawing.Point(651, 355);
-            this.customPanel1.Name = "customPanel1";
-            this.customPanel1.RowCount = 2;
-            this.customPanel1.Size = new System.Drawing.Size(727, 112);
-            this.customPanel1.TabIndex = 69;
+            this.flowLayoutPanel5.Controls.Add(this.lblTightenSignal);
+            this.flowLayoutPanel5.Controls.Add(this.lblLoosenSignal);
+            this.flowLayoutPanel5.Controls.Add(this.lblLdlingSignal);
+            this.flowLayoutPanel5.Controls.Add(this.lblBusySignal);
+            this.flowLayoutPanel5.Controls.Add(this.lblEndSignal);
+            this.flowLayoutPanel5.Controls.Add(this.lblAlarmSignal);
+            this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(651, 355);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(727, 113);
+            this.flowLayoutPanel5.TabIndex = 69;
             // 
-            // label14
+            // lblTightenSignal
             // 
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(548, 65);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(111, 33);
-            this.label14.TabIndex = 203;
-            this.label14.Text = "报警信号";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTightenSignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblTightenSignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTightenSignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTightenSignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTightenSignal.Location = new System.Drawing.Point(3, 3);
+            this.lblTightenSignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblTightenSignal.Name = "lblTightenSignal";
+            this.lblTightenSignal.Size = new System.Drawing.Size(238, 49);
+            this.lblTightenSignal.TabIndex = 104;
+            this.lblTightenSignal.Tag = "BackColor";
+            this.lblTightenSignal.Text = "拧紧信号";
+            this.lblTightenSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // lblLoosenSignal
             // 
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label13.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label13.Location = new System.Drawing.Point(548, 14);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 33);
-            this.label13.TabIndex = 202;
-            this.label13.Text = "空转信号";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLoosenSignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblLoosenSignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblLoosenSignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLoosenSignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblLoosenSignal.Location = new System.Drawing.Point(247, 3);
+            this.lblLoosenSignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblLoosenSignal.Name = "lblLoosenSignal";
+            this.lblLoosenSignal.Size = new System.Drawing.Size(238, 49);
+            this.lblLoosenSignal.TabIndex = 105;
+            this.lblLoosenSignal.Tag = "BackColor";
+            this.lblLoosenSignal.Text = "拧松信号";
+            this.lblLoosenSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label12
+            // lblLdlingSignal
             // 
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label12.Location = new System.Drawing.Point(312, 64);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(111, 33);
-            this.label12.TabIndex = 201;
-            this.label12.Text = "结束信号";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblLdlingSignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblLdlingSignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblLdlingSignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblLdlingSignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblLdlingSignal.Location = new System.Drawing.Point(491, 3);
+            this.lblLdlingSignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblLdlingSignal.Name = "lblLdlingSignal";
+            this.lblLdlingSignal.Size = new System.Drawing.Size(230, 49);
+            this.lblLdlingSignal.TabIndex = 106;
+            this.lblLdlingSignal.Tag = "BackColor";
+            this.lblLdlingSignal.Text = "空转信号";
+            this.lblLdlingSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // lblBusySignal
             // 
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(312, 14);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 33);
-            this.label11.TabIndex = 200;
-            this.label11.Text = "拧松信号";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblBusySignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblBusySignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblBusySignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblBusySignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblBusySignal.Location = new System.Drawing.Point(3, 58);
+            this.lblBusySignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblBusySignal.Name = "lblBusySignal";
+            this.lblBusySignal.Size = new System.Drawing.Size(238, 49);
+            this.lblBusySignal.TabIndex = 107;
+            this.lblBusySignal.Tag = "BackColor";
+            this.lblBusySignal.Text = "忙碌信号";
+            this.lblBusySignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label10
+            // lblEndSignal
             // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(72, 64);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 33);
-            this.label10.TabIndex = 199;
-            this.label10.Text = "忙碌信号";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEndSignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblEndSignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEndSignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblEndSignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblEndSignal.Location = new System.Drawing.Point(247, 58);
+            this.lblEndSignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblEndSignal.Name = "lblEndSignal";
+            this.lblEndSignal.Size = new System.Drawing.Size(238, 49);
+            this.lblEndSignal.TabIndex = 108;
+            this.lblEndSignal.Tag = "BackColor";
+            this.lblEndSignal.Text = "结束信号";
+            this.lblEndSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lblAlarmSignal
             // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(72, 14);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(111, 33);
-            this.label9.TabIndex = 198;
-            this.label9.Text = "拧紧信号";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAlarmSignal.BackColor = System.Drawing.Color.DodgerBlue;
+            this.lblAlarmSignal.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            this.lblAlarmSignal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblAlarmSignal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblAlarmSignal.Location = new System.Drawing.Point(491, 58);
+            this.lblAlarmSignal.Margin = new System.Windows.Forms.Padding(3);
+            this.lblAlarmSignal.Name = "lblAlarmSignal";
+            this.lblAlarmSignal.Size = new System.Drawing.Size(230, 49);
+            this.lblAlarmSignal.TabIndex = 109;
+            this.lblAlarmSignal.Tag = "BackColor";
+            this.lblAlarmSignal.Text = "报警信号";
+            this.lblAlarmSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.tpanel9);
+            this.flowLayoutPanel4.Controls.Add(this.rtbLog);
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(651, 656);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(727, 95);
+            this.flowLayoutPanel4.TabIndex = 78;
+            // 
+            // tpanel9
+            // 
+            this.tpanel9.Alpha = 50;
+            this.tpanel9.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel9.Font = new System.Drawing.Font("思源黑体 CN Bold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tpanel9.ForeColor = System.Drawing.SystemColors.Window;
+            this.tpanel9.Location = new System.Drawing.Point(3, 3);
+            this.tpanel9.Name = "tpanel9";
+            this.tpanel9.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpanel9.PanelBorderColor = System.Drawing.Color.RosyBrown;
+            this.tpanel9.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
+            this.tpanel9.PanelOffsetY = 21F;
+            this.tpanel9.PanelText = "日志";
+            this.tpanel9.Size = new System.Drawing.Size(108, 86);
+            this.tpanel9.TabIndex = 0;
+            // 
+            // rtbLog
+            // 
+            this.rtbLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.rtbLog.ForeColor = System.Drawing.Color.White;
+            this.rtbLog.Location = new System.Drawing.Point(117, 3);
+            this.rtbLog.Name = "rtbLog";
+            this.rtbLog.ReadOnly = true;
+            this.rtbLog.Size = new System.Drawing.Size(607, 86);
+            this.rtbLog.TabIndex = 1;
+            this.rtbLog.Text = "";
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.tpanel8);
+            this.flowLayoutPanel3.Controls.Add(this.zRoundButton1);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(651, 607);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(727, 49);
+            this.flowLayoutPanel3.TabIndex = 77;
+            // 
+            // tpanel8
+            // 
+            this.tpanel8.Alpha = 50;
+            this.tpanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpanel8.Controls.Add(this.label20);
+            this.tpanel8.Location = new System.Drawing.Point(3, 3);
+            this.tpanel8.Name = "tpanel8";
+            this.tpanel8.PanelBorderRadius = 5F;
+            this.tpanel8.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
+            this.tpanel8.PanelOffsetY = 21F;
+            this.tpanel8.PanelText = "";
+            this.tpanel8.Size = new System.Drawing.Size(593, 46);
+            this.tpanel8.TabIndex = 0;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.Transparent;
+            this.label20.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label20.Location = new System.Drawing.Point(8, 7);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(111, 33);
+            this.label20.TabIndex = 200;
+            this.label20.Text = "产品码:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // zRoundButton1
+            // 
+            this.zRoundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.zRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.zRoundButton1.EXBorderRadius = 5F;
+            this.zRoundButton1.EXButtonColor = System.Drawing.Color.DodgerBlue;
+            this.zRoundButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.zRoundButton1.ForeColor = System.Drawing.SystemColors.Window;
+            this.zRoundButton1.Isbackcplor = false;
+            this.zRoundButton1.Location = new System.Drawing.Point(602, 3);
+            this.zRoundButton1.Name = "zRoundButton1";
+            this.zRoundButton1.ReverseButtonColor = System.Drawing.Color.Lime;
+            this.zRoundButton1.Size = new System.Drawing.Size(122, 46);
+            this.zRoundButton1.TabIndex = 1;
+            this.zRoundButton1.Text = "随机码";
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblBadScrews);
+            this.panel1.Controls.Add(this.lblScrews);
+            this.panel1.Controls.Add(this.lblGoodScrews);
+            this.panel1.Controls.Add(this.lblScrewsTotal);
             this.panel1.Controls.Add(this.zGradientProgressBar1);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
@@ -865,10 +983,62 @@
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(651, 467);
+            this.panel1.Location = new System.Drawing.Point(651, 468);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(727, 139);
-            this.panel1.TabIndex = 70;
+            this.panel1.TabIndex = 76;
+            // 
+            // lblBadScrews
+            // 
+            this.lblBadScrews.BackColor = System.Drawing.Color.Transparent;
+            this.lblBadScrews.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBadScrews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblBadScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblBadScrews.Location = new System.Drawing.Point(502, 48);
+            this.lblBadScrews.Name = "lblBadScrews";
+            this.lblBadScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblBadScrews.TabIndex = 206;
+            this.lblBadScrews.Text = "0";
+            this.lblBadScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblScrews
+            // 
+            this.lblScrews.BackColor = System.Drawing.Color.Transparent;
+            this.lblScrews.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblScrews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblScrews.Location = new System.Drawing.Point(502, 9);
+            this.lblScrews.Name = "lblScrews";
+            this.lblScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblScrews.TabIndex = 205;
+            this.lblScrews.Text = "0";
+            this.lblScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblGoodScrews
+            // 
+            this.lblGoodScrews.BackColor = System.Drawing.Color.Transparent;
+            this.lblGoodScrews.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblGoodScrews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblGoodScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblGoodScrews.Location = new System.Drawing.Point(179, 48);
+            this.lblGoodScrews.Name = "lblGoodScrews";
+            this.lblGoodScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblGoodScrews.TabIndex = 204;
+            this.lblGoodScrews.Text = "0";
+            this.lblGoodScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblScrewsTotal
+            // 
+            this.lblScrewsTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblScrewsTotal.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblScrewsTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblScrewsTotal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblScrewsTotal.Location = new System.Drawing.Point(179, 9);
+            this.lblScrewsTotal.Name = "lblScrewsTotal";
+            this.lblScrewsTotal.Size = new System.Drawing.Size(111, 33);
+            this.lblScrewsTotal.TabIndex = 203;
+            this.lblScrewsTotal.Text = "0";
+            this.lblScrewsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // zGradientProgressBar1
             // 
@@ -945,108 +1115,6 @@
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.tpanel8);
-            this.flowLayoutPanel3.Controls.Add(this.zRoundButton1);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(651, 606);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(727, 49);
-            this.flowLayoutPanel3.TabIndex = 71;
-            // 
-            // tpanel8
-            // 
-            this.tpanel8.Alpha = 50;
-            this.tpanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel8.Controls.Add(this.label20);
-            this.tpanel8.Location = new System.Drawing.Point(3, 3);
-            this.tpanel8.Name = "tpanel8";
-            this.tpanel8.PanelBorderRadius = 5F;
-            this.tpanel8.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
-            this.tpanel8.PanelOffsetY = 21F;
-            this.tpanel8.PanelText = "";
-            this.tpanel8.Size = new System.Drawing.Size(593, 46);
-            this.tpanel8.TabIndex = 0;
-            // 
-            // label20
-            // 
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label20.Location = new System.Drawing.Point(8, 7);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(111, 33);
-            this.label20.TabIndex = 200;
-            this.label20.Text = "产品码:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // zRoundButton1
-            // 
-            this.zRoundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.zRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zRoundButton1.EXBorderRadius = 5F;
-            this.zRoundButton1.EXButtonColor = System.Drawing.Color.DodgerBlue;
-            this.zRoundButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.zRoundButton1.ForeColor = System.Drawing.SystemColors.Window;
-            this.zRoundButton1.Isbackcplor = false;
-            this.zRoundButton1.Location = new System.Drawing.Point(602, 3);
-            this.zRoundButton1.Name = "zRoundButton1";
-            this.zRoundButton1.ReverseButtonColor = System.Drawing.Color.Lime;
-            this.zRoundButton1.Size = new System.Drawing.Size(122, 46);
-            this.zRoundButton1.TabIndex = 1;
-            this.zRoundButton1.Text = "随机码";
-            // 
-            // flowLayoutPanel4
-            // 
-            this.flowLayoutPanel4.Controls.Add(this.tpanel9);
-            this.flowLayoutPanel4.Controls.Add(this.rtbLog);
-            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(651, 655);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(727, 95);
-            this.flowLayoutPanel4.TabIndex = 72;
-            // 
-            // tpanel9
-            // 
-            this.tpanel9.Alpha = 50;
-            this.tpanel9.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel9.Font = new System.Drawing.Font("思源黑体 CN Bold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tpanel9.ForeColor = System.Drawing.SystemColors.Window;
-            this.tpanel9.Location = new System.Drawing.Point(3, 3);
-            this.tpanel9.Name = "tpanel9";
-            this.tpanel9.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel9.PanelBorderColor = System.Drawing.Color.RosyBrown;
-            this.tpanel9.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
-            this.tpanel9.PanelOffsetY = 21F;
-            this.tpanel9.PanelText = "日志";
-            this.tpanel9.Size = new System.Drawing.Size(108, 86);
-            this.tpanel9.TabIndex = 0;
-            // 
-            // rtbLog
-            // 
-            this.rtbLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.rtbLog.ForeColor = System.Drawing.Color.White;
-            this.rtbLog.Location = new System.Drawing.Point(117, 3);
-            this.rtbLog.Name = "rtbLog";
-            this.rtbLog.ReadOnly = true;
-            this.rtbLog.Size = new System.Drawing.Size(607, 86);
-            this.rtbLog.TabIndex = 1;
-            this.rtbLog.Text = "";
-            // 
-            // lblRunState
-            // 
-            this.lblRunState.Font = new System.Drawing.Font("思源黑体 CN Bold", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblRunState.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblRunState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblRunState.Location = new System.Drawing.Point(201, 2);
-            this.lblRunState.Name = "lblRunState";
-            this.lblRunState.Size = new System.Drawing.Size(380, 120);
-            this.lblRunState.TabIndex = 200;
-            this.lblRunState.Text = "Ready";
-            this.lblRunState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // RunUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1054,7 +1122,7 @@
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.customPanel1);
+            this.Controls.Add(this.flowLayoutPanel5);
             this.Controls.Add(this.tpanel7);
             this.Controls.Add(this.tpanel2);
             this.Controls.Add(this.tpanel1);
@@ -1078,11 +1146,11 @@
             this.tpanel2.ResumeLayout(false);
             this.tpanel2.PerformLayout();
             this.tpanel7.ResumeLayout(false);
-            this.customPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tpanel8.ResumeLayout(false);
-            this.flowLayoutPanel4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1104,33 +1172,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label lblRunState;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lalAlarm;
         private System.Windows.Forms.Label label7;
-        private ZimaBlueUI.CustomPanel customPanel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private ZimaBlueUI.ZGradientProgressBar zGradientProgressBar1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private ZimaBlueUI.Tpanel tpanel8;
-        private ZimaBlueUI.ZRoundButton zRoundButton1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
-        private ZimaBlueUI.Tpanel tpanel9;
-        private System.Windows.Forms.Label TaskNumber;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.RichTextBox rtbLog;
+        private System.Windows.Forms.Label lblTaskNumber;
+        private System.Windows.Forms.Label lalCT;
+        private System.Windows.Forms.Label lblTorque;
+        private System.Windows.Forms.Label lblLaps;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button SDbut;
@@ -1152,5 +1199,30 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        private System.Windows.Forms.Label lblTightenSignal;
+        private System.Windows.Forms.Label lblLoosenSignal;
+        private System.Windows.Forms.Label lblLdlingSignal;
+        private System.Windows.Forms.Label lblBusySignal;
+        private System.Windows.Forms.Label lblEndSignal;
+        private System.Windows.Forms.Label lblAlarmSignal;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private ZimaBlueUI.Tpanel tpanel9;
+        private System.Windows.Forms.RichTextBox rtbLog;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private ZimaBlueUI.Tpanel tpanel8;
+        private System.Windows.Forms.Label label20;
+        private ZimaBlueUI.ZRoundButton zRoundButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblBadScrews;
+        private System.Windows.Forms.Label lblScrews;
+        private System.Windows.Forms.Label lblGoodScrews;
+        private System.Windows.Forms.Label lblScrewsTotal;
+        private ZimaBlueUI.ZGradientProgressBar zGradientProgressBar1;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
     }
 }

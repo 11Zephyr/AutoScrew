@@ -154,5 +154,41 @@ namespace AutoScrewSys.VariableName {
                 this["ScrewsTotal"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TightenAction {
+            get {
+                return ((int)(this["TightenAction"]));
+            }
+            set {
+                this["TightenAction"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int LoosenAction {
+            get {
+                return ((int)(this["LoosenAction"]));
+            }
+            set {
+                this["LoosenAction"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int FreeAction {
+            get {
+                return ((int)(this["FreeAction"]));
+            }
+            set {
+                this["FreeAction"] = value;
+            }
+        }
     }
 }
