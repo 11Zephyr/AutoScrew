@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
@@ -18,16 +19,6 @@ namespace AutoScrewSys.Frm
         public HistoryDataUI()
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void materialTabControl1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-
         }
 
         private void btnHisData_Click(object sender, EventArgs e)
@@ -42,7 +33,12 @@ namespace AutoScrewSys.Frm
 
         private void btnRefreshListBox_Click(object sender, EventArgs e)
         {
-            string folderPath = Settings.Default.ProductionDataPath; // 替换为你自己的路径
+            RefreshHisDataList();
+        }
+
+        private void RefreshHisDataList()
+        {
+            string folderPath = Settings.Default.ProductionDataPath;
             if (!Directory.Exists(folderPath))
             {
                 MessageBox.Show("路径不存在！");
@@ -103,7 +99,65 @@ namespace AutoScrewSys.Frm
 
             PositionView.DataSource = dt;
         }
-      
 
+        private void ShowWaveform(List<double> data)
+        {
+            chartWaveData.Series.Clear();
+            var series = new Series("扭力") { ChartType = SeriesChartType.Line };
+            for (int i = 0; i < data.Count; i++)
+                series.Points.AddXY(i, data[i]);
+            chartWaveData.Series.Add(series);
+        }
+
+        private void PositionView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // 过滤表头等无效行
+
+            // 1. 获取listHisData选中的日期字符串
+            string selectedDate = listHisData.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedDate))
+            {
+                MessageBox.Show("请先选择日期！");
+                return;
+            }
+
+            // 2. 拼接当日目录完整路径
+            string basePath = Path.Combine(Settings.Default.ProductionDataPath, "BinFiles");
+            string folderPath = Path.Combine(basePath, selectedDate);
+            if (!Directory.Exists(folderPath))
+            {
+                MessageBox.Show($"日期目录不存在：{folderPath}");
+                return;
+            }
+
+            // 3. 获取点击的行号，转成编号（编号从1开始，对应文件名 001.bin）
+            int fileIndex = e.RowIndex + 1; // 如果你的 dgv 行索引和编号一一对应（从0开始），+1变成文件名编号
+            string fileName = $"{fileIndex:D3}.bin";
+            string filePath = Path.Combine(folderPath, fileName);
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show($"文件不存在：{filePath}");
+                return;
+            }
+
+            // 4. 读取bin文件数据，生成波形列表
+            List<double> waveform = new List<double>();
+            using (BinaryReader reader = new BinaryReader(File.Open(filePath, FileMode.Open)))
+            {
+                while (reader.BaseStream.Position < reader.BaseStream.Length)
+                {
+                    waveform.Add(reader.ReadDouble());
+                }
+            }
+
+            // 5. 显示波形图
+            ShowWaveform(waveform);
+        }
+
+        private void HistoryDataUI_Load(object sender, EventArgs e)
+        {
+            RefreshHisDataList();
+        }
     }
 }

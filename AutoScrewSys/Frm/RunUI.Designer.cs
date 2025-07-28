@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -54,7 +54,6 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.homeTorque = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
             this.PositionView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,7 +68,7 @@
             this.lblTaskNumber = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpanel4 = new ZimaBlueUI.Tpanel();
-            this.lalCT = new System.Windows.Forms.Label();
+            this.lblCT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
             this.lblTorque = new System.Windows.Forms.Label();
@@ -79,7 +78,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
             this.lblRunState = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbxNoCollection = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
             this.lalAlarm = new System.Windows.Forms.Label();
@@ -103,12 +102,16 @@
             this.lblScrews = new System.Windows.Forms.Label();
             this.lblGoodScrews = new System.Windows.Forms.Label();
             this.lblScrewsTotal = new System.Windows.Forms.Label();
-            this.zGradientProgressBar1 = new ZimaBlueUI.ZGradientProgressBar();
+            this.Yield = new ZimaBlueUI.ZGradientProgressBar();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.tpanel = new ZimaBlueUI.Tpanel();
+            this.btnTightenMove = new ZimaBlueUI.Tpanel();
+            this.btnFreeMove = new ZimaBlueUI.Tpanel();
+            this.btnLoosenMove = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -129,6 +132,7 @@
             this.flowLayoutPanel3.SuspendLayout();
             this.tpanel8.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -145,6 +149,7 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel12.Controls.Add(this.tpanel);
             this.panel12.Controls.Add(this.chart1);
             this.panel12.Controls.Add(this.SDbut);
             this.panel12.Controls.Add(this.panel15);
@@ -153,7 +158,6 @@
             this.panel12.Controls.Add(this.panel14);
             this.panel12.Controls.Add(this.panel13);
             this.panel12.Controls.Add(this.label25);
-            this.panel12.Controls.Add(this.label26);
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(642, 326);
@@ -163,57 +167,57 @@
             // 
             this.chart1.BackColor = System.Drawing.Color.Transparent;
             this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisX.LabelAutoFitMaxFontSize = 8;
-            chartArea2.AxisX.LabelAutoFitMinFontSize = 8;
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisX.MajorGrid.Enabled = false;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
-            chartArea2.AxisX.Minimum = 0D;
-            chartArea2.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea2.AxisY.LabelAutoFitMinFontSize = 8;
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            chartArea2.AxisY.LineColor = System.Drawing.Color.White;
-            chartArea2.AxisY.MajorGrid.Enabled = false;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY.Title = "扭力 (mN·m)";
-            chartArea2.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
-            chartArea2.BackColor = System.Drawing.Color.Transparent;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 90F;
-            chartArea2.Position.Width = 100F;
-            chartArea2.Position.Y = 10F;
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.BackColor = System.Drawing.Color.Transparent;
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            legend2.ForeColor = System.Drawing.Color.White;
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            legend2.ShadowColor = System.Drawing.Color.Black;
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(6, 75);
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.LabelAutoFitMaxFontSize = 8;
+            chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea1.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea1.AxisY.LabelAutoFitMinFontSize = 8;
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            chartArea1.AxisY.LineColor = System.Drawing.Color.White;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.Title = "扭力 (mN·m)";
+            chartArea1.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 90F;
+            chartArea1.Position.Width = 100F;
+            chartArea1.Position.Y = 10F;
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            legend1.ForeColor = System.Drawing.Color.White;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            legend1.ShadowColor = System.Drawing.Color.Black;
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(6, 52);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series2.BackImageTransparentColor = System.Drawing.Color.White;
-            series2.BackSecondaryColor = System.Drawing.Color.Transparent;
-            series2.BorderColor = System.Drawing.Color.Lime;
-            series2.BorderWidth = 2;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series2.Color = System.Drawing.Color.Lime;
-            series2.Legend = "Legend1";
-            series2.LegendText = "Kgf";
-            series2.Name = "Series1";
-            series2.ShadowColor = System.Drawing.Color.Black;
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(544, 221);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series1.BackImageTransparentColor = System.Drawing.Color.White;
+            series1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            series1.BorderColor = System.Drawing.Color.Lime;
+            series1.BorderWidth = 2;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.Legend = "Legend1";
+            series1.LegendText = "Kgf";
+            series1.Name = "Series1";
+            series1.ShadowColor = System.Drawing.Color.Black;
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(544, 244);
             this.chart1.TabIndex = 58;
             this.chart1.Text = "chart1";
             // 
@@ -226,18 +230,19 @@
             this.SDbut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
             this.SDbut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SDbut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SDbut.Location = new System.Drawing.Point(12, 32);
+            this.SDbut.Location = new System.Drawing.Point(12, 8);
             this.SDbut.Name = "SDbut";
             this.SDbut.Size = new System.Drawing.Size(45, 45);
             this.SDbut.TabIndex = 57;
             this.SDbut.UseVisualStyleBackColor = true;
+            this.SDbut.Click += new System.EventHandler(this.SDbut_Click);
             // 
             // panel15
             // 
             this.panel15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel15.BackgroundImage")));
             this.panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel15.Controls.Add(this.homerevolutions);
-            this.panel15.Location = new System.Drawing.Point(578, 225);
+            this.panel15.Location = new System.Drawing.Point(575, 225);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(65, 65);
             this.panel15.TabIndex = 37;
@@ -249,7 +254,7 @@
             this.homerevolutions.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
             this.homerevolutions.ForeColor = System.Drawing.Color.White;
             this.homerevolutions.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.homerevolutions.Location = new System.Drawing.Point(0, 15);
+            this.homerevolutions.Location = new System.Drawing.Point(-3, 15);
             this.homerevolutions.Name = "homerevolutions";
             this.homerevolutions.Size = new System.Drawing.Size(71, 37);
             this.homerevolutions.TabIndex = 39;
@@ -263,7 +268,7 @@
             this.StartTorque.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
             this.StartTorque.ForeColor = System.Drawing.Color.Transparent;
             this.StartTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.StartTorque.Location = new System.Drawing.Point(555, 10);
+            this.StartTorque.Location = new System.Drawing.Point(552, 10);
             this.StartTorque.Name = "StartTorque";
             this.StartTorque.Size = new System.Drawing.Size(112, 28);
             this.StartTorque.TabIndex = 43;
@@ -277,7 +282,7 @@
             this.label21.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
             this.label21.ForeColor = System.Drawing.Color.Transparent;
             this.label21.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label21.Location = new System.Drawing.Point(574, 198);
+            this.label21.Location = new System.Drawing.Point(571, 198);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(75, 28);
             this.label21.TabIndex = 41;
@@ -289,7 +294,7 @@
             this.panel14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel14.BackgroundImage")));
             this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel14.Controls.Add(this.RotationalSpeed);
-            this.panel14.Location = new System.Drawing.Point(578, 133);
+            this.panel14.Location = new System.Drawing.Point(575, 133);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(65, 65);
             this.panel14.TabIndex = 36;
@@ -302,7 +307,7 @@
             this.RotationalSpeed.ForeColor = System.Drawing.Color.White;
             this.RotationalSpeed.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RotationalSpeed.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.RotationalSpeed.Location = new System.Drawing.Point(-3, 15);
+            this.RotationalSpeed.Location = new System.Drawing.Point(-6, 15);
             this.RotationalSpeed.Name = "RotationalSpeed";
             this.RotationalSpeed.Size = new System.Drawing.Size(74, 37);
             this.RotationalSpeed.TabIndex = 38;
@@ -315,7 +320,7 @@
             this.panel13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel13.BackgroundImage")));
             this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel13.Controls.Add(this.homeTorque);
-            this.panel13.Location = new System.Drawing.Point(577, 38);
+            this.panel13.Location = new System.Drawing.Point(574, 38);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(65, 65);
             this.panel13.TabIndex = 35;
@@ -328,7 +333,7 @@
             this.homeTorque.ForeColor = System.Drawing.Color.Transparent;
             this.homeTorque.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.homeTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.homeTorque.Location = new System.Drawing.Point(-3, 14);
+            this.homeTorque.Location = new System.Drawing.Point(-6, 14);
             this.homeTorque.Name = "homeTorque";
             this.homeTorque.Size = new System.Drawing.Size(74, 37);
             this.homeTorque.TabIndex = 42;
@@ -342,25 +347,12 @@
             this.label25.Font = new System.Drawing.Font("思源黑体 CN Regular", 11F);
             this.label25.ForeColor = System.Drawing.Color.Transparent;
             this.label25.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label25.Location = new System.Drawing.Point(552, 102);
+            this.label25.Location = new System.Drawing.Point(549, 102);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(118, 28);
             this.label25.TabIndex = 40;
             this.label25.Text = "转速r/min";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label26
-            // 
-            this.label26.BackColor = System.Drawing.Color.Transparent;
-            this.label26.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label26.Location = new System.Drawing.Point(26, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(125, 33);
-            this.label26.TabIndex = 34;
-            this.label26.Text = "电批数据";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PositionView
             // 
@@ -368,17 +360,17 @@
             this.PositionView.AllowUserToDeleteRows = false;
             this.PositionView.AllowUserToResizeColumns = false;
             this.PositionView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.PositionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PositionView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.PositionView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("思源黑体 CN Bold", 13F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.PositionView.ColumnHeadersHeight = 32;
             this.PositionView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -394,21 +386,21 @@
             this.PositionView.MultiSelect = false;
             this.PositionView.Name = "PositionView";
             this.PositionView.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.PositionView.RowHeadersVisible = false;
             this.PositionView.RowHeadersWidth = 20;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.PositionView.RowTemplate.Height = 30;
             this.PositionView.ShowCellErrors = false;
             this.PositionView.ShowCellToolTips = false;
@@ -420,11 +412,11 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "序号";
             this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -432,8 +424,8 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "SN 码";
             this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -443,9 +435,9 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("思源黑体 CN Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("思源黑体 CN Regular", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn3.HeaderText = "时间";
             this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -455,8 +447,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn4.HeaderText = "点位";
             this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -466,8 +458,8 @@
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn5.HeaderText = "圈数";
             this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -565,7 +557,7 @@
             // 
             this.tpanel4.Alpha = 50;
             this.tpanel4.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel4.Controls.Add(this.lalCT);
+            this.tpanel4.Controls.Add(this.lblCT);
             this.tpanel4.Controls.Add(this.label1);
             this.tpanel4.Location = new System.Drawing.Point(371, 3);
             this.tpanel4.Name = "tpanel4";
@@ -577,17 +569,17 @@
             this.tpanel4.Size = new System.Drawing.Size(353, 68);
             this.tpanel4.TabIndex = 69;
             // 
-            // lalCT
+            // lblCT
             // 
-            this.lalCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.lalCT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lalCT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lalCT.Location = new System.Drawing.Point(143, 18);
-            this.lalCT.Name = "lalCT";
-            this.lalCT.Size = new System.Drawing.Size(179, 33);
-            this.lalCT.TabIndex = 198;
-            this.lalCT.Text = "0";
-            this.lalCT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblCT.Location = new System.Drawing.Point(143, 18);
+            this.lblCT.Name = "lblCT";
+            this.lblCT.Size = new System.Drawing.Size(179, 33);
+            this.lblCT.TabIndex = 198;
+            this.lblCT.Text = "0";
+            this.lblCT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -686,7 +678,7 @@
             this.tpanel2.Alpha = 50;
             this.tpanel2.BackColor = System.Drawing.Color.Transparent;
             this.tpanel2.Controls.Add(this.lblRunState);
-            this.tpanel2.Controls.Add(this.checkBox1);
+            this.tpanel2.Controls.Add(this.cbxNoCollection);
             this.tpanel2.Controls.Add(this.label5);
             this.tpanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tpanel2.Location = new System.Drawing.Point(651, 151);
@@ -711,17 +703,17 @@
             this.lblRunState.Text = "Ready";
             this.lblRunState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // checkBox1
+            // cbxNoCollection
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBox1.Location = new System.Drawing.Point(608, 25);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(77, 27);
-            this.checkBox1.TabIndex = 199;
-            this.checkBox1.Text = "不采集";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbxNoCollection.AutoSize = true;
+            this.cbxNoCollection.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.cbxNoCollection.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbxNoCollection.Location = new System.Drawing.Point(608, 25);
+            this.cbxNoCollection.Name = "cbxNoCollection";
+            this.cbxNoCollection.Size = new System.Drawing.Size(77, 27);
+            this.cbxNoCollection.TabIndex = 199;
+            this.cbxNoCollection.Text = "不采集";
+            this.cbxNoCollection.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -976,7 +968,7 @@
             this.panel1.Controls.Add(this.lblScrews);
             this.panel1.Controls.Add(this.lblGoodScrews);
             this.panel1.Controls.Add(this.lblScrewsTotal);
-            this.panel1.Controls.Add(this.zGradientProgressBar1);
+            this.panel1.Controls.Add(this.Yield);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
             this.panel1.Controls.Add(this.label18);
@@ -1040,15 +1032,15 @@
             this.lblScrewsTotal.Text = "0";
             this.lblScrewsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // zGradientProgressBar1
+            // Yield
             // 
-            this.zGradientProgressBar1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.zGradientProgressBar1.Location = new System.Drawing.Point(143, 99);
-            this.zGradientProgressBar1.Name = "zGradientProgressBar1";
-            this.zGradientProgressBar1.Progress = 0F;
-            this.zGradientProgressBar1.Size = new System.Drawing.Size(516, 23);
-            this.zGradientProgressBar1.TabIndex = 71;
-            this.zGradientProgressBar1.Text = "zGradientProgressBar1";
+            this.Yield.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.Yield.Location = new System.Drawing.Point(143, 99);
+            this.Yield.Name = "Yield";
+            this.Yield.Progress = 0F;
+            this.Yield.Size = new System.Drawing.Size(516, 23);
+            this.Yield.TabIndex = 71;
+            this.Yield.Text = "zGradientProgressBar1";
             // 
             // label19
             // 
@@ -1115,6 +1107,71 @@
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tpanel
+            // 
+            this.tpanel.Alpha = 0;
+            this.tpanel.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel.Controls.Add(this.btnTightenMove);
+            this.tpanel.Controls.Add(this.btnFreeMove);
+            this.tpanel.Controls.Add(this.btnLoosenMove);
+            this.tpanel.Location = new System.Drawing.Point(67, 95);
+            this.tpanel.Name = "tpanel";
+            this.tpanel.PanelBorderRadius = 1F;
+            this.tpanel.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
+            this.tpanel.PanelOffsetY = 21F;
+            this.tpanel.PanelText = "";
+            this.tpanel.Size = new System.Drawing.Size(483, 122);
+            this.tpanel.TabIndex = 59;
+            this.tpanel.Visible = false;
+            // 
+            // btnTightenMove
+            // 
+            this.btnTightenMove.Alpha = 255;
+            this.btnTightenMove.BackColor = System.Drawing.Color.Transparent;
+            this.btnTightenMove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnTightenMove.Location = new System.Drawing.Point(56, 33);
+            this.btnTightenMove.Name = "btnTightenMove";
+            this.btnTightenMove.PanelBackColor = System.Drawing.Color.Red;
+            this.btnTightenMove.PanelBorderRadius = 8F;
+            this.btnTightenMove.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 15F);
+            this.btnTightenMove.PanelOffsetY = 24F;
+            this.btnTightenMove.PanelText = "拧紧";
+            this.btnTightenMove.Size = new System.Drawing.Size(90, 70);
+            this.btnTightenMove.TabIndex = 60;
+            this.btnTightenMove.Paint += new System.Windows.Forms.PaintEventHandler(this.btnTightenMove_Paint);
+            // 
+            // btnFreeMove
+            // 
+            this.btnFreeMove.Alpha = 255;
+            this.btnFreeMove.BackColor = System.Drawing.Color.Transparent;
+            this.btnFreeMove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnFreeMove.Location = new System.Drawing.Point(338, 33);
+            this.btnFreeMove.Name = "btnFreeMove";
+            this.btnFreeMove.PanelBackColor = System.Drawing.Color.DodgerBlue;
+            this.btnFreeMove.PanelBorderRadius = 8F;
+            this.btnFreeMove.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 15F);
+            this.btnFreeMove.PanelOffsetY = 24F;
+            this.btnFreeMove.PanelText = "自由";
+            this.btnFreeMove.Size = new System.Drawing.Size(90, 70);
+            this.btnFreeMove.TabIndex = 61;
+            this.btnFreeMove.Paint += new System.Windows.Forms.PaintEventHandler(this.btnFreeMove_Paint);
+            // 
+            // btnLoosenMove
+            // 
+            this.btnLoosenMove.Alpha = 255;
+            this.btnLoosenMove.BackColor = System.Drawing.Color.Transparent;
+            this.btnLoosenMove.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnLoosenMove.Location = new System.Drawing.Point(197, 33);
+            this.btnLoosenMove.Name = "btnLoosenMove";
+            this.btnLoosenMove.PanelBackColor = System.Drawing.Color.Chartreuse;
+            this.btnLoosenMove.PanelBorderRadius = 8F;
+            this.btnLoosenMove.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 15F);
+            this.btnLoosenMove.PanelOffsetY = 25F;
+            this.btnLoosenMove.PanelText = "拧松";
+            this.btnLoosenMove.Size = new System.Drawing.Size(90, 70);
+            this.btnLoosenMove.TabIndex = 61;
+            this.btnLoosenMove.Paint += new System.Windows.Forms.PaintEventHandler(this.btnLoosenMove_Paint);
+            // 
             // RunUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1151,6 +1208,7 @@
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tpanel8.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tpanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1170,12 +1228,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbxNoCollection;
         private System.Windows.Forms.Label lblRunState;
         private System.Windows.Forms.Label lalAlarm;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTaskNumber;
-        private System.Windows.Forms.Label lalCT;
+        private System.Windows.Forms.Label lblCT;
         private System.Windows.Forms.Label lblTorque;
         private System.Windows.Forms.Label lblLaps;
         private System.Windows.Forms.Panel panel12;
@@ -1190,7 +1248,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label homeTorque;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.DataGridView PositionView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1218,11 +1275,15 @@
         private System.Windows.Forms.Label lblScrews;
         private System.Windows.Forms.Label lblGoodScrews;
         private System.Windows.Forms.Label lblScrewsTotal;
-        private ZimaBlueUI.ZGradientProgressBar zGradientProgressBar1;
+        private ZimaBlueUI.ZGradientProgressBar Yield;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private ZimaBlueUI.Tpanel tpanel;
+        private ZimaBlueUI.Tpanel btnTightenMove;
+        private ZimaBlueUI.Tpanel btnFreeMove;
+        private ZimaBlueUI.Tpanel btnLoosenMove;
     }
 }

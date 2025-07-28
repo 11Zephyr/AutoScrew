@@ -154,5 +154,17 @@ namespace AutoScrewSys.Properties {
                 this["ProductionDataPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int GoodScrews {
+            get {
+                return ((int)(this["GoodScrews"]));
+            }
+            set {
+                this["GoodScrews"] = value;
+            }
+        }
     }
 }

@@ -45,8 +45,9 @@ namespace AutoScrewSys.Frm
 
         private void InitTorqueChart()
         {
-            GlobalMonitor.OnTorqueWaveUpdated += (timeArray, torqueArray) =>
+            GlobalMonitor.OnTorqueWaveUpdated += (startNum, torqueArray) =>
             {
+
                 this.Invoke(new Action(() =>
                 {
                     if (Settings.Default.CurrentRunState)
@@ -54,11 +55,9 @@ namespace AutoScrewSys.Frm
                         chart1.Series[0].Points.Clear();
                         Settings.Default.CurrentRunState = false;
                     }
+                    chart1.Series[0].Points.AddXY(startNum, torqueArray.Average(t => (double)t));
+                    homeTorque.Text = torqueArray.Average(t => (double)t).ToString();
 
-                    for (int i = 0; i < torqueArray.Length; i++)
-                    {
-                        chart1.Series[0].Points.AddXY(timeArray[i].ToString("HH:mm:ss.fff"), torqueArray[i]);
-                    }
                 }));
 
 
@@ -66,7 +65,7 @@ namespace AutoScrewSys.Frm
         }
         private void InitResultDgv()
         {
-            GlobalMonitor.OnResultsUpdated += (string result) =>
+            GlobalMonitor.OnResultsUpdated += (string result, string ct) =>
             {
                 this.Invoke((Action)(() =>
                 {
@@ -82,6 +81,10 @@ namespace AutoScrewSys.Frm
                     // 添加新行
                     PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
                     AppendLastRowToCsv(PositionView, Settings.Default.ProductionDataPath);
+                    SaveWaveformToDatedFolder();
+
+                    Settings.Default.GoodScrews = result == "OK" ? Settings.Default.GoodScrews + 1 : Settings.Default.GoodScrews;
+                    lblCT.Text = ct;
                 }));
             };
         }
@@ -240,10 +243,18 @@ namespace AutoScrewSys.Frm
                         lblTaskNumber.Text = AddrName.Default.TaskNumber.ToString();
                         lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
                         lblTorque.Text = AddrName.Default.Torque.ToString();
+                        RotationalSpeed.Text = AddrName.Default.RotateSpeed.ToString();
                         lblLaps.Text = AddrName.Default.LapsNum.ToString();
                         lalAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
                         lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
-                        UpdateActionStatus();
+                        homerevolutions.Text = AddrName.Default.LapsNum.ToString();
+                        lblGoodScrews.Text = Settings.Default.GoodScrews.ToString();
+                        lblBadScrews.Text = (AddrName.Default.ScrewsTotal - Settings.Default.GoodScrews).ToString();
+                        Yield.Progress = AddrName.Default.ScrewsTotal == 0? 0f: (float)((Settings.Default.GoodScrews / (double)AddrName.Default.ScrewsTotal) * 100);
+
+                        System.Windows.Forms.Label[] beaLabels = new System.Windows.Forms.Label[] { lblBusySignal, lblEndSignal, lblAlarmSignal };
+                        System.Windows.Forms.Label[] tllLabels = new System.Windows.Forms.Label[] { lblTightenSignal, lblLoosenSignal, lblLdlingSignal };
+                        UpdateActionStatus(beaLabels,tllLabels);
                     }));
                 }
             });
@@ -259,6 +270,30 @@ namespace AutoScrewSys.Frm
                 _refreshThread.Join(200); // 可选：等待线程结束
             }
             _refreshThread = null;
+        }
+
+        private void SDbut_Click(object sender, EventArgs e)
+        {
+            tpanel.Visible = tpanel.Visible?false:true;
+            tpanel.BringToFront();
+        }
+
+        private void btnTightenMove_Paint(object sender, PaintEventArgs e)
+        {
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+        }
+
+        private void btnLoosenMove_Paint(object sender, PaintEventArgs e)
+        {
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+        }
+
+        private void btnFreeMove_Paint(object sender, PaintEventArgs e)
+        {
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
+            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         public static string GetAlarmMessage(int code)
@@ -277,7 +312,7 @@ namespace AutoScrewSys.Frm
                 default: return "未知报警代码";
             }
         }
-        public void UpdateActionStatus()
+        public void UpdateActionStatus(System.Windows.Forms.Label[] BEAlabels, System.Windows.Forms.Label[] TLLlabels)
         {
             int s = AddrName.Default.StateBits;
             int t = AddrName.Default.TightenAction;
@@ -286,7 +321,17 @@ namespace AutoScrewSys.Frm
 
             if (isFirst || s != lastStateBits || t != lastTighten || l != lastLoosen || f != lastFree)
             {
-                UpdateStateLabels(s,t,l,f);
+                //UpdateStateLabels(s, t, l, f);
+
+                for (int i = 0; i < BEAlabels.Length; i++)
+                {
+                    bool isActive = ((s >> i) & 1) == 0; // 0表示有效
+                    BEAlabels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+                }
+
+                TLLlabels[0].BackColor = t == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+                TLLlabels[1].BackColor = l == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+                TLLlabels[2].BackColor = f == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
 
                 // 更新旧值
                 lastStateBits = s;
@@ -296,15 +341,15 @@ namespace AutoScrewSys.Frm
                 isFirst = false;
             }
         }
-        private void UpdateStateLabels(int stateBits,int tightenSignal,int lossenSignal,int freeSignal)
+        private void UpdateStateLabels(int stateBits, int tightenSignal, int lossenSignal, int freeSignal, System.Windows.Forms.Label[] BEAlabels)
         {
-            
-            System.Windows.Forms.Label[] labels = { lblBusySignal, lblEndSignal, lblAlarmSignal};
 
-            for (int i = 0; i < labels.Length; i++)
+            //System.Windows.Forms.Label[] labels = { lblBusySignal, lblEndSignal, lblAlarmSignal };
+
+            for (int i = 0; i < BEAlabels.Length; i++)
             {
                 bool isActive = ((stateBits >> i) & 1) == 0; // 0表示有效
-                labels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+                BEAlabels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
             }
             lblTightenSignal.BackColor = tightenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
             lblLoosenSignal.BackColor = lossenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;

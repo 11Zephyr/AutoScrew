@@ -41,14 +41,10 @@
             this.hisFrmTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartWaveData = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PositionView = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
             this.btnRefreshListBox = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro2 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.listHisData = new System.Windows.Forms.ListBox();
@@ -67,7 +63,7 @@
             this.hisFrmTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWaveData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionView)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -133,7 +129,6 @@
             this.hisFrmTabControl.SelectedIndex = 0;
             this.hisFrmTabControl.Size = new System.Drawing.Size(1326, 753);
             this.hisFrmTabControl.TabIndex = 2;
-            this.hisFrmTabControl.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.materialTabControl1_DrawItem);
             // 
             // tabPage1
             // 
@@ -150,7 +145,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chart2);
+            this.panel1.Controls.Add(this.chartWaveData);
             this.panel1.Controls.Add(this.PositionView);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(152, 61);
@@ -158,10 +153,10 @@
             this.panel1.Size = new System.Drawing.Size(1163, 663);
             this.panel1.TabIndex = 9;
             // 
-            // chart2
+            // chartWaveData
             // 
-            this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.chart2.BorderlineColor = System.Drawing.Color.Black;
+            this.chartWaveData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.chartWaveData.BorderlineColor = System.Drawing.Color.Black;
             chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisX.LabelAutoFitMaxFontSize = 8;
             chartArea1.AxisX.LabelAutoFitMinFontSize = 8;
@@ -170,7 +165,7 @@
             chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
             chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisX.Title = "Time";
+            chartArea1.AxisX.Title = "Num";
             chartArea1.AxisX.TitleFont = new System.Drawing.Font("思源黑体 CN Regular", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             chartArea1.AxisX.TitleForeColor = System.Drawing.SystemColors.Window;
             chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
@@ -191,19 +186,19 @@
             chartArea1.Position.Height = 90F;
             chartArea1.Position.Width = 100F;
             chartArea1.Position.Y = 10F;
-            this.chart2.ChartAreas.Add(chartArea1);
-            this.chart2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.chartWaveData.ChartAreas.Add(chartArea1);
+            this.chartWaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             legend1.ForeColor = System.Drawing.Color.White;
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             legend1.ShadowColor = System.Drawing.Color.Black;
-            this.chart2.Legends.Add(legend1);
-            this.chart2.Location = new System.Drawing.Point(0, 345);
-            this.chart2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chart2.Name = "chart2";
-            this.chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartWaveData.Legends.Add(legend1);
+            this.chartWaveData.Location = new System.Drawing.Point(0, 345);
+            this.chartWaveData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chartWaveData.Name = "chartWaveData";
+            this.chartWaveData.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
             series1.BackImageTransparentColor = System.Drawing.Color.WhiteSmoke;
             series1.BackSecondaryColor = System.Drawing.Color.Black;
@@ -216,10 +211,10 @@
             series1.LegendText = "Kgf";
             series1.Name = "Series1";
             series1.ShadowColor = System.Drawing.Color.Black;
-            this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(1163, 318);
-            this.chart2.TabIndex = 68;
-            this.chart2.Text = "chart1";
+            this.chartWaveData.Series.Add(series1);
+            this.chartWaveData.Size = new System.Drawing.Size(1163, 318);
+            this.chartWaveData.TabIndex = 68;
+            this.chartWaveData.Text = "chart1";
             // 
             // PositionView
             // 
@@ -262,7 +257,7 @@
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PositionView.RowTemplate.Height = 30;
-            this.PositionView.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.PositionView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.PositionView.ShowCellErrors = false;
             this.PositionView.ShowCellToolTips = false;
             this.PositionView.ShowEditingIcon = false;
@@ -270,14 +265,11 @@
             this.PositionView.Size = new System.Drawing.Size(1163, 340);
             this.PositionView.TabIndex = 67;
             this.PositionView.TabStop = false;
+            this.PositionView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PositionView_CellClick);
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Controls.Add(this.label10);
-            this.flowLayoutPanel3.Controls.Add(this.materialComboBox1);
             this.flowLayoutPanel3.Controls.Add(this.btnRefreshListBox);
-            this.flowLayoutPanel3.Controls.Add(this.materialButtonpro2);
-            this.flowLayoutPanel3.Controls.Add(this.materialButtonpro3);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel3.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
             this.flowLayoutPanel3.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -285,51 +277,6 @@
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1163, 58);
             this.flowLayoutPanel3.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(111, 58);
-            this.label10.TabIndex = 200;
-            this.label10.Text = "数据日期";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialComboBox1
-            // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialComboBox1.Borderwidht = 7;
-            this.materialComboBox1.ComboxColor = System.Drawing.Color.White;
-            this.materialComboBox1.Commodel = 0;
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 217;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.materialComboBox1.Location = new System.Drawing.Point(120, 3);
-            this.materialComboBox1.MaxDropDownItems = 5;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.ShowScrollbar = false;
-            this.materialComboBox1.Size = new System.Drawing.Size(137, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 201;
-            this.materialComboBox1.Triangle = true;
             // 
             // btnRefreshListBox
             // 
@@ -339,7 +286,7 @@
             this.btnRefreshListBox.ClickColor = System.Drawing.Color.White;
             this.btnRefreshListBox.Constant = 0;
             this.btnRefreshListBox.Depth = 0;
-            this.btnRefreshListBox.Location = new System.Drawing.Point(263, 3);
+            this.btnRefreshListBox.Location = new System.Drawing.Point(3, 3);
             this.btnRefreshListBox.MaxV = 0;
             this.btnRefreshListBox.MinV = 0;
             this.btnRefreshListBox.MouseState = MaterialSkin.MouseState.HOVER;
@@ -349,42 +296,6 @@
             this.btnRefreshListBox.Text = "刷新列表";
             this.btnRefreshListBox.UseVisualStyleBackColor = true;
             this.btnRefreshListBox.Click += new System.EventHandler(this.btnRefreshListBox_Click);
-            // 
-            // materialButtonpro2
-            // 
-            this.materialButtonpro2.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro2.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro2.Buttonmodel = 0;
-            this.materialButtonpro2.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro2.Constant = 0;
-            this.materialButtonpro2.Depth = 0;
-            this.materialButtonpro2.Location = new System.Drawing.Point(374, 3);
-            this.materialButtonpro2.MaxV = 0;
-            this.materialButtonpro2.MinV = 0;
-            this.materialButtonpro2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro2.Name = "materialButtonpro2";
-            this.materialButtonpro2.Size = new System.Drawing.Size(105, 49);
-            this.materialButtonpro2.TabIndex = 203;
-            this.materialButtonpro2.Text = "读取数据";
-            this.materialButtonpro2.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro3
-            // 
-            this.materialButtonpro3.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro3.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Buttonmodel = 0;
-            this.materialButtonpro3.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Constant = 0;
-            this.materialButtonpro3.Depth = 0;
-            this.materialButtonpro3.Location = new System.Drawing.Point(485, 3);
-            this.materialButtonpro3.MaxV = 0;
-            this.materialButtonpro3.MinV = 0;
-            this.materialButtonpro3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro3.Name = "materialButtonpro3";
-            this.materialButtonpro3.Size = new System.Drawing.Size(105, 49);
-            this.materialButtonpro3.TabIndex = 204;
-            this.materialButtonpro3.Text = "导出表格";
-            this.materialButtonpro3.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel2
             // 
@@ -636,11 +547,12 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "HistoryDataUI";
             this.Size = new System.Drawing.Size(1378, 753);
+            this.Load += new System.EventHandler(this.HistoryDataUI_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.hisFrmTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartWaveData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionView)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -662,13 +574,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listHisData;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Label label10;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
         private MaterialSkin.Controls.MaterialButtonpro btnRefreshListBox;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro2;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartWaveData;
         private System.Windows.Forms.DataGridView PositionView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Label label1;

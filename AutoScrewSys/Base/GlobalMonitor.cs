@@ -4,9 +4,11 @@ using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using DocumentFormat.OpenXml.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,18 +21,15 @@ namespace AutoScrewSys.Base
     public class GlobalMonitor
     {
         private static bool _collecting = false;
-        private static bool _running = true;
-        private static int currentAddress = 1;
-        private  const int MaxAddress = 1000;
-        private const int ReadBlockSize = 10;
-        public static event Action<DateTime[], ushort[]> OnTorqueWaveUpdated;
-        public static event Action<string> OnResultsUpdated;
+        private static List<double> waveDataInfo = new List<double>();
+        public static event Action<int, ushort[]> OnTorqueWaveUpdated;
+        public static event Action<string,string> OnResultsUpdated;
         public static List<StorageModel> StorageList { get; set; }
         public static ModbusSerialInfo SerialInfo { get; set; }
         public static bool isInit { get; private set; }
         static Task mainTask = null;
         static Thread _modbusSyncThread;
-
+        private static Stopwatch _stopwatch = new Stopwatch();
         public static void Start(Action successAction, Action<string> faultAction)
         {
             try
@@ -44,7 +43,7 @@ namespace AutoScrewSys.Base
                     {
                         faultAction.Invoke(si.Message); return;
                     }
-            
+
                     // 初始化串口一次
                     if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits))
                     {
@@ -57,7 +56,7 @@ namespace AutoScrewSys.Base
                             Priority = ThreadPriority.Highest // 设置为最高优先级
                         };
                         _modbusSyncThread.Start();
-                    
+
                     }
                     else
                     {
@@ -80,7 +79,7 @@ namespace AutoScrewSys.Base
             {
                 foreach (SettingsProperty p in cfg.Properties)
                 {
-                   
+
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
                     if (addr == null)
                     {
@@ -119,6 +118,46 @@ namespace AutoScrewSys.Base
             //cfg.Save();
         }
 
+        /// <summary>
+        /// 保存二进制波形图数据
+        /// </summary>
+        public static void SaveWaveformToDatedFolder()
+        {
+            string basePath = Path.Combine(Settings.Default.ProductionDataPath, "BinFiles");
+            string dateFolder = DateTime.Now.ToString("yyyy-MM-dd");
+            string fullFolderPath = Path.Combine(basePath, dateFolder);
+
+            if (!Directory.Exists(fullFolderPath))
+                Directory.CreateDirectory(fullFolderPath);
+
+            // 获取当天文件夹里的所有bin文件编号
+            var files = Directory.GetFiles(fullFolderPath, "*.bin");
+            List<int> numbers = new List<int>();
+            foreach (var file in files)
+            {
+                string fileName_ = Path.GetFileNameWithoutExtension(file); // "001"、"002"等
+                if (int.TryParse(fileName_, out int num))
+                    numbers.Add(num);
+            }
+
+            int nextNum = numbers.Count > 0 ? numbers.Max() + 1 : 1;
+
+            string fileName = $"{nextNum:D3}.bin";
+            string filePath = Path.Combine(fullFolderPath, fileName);
+
+            // 写入数据
+            using (BinaryWriter writer = new BinaryWriter(File.Open(filePath, FileMode.Create)))
+            {
+                foreach (var val in waveDataInfo)
+                    writer.Write(val);
+            }
+
+            // 设置隐藏
+            File.SetAttributes(filePath, FileAttributes.Hidden);
+        }
+
+
+
         private static void RunStatusMonitor()
         {
             try
@@ -127,26 +166,29 @@ namespace AutoScrewSys.Base
 
                 if (status == ScrewStatus.Running && !_collecting)
                 {
-                    currentAddress = 1;
                     _collecting = true;
+                    _stopwatch.Reset();  // 重置
+                    _stopwatch.Start();  // 重新开始
                     Settings.Default.CurrentRunState = true;
                     Task.Run(() => CollectTorqueData());
                 }
                 else if (status == ScrewStatus.OK && _collecting)
                 {
+                    _stopwatch.Stop();  // 停止计时
                     _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString());
+                    OnResultsUpdated?.Invoke(status.ToString(), $"{ _stopwatch.Elapsed.TotalSeconds:F2}");
+                    
                 }
                 else if (status == ScrewStatus.NG && _collecting)
                 {
                     _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString());
+                    OnResultsUpdated?.Invoke(status.ToString(), $"{_stopwatch.Elapsed.TotalSeconds:F2}");
 
                 }
                 else if (status == ScrewStatus.Incomplete && _collecting)
                 {
                     _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString());
+                    OnResultsUpdated?.Invoke(status.ToString(), $"{_stopwatch.Elapsed.TotalSeconds:F2}");
 
                 }
                 else if (status == ScrewStatus.Ready)
@@ -168,37 +210,75 @@ namespace AutoScrewSys.Base
                 LogHelper.WriteLog($"波形状态监控失败：{ex.Message}", LogType.Error);
             }
         }
+
+        /// <summary>
+        /// 波形数据采集
+        /// </summary>
         private static void CollectTorqueData()
         {
-            while (_collecting)
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");//扭力曲线 扭力数据 11208
+            byte slaveId = (byte)addr.SlaveAddress;
+            ushort baseAddress = (ushort)addr.StartAddress;  // 扭力数据起始地址
+            int bufferSize = addr.Length;       // 缓冲区大小：11208~12207
+            const int groupSize = 10;          // 每次读取数据数量
+            int offset = 0;       // 当前偏移量
+            int collected = 0;    // 已采集的数据数量
+            waveDataInfo?.Clear();
+            int startNum = 0;
+
+            while (_collecting || collected < AddrName.Default.TotalCollections)
             {
-                try
+                startNum ++;
+                // 实时读取采集总数（地址3895）
+                int totalToCollect = AddrName.Default.TotalCollections;
+
+                // 如果已经采集完成则退出
+                if (collected >= totalToCollect)
                 {
-                    // 读取地址11208~12207，1000个16位无符号
-                    ushort[] data = ModbusRtuHelper.Instance.ReadRegisters(1, (ushort)currentAddress, ReadBlockSize);
-
-                    currentAddress += ReadBlockSize;
-                    if (currentAddress > MaxAddress)
-                        currentAddress = 1;
-
-                    if (data != null)
-                    {
-                        DateTime startTime = DateTime.Now;
-
-                        DateTime[] timeAxis = Enumerable.Range(0, 10)
-                            .Select(i => startTime.AddMilliseconds(i)).ToArray();
-
-                        OnTorqueWaveUpdated?.Invoke(timeAxis, data);
-                    }
+                    MessageBox.Show(collected.ToString());
+                    break;
                 }
-                catch (Exception ex)
+                   
+                // 剩余数据不足10则只读取剩下的数量
+                int remain = totalToCollect - collected;
+                int count = Math.Min(groupSize, remain);
+
+                // 当前起始地址（循环区间）
+                int startAddr = baseAddress + (offset % bufferSize);
+
+                // 判断是否会跨越缓冲区末尾（12207）
+                if (startAddr + count > baseAddress + bufferSize)
                 {
-                    LogHelper.WriteLog($"采集扭力波形失败：{ex.Message}", LogType.Error);
+                    // 分段读取：先读结尾，再读开头
+                    int part1Count = baseAddress + bufferSize - startAddr;
+                    int part2Count = count - part1Count;
+
+                    ushort[] part1 = ModbusRtuHelper.Instance.ReadRegisters(slaveId, (ushort)startAddr, (ushort)part1Count);
+                    ushort[] part2 = ModbusRtuHelper.Instance.ReadRegisters(slaveId, baseAddress, (ushort)part2Count);
+
+                    // 合并两段数据
+                    ushort[] allData = part1.Concat(part2).ToArray();
+                    OnTorqueWaveUpdated?.Invoke(startNum, allData);
+                    waveDataInfo.AddRange(allData.Select(x => (double)x));
+                }
+                else
+                {
+                    // 正常读取连续地址
+                    ushort[] data = ModbusRtuHelper.Instance.ReadRegisters(slaveId, (ushort)startAddr, (ushort)count);
+                    OnTorqueWaveUpdated?.Invoke(startNum, data);
+                    waveDataInfo.AddRange(data.Select(x => (double)x));
                 }
 
-                Thread.Sleep(5); // 1秒采集1次1000个点
+
+                
+                collected += count;
+                offset += count;
+
+                // 每个数据间隔1ms，总共sleep count ms
+                Thread.Sleep(count);
             }
         }
+
         public static void ElectricBatchAction(object sender, byte slaveId, ushort address)
         {
             try

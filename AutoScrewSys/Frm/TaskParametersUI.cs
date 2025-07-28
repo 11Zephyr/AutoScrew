@@ -3,6 +3,7 @@ using AutoScrewSys.Enums;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using DocumentFormat.OpenXml.Spreadsheet;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -245,5 +247,78 @@ namespace AutoScrewSys.Frm
             { 5922, 5986, 6050, 6114, 6178, 6242, 6306, 6370 }, // 20 自由转扭力mN.M
             { 5927, 5991, 6055, 6119, 6183, 6247, 6311, 6375 }, // 21 偏移角度
         };
+
+        private void dgvParam_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                    return;
+
+                if (e.ColumnIndex == 1)
+                {
+                    int taskIndex = (int)currentTask - 1;
+                    if (taskIndex < 0 || taskIndex >= AddressTable.GetLength(1))
+                    {
+                        LogHelper.WriteLog("任务号索引无效！", LogType.Fault);
+                        return;
+                    }
+
+                    int rowIndex = e.RowIndex;
+                    ushort address = AddressTable[rowIndex, taskIndex];//后面要从文件中读取
+                    ModbusRtuHelper.Instance.WriteSingleRegister(1, address, 999);
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.Message, LogType.Error);
+                
+            }
+          
+        }
+
+        private void dgvStepView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0 || e.ColumnIndex <= 0)
+                    return;
+                int taskIndex = (int)currentTask;
+                if (taskIndex < 0 || taskIndex >= AddressTable.GetLength(1))
+                {
+                    LogHelper.WriteLog("任务号索引无效！", LogType.Fault);
+                    return;
+                }
+
+                int columnIndex = e.ColumnIndex;
+                int rowIndex = e.RowIndex;
+                string section = string.Empty;
+                // 计算偏移量
+                int offset = 0;
+
+                if (currentState == WorkState.Tighten)
+                {
+                    section = "Tighten";
+                    offset = columnIndex == 1 ? rowIndex * 2 : rowIndex * 2 + 1;
+                }
+                else if (currentState == WorkState.Loosen)
+                {
+                    section = "Loosen";
+                    offset = columnIndex == 1 ? rowIndex * 2 + 1 : rowIndex * 2;
+                }
+
+                var addr = ModbusAddressConfig.Instance.GetAddressItem(section, $"Task{taskIndex}");
+                if (addr == null) return;
+                ushort finalAddress = (ushort)(addr.StartAddress + offset);
+                ModbusRtuHelper.Instance.WriteSingleRegister((byte)addr.SlaveAddress, finalAddress, 666);
+
+                UpdateModbusAddress();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog(ex.Message, LogType.Error);
+            }
+         
+        }
     }
 }
