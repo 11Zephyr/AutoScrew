@@ -311,6 +311,7 @@ namespace AutoScrewSys
             this.radioBtnStatusAction.Text = "状态操作";
             this.radioBtnStatusAction.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioBtnStatusAction.UseVisualStyleBackColor = true;
+            this.radioBtnStatusAction.CheckedChanged += new System.EventHandler(this.radioBtnStatusAction_CheckedChanged);
             this.radioBtnStatusAction.Click += new System.EventHandler(this.radioBtnStatusAction_Click);
             // 
             // panel1

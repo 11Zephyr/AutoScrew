@@ -41,6 +41,20 @@ namespace AutoScrewSys.Frm
             InitResultDgv();
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
 
+
+            ///启动全局监控
+            GlobalMonitor.Start(
+                 // 串口打开成功时回调，打开主窗口
+                 () =>
+                 {
+                     LogHelper.WriteLog("串口连接成功...", LogType.Run);
+                     MessageBox.Show("串口连接成功");
+                 },
+                 // 串口打开失败时回调，错误消息提醒，并退出程序
+                 (msg) =>
+                 {
+                     MessageBox.Show(msg, "异常提示");
+                 });
         }
 
         private void InitTorqueChart()
@@ -56,7 +70,6 @@ namespace AutoScrewSys.Frm
                         Settings.Default.CurrentRunState = false;
                     }
                     chart1.Series[0].Points.AddXY(startNum, torqueArray.Average(t => (double)t));
-                    homeTorque.Text = torqueArray.Average(t => (double)t).ToString();
 
                 }));
 
@@ -65,10 +78,13 @@ namespace AutoScrewSys.Frm
         }
         private void InitResultDgv()
         {
-            GlobalMonitor.OnResultsUpdated += (string result, string ct) =>
+            GlobalMonitor.OnResultsUpdated += ( string ct) =>
             {
                 this.Invoke((Action)(() =>
                 {
+                    string result = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
+                    Settings.Default.GoodScrews = result == "OK" ? Settings.Default.GoodScrews + 1 : Settings.Default.GoodScrews;
+                    lblCT.Text = ct;
 
                     int rowIndex = PositionView.Rows.Count + 1;
 
@@ -83,8 +99,7 @@ namespace AutoScrewSys.Frm
                     AppendLastRowToCsv(PositionView, Settings.Default.ProductionDataPath);
                     SaveWaveformToDatedFolder();
 
-                    Settings.Default.GoodScrews = result == "OK" ? Settings.Default.GoodScrews + 1 : Settings.Default.GoodScrews;
-                    lblCT.Text = ct;
+                   
                 }));
             };
         }
@@ -243,11 +258,9 @@ namespace AutoScrewSys.Frm
                         lblTaskNumber.Text = AddrName.Default.TaskNumber.ToString();
                         lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
                         lblTorque.Text = AddrName.Default.Torque.ToString();
-                        RotationalSpeed.Text = AddrName.Default.RotateSpeed.ToString();
                         lblLaps.Text = AddrName.Default.LapsNum.ToString();
-                        lalAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
+                        lblAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
                         lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
-                        homerevolutions.Text = AddrName.Default.LapsNum.ToString();
                         lblGoodScrews.Text = Settings.Default.GoodScrews.ToString();
                         lblBadScrews.Text = (AddrName.Default.ScrewsTotal - Settings.Default.GoodScrews).ToString();
                         Yield.Progress = AddrName.Default.ScrewsTotal == 0? 0f: (float)((Settings.Default.GoodScrews / (double)AddrName.Default.ScrewsTotal) * 100);
@@ -278,40 +291,25 @@ namespace AutoScrewSys.Frm
             tpanel.BringToFront();
         }
 
-        private void btnTightenMove_Paint(object sender, PaintEventArgs e)
+        private void btnTightenMove_Click_1(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        private void btnLoosenMove_Paint(object sender, PaintEventArgs e)
+        private void btnLoosenMove_Click_1(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        private void btnFreeMove_Paint(object sender, PaintEventArgs e)
+        private void btnFreeMove_Click_1(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        public static string GetAlarmMessage(int code)
-        {
-            switch (code)
-            {
-                case 0: return "无报警";
-                case 1: return "滑牙";
-                case 2: return "浮高";
-                case 3: return "过扭力";
-                case 4: return "编码器报警";
-                case 5: return "过压";
-                case 6: return "扭力上限报警";
-                case 7: return "扭力下限报警";
-                case 8: return "电批报警";
-                default: return "未知报警代码";
-            }
-        }
+
         public void UpdateActionStatus(System.Windows.Forms.Label[] BEAlabels, System.Windows.Forms.Label[] TLLlabels)
         {
             int s = AddrName.Default.StateBits;

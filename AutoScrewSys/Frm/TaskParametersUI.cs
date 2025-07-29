@@ -1,10 +1,13 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.Enums;
 using AutoScrewSys.Modbus;
+using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
+using SharedCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +18,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
 {
@@ -28,7 +32,7 @@ namespace AutoScrewSys.Frm
             LoadSettings();
             InitTaskList();
             InitBtn();
-            InitDgv();
+            //InitDgv();
         }
         private void InitBtn()
         {
@@ -105,7 +109,7 @@ namespace AutoScrewSys.Frm
 
                     dgvStepView.Rows.Add(
                     stepName,
-                    currentState == WorkState.Tighten ? value1 / 100 : value2 / 100,
+                    currentState == WorkState.Tighten ? value1 : value2,
                     currentState == WorkState.Tighten ? value2 : value1
                                           );
                 }
@@ -152,7 +156,7 @@ namespace AutoScrewSys.Frm
         }
         private void btnLoosenMove_Click(object sender, EventArgs e)
         {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem( "LoosenAction");
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
             GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
@@ -164,8 +168,11 @@ namespace AutoScrewSys.Frm
 
         private void btnReadParam_Click(object sender, EventArgs e)
         {
-            //Settings.Default.RunStateStr = ScrewStatus.NG.ToString();
-            LoadTaskParameters();
+            Task.Run(() =>
+            {
+                LoadTaskParameters();
+            });
+
         }
         public void LoadTaskParameters()
         {
@@ -176,24 +183,62 @@ namespace AutoScrewSys.Frm
                 return;
             }
 
-            // 遍历 DataGridView 的每一行
-            for (int row = 0; row < dgvParam.Rows.Count; row++)
-            {
-                try
-                {
-                    ushort address = AddressTable[row, taskIndex];//后面要从文件中读取
-                    ushort[] values = ModbusRtuHelper.Instance.ReadRegisters(1, address, 1);
+            var paramList = GetParamList();
+            var displayList = new List<ParamDisplayModel>();
 
-                    dgvParam.Rows[row].Cells[1].Value = values[0];
-                }
-                catch (Exception ex)
+            for (int row = 0; row < paramList.Count; row++)
+            {
+                // 获取 Modbus 地址（你提供的）
+                ushort address = AddressTable[row, taskIndex];
+
+                // 从 Modbus 读取一个寄存器
+                ushort[] values = ModbusRtuHelper.Instance.ReadRegisters(1, address, 1);
+                int value = values != null && values.Length > 0 ? values[0] : -1;
+
+                var paramInfo = paramList[row];
+                displayList.Add(new ParamDisplayModel
                 {
-                    LogHelper.WriteLog($"读取第 {row + 1} 行参数失败: {ex.Message}", LogType.Error);
-                    dgvParam.Rows[row].Cells[1].Value = "错误";
-                    dgvParam.Rows[row].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-                }
+                    ParamName = paramInfo.Name,
+                    Value = value,
+                    Range = paramInfo.Range,
+                    Unit = paramInfo.Unit,
+                    Remark = paramInfo.Remark
+                });
             }
+            this.Invoke(new Action(() =>
+            {
+                dgvParam?.Rows.Clear();
+                foreach (var item in displayList)
+                {
+                    dgvParam.Rows.Add(item.ParamName, item.Value, item.Range, item.Unit, item.Remark);
+                }
+            }));
         }
+
+        private List<ParamInfo> GetParamList()
+        {
+            return new List<ParamInfo>
+            {
+                new ParamInfo { Name = "拧紧旋转方向",            Range = "0/1",          Unit = "None",     Remark = "0-CW, 1-CCW" },
+                new ParamInfo { Name = "目标扭力mN.M",            Range = "1-5000",       Unit = "mN.m",     Remark = "Final torque" },
+                new ParamInfo { Name = "上限偏差mN.M",            Range = "0~10000",      Unit = "mN.m",     Remark = "Allowable upper limit" },
+                new ParamInfo { Name = "下限偏差mN.M",            Range = "0~10000",      Unit = "mN.m",     Remark = "Allowable lower limit" },
+                new ParamInfo { Name = "保持时间ms",              Range = "0~10000",      Unit = "ms",       Remark = "Hold after torque reached" },
+                new ParamInfo { Name = "浮高滑牙检测开关",        Range = "0/1/2",        Unit = "None",     Remark = "0-Off, 1-Float, 2-Slip" },
+                new ParamInfo { Name = "浮高界定圈数（0.01圈）",  Range = "0~1000",       Unit = "0.01 rev", Remark = "Above this = Float" },
+                new ParamInfo { Name = "滑牙界定圈数（0.01圈）",  Range = "0~1000",       Unit = "0.01 rev", Remark = "Below this = Slip" },
+                new ParamInfo { Name = "触发速度切换的扭力比值",  Range = "0.0~1.0",      Unit = "Ratio",    Remark = "Torque / TargetTorque" },
+                new ParamInfo { Name = "切换后速度(保留参数)",    Range = "0~1000",       Unit = "RPM",      Remark = "Reserved" },
+                new ParamInfo { Name = "扭力补偿值mN.M",          Range = "-1000~1000",   Unit = "mN.m",     Remark = "Can be negative" },
+                new ParamInfo { Name = "扭力免检圈数",            Range = "0~1000",       Unit = "rev",      Remark = "Skip torque check under this" },
+                new ParamInfo { Name = "免检圈数内扭力限定mN.M",  Range = "0~10000",      Unit = "mN.m",     Remark = "Limit during skip" },
+                new ParamInfo { Name = "拧松扭力",                Range = "0~10000",      Unit = "mN.m",     Remark = "For unscrewing" },
+                new ParamInfo { Name = "自由转速度",              Range = "0~1000",       Unit = "RPM",      Remark = "Before torque stage" },
+                new ParamInfo { Name = "自由转扭力",              Range = "0~10000",      Unit = "mN.m",     Remark = "Max torque in free run" },
+                new ParamInfo { Name = "偏移角度",                Range = "0~3600",       Unit = "0.1°",    Remark = "In 0.1° units" }
+            };
+        }
+
 
 
         private void InitDgv()
@@ -227,6 +272,7 @@ namespace AutoScrewSys.Frm
             }
 
         }
+
         private static readonly ushort[,] AddressTable = new ushort[,]
         {
             { 5888, 5952, 6016, 6080, 6144, 6208, 6272, 6336 }, // 拧紧旋转方向
@@ -257,6 +303,7 @@ namespace AutoScrewSys.Frm
 
                 if (e.ColumnIndex == 1)
                 {
+                    DataGridView dgv = sender as DataGridView;
                     int taskIndex = (int)currentTask - 1;
                     if (taskIndex < 0 || taskIndex >= AddressTable.GetLength(1))
                     {
@@ -266,15 +313,27 @@ namespace AutoScrewSys.Frm
 
                     int rowIndex = e.RowIndex;
                     ushort address = AddressTable[rowIndex, taskIndex];//后面要从文件中读取
-                    ModbusRtuHelper.Instance.WriteSingleRegister(1, address, 999);
+
+                    ModbusCfgModel addr = new ModbusCfgModel
+                    {
+                        SlaveAddress = 1,
+                        StartAddress = address,
+                        Length = 1,
+                    };
+                    
+
+                    VirtualkeyboardFrm virtualkeyboardFrm = new VirtualkeyboardFrm(addr, 0, 1000);
+                    virtualkeyboardFrm.ShowDialog();
+
+                    dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (ModbusRtuHelper.Instance.ReadRegisters((byte)addr.SlaveAddress, (ushort)addr.StartAddress, (ushort)addr.Length)[0]).ToString();
                 }
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog(ex.Message, LogType.Error);
-                
+
             }
-          
+
         }
 
         private void dgvStepView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -310,15 +369,17 @@ namespace AutoScrewSys.Frm
                 var addr = ModbusAddressConfig.Instance.GetAddressItem(section, $"Task{taskIndex}");
                 if (addr == null) return;
                 ushort finalAddress = (ushort)(addr.StartAddress + offset);
-                ModbusRtuHelper.Instance.WriteSingleRegister((byte)addr.SlaveAddress, finalAddress, 666);
+                addr.StartAddress = finalAddress;
 
+                VirtualkeyboardFrm virtualkeyboardFrm = new VirtualkeyboardFrm(addr, 0, 1000);
+                virtualkeyboardFrm.ShowDialog();
                 UpdateModbusAddress();
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog(ex.Message, LogType.Error);
             }
-         
+
         }
     }
 }

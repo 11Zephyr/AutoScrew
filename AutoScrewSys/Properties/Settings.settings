@@ -38,5 +38,23 @@
     <Setting Name="GoodScrews" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="TorqueUnit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mN·m</Value>
+    </Setting>
+    <Setting Name="DataStoredTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">15天</Value>
+    </Setting>
+    <Setting Name="LogStoredTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">15天</Value>
+    </Setting>
+    <Setting Name="LoggedOutTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1分钟</Value>
+    </Setting>
+    <Setting Name="receptOutTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="sendOutTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

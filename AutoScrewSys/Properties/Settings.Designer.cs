@@ -166,5 +166,77 @@ namespace AutoScrewSys.Properties {
                 this["GoodScrews"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mN·m")]
+        public string TorqueUnit {
+            get {
+                return ((string)(this["TorqueUnit"]));
+            }
+            set {
+                this["TorqueUnit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15天")]
+        public string DataStoredTime {
+            get {
+                return ((string)(this["DataStoredTime"]));
+            }
+            set {
+                this["DataStoredTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15天")]
+        public string LogStoredTime {
+            get {
+                return ((string)(this["LogStoredTime"]));
+            }
+            set {
+                this["LogStoredTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1分钟")]
+        public string LoggedOutTime {
+            get {
+                return ((string)(this["LoggedOutTime"]));
+            }
+            set {
+                this["LoggedOutTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string receptOutTime {
+            get {
+                return ((string)(this["receptOutTime"]));
+            }
+            set {
+                this["receptOutTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string sendOutTime {
+            get {
+                return ((string)(this["sendOutTime"]));
+            }
+            set {
+                this["sendOutTime"] = value;
+            }
+        }
     }
 }

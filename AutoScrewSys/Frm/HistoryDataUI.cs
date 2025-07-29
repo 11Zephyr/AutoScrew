@@ -16,6 +16,12 @@ namespace AutoScrewSys.Frm
 {
     public partial class HistoryDataUI : UserControl
     {
+        private readonly Dictionary<string, string> logTypeFolderMap = new Dictionary<string, string>
+        {
+            { "运行日志", "RunLog" },
+            { "故障日志", "FaultLog" },
+            { "报错日志", "ErrorLog" }
+        };
         public HistoryDataUI()
         {
             InitializeComponent();
@@ -158,6 +164,52 @@ namespace AutoScrewSys.Frm
         private void HistoryDataUI_Load(object sender, EventArgs e)
         {
             RefreshHisDataList();
+        }
+
+        private void cmbLogType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbFileList.Items.Clear();
+            lstLogContent.Items.Clear();
+
+            if (cmbLogType.SelectedItem is string logType &&
+                logTypeFolderMap.TryGetValue(logType, out string subFolder))
+            {
+                string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log", subFolder);
+
+                if (Directory.Exists(folderPath))
+                {
+                    var txtFiles = Directory.GetFiles(folderPath, "*.txt");
+                    foreach (var file in txtFiles)
+                    {
+                        cmbFileList.Items.Add(Path.GetFileName(file));
+                    }
+
+                    if (cmbFileList.Items.Count > 0)
+                        cmbFileList.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show($"文件夹不存在: {folderPath}", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void cmbFileList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lstLogContent.Items.Clear();
+
+            if (cmbLogType.SelectedItem is string logType &&
+                cmbFileList.SelectedItem is string fileName &&
+                logTypeFolderMap.TryGetValue(logType, out string subFolder))
+            {
+                string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log", subFolder, fileName);
+
+                if (File.Exists(filePath))
+                {
+                    string[] lines = File.ReadAllLines(filePath);
+                    lstLogContent.Items.AddRange(lines);
+                }
+            }
         }
     }
 }

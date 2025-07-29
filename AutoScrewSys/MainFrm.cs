@@ -176,11 +176,29 @@ namespace AutoScrewSys
 
         private void radioBtnStatusAction_Click(object sender, EventArgs e)
         {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is MonitorFrm)
+                {
+                    openForm.Activate(); 
+                    return;              
+                }
+            }
+
             MonitorFrm frm = new MonitorFrm();
+            if (frm is IRefreshable refreshable)
+            {
+                refreshable.StartRefreshing();
+            }
             frm.Show();
         }
 
         private void btnClose_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void radioBtnStatusAction_CheckedChanged(object sender, EventArgs e)
         {
 
         }

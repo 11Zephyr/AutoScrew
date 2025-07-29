@@ -16,7 +16,6 @@ namespace AutoScrewSys.Modbus
         public bool Debug { get; set; } = false;
         private SerialPort _serialPort;
         private readonly object _portLock = new object();
-
         public static ModbusRtuHelper Instance
         {
             get
@@ -32,7 +31,7 @@ namespace AutoScrewSys.Modbus
 
         private ModbusRtuHelper() { }
 
-        public bool Init(string portName, int baudRate = 9600, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One)
+        public bool Init(string portName, int baudRate = 9600, Parity parity = Parity.None, int dataBits = 8, StopBits stopBits = StopBits.One,int readTimeout = 1000, int writeTimeout = 1000)
         {
             try
             {
@@ -41,8 +40,8 @@ namespace AutoScrewSys.Modbus
 
                 _serialPort = new SerialPort(portName, baudRate, parity, dataBits, stopBits)
                 {
-                    ReadTimeout = 1000,
-                    WriteTimeout = 1000
+                    ReadTimeout = readTimeout,
+                    WriteTimeout = writeTimeout
                 };
                 _serialPort.Open();
                 return true;

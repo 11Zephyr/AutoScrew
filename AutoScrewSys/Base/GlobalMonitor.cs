@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AutoScrewSys.Base
 {
@@ -23,13 +24,14 @@ namespace AutoScrewSys.Base
         private static bool _collecting = false;
         private static List<double> waveDataInfo = new List<double>();
         public static event Action<int, ushort[]> OnTorqueWaveUpdated;
-        public static event Action<string,string> OnResultsUpdated;
+        public static event Action<string> OnResultsUpdated;
         public static List<StorageModel> StorageList { get; set; }
         public static ModbusSerialInfo SerialInfo { get; set; }
         public static bool isInit { get; private set; }
         static Task mainTask = null;
         static Thread _modbusSyncThread;
         private static Stopwatch _stopwatch = new Stopwatch();
+        private static bool _end = false;
         public static void Start(Action successAction, Action<string> faultAction)
         {
             try
@@ -44,8 +46,7 @@ namespace AutoScrewSys.Base
                         faultAction.Invoke(si.Message); return;
                     }
 
-                    // 初始化串口一次
-                    if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits))
+                    if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits,Convert.ToInt32(Settings.Default.receptOutTime), Convert.ToInt32(Settings.Default.sendOutTime)))
                     {
                         isInit = true;
                         successAction?.Invoke();
@@ -112,6 +113,7 @@ namespace AutoScrewSys.Base
                     }
                     //if (AddrName.Default.ScrewResult == 1) LogHelper.WriteLog($"{addr.Description}:{addr.StartAddress}-运行中", LogType.Run);
                 }
+            
                 Thread.Sleep(5);
             }
 
@@ -175,21 +177,22 @@ namespace AutoScrewSys.Base
                 else if (status == ScrewStatus.OK && _collecting)
                 {
                     _stopwatch.Stop();  // 停止计时
-                    _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString(), $"{ _stopwatch.Elapsed.TotalSeconds:F2}");
+                   if(_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
+                    _collecting = _end = false;
+
                     
                 }
                 else if (status == ScrewStatus.NG && _collecting)
                 {
-                    _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString(), $"{_stopwatch.Elapsed.TotalSeconds:F2}");
-
+                    _stopwatch.Stop();  // 停止计时
+                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
+                    _collecting = _end = false;
                 }
                 else if (status == ScrewStatus.Incomplete && _collecting)
                 {
-                    _collecting = false;
-                    OnResultsUpdated?.Invoke(status.ToString(), $"{_stopwatch.Elapsed.TotalSeconds:F2}");
-
+                    _stopwatch.Stop();  // 停止计时
+                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
+                    _collecting = _end = false;
                 }
                 else if (status == ScrewStatus.Ready)
                 {
@@ -235,7 +238,7 @@ namespace AutoScrewSys.Base
                 // 如果已经采集完成则退出
                 if (collected >= totalToCollect)
                 {
-                    MessageBox.Show(collected.ToString());
+                    _end = true;
                     break;
                 }
                    
@@ -283,7 +286,7 @@ namespace AutoScrewSys.Base
         {
             try
             {
-                if (sender is Button btn)
+                if (sender is System.Windows.Forms.Button btn)
                 {
                     bool state = btn.Tag is bool b && b;
                     ushort valueToWrite = state ? (ushort)0 : (ushort)1;
@@ -295,6 +298,23 @@ namespace AutoScrewSys.Base
             catch (Exception ex)
             {
                 LogHelper.WriteLog(ex.Message, LogType.Error);
+            }
+        }
+
+        public static string GetAlarmMessage(int code)
+        {
+            switch (code)
+            {
+                case 0: return "无报警";
+                case 1: return "滑牙";
+                case 2: return "浮高";
+                case 3: return "过扭力";
+                case 4: return "编码器报警";
+                case 5: return "过压";
+                case 6: return "扭力上限报警";
+                case 7: return "扭力下限报警";
+                case 8: return "电批报警";
+                default: return "未知报警代码";
             }
         }
     }
