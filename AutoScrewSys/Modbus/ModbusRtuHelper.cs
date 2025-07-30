@@ -17,6 +17,8 @@ namespace AutoScrewSys.Modbus
         public bool Debug { get; set; } = false;
         private SerialPort _serialPort;
         private readonly object _portLock = new object();
+                private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
+        private const int ReadTimeoutMs = 500; // 适当设置读超时
         public static ModbusRtuHelper Instance
         {
             get
@@ -44,12 +46,11 @@ namespace AutoScrewSys.Modbus
                     ReadTimeout = readTimeout,
                     WriteTimeout = writeTimeout
                 };
-                _serialPort.Open();
+                _serialPort?.Open();
                 return true;
             }
             catch (Exception)
             {
-                
                 return false;
             }
         }
@@ -87,6 +88,15 @@ namespace AutoScrewSys.Modbus
             }
             return values;
         }
+        public async Task WriteSingleRegisterAsync(byte slaveId, ushort address, ushort value)
+        {
+            byte[] frame = BuildRequestFrame(slaveId, 0x06, address, value);
+
+            byte[] response = await SendAndReceiveAsync(frame, 8);
+
+            if (response.Length != 8 || response[1] != 0x06)
+                throw new Exception("写入失败：响应无效");
+        }
 
         public void WriteSingleRegister(byte slaveId, ushort address, ushort value)
         {
@@ -111,9 +121,6 @@ namespace AutoScrewSys.Modbus
             frame[7] = (byte)(crc >> 8);
             return frame;
         }
-
-        private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
-        private const int ReadTimeoutMs = 500; // 适当设置读超时
 
         private async Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength)
         {

@@ -25,22 +25,22 @@ namespace AutoScrewSys.Frm
             InitializeComponent();
         }
 
-        private void btnTightenMove_Click(object sender, EventArgs e)
+        private async void btnTightenMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+            await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        private void btnLoosenMove_Click(object sender, EventArgs e)
+        private async void btnLoosenMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        private void btnFreeMove_Click(object sender, EventArgs e)
+        private async void btnFreeMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         public void StartRefreshing()
@@ -60,12 +60,11 @@ namespace AutoScrewSys.Frm
                                 if (this.IsDisposed) return; // 再次保险
 
                                 TaskNumber.Text = AddrName.Default.TaskNumber.ToString();
-                                lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
-                                lblTorque.Text = AddrName.Default.Torque.ToString();
-                                lblLaps.Text = AddrName.Default.LapsNum.ToString();
-                                lblAlarm.Text = GlobalMonitor.GetAlarmMessage(AddrName.Default.AlarmInfo);
-                                lblElecBatchPower.Text = AddrName.Default.ElecBatchPower.ToString();
-                                lblRotateSpeed.Text = AddrName.Default.RotateSpeed.ToString();
+                                ScrewResultStr.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
+                                Torque.Text = AddrName.Default.Torque.ToString();
+                                LapsNum.Text = AddrName.Default.LapsNum.ToString();
+                                ElecBatchPower.Text = AddrName.Default.ElecBatchPower.ToString();
+                                RotateSpeed.Text = AddrName.Default.RotateSpeed.ToString();
                             }));
                         }
                     }
@@ -112,7 +111,40 @@ namespace AutoScrewSys.Frm
 
         private void MonitorFrm_Load(object sender, EventArgs e)
         {
+
             BindLabels(this, AddrName.Default);
+            OnStatusChanged(AddrName.Default.StateBits, AddrName.Default.TightenAction, AddrName.Default.LoosenAction, AddrName.Default.FreeAction);//首次进入手动赋值
+            GlobalMonitor.StatusChanged += OnStatusChanged;
+
+        }
+
+        private void OnStatusChanged(int s, int t, int l, int f)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f)));
+                return;
+            }
+
+            System.Windows.Forms.Label[] BEAlabels = new System.Windows.Forms.Label[]
+            {
+                lblBusySignal, lblEndSignal, lblAlarmSignal
+            };
+
+            System.Windows.Forms.Label[] TLLlabels = new System.Windows.Forms.Label[]
+            {
+                lblTightenSignal, lblLoosenSignal, lblLdlingSignal
+            };
+
+            for (int i = 0; i < BEAlabels.Length; i++)
+            {
+                bool isActive = ((s >> i) & 1) == 0; // 0表示有效
+                BEAlabels[i].BackColor = isActive ? Color.LimeGreen : Color.Gray;
+            }
+
+            TLLlabels[0].BackColor = t == 1 ? Color.LimeGreen : Color.Gray;
+            TLLlabels[1].BackColor = l == 1 ? Color.LimeGreen : Color.Gray;
+            TLLlabels[2].BackColor = f == 1 ? Color.LimeGreen : Color.Gray;
         }
     }
 }

@@ -25,23 +25,27 @@ namespace AutoScrewSys.Base
 {
     public class GlobalMonitor
     {
-        private static bool _collecting = false;
-        private static List<double> waveDataInfo = new List<double>();
-        public static event Action<int, ushort[]> OnTorqueWaveUpdated;
-        public static event Action<string> OnResultsUpdated;
-        public static List<StorageModel> StorageList { get; set; }
-        public static ModbusSerialInfo SerialInfo { get; set; }
-        public static bool isInit { get; private set; }
-        static Task mainTask = null;
-        static Thread _modbusSyncThread;
-        private static Stopwatch _stopwatch = new Stopwatch();
-        private static bool _end = false;
+        public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
+        public static bool isInit { get; private set; }//初始化标志
+        private static bool _collecting = false;//采集波形数据标志
+        private static bool _end = false;//采集结束标志
+
+        private static List<double> waveDataInfo = new List<double>();//存储波形数据
+
+        public static event Action<int, ushort[]> OnTorqueWaveUpdated;//更新波形图委托
+        public static event Action<string> OnResultsUpdated;//更新结果数据委托
+        public static event Action<int, int, int, int> StatusChanged;
+
+        static Thread _modbusSyncThread;//住循环线程
+        private static Stopwatch _stopwatch = new Stopwatch();//采集数据计时器
+        public static ManualResetEventSlim _pauseSignal = new ManualResetEventSlim(true); // 初始为“允许运行”
+
         public static void Start(Action successAction, Action<string> faultAction)
         {
             try
             {
-                mainTask = Task.Run(new Action(() =>
-                {
+               Task.Run(new Action(() =>
+               {
                     IndustrialBLL bll = new IndustrialBLL();
                     var si = bll.InitSerialInfo();
                     if (si.State) SerialInfo = si.Data;
@@ -50,7 +54,7 @@ namespace AutoScrewSys.Base
                         faultAction.Invoke(si.Message); return;
                     }
 
-                    if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits,Convert.ToInt32(Settings.Default.receptOutTime), Convert.ToInt32(Settings.Default.sendOutTime)))
+                    if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits, Convert.ToInt32(Settings.Default.receptOutTime), Convert.ToInt32(Settings.Default.sendOutTime)))
                     {
                         isInit = true;
                         successAction?.Invoke();
@@ -75,14 +79,14 @@ namespace AutoScrewSys.Base
             }
         }
 
-        public async static void MainThread()
+        public  static void MainThread()
         {
             var cfg = AddrName.Default;
             var type = cfg.GetType();
-            //ushort i = 0;
             var stopwatch = Stopwatch.StartNew();
-            while (true)
+            while (isInit)
             {
+                _pauseSignal.Wait(); // 如果暂停了，这里会阻塞等待恢复
                 stopwatch.Restart();
 
                 List<Task> tasks = new List<Task>();
@@ -92,20 +96,17 @@ namespace AutoScrewSys.Base
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
                     if (addr == null) continue;
 
-                    // 每个属性异步执行读取任务
                     tasks.Add(Task.Run(async () =>
                     {
                         try
                         {
-                            // 确保串口访问线程安全（不能多个线程同时用）
                             ushort[] result;
                             result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
                                     (byte)addr.SlaveAddress,
                                     (ushort)addr.StartAddress,
                                     (ushort)addr.Length);
 
-                            // 更新设置属性（线程安全）
-                            SettingsUpdater.Set( p.Name, result[0]);
+                            SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
                         }
                         catch (Exception ex)
                         {
@@ -113,19 +114,64 @@ namespace AutoScrewSys.Base
                         }
                     }));
                 }
+                //await Task.WhenAll(tasks);
+                RunStatusMonitor();
 
-                // 等待所有采集任务完成
-                await Task.WhenAll(tasks);
+                UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
+                UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
 
-                // 特殊处理 AlarmInfoStr
-                string v = GetAlarmMessage(AddrName.Default.AlarmInfo);
-                SettingsUpdater.Set("AlarmInfoStr", v);
+                StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
 
-                LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
-
-                await Task.Delay(5); // 非阻塞延时
+                //ogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
+              //Thread.Sleep(100);
             }
         }
+        /// <summary>
+        /// 更新运行状态
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <param name="code"></param>
+        public static void UpdateScrewResultStr(SettingsBase cfg, int code)
+        {
+            string resultStr;
+
+            switch (code)
+            {
+                case 0: resultStr = "就绪"; break;
+                case 1: resultStr = "运行中"; break;
+                case 2: resultStr = "OK"; break;
+                case 3: resultStr = "NG"; break;
+                case 4: resultStr = "未完成"; break;
+                default: resultStr = "未知"; break;
+            }
+
+            SettingsUpdater.SetIfChanged(cfg, "ScrewResultStr", resultStr);
+        }
+        /// <summary>
+        /// 更新拧紧结果
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <param name="code"></param>
+        public static void UpdateAlarmMsgStr(SettingsBase cfg, int code)
+        {
+            string alarmMsgStr;
+            switch (code)
+            {
+                case 0: alarmMsgStr = "无报警"; break;
+                case 1: alarmMsgStr = "滑牙"; break;
+                case 2: alarmMsgStr = "浮高"; break;
+                case 3: alarmMsgStr = "过扭力"; break;
+                case 4: alarmMsgStr = "编码器报警"; break;
+                case 5: alarmMsgStr = "过压"; break;
+                case 6: alarmMsgStr = "扭力上限报警"; break;
+                case 7: alarmMsgStr = "扭力下限报警"; break;
+                case 8: alarmMsgStr = "电批报警"; break;
+                default: alarmMsgStr = "未知报警代码"; break;
+            }
+
+            SettingsUpdater.SetIfChanged(cfg, "AlarmInfoStr", alarmMsgStr);
+        }
+
 
         /// <summary>
         /// 保存二进制波形图数据
@@ -184,10 +230,8 @@ namespace AutoScrewSys.Base
                 else if (status == ScrewStatus.OK && _collecting)
                 {
                     _stopwatch.Stop();  // 停止计时
-                   if(_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
+                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
                     _collecting = _end = false;
-
-                    
                 }
                 else if (status == ScrewStatus.NG && _collecting)
                 {
@@ -203,14 +247,14 @@ namespace AutoScrewSys.Base
                 }
                 else if (status == ScrewStatus.Ready)
                 {
-                    //_collecting = false;
+                    _collecting = false;
                     //Settings.Default.RunStateStr = status.ToString();
                     //OnResultsUpdated?.Invoke(status.ToString());
 
                 }
                 else
                 {
-                    //_collecting = false;
+                    _collecting = false;
                 }
 
                 Thread.Sleep(5); // 检查状态间隔
@@ -224,7 +268,7 @@ namespace AutoScrewSys.Base
         /// <summary>
         /// 波形数据采集
         /// </summary>
-        private static void CollectTorqueData()
+        private static  async Task CollectTorqueData()
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");//扭力曲线 扭力数据 11208
             byte slaveId = (byte)addr.SlaveAddress;
@@ -235,20 +279,22 @@ namespace AutoScrewSys.Base
             int collected = 0;    // 已采集的数据数量
             waveDataInfo?.Clear();
             int startNum = 0;
+            _pauseSignal.Reset(); // ⏸️ 暂停主线程
 
             while (_collecting || collected < AddrName.Default.TotalCollections)
             {
-                startNum ++;
+                startNum++;
                 // 实时读取采集总数（地址3895）
                 int totalToCollect = AddrName.Default.TotalCollections;
 
                 // 如果已经采集完成则退出
                 if (collected >= totalToCollect)
                 {
+                    _pauseSignal.Set(); // ⏸️ 暂停主线程
                     _end = true;
                     break;
                 }
-                   
+
                 // 剩余数据不足10则只读取剩下的数量
                 int remain = totalToCollect - collected;
                 int count = Math.Min(groupSize, remain);
@@ -263,8 +309,8 @@ namespace AutoScrewSys.Base
                     int part1Count = baseAddress + bufferSize - startAddr;
                     int part2Count = count - part1Count;
 
-                    ushort[] part1 = ModbusRtuHelper.Instance.ReadRegisters(slaveId, (ushort)startAddr, (ushort)part1Count);
-                    ushort[] part2 = ModbusRtuHelper.Instance.ReadRegisters(slaveId, baseAddress, (ushort)part2Count);
+                    ushort[] part1 =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, (ushort)startAddr, (ushort)part1Count);
+                    ushort[] part2 =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, baseAddress, (ushort)part2Count);
 
                     // 合并两段数据
                     ushort[] allData = part1.Concat(part2).ToArray();
@@ -274,22 +320,18 @@ namespace AutoScrewSys.Base
                 else
                 {
                     // 正常读取连续地址
-                    ushort[] data = ModbusRtuHelper.Instance.ReadRegisters(slaveId, (ushort)startAddr, (ushort)count);
+                    ushort[] data =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, (ushort)startAddr, (ushort)count);
                     OnTorqueWaveUpdated?.Invoke(startNum, data);
                     waveDataInfo.AddRange(data.Select(x => (double)x));
                 }
-
-
-                
                 collected += count;
                 offset += count;
 
                 // 每个数据间隔1ms，总共sleep count ms
-                Thread.Sleep(count);
             }
         }
 
-        public static void ElectricBatchAction(object sender, byte slaveId, ushort address)
+        public static async Task ElectricBatchAction(object sender, byte slaveId, ushort address)
         {
             try
             {
@@ -297,8 +339,7 @@ namespace AutoScrewSys.Base
                 {
                     bool state = btn.Tag is bool b && b;
                     ushort valueToWrite = state ? (ushort)0 : (ushort)1;
-
-                    ModbusRtuHelper.Instance.WriteSingleRegister(slaveId, address, valueToWrite);
+                    await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, valueToWrite);
                     btn.Tag = !state;
                 }
             }
@@ -307,24 +348,6 @@ namespace AutoScrewSys.Base
                 LogHelper.WriteLog(ex.Message, LogType.Error);
             }
         }
-
-        public static string GetAlarmMessage(int code)
-        {
-            switch (code)
-            {
-                case 0: return "无报警";
-                case 1: return "滑牙";
-                case 2: return "浮高";
-                case 3: return "过扭力";
-                case 4: return "编码器报警";
-                case 5: return "过压";
-                case 6: return "扭力上限报警";
-                case 7: return "扭力下限报警";
-                case 8: return "电批报警";
-                default: return "未知报警代码";
-            }
-        }
-
 
         /// <summary>
         /// 将控件树中所有 Label 控件与数据源对象按控件名进行属性绑定

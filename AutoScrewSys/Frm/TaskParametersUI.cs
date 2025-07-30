@@ -149,32 +149,32 @@ namespace AutoScrewSys.Frm
             UpdateModbusAddress();
         }
 
-        private void btnTightenMove_Click(object sender, EventArgs e)
+        private async void btnTightenMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
-        private void btnLoosenMove_Click(object sender, EventArgs e)
+        private async void btnLoosenMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
-        private void btnFreeMove_Click(object sender, EventArgs e)
+        private async void btnFreeMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         private void btnReadParam_Click(object sender, EventArgs e)
         {
-            Task.Run(() =>
+            Task.Run(async() =>
             {
-                LoadTaskParameters();
+               await LoadTaskParameters();
             });
 
         }
-        public void LoadTaskParameters()
+        public async Task LoadTaskParameters()
         {
             int taskIndex = (int)currentTask - 1;
             if (taskIndex < 0 || taskIndex >= AddressTable.GetLength(1))
@@ -185,6 +185,7 @@ namespace AutoScrewSys.Frm
 
             var paramList = GetParamList();
             var displayList = new List<ParamDisplayModel>();
+            GlobalMonitor. _pauseSignal.Reset(); // ⏸️ 暂停主线程
 
             for (int row = 0; row < paramList.Count; row++)
             {
@@ -192,7 +193,7 @@ namespace AutoScrewSys.Frm
                 ushort address = AddressTable[row, taskIndex];
 
                 // 从 Modbus 读取一个寄存器
-                ushort[] values = ModbusRtuHelper.Instance.ReadRegisters(1, address, 1);
+                ushort[] values =await ModbusRtuHelper.Instance.ReadRegistersAsync(1, address, 1);
                 int value = values != null && values.Length > 0 ? values[0] : -1;
 
                 var paramInfo = paramList[row];
@@ -205,6 +206,7 @@ namespace AutoScrewSys.Frm
                     Remark = paramInfo.Remark
                 });
             }
+            GlobalMonitor._pauseSignal.Set(); // 恢复 MainThread()
             this.Invoke(new Action(() =>
             {
                 dgvParam?.Rows.Clear();

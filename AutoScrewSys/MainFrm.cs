@@ -23,7 +23,6 @@ namespace AutoScrewSys
 
         [DllImport("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        private IRefreshable currentRefreshable = null;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
         private Image[] radioBtnSelectedImg;
@@ -101,21 +100,12 @@ namespace AutoScrewSys
                     if (tag != nCurTag)
                     {
                         nCurTag = tag;
-                        currentRefreshable?.StopRefreshing();
                         tpContainer.Controls.Clear();
                         var uc = formList[tag];
                         uc.Dock = DockStyle.Fill;
                         tpContainer.Controls.Add(uc);
                         // 启动新页面的刷新（如果支持）
-                        if (uc is IRefreshable refreshable)
-                        {
-                            currentRefreshable = refreshable;
-                            refreshable.StartRefreshing();
-                        }
-                        else
-                        {
-                            currentRefreshable = null;
-                        }
+                       
                     }
                     //rBtn.BackgroundImage = rBtn.Checked ? radioBtnSelectedImg[tag] : radioBtnUnselectedImg[tag];
                     // rBtn.ForeColor = rBtn.Checked ? Color.White : Color.Black;

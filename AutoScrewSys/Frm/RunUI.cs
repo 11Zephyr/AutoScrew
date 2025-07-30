@@ -19,11 +19,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static AutoScrewSys.Base.GlobalMonitor;
+using Color = System.Drawing.Color;
 using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class RunUI : UserControl, IRefreshable
+    public partial class RunUI : UserControl
     {
         // 上一次的值（类字段）
         int lastStateBits, lastTighten, lastLoosen, lastFree;
@@ -44,22 +45,19 @@ namespace AutoScrewSys.Frm
             InitResultDgv();
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
 
+            GlobalMonitor.StatusChanged += OnStatusChanged;
 
-            ///启动全局监控
             GlobalMonitor.Start(
-                 // 串口打开成功时回调，打开主窗口
                  () =>
                  {
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
-                     //MessageBox.Show("串口连接成功");
                  },
-                 // 串口打开失败时回调，错误消息提醒，并退出程序
                  (msg) =>
                  {
                      MessageBox.Show(msg, "异常提示");
                  });
         }
-
+     
         private void InitTorqueChart()
         {
             GlobalMonitor.OnTorqueWaveUpdated += (startNum, torqueArray) =>
@@ -245,42 +243,6 @@ namespace AutoScrewSys.Frm
         }
         #endregion
 
-        public void StartRefreshing()
-        {
-            if (_refreshThread != null && _refreshThread.IsAlive)
-                return;
-
-            _isRunning = true;
-            _refreshThread = new Thread(() =>
-            {
-                while (false)
-                {
-                    Thread.Sleep(500);
-                    this.Invoke(new Action(() => { LogHelper.WriteLog($"任务号:{AddrName.Default.TaskNumber.ToString()}", LogType.Run); }));
-                    
-                        
-                      
-                    //Invoke(new Action(() =>
-                    //{
-                    //    TaskNumber.Text = AddrName.Default.TaskNumber.ToString();
-                    //    lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
-                    //    lblTorque.Text = AddrName.Default.Torque.ToString();
-                    //    lblLaps.Text = AddrName.Default.LapsNum.ToString();
-                    //    lblAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
-                    //    lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
-                    //    lblGoodScrews.Text = Settings.Default.GoodScrews.ToString();
-                    //    lblBadScrews.Text = (AddrName.Default.ScrewsTotal - Settings.Default.GoodScrews).ToString();
-                    //    Yield.Progress = AddrName.Default.ScrewsTotal == 0? 0f: (float)((Settings.Default.GoodScrews / (double)AddrName.Default.ScrewsTotal) * 100);
-
-                    //    System.Windows.Forms.Label[] beaLabels = new System.Windows.Forms.Label[] { lblBusySignal, lblEndSignal, lblAlarmSignal };
-                    //    System.Windows.Forms.Label[] tllLabels = new System.Windows.Forms.Label[] { lblTightenSignal, lblLoosenSignal, lblLdlingSignal };
-                    //    UpdateActionStatus(beaLabels,tllLabels);
-                    //}));
-                }
-            });
-            _refreshThread.IsBackground = true;
-            _refreshThread.Start();
-        }
 
         public void StopRefreshing()
         {
@@ -346,19 +308,34 @@ namespace AutoScrewSys.Frm
                 isFirst = false;
             }
         }
-        private void UpdateStateLabels(int stateBits, int tightenSignal, int lossenSignal, int freeSignal, System.Windows.Forms.Label[] BEAlabels)
-        {
 
-            //System.Windows.Forms.Label[] labels = { lblBusySignal, lblEndSignal, lblAlarmSignal };
+        private void OnStatusChanged(int s, int t, int l, int f)
+        {
+            if (InvokeRequired)
+            {
+                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f)));
+                return;
+            }
+
+            System.Windows.Forms.Label[] BEAlabels = new System.Windows.Forms.Label[]
+            {
+                lblBusySignal, lblEndSignal, lblAlarmSignal
+            };
+
+            System.Windows.Forms.Label[] TLLlabels = new System.Windows.Forms.Label[]
+            {
+                lblTightenSignal, lblLoosenSignal, lblLdlingSignal
+            };
 
             for (int i = 0; i < BEAlabels.Length; i++)
             {
-                bool isActive = ((stateBits >> i) & 1) == 0; // 0表示有效
-                BEAlabels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+                bool isActive = ((s >> i) & 1) == 0; // 0表示有效
+                BEAlabels[i].BackColor = isActive ? Color.LimeGreen : Color.Gray;
             }
-            lblTightenSignal.BackColor = tightenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-            lblLoosenSignal.BackColor = lossenSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-            lblLdlingSignal.BackColor = freeSignal == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
+
+            TLLlabels[0].BackColor = t == 1 ? Color.LimeGreen : Color.Gray;
+            TLLlabels[1].BackColor = l == 1 ? Color.LimeGreen : Color.Gray;
+            TLLlabels[2].BackColor = f == 1 ? Color.LimeGreen : Color.Gray;
         }
     }
 }
