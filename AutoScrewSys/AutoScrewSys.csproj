@@ -103,6 +103,7 @@
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
     <Compile Include="Base\RunStateMonitor.cs" />
+    <Compile Include="Base\SettingsUpdater.cs" />
     <Compile Include="BLL\DataResult.cs" />
     <Compile Include="BLL\IndustrialBLL.cs" />
     <Compile Include="DAL\DataAccess.cs" />

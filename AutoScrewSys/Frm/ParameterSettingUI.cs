@@ -32,7 +32,7 @@ namespace AutoScrewSys.Frm
                  () =>
                  {
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
-                     MessageBox.Show("串口连接成功");
+                     //MessageBox.Show("串口连接成功");
                  },
                  // 串口打开失败时回调，错误消息提醒，并退出程序
                  (msg) =>

@@ -202,5 +202,29 @@ namespace AutoScrewSys.VariableName {
                 this["TotalCollections"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string AlarmInfoStr {
+            get {
+                return ((string)(this["AlarmInfoStr"]));
+            }
+            set {
+                this["AlarmInfoStr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ScrewResultStr {
+            get {
+                return ((string)(this["ScrewResultStr"]));
+            }
+            set {
+                this["ScrewResultStr"] = value;
+            }
+        }
     }
 }

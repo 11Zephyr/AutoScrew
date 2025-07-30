@@ -1,6 +1,7 @@
 ﻿using AutoScrewSys.Base;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -53,6 +54,23 @@ namespace AutoScrewSys.Modbus
             }
         }
 
+        public async Task<ushort[]> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
+        {
+            byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
+
+            // 异步等待响应
+            byte[] response = await SendAndReceiveAsync(frame, length * 2 + 5);
+
+            if (response.Length < 5 || response[1] != 0x03)
+                throw new Exception("无效响应");
+
+            ushort[] values = new ushort[length];
+            for (int i = 0; i < length; i++)
+            {
+                values[i] = (ushort)(response[3 + i * 2] << 8 | response[4 + i * 2]);
+            }
+            return values;
+        }
 
         public ushort[] ReadRegisters(byte slaveId, ushort startAddress, ushort length)
         {
@@ -93,6 +111,63 @@ namespace AutoScrewSys.Modbus
             frame[7] = (byte)(crc >> 8);
             return frame;
         }
+
+        private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
+        private const int ReadTimeoutMs = 500; // 适当设置读超时
+
+        private async Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength)
+        {
+            await _asyncLock.WaitAsync();
+            try
+            {
+                _serialPort?.DiscardInBuffer();
+
+                await _serialPort.BaseStream.WriteAsync(request, 0, request.Length);
+
+                if (Debug) LogHelper.WriteLog($"TX:{BitConverter.ToString(request).Replace("-", " ")}", LogType.Run);
+
+                // 异步读取响应，循环读取直到收到expectedLength字节或超时
+                var buffer = new byte[expectedLength];
+                int offset = 0;
+                var stopwatch = Stopwatch.StartNew();
+
+                while (offset < expectedLength)
+                {
+                    if (stopwatch.ElapsedMilliseconds > ReadTimeoutMs)
+                    {
+                        throw new TimeoutException("读取串口数据超时");
+                    }
+
+                    if (_serialPort.BytesToRead > 0)
+                    {
+                        int read = await _serialPort.BaseStream.ReadAsync(buffer, offset, expectedLength - offset);
+                        if (read == 0) // 串口关闭或异常
+                            throw new Exception("串口读取返回0字节");
+
+                        offset += read;
+                    }
+                    else
+                    {
+                        // 没有数据时，异步短暂延时，避免死循环
+                        await Task.Delay(0);
+                    }
+                }
+
+                stopwatch.Stop();
+
+                var actual = new byte[offset];
+                Array.Copy(buffer, actual, offset);
+
+                if (Debug) LogHelper.WriteLog($"RX:{BitConverter.ToString(actual).Replace("-", " ")}", LogType.Run);
+
+                return actual;
+            }
+            finally
+            {
+                _asyncLock.Release();
+            }
+        }
+
 
         private byte[] SendAndReceive(byte[] request, int expectedLength)
         {

@@ -36,6 +36,9 @@ namespace AutoScrewSys.Frm
         }
         private void RunUI_Load(object sender, EventArgs e)
         {
+            UIThread.Context = SynchronizationContext.Current;
+            BindLabels(this, AddrName.Default);
+
             EnableChartZoomAndPan();
             InitTorqueChart();
             InitResultDgv();
@@ -48,7 +51,7 @@ namespace AutoScrewSys.Frm
                  () =>
                  {
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
-                     MessageBox.Show("串口连接成功");
+                     //MessageBox.Show("串口连接成功");
                  },
                  // 串口打开失败时回调，错误消息提醒，并退出程序
                  (msg) =>
@@ -250,25 +253,29 @@ namespace AutoScrewSys.Frm
             _isRunning = true;
             _refreshThread = new Thread(() =>
             {
-                while (_isRunning)
+                while (false)
                 {
-                    Thread.Sleep(5);
-                    Invoke(new Action(() =>
-                    {
-                        lblTaskNumber.Text = AddrName.Default.TaskNumber.ToString();
-                        lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
-                        lblTorque.Text = AddrName.Default.Torque.ToString();
-                        lblLaps.Text = AddrName.Default.LapsNum.ToString();
-                        lblAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
-                        lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
-                        lblGoodScrews.Text = Settings.Default.GoodScrews.ToString();
-                        lblBadScrews.Text = (AddrName.Default.ScrewsTotal - Settings.Default.GoodScrews).ToString();
-                        Yield.Progress = AddrName.Default.ScrewsTotal == 0? 0f: (float)((Settings.Default.GoodScrews / (double)AddrName.Default.ScrewsTotal) * 100);
+                    Thread.Sleep(500);
+                    this.Invoke(new Action(() => { LogHelper.WriteLog($"任务号:{AddrName.Default.TaskNumber.ToString()}", LogType.Run); }));
+                    
+                        
+                      
+                    //Invoke(new Action(() =>
+                    //{
+                    //    TaskNumber.Text = AddrName.Default.TaskNumber.ToString();
+                    //    lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
+                    //    lblTorque.Text = AddrName.Default.Torque.ToString();
+                    //    lblLaps.Text = AddrName.Default.LapsNum.ToString();
+                    //    lblAlarm.Text = GetAlarmMessage(AddrName.Default.AlarmInfo);
+                    //    lblScrewsTotal.Text = AddrName.Default.ScrewsTotal.ToString();
+                    //    lblGoodScrews.Text = Settings.Default.GoodScrews.ToString();
+                    //    lblBadScrews.Text = (AddrName.Default.ScrewsTotal - Settings.Default.GoodScrews).ToString();
+                    //    Yield.Progress = AddrName.Default.ScrewsTotal == 0? 0f: (float)((Settings.Default.GoodScrews / (double)AddrName.Default.ScrewsTotal) * 100);
 
-                        System.Windows.Forms.Label[] beaLabels = new System.Windows.Forms.Label[] { lblBusySignal, lblEndSignal, lblAlarmSignal };
-                        System.Windows.Forms.Label[] tllLabels = new System.Windows.Forms.Label[] { lblTightenSignal, lblLoosenSignal, lblLdlingSignal };
-                        UpdateActionStatus(beaLabels,tllLabels);
-                    }));
+                    //    System.Windows.Forms.Label[] beaLabels = new System.Windows.Forms.Label[] { lblBusySignal, lblEndSignal, lblAlarmSignal };
+                    //    System.Windows.Forms.Label[] tllLabels = new System.Windows.Forms.Label[] { lblTightenSignal, lblLoosenSignal, lblLdlingSignal };
+                    //    UpdateActionStatus(beaLabels,tllLabels);
+                    //}));
                 }
             });
             _refreshThread.IsBackground = true;

@@ -5,17 +5,21 @@ using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Vml;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Control = System.Windows.Forms.Control;
+using Path = System.IO.Path;
 
 namespace AutoScrewSys.Base
 {
@@ -71,53 +75,56 @@ namespace AutoScrewSys.Base
             }
         }
 
-        public static void MainThread()
+        public async static void MainThread()
         {
             var cfg = AddrName.Default;
             var type = cfg.GetType();
             //ushort i = 0;
-            while (isInit)
+            var stopwatch = Stopwatch.StartNew();
+            while (true)
             {
+                stopwatch.Restart();
+
+                List<Task> tasks = new List<Task>();
+
                 foreach (SettingsProperty p in cfg.Properties)
                 {
-
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
-                    if (addr == null)
-                    {
-                        LogHelper.WriteLog($"空属性:{p.Name}", LogType.Fault);
-                        Thread.Sleep(1000); continue;
-                    }
-                    try
-                    {
-                        var val = ModbusRtuHelper.Instance.ReadRegisters(
-                            (byte)addr.SlaveAddress, (ushort)addr.StartAddress, (ushort)addr.Length
-                        )?[0];
+                    if (addr == null) continue;
 
-                        var prop = type.GetProperty(p.Name);
-                        prop?.SetValue(cfg, Convert.ChangeType(val, p.PropertyType));
-
-                        RunStatusMonitor();
-                        #region 调试使用
-                        //if (i == cfg.Properties.Count)
-                        //{
-                        //    LogHelper.WriteLog("========================================", LogType.Error);
-                        //    i = 0;
-                        //}
-                        //LogHelper.WriteLog($"{addr.Description}:{val}", LogType.Error);
-                        //i++; 
-                        #endregion
-                    }
-                    catch (Exception ex)
+                    // 每个属性异步执行读取任务
+                    tasks.Add(Task.Run(async () =>
                     {
-                        LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
-                    }
-                    //if (AddrName.Default.ScrewResult == 1) LogHelper.WriteLog($"{addr.Description}:{addr.StartAddress}-运行中", LogType.Run);
+                        try
+                        {
+                            // 确保串口访问线程安全（不能多个线程同时用）
+                            ushort[] result;
+                            result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                                    (byte)addr.SlaveAddress,
+                                    (ushort)addr.StartAddress,
+                                    (ushort)addr.Length);
+
+                            // 更新设置属性（线程安全）
+                            SettingsUpdater.Set( p.Name, result[0]);
+                        }
+                        catch (Exception ex)
+                        {
+                            LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
+                        }
+                    }));
                 }
-            
-                Thread.Sleep(5);
-            }
 
-            //cfg.Save();
+                // 等待所有采集任务完成
+                await Task.WhenAll(tasks);
+
+                // 特殊处理 AlarmInfoStr
+                string v = GetAlarmMessage(AddrName.Default.AlarmInfo);
+                SettingsUpdater.Set("AlarmInfoStr", v);
+
+                LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
+
+                await Task.Delay(5); // 非阻塞延时
+            }
         }
 
         /// <summary>
@@ -315,6 +322,43 @@ namespace AutoScrewSys.Base
                 case 7: return "扭力下限报警";
                 case 8: return "电批报警";
                 default: return "未知报警代码";
+            }
+        }
+
+
+        /// <summary>
+        /// 将控件树中所有 Label 控件与数据源对象按控件名进行属性绑定
+        /// </summary>
+        /// <param name="parent">容器控件（如 this、UserControl、Panel）</param>
+        /// <param name="settingsSource">数据源对象（如 AddrName.Default）</param>
+        public static void BindLabels(Control parent, object settingsSource)
+        {
+            if (parent == null || settingsSource == null)
+                return;
+
+            Type settingsType = settingsSource.GetType();
+
+            foreach (Control control in parent.Controls)
+            {
+                // 递归处理嵌套控件（包括用户控件）
+                if (control.HasChildren)
+                {
+                    BindLabels(control, settingsSource);
+                }
+
+                // 只处理 Label 控件
+                if (control is Label lbl)
+                {
+                    string propertyName = lbl.Name;
+
+                    // 反射判断属性是否存在
+                    PropertyInfo property = settingsType.GetProperty(propertyName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
+                    if (property != null)
+                    {
+                        // 允许绑定 int、double 等，也会自动转成 string 显示
+                        lbl.DataBindings.Add("Text", settingsSource, property.Name, false, DataSourceUpdateMode.OnPropertyChanged);
+                    }
+                }
             }
         }
     }

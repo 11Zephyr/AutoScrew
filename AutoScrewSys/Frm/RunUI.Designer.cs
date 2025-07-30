@@ -44,6 +44,9 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tpanel = new ZimaBlueUI.Tpanel();
+            this.btnFreeMove = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnLoosenMove = new MaterialSkin.Controls.MaterialButtonpro();
+            this.btnTightenMove = new MaterialSkin.Controls.MaterialButtonpro();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.SDbut = new System.Windows.Forms.Button();
             this.PositionView = new System.Windows.Forms.DataGridView();
@@ -57,23 +60,23 @@
             this.tpanel1 = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel3 = new ZimaBlueUI.Tpanel();
-            this.lblTaskNumber = new System.Windows.Forms.Label();
+            this.TaskNumber = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tpanel4 = new ZimaBlueUI.Tpanel();
             this.lblCT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
-            this.lblTorque = new System.Windows.Forms.Label();
+            this.Torque = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tpanel5 = new ZimaBlueUI.Tpanel();
-            this.lblLaps = new System.Windows.Forms.Label();
+            this.LapsNum = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
-            this.lblRunState = new System.Windows.Forms.Label();
+            this.ScrewResultStr = new System.Windows.Forms.Label();
             this.cbxNoCollection = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
-            this.lblAlarm = new System.Windows.Forms.Label();
+            this.AlarmInfoStr = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTightenSignal = new System.Windows.Forms.Label();
@@ -93,16 +96,13 @@
             this.lblBadScrews = new System.Windows.Forms.Label();
             this.lblScrews = new System.Windows.Forms.Label();
             this.lblGoodScrews = new System.Windows.Forms.Label();
-            this.lblScrewsTotal = new System.Windows.Forms.Label();
+            this.ScrewsTotal = new System.Windows.Forms.Label();
             this.Yield = new ZimaBlueUI.ZGradientProgressBar();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnFreeMove = new MaterialSkin.Controls.MaterialButtonpro();
-            this.btnLoosenMove = new MaterialSkin.Controls.MaterialButtonpro();
-            this.btnTightenMove = new MaterialSkin.Controls.MaterialButtonpro();
             this.label6 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -164,6 +164,69 @@
             this.tpanel.Size = new System.Drawing.Size(483, 122);
             this.tpanel.TabIndex = 59;
             this.tpanel.Visible = false;
+            // 
+            // btnFreeMove
+            // 
+            this.btnFreeMove.AngleColor = System.Drawing.Color.Transparent;
+            this.btnFreeMove.ButtonColor = System.Drawing.Color.White;
+            this.btnFreeMove.Buttonmodel = 0;
+            this.btnFreeMove.ClickColor = System.Drawing.Color.White;
+            this.btnFreeMove.Constant = 0;
+            this.btnFreeMove.Depth = 0;
+            this.btnFreeMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFreeMove.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnFreeMove.Location = new System.Drawing.Point(308, 36);
+            this.btnFreeMove.MaxV = 0;
+            this.btnFreeMove.MinV = 0;
+            this.btnFreeMove.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnFreeMove.Name = "btnFreeMove";
+            this.btnFreeMove.Size = new System.Drawing.Size(121, 50);
+            this.btnFreeMove.TabIndex = 6;
+            this.btnFreeMove.Text = "自由";
+            this.btnFreeMove.UseVisualStyleBackColor = true;
+            this.btnFreeMove.Click += new System.EventHandler(this.btnFreeMove_Click_1);
+            // 
+            // btnLoosenMove
+            // 
+            this.btnLoosenMove.AngleColor = System.Drawing.Color.Transparent;
+            this.btnLoosenMove.ButtonColor = System.Drawing.Color.White;
+            this.btnLoosenMove.Buttonmodel = 0;
+            this.btnLoosenMove.ClickColor = System.Drawing.Color.White;
+            this.btnLoosenMove.Constant = 0;
+            this.btnLoosenMove.Depth = 0;
+            this.btnLoosenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnLoosenMove.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnLoosenMove.Location = new System.Drawing.Point(181, 36);
+            this.btnLoosenMove.MaxV = 0;
+            this.btnLoosenMove.MinV = 0;
+            this.btnLoosenMove.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnLoosenMove.Name = "btnLoosenMove";
+            this.btnLoosenMove.Size = new System.Drawing.Size(121, 50);
+            this.btnLoosenMove.TabIndex = 5;
+            this.btnLoosenMove.Text = "拧松";
+            this.btnLoosenMove.UseVisualStyleBackColor = true;
+            this.btnLoosenMove.Click += new System.EventHandler(this.btnLoosenMove_Click_1);
+            // 
+            // btnTightenMove
+            // 
+            this.btnTightenMove.AngleColor = System.Drawing.Color.Transparent;
+            this.btnTightenMove.ButtonColor = System.Drawing.Color.White;
+            this.btnTightenMove.Buttonmodel = 0;
+            this.btnTightenMove.ClickColor = System.Drawing.Color.White;
+            this.btnTightenMove.Constant = 0;
+            this.btnTightenMove.Depth = 0;
+            this.btnTightenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.btnTightenMove.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnTightenMove.Location = new System.Drawing.Point(54, 36);
+            this.btnTightenMove.MaxV = 0;
+            this.btnTightenMove.MinV = 0;
+            this.btnTightenMove.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTightenMove.Name = "btnTightenMove";
+            this.btnTightenMove.Size = new System.Drawing.Size(121, 50);
+            this.btnTightenMove.TabIndex = 4;
+            this.btnTightenMove.Text = "拧紧";
+            this.btnTightenMove.UseVisualStyleBackColor = true;
+            this.btnTightenMove.Click += new System.EventHandler(this.btnTightenMove_Click_1);
             // 
             // chart1
             // 
@@ -402,7 +465,7 @@
             // 
             this.tpanel3.Alpha = 50;
             this.tpanel3.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel3.Controls.Add(this.lblTaskNumber);
+            this.tpanel3.Controls.Add(this.TaskNumber);
             this.tpanel3.Controls.Add(this.label3);
             this.tpanel3.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
             this.tpanel3.Location = new System.Drawing.Point(3, 3);
@@ -415,17 +478,17 @@
             this.tpanel3.Size = new System.Drawing.Size(362, 68);
             this.tpanel3.TabIndex = 68;
             // 
-            // lblTaskNumber
+            // TaskNumber
             // 
-            this.lblTaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTaskNumber.Location = new System.Drawing.Point(148, 18);
-            this.lblTaskNumber.Name = "lblTaskNumber";
-            this.lblTaskNumber.Size = new System.Drawing.Size(139, 33);
-            this.lblTaskNumber.TabIndex = 197;
-            this.lblTaskNumber.Text = "0";
-            this.lblTaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.TaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TaskNumber.Location = new System.Drawing.Point(148, 18);
+            this.TaskNumber.Name = "TaskNumber";
+            this.TaskNumber.Size = new System.Drawing.Size(139, 33);
+            this.TaskNumber.TabIndex = 197;
+            this.TaskNumber.Text = "0";
+            this.TaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -484,7 +547,7 @@
             this.tpanel6.Alpha = 50;
             this.tpanel6.BackColor = System.Drawing.Color.Transparent;
             this.tpanel6.Controls.Add(this.label6);
-            this.tpanel6.Controls.Add(this.lblTorque);
+            this.tpanel6.Controls.Add(this.Torque);
             this.tpanel6.Controls.Add(this.label2);
             this.tpanel6.Location = new System.Drawing.Point(3, 77);
             this.tpanel6.Name = "tpanel6";
@@ -496,17 +559,17 @@
             this.tpanel6.Size = new System.Drawing.Size(362, 71);
             this.tpanel6.TabIndex = 68;
             // 
-            // lblTorque
+            // Torque
             // 
-            this.lblTorque.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTorque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTorque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTorque.Location = new System.Drawing.Point(148, 19);
-            this.lblTorque.Name = "lblTorque";
-            this.lblTorque.Size = new System.Drawing.Size(139, 33);
-            this.lblTorque.TabIndex = 198;
-            this.lblTorque.Text = "0";
-            this.lblTorque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Torque.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.Torque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Torque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Torque.Location = new System.Drawing.Point(148, 19);
+            this.Torque.Name = "Torque";
+            this.Torque.Size = new System.Drawing.Size(139, 33);
+            this.Torque.TabIndex = 198;
+            this.Torque.Text = "0";
+            this.Torque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -524,7 +587,7 @@
             // 
             this.tpanel5.Alpha = 50;
             this.tpanel5.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel5.Controls.Add(this.lblLaps);
+            this.tpanel5.Controls.Add(this.LapsNum);
             this.tpanel5.Controls.Add(this.label4);
             this.tpanel5.Location = new System.Drawing.Point(371, 77);
             this.tpanel5.Name = "tpanel5";
@@ -536,17 +599,17 @@
             this.tpanel5.Size = new System.Drawing.Size(353, 71);
             this.tpanel5.TabIndex = 70;
             // 
-            // lblLaps
+            // LapsNum
             // 
-            this.lblLaps.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.lblLaps.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblLaps.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblLaps.Location = new System.Drawing.Point(143, 19);
-            this.lblLaps.Name = "lblLaps";
-            this.lblLaps.Size = new System.Drawing.Size(179, 33);
-            this.lblLaps.TabIndex = 198;
-            this.lblLaps.Text = "0";
-            this.lblLaps.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LapsNum.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.LapsNum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LapsNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.LapsNum.Location = new System.Drawing.Point(143, 19);
+            this.LapsNum.Name = "LapsNum";
+            this.LapsNum.Size = new System.Drawing.Size(179, 33);
+            this.LapsNum.TabIndex = 198;
+            this.LapsNum.Text = "0";
+            this.LapsNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -564,7 +627,7 @@
             // 
             this.tpanel2.Alpha = 50;
             this.tpanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel2.Controls.Add(this.lblRunState);
+            this.tpanel2.Controls.Add(this.ScrewResultStr);
             this.tpanel2.Controls.Add(this.cbxNoCollection);
             this.tpanel2.Controls.Add(this.label5);
             this.tpanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -578,17 +641,17 @@
             this.tpanel2.Size = new System.Drawing.Size(727, 132);
             this.tpanel2.TabIndex = 67;
             // 
-            // lblRunState
+            // ScrewResultStr
             // 
-            this.lblRunState.Font = new System.Drawing.Font("思源黑体 CN Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblRunState.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblRunState.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblRunState.Location = new System.Drawing.Point(201, 2);
-            this.lblRunState.Name = "lblRunState";
-            this.lblRunState.Size = new System.Drawing.Size(380, 120);
-            this.lblRunState.TabIndex = 200;
-            this.lblRunState.Text = "Ready";
-            this.lblRunState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ScrewResultStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ScrewResultStr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ScrewResultStr.Location = new System.Drawing.Point(201, 2);
+            this.ScrewResultStr.Name = "ScrewResultStr";
+            this.ScrewResultStr.Size = new System.Drawing.Size(380, 120);
+            this.ScrewResultStr.TabIndex = 200;
+            this.ScrewResultStr.Text = "Ready";
+            this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxNoCollection
             // 
@@ -618,7 +681,7 @@
             // 
             this.tpanel7.Alpha = 50;
             this.tpanel7.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel7.Controls.Add(this.lblAlarm);
+            this.tpanel7.Controls.Add(this.AlarmInfoStr);
             this.tpanel7.Controls.Add(this.label7);
             this.tpanel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.tpanel7.Location = new System.Drawing.Point(651, 283);
@@ -631,17 +694,17 @@
             this.tpanel7.Size = new System.Drawing.Size(727, 72);
             this.tpanel7.TabIndex = 68;
             // 
-            // lblAlarm
+            // AlarmInfoStr
             // 
-            this.lblAlarm.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblAlarm.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblAlarm.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblAlarm.Location = new System.Drawing.Point(155, 15);
-            this.lblAlarm.Name = "lblAlarm";
-            this.lblAlarm.Size = new System.Drawing.Size(566, 48);
-            this.lblAlarm.TabIndex = 199;
-            this.lblAlarm.Text = "无故障";
-            this.lblAlarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.AlarmInfoStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.AlarmInfoStr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.AlarmInfoStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AlarmInfoStr.Location = new System.Drawing.Point(155, 15);
+            this.AlarmInfoStr.Name = "AlarmInfoStr";
+            this.AlarmInfoStr.Size = new System.Drawing.Size(566, 48);
+            this.AlarmInfoStr.TabIndex = 199;
+            this.AlarmInfoStr.Text = "无故障";
+            this.AlarmInfoStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -854,7 +917,7 @@
             this.panel1.Controls.Add(this.lblBadScrews);
             this.panel1.Controls.Add(this.lblScrews);
             this.panel1.Controls.Add(this.lblGoodScrews);
-            this.panel1.Controls.Add(this.lblScrewsTotal);
+            this.panel1.Controls.Add(this.ScrewsTotal);
             this.panel1.Controls.Add(this.Yield);
             this.panel1.Controls.Add(this.label19);
             this.panel1.Controls.Add(this.label17);
@@ -906,18 +969,18 @@
             this.lblGoodScrews.Text = "0";
             this.lblGoodScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblScrewsTotal
+            // ScrewsTotal
             // 
-            this.lblScrewsTotal.BackColor = System.Drawing.Color.Transparent;
-            this.lblScrewsTotal.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblScrewsTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblScrewsTotal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScrewsTotal.Location = new System.Drawing.Point(179, 9);
-            this.lblScrewsTotal.Name = "lblScrewsTotal";
-            this.lblScrewsTotal.Size = new System.Drawing.Size(111, 33);
-            this.lblScrewsTotal.TabIndex = 203;
-            this.lblScrewsTotal.Text = "0";
-            this.lblScrewsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ScrewsTotal.BackColor = System.Drawing.Color.Transparent;
+            this.ScrewsTotal.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ScrewsTotal.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ScrewsTotal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ScrewsTotal.Location = new System.Drawing.Point(179, 9);
+            this.ScrewsTotal.Name = "ScrewsTotal";
+            this.ScrewsTotal.Size = new System.Drawing.Size(111, 33);
+            this.ScrewsTotal.TabIndex = 203;
+            this.ScrewsTotal.Text = "0";
+            this.ScrewsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Yield
             // 
@@ -994,69 +1057,6 @@
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnFreeMove
-            // 
-            this.btnFreeMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnFreeMove.ButtonColor = System.Drawing.Color.White;
-            this.btnFreeMove.Buttonmodel = 0;
-            this.btnFreeMove.ClickColor = System.Drawing.Color.White;
-            this.btnFreeMove.Constant = 0;
-            this.btnFreeMove.Depth = 0;
-            this.btnFreeMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFreeMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnFreeMove.Location = new System.Drawing.Point(308, 36);
-            this.btnFreeMove.MaxV = 0;
-            this.btnFreeMove.MinV = 0;
-            this.btnFreeMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnFreeMove.Name = "btnFreeMove";
-            this.btnFreeMove.Size = new System.Drawing.Size(121, 50);
-            this.btnFreeMove.TabIndex = 6;
-            this.btnFreeMove.Text = "自由";
-            this.btnFreeMove.UseVisualStyleBackColor = true;
-            this.btnFreeMove.Click += new System.EventHandler(this.btnFreeMove_Click_1);
-            // 
-            // btnLoosenMove
-            // 
-            this.btnLoosenMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnLoosenMove.ButtonColor = System.Drawing.Color.White;
-            this.btnLoosenMove.Buttonmodel = 0;
-            this.btnLoosenMove.ClickColor = System.Drawing.Color.White;
-            this.btnLoosenMove.Constant = 0;
-            this.btnLoosenMove.Depth = 0;
-            this.btnLoosenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLoosenMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnLoosenMove.Location = new System.Drawing.Point(181, 36);
-            this.btnLoosenMove.MaxV = 0;
-            this.btnLoosenMove.MinV = 0;
-            this.btnLoosenMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLoosenMove.Name = "btnLoosenMove";
-            this.btnLoosenMove.Size = new System.Drawing.Size(121, 50);
-            this.btnLoosenMove.TabIndex = 5;
-            this.btnLoosenMove.Text = "拧松";
-            this.btnLoosenMove.UseVisualStyleBackColor = true;
-            this.btnLoosenMove.Click += new System.EventHandler(this.btnLoosenMove_Click_1);
-            // 
-            // btnTightenMove
-            // 
-            this.btnTightenMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnTightenMove.ButtonColor = System.Drawing.Color.White;
-            this.btnTightenMove.Buttonmodel = 0;
-            this.btnTightenMove.ClickColor = System.Drawing.Color.White;
-            this.btnTightenMove.Constant = 0;
-            this.btnTightenMove.Depth = 0;
-            this.btnTightenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnTightenMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnTightenMove.Location = new System.Drawing.Point(54, 36);
-            this.btnTightenMove.MaxV = 0;
-            this.btnTightenMove.MinV = 0;
-            this.btnTightenMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnTightenMove.Name = "btnTightenMove";
-            this.btnTightenMove.Size = new System.Drawing.Size(121, 50);
-            this.btnTightenMove.TabIndex = 4;
-            this.btnTightenMove.Text = "拧紧";
-            this.btnTightenMove.UseVisualStyleBackColor = true;
-            this.btnTightenMove.Click += new System.EventHandler(this.btnTightenMove_Click_1);
-            // 
             // label6
             // 
             this.label6.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -1124,13 +1124,13 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbxNoCollection;
-        private System.Windows.Forms.Label lblRunState;
-        private System.Windows.Forms.Label lblAlarm;
+        private System.Windows.Forms.Label ScrewResultStr;
+        private System.Windows.Forms.Label AlarmInfoStr;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblTaskNumber;
+        private System.Windows.Forms.Label TaskNumber;
         private System.Windows.Forms.Label lblCT;
-        private System.Windows.Forms.Label lblTorque;
-        private System.Windows.Forms.Label lblLaps;
+        private System.Windows.Forms.Label Torque;
+        private System.Windows.Forms.Label LapsNum;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button SDbut;
@@ -1160,7 +1160,7 @@
         private System.Windows.Forms.Label lblBadScrews;
         private System.Windows.Forms.Label lblScrews;
         private System.Windows.Forms.Label lblGoodScrews;
-        private System.Windows.Forms.Label lblScrewsTotal;
+        private System.Windows.Forms.Label ScrewsTotal;
         private ZimaBlueUI.ZGradientProgressBar Yield;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label17;

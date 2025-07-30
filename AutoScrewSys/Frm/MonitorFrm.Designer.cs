@@ -35,7 +35,7 @@
             this.lblTorque = new System.Windows.Forms.Label();
             this.lblLaps = new System.Windows.Forms.Label();
             this.lblRotateSpeed = new System.Windows.Forms.Label();
-            this.lblTaskNumber = new System.Windows.Forms.Label();
+            this.TaskNumber = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.customPanel1.Controls.Add(this.lblTorque);
             this.customPanel1.Controls.Add(this.lblLaps);
             this.customPanel1.Controls.Add(this.lblRotateSpeed);
-            this.customPanel1.Controls.Add(this.lblTaskNumber);
+            this.customPanel1.Controls.Add(this.TaskNumber);
             this.customPanel1.Controls.Add(this.label17);
             this.customPanel1.Controls.Add(this.label16);
             this.customPanel1.Controls.Add(this.label8);
@@ -161,18 +161,18 @@
             this.lblRotateSpeed.Text = "0";
             this.lblRotateSpeed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTaskNumber
+            // TaskNumber
             // 
-            this.lblTaskNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblTaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTaskNumber.Location = new System.Drawing.Point(12, 74);
-            this.lblTaskNumber.Name = "lblTaskNumber";
-            this.lblTaskNumber.Size = new System.Drawing.Size(111, 33);
-            this.lblTaskNumber.TabIndex = 221;
-            this.lblTaskNumber.Text = "0";
-            this.lblTaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TaskNumber.BackColor = System.Drawing.Color.Transparent;
+            this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.TaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.TaskNumber.Location = new System.Drawing.Point(12, 74);
+            this.TaskNumber.Name = "TaskNumber";
+            this.TaskNumber.Size = new System.Drawing.Size(111, 33);
+            this.TaskNumber.TabIndex = 221;
+            this.TaskNumber.Text = "0";
+            this.TaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label17
             // 
@@ -425,6 +425,7 @@
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MonitorFrm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MonitorFrm_FormClosed);
+            this.Load += new System.EventHandler(this.MonitorFrm_Load);
             this.customPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -451,7 +452,7 @@
         private System.Windows.Forms.Label lblTorque;
         private System.Windows.Forms.Label lblLaps;
         private System.Windows.Forms.Label lblRotateSpeed;
-        private System.Windows.Forms.Label lblTaskNumber;
+        private System.Windows.Forms.Label TaskNumber;
         private MaterialSkin.Controls.MaterialButtonpro btnFreeMove;
         private MaterialSkin.Controls.MaterialButtonpro btnLoosenMove;
         private MaterialSkin.Controls.MaterialButtonpro btnTightenMove;

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static AutoScrewSys.Base.GlobalMonitor;
 
 namespace AutoScrewSys.Frm
 {
@@ -46,7 +47,7 @@ namespace AutoScrewSys.Frm
         {
             _refreshThread = new Thread(() =>
             {
-                while (_isRunning)
+                while (false)
                 {
                     Thread.Sleep(5);
 
@@ -58,7 +59,7 @@ namespace AutoScrewSys.Frm
                             {
                                 if (this.IsDisposed) return; // 再次保险
 
-                                lblTaskNumber.Text = AddrName.Default.TaskNumber.ToString();
+                                TaskNumber.Text = AddrName.Default.TaskNumber.ToString();
                                 lblRunState.Text = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
                                 lblTorque.Text = AddrName.Default.Torque.ToString();
                                 lblLaps.Text = AddrName.Default.LapsNum.ToString();
@@ -107,6 +108,11 @@ namespace AutoScrewSys.Frm
         {
             StopRefreshing();
 
+        }
+
+        private void MonitorFrm_Load(object sender, EventArgs e)
+        {
+            BindLabels(this, AddrName.Default);
         }
     }
 }
