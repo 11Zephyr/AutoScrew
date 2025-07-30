@@ -79,51 +79,63 @@ namespace AutoScrewSys.Base
             }
         }
 
-        public  static void MainThread()
+        public async  static void MainThread()
         {
             var cfg = AddrName.Default;
             var type = cfg.GetType();
             var stopwatch = Stopwatch.StartNew();
             while (isInit)
             {
-                _pauseSignal.Wait(); // 如果暂停了，这里会阻塞等待恢复
-                stopwatch.Restart();
-
-                List<Task> tasks = new List<Task>();
-
-                foreach (SettingsProperty p in cfg.Properties)
+                try
                 {
-                    var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
-                    if (addr == null) continue;
+                    stopwatch.Restart();
 
-                    tasks.Add(Task.Run(async () =>
+                    if (!await ModbusRtuHelper.Instance.TryWaitLockAsync(10)) // 最多等10ms
                     {
-                        try
-                        {
-                            ushort[] result;
-                            result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
-                                    (byte)addr.SlaveAddress,
-                                    (ushort)addr.StartAddress,
-                                    (ushort)addr.Length);
+                        continue; // 本轮拿不到锁，跳过
+                    }
 
-                            SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
-                        }
-                        catch (Exception ex)
+                    List<Task> tasks = new List<Task>();
+
+                    foreach (SettingsProperty p in cfg.Properties)
+                    {
+                        var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
+                        if (addr == null) continue;
+
+                        tasks.Add(Task.Run(async () =>
                         {
-                            LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
-                        }
-                    }));
+                            try
+                            {
+                                ushort[] result;
+                                result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                                        (byte)addr.SlaveAddress,
+                                        (ushort)addr.StartAddress,
+                                        (ushort)addr.Length);
+
+                                SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
+                            }
+                            catch (Exception ex)
+                            {
+                                LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
+                            }
+                        }));
+                    }
+                    //await Task.WhenAll(tasks);
+                    RunStatusMonitor();
+
+                    UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
+                    UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
+
+                    StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
+
+                    LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
                 }
-                //await Task.WhenAll(tasks);
-                RunStatusMonitor();
-
-                UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
-                UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
-
-                StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
-
-                //ogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
-              //Thread.Sleep(100);
+                finally
+                {
+                    ModbusRtuHelper.Instance.ReleaseLock(); // 释放锁
+                }
+                await Task.Delay(2); // 控制采集频率
+                                     //Thread.Sleep(100);
             }
         }
         /// <summary>
@@ -339,7 +351,9 @@ namespace AutoScrewSys.Base
                 {
                     bool state = btn.Tag is bool b && b;
                     ushort valueToWrite = state ? (ushort)0 : (ushort)1;
+                    _pauseSignal.Reset();
                     await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, valueToWrite);
+                    _pauseSignal.Set();
                     btn.Tag = !state;
                 }
             }

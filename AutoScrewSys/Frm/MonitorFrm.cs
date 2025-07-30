@@ -34,7 +34,7 @@ namespace AutoScrewSys.Frm
         private async void btnLoosenMove_Click(object sender, EventArgs e)
         {
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
-           await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
+            await GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
         }
 
         private async void btnFreeMove_Click(object sender, EventArgs e)

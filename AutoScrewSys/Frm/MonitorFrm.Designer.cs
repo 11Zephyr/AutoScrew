@@ -36,7 +36,6 @@
             this.LapsNum = new System.Windows.Forms.Label();
             this.RotateSpeed = new System.Windows.Forms.Label();
             this.TaskNumber = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@
             this.customPanel1.Controls.Add(this.LapsNum);
             this.customPanel1.Controls.Add(this.RotateSpeed);
             this.customPanel1.Controls.Add(this.TaskNumber);
-            this.customPanel1.Controls.Add(this.label17);
             this.customPanel1.Controls.Add(this.label16);
             this.customPanel1.Controls.Add(this.label8);
             this.customPanel1.Controls.Add(this.label15);
@@ -182,20 +180,6 @@
             this.TaskNumber.Text = "0";
             this.TaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label17
-            // 
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.label17.Font = new System.Drawing.Font("思源黑体 CN Bold", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(442, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(79, 33);
-            this.label17.TabIndex = 220;
-            this.label17.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.Transparent;
@@ -241,7 +225,7 @@
             this.label6.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(398, 16);
+            this.label6.Location = new System.Drawing.Point(423, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 33);
             this.label6.TabIndex = 216;
@@ -551,7 +535,6 @@
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label15;

@@ -38,9 +38,6 @@
     <Setting Name="GoodScrews" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="TorqueUnit" Type="System.String" Scope="User">
-      <Value Profile="(Default)">mN·m</Value>
-    </Setting>
     <Setting Name="DataStoredTime" Type="System.String" Scope="User">
       <Value Profile="(Default)">15天</Value>
     </Setting>

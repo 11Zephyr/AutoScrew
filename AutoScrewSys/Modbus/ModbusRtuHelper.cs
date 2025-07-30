@@ -17,8 +17,9 @@ namespace AutoScrewSys.Modbus
         public bool Debug { get; set; } = false;
         private SerialPort _serialPort;
         private readonly object _portLock = new object();
-                private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
+        private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
         private const int ReadTimeoutMs = 500; // 适当设置读超时
+        public bool IsPortBusy => _asyncLock.CurrentCount == 0;
         public static ModbusRtuHelper Instance
         {
             get
@@ -54,7 +55,15 @@ namespace AutoScrewSys.Modbus
                 return false;
             }
         }
+        public async Task<bool> TryWaitLockAsync(int timeoutMs)
+        {
+            return await _asyncLock.WaitAsync(timeoutMs);
+        }
 
+        public void ReleaseLock()
+        {
+            _asyncLock.Release();
+        }
         public async Task<ushort[]> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
         {
             byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
@@ -90,12 +99,14 @@ namespace AutoScrewSys.Modbus
         }
         public async Task WriteSingleRegisterAsync(byte slaveId, ushort address, ushort value)
         {
-            byte[] frame = BuildRequestFrame(slaveId, 0x06, address, value);
+   
+                byte[] frame = BuildRequestFrame(slaveId, 0x06, address, value);
 
-            byte[] response = await SendAndReceiveAsync(frame, 8);
+                byte[] response = await SendAndReceiveAsync(frame, 8);
 
-            if (response.Length != 8 || response[1] != 0x06)
-                throw new Exception("写入失败：响应无效");
+                if (response.Length != 8 || response[1] != 0x06)
+                    throw new Exception("写入失败：响应无效");
+
         }
 
         public void WriteSingleRegister(byte slaveId, ushort address, ushort value)
@@ -156,7 +167,7 @@ namespace AutoScrewSys.Modbus
                     else
                     {
                         // 没有数据时，异步短暂延时，避免死循环
-                        await Task.Delay(0);
+                        await Task.Delay(3);
                     }
                 }
 

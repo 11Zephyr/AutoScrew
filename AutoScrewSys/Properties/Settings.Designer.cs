@@ -169,18 +169,6 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("mN·m")]
-        public string TorqueUnit {
-            get {
-                return ((string)(this["TorqueUnit"]));
-            }
-            set {
-                this["TorqueUnit"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("15天")]
         public string DataStoredTime {
             get {

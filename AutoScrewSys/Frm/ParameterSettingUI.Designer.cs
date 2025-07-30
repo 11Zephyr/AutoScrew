@@ -31,14 +31,19 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblMesTextR = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxTorqueUnit = new MaterialSkin.Controls.MaterialComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbxSaveDataPath = new ZimaBlueUI.ZtextBoxRua();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxDataStoredTime = new MaterialSkin.Controls.MaterialComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.cbxLogStoredTime = new MaterialSkin.Controls.MaterialComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.cbxLoggedOutTime = new MaterialSkin.Controls.MaterialComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,11 +71,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
             this.btnConnect = new MaterialSkin.Controls.MaterialButtonpro();
-            this.cbxTorqueUnit = new MaterialSkin.Controls.MaterialComboBox();
-            this.tbxSaveDataPath = new ZimaBlueUI.ZtextBoxRua();
-            this.cbxDataStoredTime = new MaterialSkin.Controls.MaterialComboBox();
-            this.cbxLogStoredTime = new MaterialSkin.Controls.MaterialComboBox();
-            this.cbxLoggedOutTime = new MaterialSkin.Controls.MaterialComboBox();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -129,6 +129,40 @@
             this.panel1.Size = new System.Drawing.Size(925, 58);
             this.panel1.TabIndex = 41;
             // 
+            // cbxTorqueUnit
+            // 
+            this.cbxTorqueUnit.AutoResize = false;
+            this.cbxTorqueUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxTorqueUnit.Borderwidht = 7;
+            this.cbxTorqueUnit.ComboxColor = System.Drawing.Color.White;
+            this.cbxTorqueUnit.Commodel = 0;
+            this.cbxTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxTorqueUnit.Depth = 0;
+            this.cbxTorqueUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxTorqueUnit.DropDownHeight = 217;
+            this.cbxTorqueUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTorqueUnit.DropDownWidth = 121;
+            this.cbxTorqueUnit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxTorqueUnit.FormattingEnabled = true;
+            this.cbxTorqueUnit.IntegralHeight = false;
+            this.cbxTorqueUnit.ItemHeight = 43;
+            this.cbxTorqueUnit.Items.AddRange(new object[] {
+            "mN·m",
+            "N·m",
+            "lb·ft",
+            "kg·m",
+            "kgf·cm"});
+            this.cbxTorqueUnit.Location = new System.Drawing.Point(189, 2);
+            this.cbxTorqueUnit.MaxDropDownItems = 5;
+            this.cbxTorqueUnit.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxTorqueUnit.Name = "cbxTorqueUnit";
+            this.cbxTorqueUnit.ShowScrollbar = false;
+            this.cbxTorqueUnit.Size = new System.Drawing.Size(137, 49);
+            this.cbxTorqueUnit.StartIndex = 0;
+            this.cbxTorqueUnit.TabIndex = 202;
+            this.cbxTorqueUnit.Triangle = true;
+            this.cbxTorqueUnit.SelectedIndexChanged += new System.EventHandler(this.cbxTorqueUnit_SelectedIndexChanged);
+            // 
             // label10
             // 
             this.label10.BackColor = System.Drawing.Color.Transparent;
@@ -152,6 +186,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(925, 58);
             this.panel2.TabIndex = 42;
+            // 
+            // tbxSaveDataPath
+            // 
+            this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
+            this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSaveDataPath.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
+            this.tbxSaveDataPath.Name = "tbxSaveDataPath";
+            this.tbxSaveDataPath.ReadOnly = false;
+            this.tbxSaveDataPath.Size = new System.Drawing.Size(729, 43);
+            this.tbxSaveDataPath.TabIndex = 203;
+            this.tbxSaveDataPath.Tag = "Text";
+            this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
+            this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSaveDataPath.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.TextBorderRadius = 5;
+            this.tbxSaveDataPath.TextBorderSize = 1;
+            this.tbxSaveDataPath.TextBorderWidth = 2;
             // 
             // label1
             // 
@@ -177,6 +230,43 @@
             this.panel3.Size = new System.Drawing.Size(925, 58);
             this.panel3.TabIndex = 43;
             // 
+            // cbxDataStoredTime
+            // 
+            this.cbxDataStoredTime.AutoResize = false;
+            this.cbxDataStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxDataStoredTime.Borderwidht = 7;
+            this.cbxDataStoredTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxDataStoredTime.Commodel = 0;
+            this.cbxDataStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "DataStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxDataStoredTime.Depth = 0;
+            this.cbxDataStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxDataStoredTime.DropDownHeight = 217;
+            this.cbxDataStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDataStoredTime.DropDownWidth = 121;
+            this.cbxDataStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxDataStoredTime.FormattingEnabled = true;
+            this.cbxDataStoredTime.IntegralHeight = false;
+            this.cbxDataStoredTime.ItemHeight = 43;
+            this.cbxDataStoredTime.Items.AddRange(new object[] {
+            "15天",
+            "30天",
+            "60天",
+            "90天",
+            "180天",
+            "360天",
+            "永久"});
+            this.cbxDataStoredTime.Location = new System.Drawing.Point(189, 4);
+            this.cbxDataStoredTime.MaxDropDownItems = 5;
+            this.cbxDataStoredTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxDataStoredTime.Name = "cbxDataStoredTime";
+            this.cbxDataStoredTime.ShowScrollbar = false;
+            this.cbxDataStoredTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxDataStoredTime.StartIndex = 0;
+            this.cbxDataStoredTime.TabIndex = 203;
+            this.cbxDataStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.DataStoredTime;
+            this.cbxDataStoredTime.Triangle = true;
+            this.cbxDataStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxDataStoredTime_SelectedIndexChanged);
+            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.Transparent;
@@ -201,6 +291,43 @@
             this.panel4.Size = new System.Drawing.Size(925, 58);
             this.panel4.TabIndex = 44;
             // 
+            // cbxLogStoredTime
+            // 
+            this.cbxLogStoredTime.AutoResize = false;
+            this.cbxLogStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxLogStoredTime.Borderwidht = 7;
+            this.cbxLogStoredTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxLogStoredTime.Commodel = 0;
+            this.cbxLogStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LogStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxLogStoredTime.Depth = 0;
+            this.cbxLogStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxLogStoredTime.DropDownHeight = 217;
+            this.cbxLogStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLogStoredTime.DropDownWidth = 121;
+            this.cbxLogStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxLogStoredTime.FormattingEnabled = true;
+            this.cbxLogStoredTime.IntegralHeight = false;
+            this.cbxLogStoredTime.ItemHeight = 43;
+            this.cbxLogStoredTime.Items.AddRange(new object[] {
+            "15天",
+            "30天",
+            "60天",
+            "90天",
+            "180天",
+            "360天",
+            "永久"});
+            this.cbxLogStoredTime.Location = new System.Drawing.Point(189, 2);
+            this.cbxLogStoredTime.MaxDropDownItems = 5;
+            this.cbxLogStoredTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxLogStoredTime.Name = "cbxLogStoredTime";
+            this.cbxLogStoredTime.ShowScrollbar = false;
+            this.cbxLogStoredTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxLogStoredTime.StartIndex = 0;
+            this.cbxLogStoredTime.TabIndex = 203;
+            this.cbxLogStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.LogStoredTime;
+            this.cbxLogStoredTime.Triangle = true;
+            this.cbxLogStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxLogStoredTime_SelectedIndexChanged);
+            // 
             // label3
             // 
             this.label3.BackColor = System.Drawing.Color.Transparent;
@@ -224,6 +351,43 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(925, 58);
             this.panel5.TabIndex = 45;
+            // 
+            // cbxLoggedOutTime
+            // 
+            this.cbxLoggedOutTime.AutoResize = false;
+            this.cbxLoggedOutTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxLoggedOutTime.Borderwidht = 7;
+            this.cbxLoggedOutTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxLoggedOutTime.Commodel = 0;
+            this.cbxLoggedOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LoggedOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxLoggedOutTime.Depth = 0;
+            this.cbxLoggedOutTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxLoggedOutTime.DropDownHeight = 217;
+            this.cbxLoggedOutTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLoggedOutTime.DropDownWidth = 121;
+            this.cbxLoggedOutTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxLoggedOutTime.FormattingEnabled = true;
+            this.cbxLoggedOutTime.IntegralHeight = false;
+            this.cbxLoggedOutTime.ItemHeight = 43;
+            this.cbxLoggedOutTime.Items.AddRange(new object[] {
+            "1分钟",
+            "3分钟",
+            "5分钟",
+            "10分钟",
+            "30分钟",
+            "1小时",
+            "永久"});
+            this.cbxLoggedOutTime.Location = new System.Drawing.Point(189, 3);
+            this.cbxLoggedOutTime.MaxDropDownItems = 5;
+            this.cbxLoggedOutTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxLoggedOutTime.Name = "cbxLoggedOutTime";
+            this.cbxLoggedOutTime.ShowScrollbar = false;
+            this.cbxLoggedOutTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxLoggedOutTime.StartIndex = 0;
+            this.cbxLoggedOutTime.TabIndex = 203;
+            this.cbxLoggedOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.LoggedOutTime;
+            this.cbxLoggedOutTime.Triangle = true;
+            this.cbxLoggedOutTime.SelectedIndexChanged += new System.EventHandler(this.cbxLoggedOutTime_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -693,171 +857,6 @@
             this.btnConnect.Text = "连接";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // cbxTorqueUnit
-            // 
-            this.cbxTorqueUnit.AutoResize = false;
-            this.cbxTorqueUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxTorqueUnit.Borderwidht = 7;
-            this.cbxTorqueUnit.ComboxColor = System.Drawing.Color.White;
-            this.cbxTorqueUnit.Commodel = 0;
-            this.cbxTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxTorqueUnit.Depth = 0;
-            this.cbxTorqueUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxTorqueUnit.DropDownHeight = 217;
-            this.cbxTorqueUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTorqueUnit.DropDownWidth = 121;
-            this.cbxTorqueUnit.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxTorqueUnit.FormattingEnabled = true;
-            this.cbxTorqueUnit.IntegralHeight = false;
-            this.cbxTorqueUnit.ItemHeight = 43;
-            this.cbxTorqueUnit.Items.AddRange(new object[] {
-            "mN·m",
-            "N·m",
-            "lb·ft",
-            "kg·m",
-            "kgf·cm"});
-            this.cbxTorqueUnit.Location = new System.Drawing.Point(189, 2);
-            this.cbxTorqueUnit.MaxDropDownItems = 5;
-            this.cbxTorqueUnit.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxTorqueUnit.Name = "cbxTorqueUnit";
-            this.cbxTorqueUnit.ShowScrollbar = false;
-            this.cbxTorqueUnit.Size = new System.Drawing.Size(137, 49);
-            this.cbxTorqueUnit.StartIndex = 0;
-            this.cbxTorqueUnit.TabIndex = 202;
-            this.cbxTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.cbxTorqueUnit.Triangle = true;
-            this.cbxTorqueUnit.SelectedIndexChanged += new System.EventHandler(this.cbxTorqueUnit_SelectedIndexChanged);
-            // 
-            // tbxSaveDataPath
-            // 
-            this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
-            this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbxSaveDataPath.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
-            this.tbxSaveDataPath.Name = "tbxSaveDataPath";
-            this.tbxSaveDataPath.ReadOnly = false;
-            this.tbxSaveDataPath.Size = new System.Drawing.Size(729, 43);
-            this.tbxSaveDataPath.TabIndex = 203;
-            this.tbxSaveDataPath.Tag = "Text";
-            this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
-            this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSaveDataPath.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.tbxSaveDataPath.TextBorderRadius = 5;
-            this.tbxSaveDataPath.TextBorderSize = 1;
-            this.tbxSaveDataPath.TextBorderWidth = 2;
-            // 
-            // cbxDataStoredTime
-            // 
-            this.cbxDataStoredTime.AutoResize = false;
-            this.cbxDataStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxDataStoredTime.Borderwidht = 7;
-            this.cbxDataStoredTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxDataStoredTime.Commodel = 0;
-            this.cbxDataStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "DataStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxDataStoredTime.Depth = 0;
-            this.cbxDataStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxDataStoredTime.DropDownHeight = 217;
-            this.cbxDataStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDataStoredTime.DropDownWidth = 121;
-            this.cbxDataStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxDataStoredTime.FormattingEnabled = true;
-            this.cbxDataStoredTime.IntegralHeight = false;
-            this.cbxDataStoredTime.ItemHeight = 43;
-            this.cbxDataStoredTime.Items.AddRange(new object[] {
-            "15天",
-            "30天",
-            "60天",
-            "90天",
-            "180天",
-            "360天",
-            "永久"});
-            this.cbxDataStoredTime.Location = new System.Drawing.Point(189, 4);
-            this.cbxDataStoredTime.MaxDropDownItems = 5;
-            this.cbxDataStoredTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxDataStoredTime.Name = "cbxDataStoredTime";
-            this.cbxDataStoredTime.ShowScrollbar = false;
-            this.cbxDataStoredTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxDataStoredTime.StartIndex = 0;
-            this.cbxDataStoredTime.TabIndex = 203;
-            this.cbxDataStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.DataStoredTime;
-            this.cbxDataStoredTime.Triangle = true;
-            this.cbxDataStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxDataStoredTime_SelectedIndexChanged);
-            // 
-            // cbxLogStoredTime
-            // 
-            this.cbxLogStoredTime.AutoResize = false;
-            this.cbxLogStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxLogStoredTime.Borderwidht = 7;
-            this.cbxLogStoredTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxLogStoredTime.Commodel = 0;
-            this.cbxLogStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LogStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxLogStoredTime.Depth = 0;
-            this.cbxLogStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxLogStoredTime.DropDownHeight = 217;
-            this.cbxLogStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxLogStoredTime.DropDownWidth = 121;
-            this.cbxLogStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxLogStoredTime.FormattingEnabled = true;
-            this.cbxLogStoredTime.IntegralHeight = false;
-            this.cbxLogStoredTime.ItemHeight = 43;
-            this.cbxLogStoredTime.Items.AddRange(new object[] {
-            "15天",
-            "30天",
-            "60天",
-            "90天",
-            "180天",
-            "360天",
-            "永久"});
-            this.cbxLogStoredTime.Location = new System.Drawing.Point(189, 2);
-            this.cbxLogStoredTime.MaxDropDownItems = 5;
-            this.cbxLogStoredTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxLogStoredTime.Name = "cbxLogStoredTime";
-            this.cbxLogStoredTime.ShowScrollbar = false;
-            this.cbxLogStoredTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxLogStoredTime.StartIndex = 0;
-            this.cbxLogStoredTime.TabIndex = 203;
-            this.cbxLogStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.LogStoredTime;
-            this.cbxLogStoredTime.Triangle = true;
-            this.cbxLogStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxLogStoredTime_SelectedIndexChanged);
-            // 
-            // cbxLoggedOutTime
-            // 
-            this.cbxLoggedOutTime.AutoResize = false;
-            this.cbxLoggedOutTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxLoggedOutTime.Borderwidht = 7;
-            this.cbxLoggedOutTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxLoggedOutTime.Commodel = 0;
-            this.cbxLoggedOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LoggedOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxLoggedOutTime.Depth = 0;
-            this.cbxLoggedOutTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxLoggedOutTime.DropDownHeight = 217;
-            this.cbxLoggedOutTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxLoggedOutTime.DropDownWidth = 121;
-            this.cbxLoggedOutTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxLoggedOutTime.FormattingEnabled = true;
-            this.cbxLoggedOutTime.IntegralHeight = false;
-            this.cbxLoggedOutTime.ItemHeight = 43;
-            this.cbxLoggedOutTime.Items.AddRange(new object[] {
-            "1分钟",
-            "3分钟",
-            "5分钟",
-            "10分钟",
-            "30分钟",
-            "1小时",
-            "永久"});
-            this.cbxLoggedOutTime.Location = new System.Drawing.Point(189, 3);
-            this.cbxLoggedOutTime.MaxDropDownItems = 5;
-            this.cbxLoggedOutTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxLoggedOutTime.Name = "cbxLoggedOutTime";
-            this.cbxLoggedOutTime.ShowScrollbar = false;
-            this.cbxLoggedOutTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxLoggedOutTime.StartIndex = 0;
-            this.cbxLoggedOutTime.TabIndex = 203;
-            this.cbxLoggedOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.LoggedOutTime;
-            this.cbxLoggedOutTime.Triangle = true;
-            this.cbxLoggedOutTime.SelectedIndexChanged += new System.EventHandler(this.cbxLoggedOutTime_SelectedIndexChanged);
             // 
             // ParameterSettingUI
             // 
