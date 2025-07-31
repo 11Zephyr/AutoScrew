@@ -66,6 +66,7 @@ namespace AutoScrewSys.Frm
         }
         private void UpdateModbusAddress()
         {
+            return;
             try
             {
                 if (!GlobalMonitor.isInit) return;
@@ -185,7 +186,6 @@ namespace AutoScrewSys.Frm
 
             var paramList = GetParamList();
             var displayList = new List<ParamDisplayModel>();
-            GlobalMonitor. _pauseSignal.Reset(); // ⏸️ 暂停主线程
 
             for (int row = 0; row < paramList.Count; row++)
             {
@@ -206,7 +206,6 @@ namespace AutoScrewSys.Frm
                     Remark = paramInfo.Remark
                 });
             }
-            GlobalMonitor._pauseSignal.Set(); // 恢复 MainThread()
             this.Invoke(new Action(() =>
             {
                 dgvParam?.Rows.Clear();

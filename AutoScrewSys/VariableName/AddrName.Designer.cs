@@ -193,18 +193,6 @@ namespace AutoScrewSys.VariableName {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int TotalCollections {
-            get {
-                return ((int)(this["TotalCollections"]));
-            }
-            set {
-                this["TotalCollections"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string AlarmInfoStr {
             get {

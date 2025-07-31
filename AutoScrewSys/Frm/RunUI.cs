@@ -3,6 +3,7 @@ using AutoScrewSys.BLL;
 using AutoScrewSys.Enums;
 using AutoScrewSys.Interface;
 using AutoScrewSys.Modbus;
+using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -57,35 +58,59 @@ namespace AutoScrewSys.Frm
                      MessageBox.Show(msg, "异常提示");
                  });
         }
-     
+        private int _torquePointIndex = 0;
         private void InitTorqueChart()
         {
-            GlobalMonitor.OnTorqueWaveUpdated += (startNum, torqueArray) =>
+           GlobalMonitor.OnChartDataReceived += points => {
+
+               if (chart1.InvokeRequired)
+               {
+                   chart1.BeginInvoke(new Action(() =>
+                   {
+                       foreach (var val in points)
+                       {
+                           chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
+                       }
+                   }));
+               }
+               else
+               {
+                   foreach (var val in points)
+                   {
+                       chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
+                   }
+               }
+           };
+
+            GlobalMonitor.ClearChartAction = () =>
             {
-
-                this.Invoke(new Action(() =>
+                _torquePointIndex = 0;
+                if (chart1.InvokeRequired)
                 {
-                    if (Settings.Default.CurrentRunState)
-                    {
-                        chart1.Series[0].Points.Clear();
-                        Settings.Default.CurrentRunState = false;
-                    }
-                    chart1.Series[0].Points.AddXY(startNum, torqueArray.Average(t => (double)t));
-
-                }));
-
-
+                    chart1.BeginInvoke(new Action(() => chart1.Series[0].Points.Clear()));
+                }
+                else
+                {
+                    chart1.Series[0].Points.Clear();
+                }
             };
+
         }
+      
+
         private void InitResultDgv()
         {
-            GlobalMonitor.OnResultsUpdated += ( string ct) =>
+            GlobalMonitor.OnResultsUpdated += () =>
             {
-                this.Invoke((Action)(() =>
+                this.Invoke((Action)(async () =>
                 {
                     string result = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
                     Settings.Default.GoodScrews = result == "OK" ? Settings.Default.GoodScrews + 1 : Settings.Default.GoodScrews;
-                    lblCT.Text = ct;
+
+                    ModbusCfgModel HoldTimeAddr = ModbusAddressConfig.Instance.GetAddressItem("HoldTime", $"Task{AddrName.Default.TaskNumber}");
+                    ushort[] HoldTime = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)HoldTimeAddr.SlaveAddress, (ushort)HoldTimeAddr.StartAddress, (ushort)HoldTimeAddr.Length);
+
+                    lblCT.Text = HoldTime[0].ToString();
 
                     int rowIndex = PositionView.Rows.Count + 1;
 
@@ -95,11 +120,9 @@ namespace AutoScrewSys.Frm
                     // 当前时间：时分秒
                     string timeNow = DateTime.Now.ToString("HH:mm:ss");
 
-                    // 添加新行
                     PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
                     AppendLastRowToCsv(PositionView, Settings.Default.ProductionDataPath);
                     SaveWaveformToDatedFolder();
-
                    
                 }));
             };
@@ -254,61 +277,8 @@ namespace AutoScrewSys.Frm
             _refreshThread = null;
         }
 
-        private void SDbut_Click(object sender, EventArgs e)
-        {
-            tpanel.Visible = tpanel.Visible?false:true;
-            tpanel.BringToFront();
-        }
 
-        private void btnTightenMove_Click_1(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
-        }
-
-        private void btnLoosenMove_Click_1(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
-        }
-
-        private void btnFreeMove_Click_1(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
-            GlobalMonitor.ElectricBatchAction(sender, (byte)addr.SlaveAddress, (ushort)addr.StartAddress);
-        }
-
-
-        public void UpdateActionStatus(System.Windows.Forms.Label[] BEAlabels, System.Windows.Forms.Label[] TLLlabels)
-        {
-            int s = AddrName.Default.StateBits;
-            int t = AddrName.Default.TightenAction;
-            int l = AddrName.Default.LoosenAction;
-            int f = AddrName.Default.FreeAction;
-
-            if (isFirst || s != lastStateBits || t != lastTighten || l != lastLoosen || f != lastFree)
-            {
-                //UpdateStateLabels(s, t, l, f);
-
-                for (int i = 0; i < BEAlabels.Length; i++)
-                {
-                    bool isActive = ((s >> i) & 1) == 0; // 0表示有效
-                    BEAlabels[i].BackColor = isActive ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-                }
-
-                TLLlabels[0].BackColor = t == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-                TLLlabels[1].BackColor = l == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-                TLLlabels[2].BackColor = f == 1 ? System.Drawing.Color.LimeGreen : System.Drawing.Color.Gray;
-
-                // 更新旧值
-                lastStateBits = s;
-                lastTighten = t;
-                lastLoosen = l;
-                lastFree = f;
-                isFirst = false;
-            }
-        }
-
+     
         private void OnStatusChanged(int s, int t, int l, int f)
         {
             if (InvokeRequired)

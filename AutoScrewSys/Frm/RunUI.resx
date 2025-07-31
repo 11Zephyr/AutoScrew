@@ -117,26 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="SDbut.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAwlJREFUaEPt
-        mb9OG0EQxl0kBdXOhhLS8AA0eQEeIE0aGnoKSxRIvrUtF7hKlwYBEulCE4kSuaegoYU3oEWKxBtMNHvn
-        +/Ot4Xbvbg2W/JNWsjyzszN75/Htd73emjUfA558+cpG9zlRF2xoxoYe2dBLNuTzLLXpvvji/HeBR+ob
-        Gz3mhG7ZEAcNO0ePJQbGjU6W+KWTVOOhL5dWyBuJP7NR5zygPR7oXZ5sbvHx9oYd8lm+E5v4WF9nvi0E
-        1+sUNnTnLDqkGx6qfZ72PqH/a4ivnSNzMZ6hO/TvBDb05CSe6O/oF4rEWFDIE/q1wtmlRI3Qpy0SE9dB
-        n0awoYdK4AH9QJ+ukNhQxAP6BMGGrjvfEQ+giGu0e+F0m2W1ubxNl4sI7E5OgEQdok9sZM3GG1jZ/SHd
-        oH1ZVLuT51Vwdz+8VbKhaTZ/irYQbIsNvQqlxRvvfmXRtkVU/yPqY/FQ35cu2wHafeCETqGIE/TxRXIo
-        NlTfo70Cj9ROadF/fNj7jD6+YAtuWoTkYHOZxxmpHfTJ4YSOSgteoT2UBUXU3wILkFzyGAkdoT0nO4yk
-        jgPaQ3sTuigifYqdF6Au0J6TnaSyAvQu2pvStgj7KF7MnaE9Jzv6pY6TzS20t6FNEfY8Ucx7RHtOdn5N
-        HY+3N9DeFqcIz/8Yeygq5r2gPSd+Aepv7ALi3UIJ/akkH+kWivQj1r+bJi/4/4hjtNGEztokLwS0Ud0v
-        FlLnaA+FDf1qm7yQKRlZDN1He06qruWLPYcoDQgb9bOT5EXBKMswdapeRWUbqn20+yDPPV0kL1j5ZR4n
-        oVu0O1i5Ly/goz1O6zHaHVb+QCOs9JFScK9C90JWHY7Q5bv7cxxZJaKghbgCV8Dul0ExF+2xqCbfUux1
-        RN3QSxmAc+t2JfJC0ChClyNkdX3FHZE3rrzeTtR9DedAMi9EpI8ABSNVGvTBgsRlNBNzfXG6UzFE+riq
-        f8VkFYZCJqmMht0mlJV+yVcm6xrTqprnOdI503dJfBFW1RNhrO5Ft/i8pa6tWbNc/gNt0Pa3aPRqBwAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

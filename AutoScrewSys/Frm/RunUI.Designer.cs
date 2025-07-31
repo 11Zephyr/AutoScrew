@@ -31,7 +31,6 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -43,12 +42,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.tpanel = new ZimaBlueUI.Tpanel();
-            this.btnFreeMove = new MaterialSkin.Controls.MaterialButtonpro();
-            this.btnLoosenMove = new MaterialSkin.Controls.MaterialButtonpro();
-            this.btnTightenMove = new MaterialSkin.Controls.MaterialButtonpro();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.SDbut = new System.Windows.Forms.Button();
             this.PositionView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,7 +99,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.tpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionView)).BeginInit();
             this.tpanel1.SuspendLayout();
@@ -137,95 +130,11 @@
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel12.Controls.Add(this.tpanel);
             this.panel12.Controls.Add(this.chart1);
-            this.panel12.Controls.Add(this.SDbut);
             this.panel12.Location = new System.Drawing.Point(3, 3);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(642, 326);
             this.panel12.TabIndex = 65;
-            // 
-            // tpanel
-            // 
-            this.tpanel.Alpha = 0;
-            this.tpanel.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel.Controls.Add(this.btnFreeMove);
-            this.tpanel.Controls.Add(this.btnLoosenMove);
-            this.tpanel.Controls.Add(this.btnTightenMove);
-            this.tpanel.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.tpanel.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.tpanel.Location = new System.Drawing.Point(67, 95);
-            this.tpanel.Name = "tpanel";
-            this.tpanel.PanelBorderRadius = 1F;
-            this.tpanel.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
-            this.tpanel.PanelOffsetY = 21F;
-            this.tpanel.PanelText = "";
-            this.tpanel.Size = new System.Drawing.Size(483, 122);
-            this.tpanel.TabIndex = 59;
-            this.tpanel.Visible = false;
-            // 
-            // btnFreeMove
-            // 
-            this.btnFreeMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnFreeMove.ButtonColor = System.Drawing.Color.White;
-            this.btnFreeMove.Buttonmodel = 0;
-            this.btnFreeMove.ClickColor = System.Drawing.Color.White;
-            this.btnFreeMove.Constant = 0;
-            this.btnFreeMove.Depth = 0;
-            this.btnFreeMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFreeMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnFreeMove.Location = new System.Drawing.Point(308, 36);
-            this.btnFreeMove.MaxV = 0;
-            this.btnFreeMove.MinV = 0;
-            this.btnFreeMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnFreeMove.Name = "btnFreeMove";
-            this.btnFreeMove.Size = new System.Drawing.Size(121, 50);
-            this.btnFreeMove.TabIndex = 6;
-            this.btnFreeMove.Text = "自由";
-            this.btnFreeMove.UseVisualStyleBackColor = true;
-            this.btnFreeMove.Click += new System.EventHandler(this.btnFreeMove_Click_1);
-            // 
-            // btnLoosenMove
-            // 
-            this.btnLoosenMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnLoosenMove.ButtonColor = System.Drawing.Color.White;
-            this.btnLoosenMove.Buttonmodel = 0;
-            this.btnLoosenMove.ClickColor = System.Drawing.Color.White;
-            this.btnLoosenMove.Constant = 0;
-            this.btnLoosenMove.Depth = 0;
-            this.btnLoosenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnLoosenMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnLoosenMove.Location = new System.Drawing.Point(181, 36);
-            this.btnLoosenMove.MaxV = 0;
-            this.btnLoosenMove.MinV = 0;
-            this.btnLoosenMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnLoosenMove.Name = "btnLoosenMove";
-            this.btnLoosenMove.Size = new System.Drawing.Size(121, 50);
-            this.btnLoosenMove.TabIndex = 5;
-            this.btnLoosenMove.Text = "拧松";
-            this.btnLoosenMove.UseVisualStyleBackColor = true;
-            this.btnLoosenMove.Click += new System.EventHandler(this.btnLoosenMove_Click_1);
-            // 
-            // btnTightenMove
-            // 
-            this.btnTightenMove.AngleColor = System.Drawing.Color.Transparent;
-            this.btnTightenMove.ButtonColor = System.Drawing.Color.White;
-            this.btnTightenMove.Buttonmodel = 0;
-            this.btnTightenMove.ClickColor = System.Drawing.Color.White;
-            this.btnTightenMove.Constant = 0;
-            this.btnTightenMove.Depth = 0;
-            this.btnTightenMove.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.btnTightenMove.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnTightenMove.Location = new System.Drawing.Point(54, 36);
-            this.btnTightenMove.MaxV = 0;
-            this.btnTightenMove.MinV = 0;
-            this.btnTightenMove.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnTightenMove.Name = "btnTightenMove";
-            this.btnTightenMove.Size = new System.Drawing.Size(121, 50);
-            this.btnTightenMove.TabIndex = 4;
-            this.btnTightenMove.Text = "拧紧";
-            this.btnTightenMove.UseVisualStyleBackColor = true;
-            this.btnTightenMove.Click += new System.EventHandler(this.btnTightenMove_Click_1);
             // 
             // chart1
             // 
@@ -284,22 +193,6 @@
             this.chart1.Size = new System.Drawing.Size(544, 244);
             this.chart1.TabIndex = 58;
             this.chart1.Text = "chart1";
-            // 
-            // SDbut
-            // 
-            this.SDbut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SDbut.BackgroundImage")));
-            this.SDbut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SDbut.FlatAppearance.BorderSize = 0;
-            this.SDbut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
-            this.SDbut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(36)))), ((int)(((byte)(55)))));
-            this.SDbut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SDbut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.SDbut.Location = new System.Drawing.Point(12, 8);
-            this.SDbut.Name = "SDbut";
-            this.SDbut.Size = new System.Drawing.Size(45, 45);
-            this.SDbut.TabIndex = 57;
-            this.SDbut.UseVisualStyleBackColor = true;
-            this.SDbut.Click += new System.EventHandler(this.SDbut_Click);
             // 
             // PositionView
             // 
@@ -658,7 +551,7 @@
             this.cbxNoCollection.ForeColor = System.Drawing.SystemColors.Window;
             this.cbxNoCollection.Location = new System.Drawing.Point(608, 25);
             this.cbxNoCollection.Name = "cbxNoCollection";
-            this.cbxNoCollection.Size = new System.Drawing.Size(77, 27);
+            this.cbxNoCollection.Size = new System.Drawing.Size(113, 39);
             this.cbxNoCollection.TabIndex = 199;
             this.cbxNoCollection.Text = "不采集";
             this.cbxNoCollection.UseVisualStyleBackColor = true;
@@ -1072,7 +965,6 @@
             this.Load += new System.EventHandler(this.RunUI_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.tpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PositionView)).EndInit();
             this.tpanel1.ResumeLayout(false);
@@ -1118,7 +1010,6 @@
         private System.Windows.Forms.Label LapsNum;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button SDbut;
         private System.Windows.Forms.DataGridView PositionView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -1152,9 +1043,5 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private ZimaBlueUI.Tpanel tpanel;
-        private MaterialSkin.Controls.MaterialButtonpro btnFreeMove;
-        private MaterialSkin.Controls.MaterialButtonpro btnLoosenMove;
-        private MaterialSkin.Controls.MaterialButtonpro btnTightenMove;
     }
 }

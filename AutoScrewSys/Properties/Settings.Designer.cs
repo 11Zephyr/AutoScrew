@@ -226,5 +226,17 @@ namespace AutoScrewSys.Properties {
                 this["sendOutTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mn")]
+        public string TorqueUnit {
+            get {
+                return ((string)(this["TorqueUnit"]));
+            }
+            set {
+                this["TorqueUnit"] = value;
+            }
+        }
     }
 }

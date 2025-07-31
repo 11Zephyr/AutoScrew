@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace AutoScrewSys.Modbus
         private readonly object _portLock = new object();
         private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
         private const int ReadTimeoutMs = 500; // 适当设置读超时
-        public bool IsPortBusy => _asyncLock.CurrentCount == 0;
+        private readonly SerialPortTaskQueue _queue = new SerialPortTaskQueue(); // 添加调度器
         public static ModbusRtuHelper Instance
         {
             get
@@ -60,16 +61,18 @@ namespace AutoScrewSys.Modbus
             return await _asyncLock.WaitAsync(timeoutMs);
         }
 
-        public void ReleaseLock()
+        public Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength)
         {
-            _asyncLock.Release();
+            return _queue.EnqueueAsync(() => SendAndReceiveInternalAsync_(request, expectedLength));
         }
+
+
         public async Task<ushort[]> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
         {
             byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
 
             // 异步等待响应
-            byte[] response = await SendAndReceiveAsync(frame, length * 2 + 5);
+            byte[] response = await SendAndReceiveAsync_(frame, length * 2 + 5);
 
             if (response.Length < 5 || response[1] != 0x03)
                 throw new Exception("无效响应");
@@ -102,7 +105,7 @@ namespace AutoScrewSys.Modbus
    
                 byte[] frame = BuildRequestFrame(slaveId, 0x06, address, value);
 
-                byte[] response = await SendAndReceiveAsync(frame, 8);
+                byte[] response = await SendAndReceiveAsync_(frame, 8);
 
                 if (response.Length != 8 || response[1] != 0x06)
                     throw new Exception("写入失败：响应无效");
@@ -133,58 +136,93 @@ namespace AutoScrewSys.Modbus
             return frame;
         }
 
-        private async Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength)
+        private async Task<byte[]> SendAndReceiveInternalAsync_(byte[] request, int expectedLength)
         {
+            _serialPort?.DiscardInBuffer();
+            await _serialPort.BaseStream.WriteAsync(request, 0, request.Length);
+
+            if (Debug)
+                LogHelper.WriteLog($"TX:{BitConverter.ToString(request).Replace("-", " ")}", LogType.Run);
+
+            var buffer = new byte[expectedLength];
+            int offset = 0;
+            var stopwatch = Stopwatch.StartNew();
+
+            while (offset < expectedLength)
+            {
+                if (stopwatch.ElapsedMilliseconds > ReadTimeoutMs)
+                {
+                    throw new TimeoutException("读取串口数据超时");
+                }
+
+                if (_serialPort.BytesToRead > 0)
+                {
+                    int read = await _serialPort.BaseStream.ReadAsync(buffer, offset, expectedLength - offset);
+                    if (read == 0)
+                        throw new Exception("串口读取返回0字节");
+
+                    offset += read;
+                }
+                else
+                {
+                    await Task.Delay(3);
+                }
+            }
+
+            stopwatch.Stop();
+
+            var actual = new byte[offset];
+            Array.Copy(buffer, actual, offset);
+
+            if (Debug)
+                LogHelper.WriteLog($"RX:{BitConverter.ToString(actual).Replace("-", " ")}", LogType.Run);
+
+            return actual;
+        }
+
+        public async Task<byte[]> SendAndReceiveAsync_(byte[] request, int expectedLength, int timeoutMs = 1000)
+        {
+            await Task.Delay(5);
             await _asyncLock.WaitAsync();
+            var cts = new CancellationTokenSource(timeoutMs);
             try
             {
-                _serialPort?.DiscardInBuffer();
-
                 await _serialPort.BaseStream.WriteAsync(request, 0, request.Length);
 
-                if (Debug) LogHelper.WriteLog($"TX:{BitConverter.ToString(request).Replace("-", " ")}", LogType.Run);
+                if (Debug)
+                    LogHelper.WriteLog($"TX:{BitConverter.ToString(request).Replace("-", " ")}", LogType.Run);
 
-                // 异步读取响应，循环读取直到收到expectedLength字节或超时
                 var buffer = new byte[expectedLength];
                 int offset = 0;
-                var stopwatch = Stopwatch.StartNew();
 
                 while (offset < expectedLength)
                 {
-                    if (stopwatch.ElapsedMilliseconds > ReadTimeoutMs)
-                    {
-                        throw new TimeoutException("读取串口数据超时");
-                    }
+                    int read = await _serialPort.BaseStream.ReadAsync(buffer, offset, expectedLength - offset, cts.Token);
+                    if (read == 0)
+                        throw new IOException("串口读取返回0字节");
 
-                    if (_serialPort.BytesToRead > 0)
-                    {
-                        int read = await _serialPort.BaseStream.ReadAsync(buffer, offset, expectedLength - offset);
-                        if (read == 0) // 串口关闭或异常
-                            throw new Exception("串口读取返回0字节");
-
-                        offset += read;
-                    }
-                    else
-                    {
-                        // 没有数据时，异步短暂延时，避免死循环
-                        await Task.Delay(3);
-                    }
+                    offset += read;
                 }
 
-                stopwatch.Stop();
+                var result = new byte[offset];
+                Array.Copy(buffer, result, offset);
 
-                var actual = new byte[offset];
-                Array.Copy(buffer, actual, offset);
+                if (Debug)
+                    LogHelper.WriteLog($"RX:{BitConverter.ToString(result).Replace("-", " ")}", LogType.Run);
 
-                if (Debug) LogHelper.WriteLog($"RX:{BitConverter.ToString(actual).Replace("-", " ")}", LogType.Run);
-
-                return actual;
+                return result;
+            }
+            catch (OperationCanceledException)
+            {
+                throw new TimeoutException("读取串口数据超时");
             }
             finally
             {
+                cts.Dispose(); // 必须手动释放
                 _asyncLock.Release();
             }
         }
+
 
 
         private byte[] SendAndReceive(byte[] request, int expectedLength)

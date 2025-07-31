@@ -5,18 +5,22 @@ using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zmodbus;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Control = System.Windows.Forms.Control;
 using Path = System.IO.Path;
@@ -25,27 +29,31 @@ namespace AutoScrewSys.Base
 {
     public class GlobalMonitor
     {
-        public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
         public static bool isInit { get; private set; }//初始化标志
         private static bool _collecting = false;//采集波形数据标志
         private static bool _end = false;//采集结束标志
+        private static int _collectTotalNum = 0;
+        private static int _lastIndex = 0;
 
-        private static List<double> waveDataInfo = new List<double>();//存储波形数据
-
-        public static event Action<int, ushort[]> OnTorqueWaveUpdated;//更新波形图委托
-        public static event Action<string> OnResultsUpdated;//更新结果数据委托
+        public static Action ClearChartAction;
+        public static event Action<List<float>> OnChartDataReceived;
+        public static event Action OnResultsUpdated;
         public static event Action<int, int, int, int> StatusChanged;
-
+        public delegate void UpdateChartDelegate(List<float> yValues);
+        public event UpdateChartDelegate OnWaveDataUpdate;
+        public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
         static Thread _modbusSyncThread;//住循环线程
         private static Stopwatch _stopwatch = new Stopwatch();//采集数据计时器
-        public static ManualResetEventSlim _pauseSignal = new ManualResetEventSlim(true); // 初始为“允许运行”
+        private static List<double> waveDataInfo = new List<double>();//存储波形数据
+
+
 
         public static void Start(Action successAction, Action<string> faultAction)
         {
             try
             {
-               Task.Run(new Action(() =>
-               {
+                Task.Run(new Action(() =>
+                {
                     IndustrialBLL bll = new IndustrialBLL();
                     var si = bll.InitSerialInfo();
                     if (si.State) SerialInfo = si.Data;
@@ -53,19 +61,16 @@ namespace AutoScrewSys.Base
                     {
                         faultAction.Invoke(si.Message); return;
                     }
-
                     if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits, Convert.ToInt32(Settings.Default.receptOutTime), Convert.ToInt32(Settings.Default.sendOutTime)))
                     {
                         isInit = true;
-                        successAction?.Invoke();
-
                         _modbusSyncThread = new Thread(MainThread)
                         {
                             IsBackground = true,
                             Priority = ThreadPriority.Highest // 设置为最高优先级
                         };
                         _modbusSyncThread.Start();
-
+                        successAction?.Invoke();
                     }
                     else
                     {
@@ -79,74 +84,61 @@ namespace AutoScrewSys.Base
             }
         }
 
-        public async  static void MainThread()
+        public async static void MainThread()
         {
             var cfg = AddrName.Default;
-            var type = cfg.GetType();
             var stopwatch = Stopwatch.StartNew();
+            var semaphore = new SemaphoreSlim(1, 1); // 控制串口物理串行访问
+
             while (isInit)
             {
-                try
+                stopwatch.Restart();
+
+                var tasks = new List<Task>();
+
+                foreach (SettingsProperty p in cfg.Properties)
                 {
-                    stopwatch.Restart();
+                    var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
+                    if (addr == null) continue;
 
-                    if (!await ModbusRtuHelper.Instance.TryWaitLockAsync(10)) // 最多等10ms
+                    var task = Task.Run(async () =>
                     {
-                        continue; // 本轮拿不到锁，跳过
-                    }
-
-                    List<Task> tasks = new List<Task>();
-
-                    foreach (SettingsProperty p in cfg.Properties)
-                    {
-                        var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
-                        if (addr == null) continue;
-
-                        tasks.Add(Task.Run(async () =>
+                        await semaphore.WaitAsync();
+                        try
                         {
-                            try
-                            {
-                                ushort[] result;
-                                result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
-                                        (byte)addr.SlaveAddress,
-                                        (ushort)addr.StartAddress,
-                                        (ushort)addr.Length);
+                            ushort[] result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                                (byte)addr.SlaveAddress,
+                                (ushort)addr.StartAddress,
+                                (ushort)addr.Length
+                            );
+                            SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
+                            UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
 
-                                SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
-                            }
-                            catch (Exception ex)
-                            {
-                                LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
-                            }
-                        }));
-                    }
-                    //await Task.WhenAll(tasks);
-                    RunStatusMonitor();
+                        }
+                        catch (Exception ex)
+                        {
+                            LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
+                        }
+                        finally
+                        {
+                            semaphore.Release();
+                        }
+                    });
 
-                    UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
-                    UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
-
-                    StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
-
-                    LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
+                    tasks.Add(task);
                 }
-                finally
-                {
-                    ModbusRtuHelper.Instance.ReleaseLock(); // 释放锁
-                }
-                await Task.Delay(2); // 控制采集频率
-                                     //Thread.Sleep(100);
+                // 等待所有读取任务完成
+                // await Task.WhenAll(tasks);
+                UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
+                StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
+                //LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
+                await Task.Delay(10);
             }
         }
-        /// <summary>
-        /// 更新运行状态
-        /// </summary>
-        /// <param name="cfg"></param>
-        /// <param name="code"></param>
-        public static void UpdateScrewResultStr(SettingsBase cfg, int code)
+
+        public async static void UpdateScrewResultStr(SettingsBase cfg, int code)
         {
             string resultStr;
-
             switch (code)
             {
                 case 0: resultStr = "就绪"; break;
@@ -158,6 +150,65 @@ namespace AutoScrewSys.Base
             }
 
             SettingsUpdater.SetIfChanged(cfg, "ScrewResultStr", resultStr);
+
+            if (code == 1 && !_collecting)
+            {
+                int blockSize = 20;
+                _collecting = true;
+                ClearChartAction?.Invoke();
+                ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
+                ModbusCfgModel TotalCollections = ModbusAddressConfig.Instance.GetAddressItem("TotalCollections");
+
+                await Task.Run(async () =>
+                {
+                    while (_collecting)
+                    {
+                        try
+                        {
+                            ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
+
+                            if (_lastIndex + _collectTotalNum >= totalCollections[0])
+                            {
+                                //LogHelper.WriteLog($"_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
+                                _collectTotalNum = 0;
+                                _lastIndex = 0;
+                                break;
+                            }
+                            if (_lastIndex >= 1000)
+                            {
+                                _collectTotalNum += _lastIndex;
+                                _lastIndex = 0;
+                            }
+                            int batchSize = Math.Min(blockSize, totalCollections[0] - _lastIndex - _collectTotalNum);
+                            int startAddr = TorsionCurve.StartAddress + _lastIndex;
+
+                            ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress,(ushort)startAddr,(ushort)batchSize);
+                            _lastIndex += batchSize;
+
+                            List<float> torqueValues = waveData.Select(v => (float)v).ToList();
+                            OnChartDataReceived?.Invoke(torqueValues);
+                            //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-collectTotalNum:{collectTotalNum}", LogType.Run);
+                            await Task.Delay(5);
+                        }
+                        catch (Exception ex)
+                        {
+                            LogHelper.WriteLog($"采集异常: {ex.Message}", LogType.Fault);
+                            break;
+                        }
+                    }
+                    _collecting = false;
+                });
+            }
+            else if ((code == 2 || code == 3 || code == 4) && _collecting)
+            {
+                LogHelper.WriteLog("--------------运行结束--------------", LogType.Run);
+
+                OnResultsUpdated?.Invoke();
+                _collectTotalNum = 0;
+                _lastIndex = 0;
+                _collecting = false;
+            }
+
         }
         /// <summary>
         /// 更新拧紧结果
@@ -202,13 +253,12 @@ namespace AutoScrewSys.Base
             List<int> numbers = new List<int>();
             foreach (var file in files)
             {
-                string fileName_ = Path.GetFileNameWithoutExtension(file); // "001"、"002"等
+                string fileName_ = Path.GetFileNameWithoutExtension(file);
                 if (int.TryParse(fileName_, out int num))
                     numbers.Add(num);
             }
 
             int nextNum = numbers.Count > 0 ? numbers.Max() + 1 : 1;
-
             string fileName = $"{nextNum:D3}.bin";
             string filePath = Path.Combine(fullFolderPath, fileName);
 
@@ -219,128 +269,7 @@ namespace AutoScrewSys.Base
                     writer.Write(val);
             }
 
-            // 设置隐藏
             File.SetAttributes(filePath, FileAttributes.Hidden);
-        }
-
-
-
-        private static void RunStatusMonitor()
-        {
-            try
-            {
-                var status = (ScrewStatus)AddrName.Default.ScrewResult;
-
-                if (status == ScrewStatus.Running && !_collecting)
-                {
-                    _collecting = true;
-                    _stopwatch.Reset();  // 重置
-                    _stopwatch.Start();  // 重新开始
-                    Settings.Default.CurrentRunState = true;
-                    Task.Run(() => CollectTorqueData());
-                }
-                else if (status == ScrewStatus.OK && _collecting)
-                {
-                    _stopwatch.Stop();  // 停止计时
-                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
-                    _collecting = _end = false;
-                }
-                else if (status == ScrewStatus.NG && _collecting)
-                {
-                    _stopwatch.Stop();  // 停止计时
-                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
-                    _collecting = _end = false;
-                }
-                else if (status == ScrewStatus.Incomplete && _collecting)
-                {
-                    _stopwatch.Stop();  // 停止计时
-                    if (_end) OnResultsUpdated?.Invoke($"{_stopwatch.Elapsed.TotalSeconds:F2}");
-                    _collecting = _end = false;
-                }
-                else if (status == ScrewStatus.Ready)
-                {
-                    _collecting = false;
-                    //Settings.Default.RunStateStr = status.ToString();
-                    //OnResultsUpdated?.Invoke(status.ToString());
-
-                }
-                else
-                {
-                    _collecting = false;
-                }
-
-                Thread.Sleep(5); // 检查状态间隔
-            }
-            catch (Exception ex)
-            {
-                LogHelper.WriteLog($"波形状态监控失败：{ex.Message}", LogType.Error);
-            }
-        }
-
-        /// <summary>
-        /// 波形数据采集
-        /// </summary>
-        private static  async Task CollectTorqueData()
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");//扭力曲线 扭力数据 11208
-            byte slaveId = (byte)addr.SlaveAddress;
-            ushort baseAddress = (ushort)addr.StartAddress;  // 扭力数据起始地址
-            int bufferSize = addr.Length;       // 缓冲区大小：11208~12207
-            const int groupSize = 10;          // 每次读取数据数量
-            int offset = 0;       // 当前偏移量
-            int collected = 0;    // 已采集的数据数量
-            waveDataInfo?.Clear();
-            int startNum = 0;
-            _pauseSignal.Reset(); // ⏸️ 暂停主线程
-
-            while (_collecting || collected < AddrName.Default.TotalCollections)
-            {
-                startNum++;
-                // 实时读取采集总数（地址3895）
-                int totalToCollect = AddrName.Default.TotalCollections;
-
-                // 如果已经采集完成则退出
-                if (collected >= totalToCollect)
-                {
-                    _pauseSignal.Set(); // ⏸️ 暂停主线程
-                    _end = true;
-                    break;
-                }
-
-                // 剩余数据不足10则只读取剩下的数量
-                int remain = totalToCollect - collected;
-                int count = Math.Min(groupSize, remain);
-
-                // 当前起始地址（循环区间）
-                int startAddr = baseAddress + (offset % bufferSize);
-
-                // 判断是否会跨越缓冲区末尾（12207）
-                if (startAddr + count > baseAddress + bufferSize)
-                {
-                    // 分段读取：先读结尾，再读开头
-                    int part1Count = baseAddress + bufferSize - startAddr;
-                    int part2Count = count - part1Count;
-
-                    ushort[] part1 =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, (ushort)startAddr, (ushort)part1Count);
-                    ushort[] part2 =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, baseAddress, (ushort)part2Count);
-
-                    // 合并两段数据
-                    ushort[] allData = part1.Concat(part2).ToArray();
-                    OnTorqueWaveUpdated?.Invoke(startNum, allData);
-                    waveDataInfo.AddRange(allData.Select(x => (double)x));
-                }
-                else
-                {
-                    // 正常读取连续地址
-                    ushort[] data =await ModbusRtuHelper.Instance.ReadRegistersAsync(slaveId, (ushort)startAddr, (ushort)count);
-                    OnTorqueWaveUpdated?.Invoke(startNum, data);
-                    waveDataInfo.AddRange(data.Select(x => (double)x));
-                }
-                collected += count;
-                offset += count;
-
-                // 每个数据间隔1ms，总共sleep count ms
-            }
         }
 
         public static async Task ElectricBatchAction(object sender, byte slaveId, ushort address)
@@ -349,11 +278,9 @@ namespace AutoScrewSys.Base
             {
                 if (sender is System.Windows.Forms.Button btn)
                 {
-                    bool state = btn.Tag is bool b && b;
+                    bool state = btn.Tag is bool b && b;//改为获取当前扭力状态
                     ushort valueToWrite = state ? (ushort)0 : (ushort)1;
-                    _pauseSignal.Reset();
                     await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, valueToWrite);
-                    _pauseSignal.Set();
                     btn.Tag = !state;
                 }
             }

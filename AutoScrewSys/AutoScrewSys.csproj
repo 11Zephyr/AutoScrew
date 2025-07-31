@@ -96,12 +96,16 @@
     <Reference Include="ZimaBlueUI">
       <HintPath>..\..\Co-Development\ZimaBlueUI\ZimaBlueUI\bin\x64\Debug\ZimaBlueUI.dll</HintPath>
     </Reference>
+    <Reference Include="Zmodbus">
+      <HintPath>C:\Windows\System32\Dependency\Zmodbus.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSize\ControlScaler.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
+    <Compile Include="Base\SerialPortTaskQueue.cs" />
     <Compile Include="Base\SettingsUpdater.cs" />
     <Compile Include="Base\StatusChangeNotifier.cs" />
     <Compile Include="BLL\DataResult.cs" />
