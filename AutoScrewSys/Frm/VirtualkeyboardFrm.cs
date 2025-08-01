@@ -45,7 +45,7 @@ namespace SharedCore
         //软键盘
 
         public string KeyboardValue { get; private set; }
-        private  void Enterbut_Click(object sender, EventArgs e)
+        private  async void Enterbut_Click(object sender, EventArgs e)
         {
             if (double.TryParse(Inputbox.Text, out double inputvlaue))
             {
@@ -54,7 +54,7 @@ namespace SharedCore
 
                 if (inputvlaue >= Convert.ToDouble(LowerLimitlab.Text) && inputvlaue <= Convert.ToDouble(UpperLimitlab.Text))
                 {
-                    ModbusRtuHelper.Instance.WriteSingleRegister((byte)_modnusAddrModel.SlaveAddress, (ushort)_modnusAddrModel.StartAddress, (ushort)inputvlaue);
+                    await ModbusRtuHelper.Instance.WriteSingleRegisterAsync((byte)_modnusAddrModel.SlaveAddress, (ushort)_modnusAddrModel.StartAddress, (ushort)inputvlaue);
                     Close();
                 }
                 else

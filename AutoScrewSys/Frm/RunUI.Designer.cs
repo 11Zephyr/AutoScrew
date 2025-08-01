@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -67,7 +68,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
             this.ScrewResultStr = new System.Windows.Forms.Label();
-            this.cbxNoCollection = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
             this.AlarmInfoStr = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel8 = new ZimaBlueUI.Tpanel();
             this.label20 = new System.Windows.Forms.Label();
-            this.zRoundButton1 = new ZimaBlueUI.ZRoundButton();
+            this.btnRandomSNCode = new ZimaBlueUI.ZRoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblBadScrews = new System.Windows.Forms.Label();
             this.lblScrews = new System.Windows.Forms.Label();
@@ -97,6 +97,9 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.tbxSnCode = new ZimaBlueUI.ZtextBoxRua();
+            this.cbxNoCollection = new System.Windows.Forms.CheckBox();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -148,6 +151,9 @@
             chartArea1.AxisX.MajorGrid.Enabled = false;
             chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
             chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.Title = "点数";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea1.AxisX.TitleForeColor = System.Drawing.Color.WhiteSmoke;
             chartArea1.AxisX2.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisY.LabelAutoFitMaxFontSize = 8;
@@ -157,8 +163,9 @@
             chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
             chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "扭力 (mN·m)";
-            chartArea1.AxisY.TitleForeColor = System.Drawing.SystemColors.ButtonFace;
+            chartArea1.AxisY.Title = "扭力";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold);
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.WhiteSmoke;
             chartArea1.BackColor = System.Drawing.Color.Transparent;
             chartArea1.Name = "ChartArea1";
             chartArea1.Position.Auto = false;
@@ -166,6 +173,7 @@
             chartArea1.Position.Width = 100F;
             chartArea1.Position.Y = 10F;
             this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend1.BackColor = System.Drawing.Color.Transparent;
             legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             legend1.ForeColor = System.Drawing.Color.White;
@@ -173,7 +181,7 @@
             legend1.Name = "Legend1";
             legend1.ShadowColor = System.Drawing.Color.Black;
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 52);
+            this.chart1.Location = new System.Drawing.Point(0, 0);
             this.chart1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -190,7 +198,7 @@
             series1.Name = "Series1";
             series1.ShadowColor = System.Drawing.Color.Black;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(544, 244);
+            this.chart1.Size = new System.Drawing.Size(642, 326);
             this.chart1.TabIndex = 58;
             this.chart1.Text = "chart1";
             // 
@@ -220,27 +228,35 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn8});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.DefaultCellStyle = dataGridViewCellStyle8;
             this.PositionView.EnableHeadersVisualStyles = false;
             this.PositionView.GridColor = System.Drawing.Color.Black;
             this.PositionView.Location = new System.Drawing.Point(3, 335);
             this.PositionView.MultiSelect = false;
             this.PositionView.Name = "PositionView";
             this.PositionView.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.PositionView.RowHeadersVisible = false;
             this.PositionView.RowHeadersWidth = 20;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.PositionView.RowTemplate.Height = 30;
             this.PositionView.ShowCellErrors = false;
             this.PositionView.ShowCellToolTips = false;
@@ -372,7 +388,7 @@
             // 
             // TaskNumber
             // 
-            this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.TaskNumber.Location = new System.Drawing.Point(148, 18);
@@ -384,7 +400,7 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(52, 18);
@@ -412,7 +428,7 @@
             // 
             // lblCT
             // 
-            this.lblCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblCT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblCT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblCT.Location = new System.Drawing.Point(143, 18);
@@ -424,7 +440,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label1.Location = new System.Drawing.Point(34, 18);
@@ -438,6 +454,7 @@
             // 
             this.tpanel6.Alpha = 50;
             this.tpanel6.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel6.Controls.Add(this.lblTorqueUnit);
             this.tpanel6.Controls.Add(this.Torque);
             this.tpanel6.Controls.Add(this.label2);
             this.tpanel6.Location = new System.Drawing.Point(3, 77);
@@ -452,7 +469,7 @@
             // 
             // Torque
             // 
-            this.Torque.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.Torque.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Torque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Torque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Torque.Location = new System.Drawing.Point(148, 19);
@@ -464,7 +481,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label2.Location = new System.Drawing.Point(52, 21);
@@ -492,7 +509,7 @@
             // 
             // LapsNum
             // 
-            this.LapsNum.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.LapsNum.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LapsNum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LapsNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.LapsNum.Location = new System.Drawing.Point(143, 19);
@@ -504,7 +521,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label4.Location = new System.Drawing.Point(34, 20);
@@ -544,26 +561,14 @@
             this.ScrewResultStr.Text = "Ready";
             this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbxNoCollection
-            // 
-            this.cbxNoCollection.AutoSize = true;
-            this.cbxNoCollection.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
-            this.cbxNoCollection.ForeColor = System.Drawing.SystemColors.Window;
-            this.cbxNoCollection.Location = new System.Drawing.Point(608, 25);
-            this.cbxNoCollection.Name = "cbxNoCollection";
-            this.cbxNoCollection.Size = new System.Drawing.Size(113, 39);
-            this.cbxNoCollection.TabIndex = 199;
-            this.cbxNoCollection.Text = "不采集";
-            this.cbxNoCollection.UseVisualStyleBackColor = true;
-            // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(55, 19);
+            this.label5.Location = new System.Drawing.Point(25, 19);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 33);
+            this.label5.Size = new System.Drawing.Size(140, 33);
             this.label5.TabIndex = 197;
             this.label5.Text = "拧紧结果:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -753,7 +758,7 @@
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.tpanel8);
-            this.flowLayoutPanel3.Controls.Add(this.zRoundButton1);
+            this.flowLayoutPanel3.Controls.Add(this.btnRandomSNCode);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(651, 607);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -764,9 +769,11 @@
             // 
             this.tpanel8.Alpha = 50;
             this.tpanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpanel8.Controls.Add(this.tbxSnCode);
             this.tpanel8.Controls.Add(this.label20);
             this.tpanel8.Location = new System.Drawing.Point(3, 3);
             this.tpanel8.Name = "tpanel8";
+            this.tpanel8.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel8.PanelBorderRadius = 5F;
             this.tpanel8.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
             this.tpanel8.PanelOffsetY = 21F;
@@ -787,21 +794,22 @@
             this.label20.Text = "产品码:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // zRoundButton1
+            // btnRandomSNCode
             // 
-            this.zRoundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.zRoundButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.zRoundButton1.EXBorderRadius = 5F;
-            this.zRoundButton1.EXButtonColor = System.Drawing.Color.DodgerBlue;
-            this.zRoundButton1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.zRoundButton1.ForeColor = System.Drawing.SystemColors.Window;
-            this.zRoundButton1.Isbackcplor = false;
-            this.zRoundButton1.Location = new System.Drawing.Point(602, 3);
-            this.zRoundButton1.Name = "zRoundButton1";
-            this.zRoundButton1.ReverseButtonColor = System.Drawing.Color.Lime;
-            this.zRoundButton1.Size = new System.Drawing.Size(122, 46);
-            this.zRoundButton1.TabIndex = 1;
-            this.zRoundButton1.Text = "随机码";
+            this.btnRandomSNCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnRandomSNCode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRandomSNCode.EXBorderRadius = 5F;
+            this.btnRandomSNCode.EXButtonColor = System.Drawing.Color.DodgerBlue;
+            this.btnRandomSNCode.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.btnRandomSNCode.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnRandomSNCode.Isbackcplor = false;
+            this.btnRandomSNCode.Location = new System.Drawing.Point(602, 3);
+            this.btnRandomSNCode.Name = "btnRandomSNCode";
+            this.btnRandomSNCode.ReverseButtonColor = System.Drawing.Color.Lime;
+            this.btnRandomSNCode.Size = new System.Drawing.Size(122, 46);
+            this.btnRandomSNCode.TabIndex = 1;
+            this.btnRandomSNCode.Text = "随机码";
+            this.btnRandomSNCode.Click += new System.EventHandler(this.btnRandomSNCode_Click);
             // 
             // panel1
             // 
@@ -948,6 +956,52 @@
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tbxSnCode
+            // 
+            this.tbxSnCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "SnCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSnCode.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSnCode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.Location = new System.Drawing.Point(125, 2);
+            this.tbxSnCode.Name = "tbxSnCode";
+            this.tbxSnCode.ReadOnly = false;
+            this.tbxSnCode.Size = new System.Drawing.Size(468, 43);
+            this.tbxSnCode.TabIndex = 204;
+            this.tbxSnCode.Tag = "Text";
+            this.tbxSnCode.Text = global::AutoScrewSys.Properties.Settings.Default.SnCode;
+            this.tbxSnCode.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.TextBorderRadius = 5;
+            this.tbxSnCode.TextBorderSize = 1;
+            this.tbxSnCode.TextBorderWidth = 2;
+            // 
+            // cbxNoCollection
+            // 
+            this.cbxNoCollection.AutoSize = true;
+            this.cbxNoCollection.Checked = global::AutoScrewSys.Properties.Settings.Default.NoCollection;
+            this.cbxNoCollection.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::AutoScrewSys.Properties.Settings.Default, "NoCollection", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxNoCollection.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cbxNoCollection.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbxNoCollection.Location = new System.Drawing.Point(608, 25);
+            this.cbxNoCollection.Name = "cbxNoCollection";
+            this.cbxNoCollection.Size = new System.Drawing.Size(92, 33);
+            this.cbxNoCollection.TabIndex = 199;
+            this.cbxNoCollection.Text = "不采集";
+            this.cbxNoCollection.UseVisualStyleBackColor = true;
+            // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(261, 19);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(98, 33);
+            this.lblTorqueUnit.TabIndex = 199;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // RunUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1031,7 +1085,7 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private ZimaBlueUI.Tpanel tpanel8;
         private System.Windows.Forms.Label label20;
-        private ZimaBlueUI.ZRoundButton zRoundButton1;
+        private ZimaBlueUI.ZRoundButton btnRandomSNCode;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblBadScrews;
         private System.Windows.Forms.Label lblScrews;
@@ -1043,5 +1097,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
+        private ZimaBlueUI.ZtextBoxRua tbxSnCode;
+        private System.Windows.Forms.Label lblTorqueUnit;
     }
 }

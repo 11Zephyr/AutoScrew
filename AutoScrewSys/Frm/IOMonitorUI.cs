@@ -46,11 +46,15 @@ namespace AutoScrewSys.Frm
             {
                 bool isActive = ((s >> i) & 1) == 0; // 0表示有效
                 BEAlabels[i].BackColor = isActive ? Color.LimeGreen : Color.Gray;
+                BEAlabels[i].ForeColor = isActive ? Color.Black : Color.White;
             }
 
-            TLLlabels[0].BackColor = t == 1 ? Color.LimeGreen : Color.Gray;
-            TLLlabels[1].BackColor = l == 1 ? Color.LimeGreen : Color.Gray;
-            TLLlabels[2].BackColor = f == 1 ? Color.LimeGreen : Color.Gray;
+            int[] states = { t, l, f };
+            for (int i = 0; i < 3; i++)
+            {
+                TLLlabels[i].BackColor = states[i] == 1 ? Color.LimeGreen : Color.Gray;
+                TLLlabels[i].ForeColor = states[i] == 1 ? Color.Black : Color.White;
+            }
         }
     }
 }

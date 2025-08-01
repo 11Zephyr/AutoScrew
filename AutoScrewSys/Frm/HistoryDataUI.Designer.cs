@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnHisData = new ZimaBlueUI.ZRoundButton();
             this.btnHisLog = new ZimaBlueUI.ZRoundButton();
@@ -49,15 +49,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.listHisData = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lstLogContent = new System.Windows.Forms.ListBox();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbLogType = new MaterialSkin.Controls.MaterialComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbFileList = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.materialButtonpro7 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.lstLogContent = new System.Windows.Forms.ListBox();
+            this.btnClearLog = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel1.SuspendLayout();
             this.hisFrmTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -156,61 +155,61 @@
             // 
             this.chartWaveData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.chartWaveData.BorderlineColor = System.Drawing.Color.Black;
-            chartArea3.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisX.LabelAutoFitMaxFontSize = 8;
-            chartArea3.AxisX.LabelAutoFitMinFontSize = 8;
-            chartArea3.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Aquamarine;
-            chartArea3.AxisX.LineColor = System.Drawing.Color.Red;
-            chartArea3.AxisX.MajorGrid.Enabled = false;
-            chartArea3.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
-            chartArea3.AxisX.Minimum = 0D;
-            chartArea3.AxisX.Title = "Num";
-            chartArea3.AxisX.TitleFont = new System.Drawing.Font("思源黑体 CN Regular", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            chartArea3.AxisX.TitleForeColor = System.Drawing.SystemColors.Window;
-            chartArea3.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea3.AxisY.LabelAutoFitMaxFontSize = 8;
-            chartArea3.AxisY.LabelAutoFitMinFontSize = 8;
-            chartArea3.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea3.AxisY.LineColor = System.Drawing.Color.Red;
-            chartArea3.AxisY.MajorGrid.Enabled = false;
-            chartArea3.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
-            chartArea3.AxisY.MaximumAutoSize = 100F;
-            chartArea3.AxisY.Minimum = 0D;
-            chartArea3.AxisY.Title = "Torque";
-            chartArea3.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea3.AxisY.TitleForeColor = System.Drawing.SystemColors.Window;
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            chartArea3.Position.Auto = false;
-            chartArea3.Position.Height = 90F;
-            chartArea3.Position.Width = 100F;
-            chartArea3.Position.Y = 10F;
-            this.chartWaveData.ChartAreas.Add(chartArea3);
+            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisX.LabelAutoFitMaxFontSize = 8;
+            chartArea2.AxisX.LabelAutoFitMinFontSize = 8;
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Aquamarine;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.Red;
+            chartArea2.AxisX.MajorGrid.Enabled = false;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.GreenYellow;
+            chartArea2.AxisX.Minimum = 0D;
+            chartArea2.AxisX.Title = "Num";
+            chartArea2.AxisX.TitleFont = new System.Drawing.Font("思源黑体 CN Regular", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            chartArea2.AxisX.TitleForeColor = System.Drawing.SystemColors.Window;
+            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea2.AxisY.LabelAutoFitMaxFontSize = 8;
+            chartArea2.AxisY.LabelAutoFitMinFontSize = 8;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea2.AxisY.LineColor = System.Drawing.Color.Red;
+            chartArea2.AxisY.MajorGrid.Enabled = false;
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Orange;
+            chartArea2.AxisY.MaximumAutoSize = 100F;
+            chartArea2.AxisY.Minimum = 0D;
+            chartArea2.AxisY.Title = "Torque";
+            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisY.TitleForeColor = System.Drawing.SystemColors.Window;
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            chartArea2.Position.Auto = false;
+            chartArea2.Position.Height = 90F;
+            chartArea2.Position.Width = 100F;
+            chartArea2.Position.Y = 10F;
+            this.chartWaveData.ChartAreas.Add(chartArea2);
             this.chartWaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            legend3.ForeColor = System.Drawing.Color.White;
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            legend3.ShadowColor = System.Drawing.Color.Black;
-            this.chartWaveData.Legends.Add(legend3);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            legend2.ForeColor = System.Drawing.Color.White;
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            legend2.ShadowColor = System.Drawing.Color.Black;
+            this.chartWaveData.Legends.Add(legend2);
             this.chartWaveData.Location = new System.Drawing.Point(0, 345);
             this.chartWaveData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chartWaveData.Name = "chartWaveData";
             this.chartWaveData.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
-            series3.BackImageTransparentColor = System.Drawing.Color.WhiteSmoke;
-            series3.BackSecondaryColor = System.Drawing.Color.Black;
-            series3.BorderColor = System.Drawing.Color.Transparent;
-            series3.BorderWidth = 2;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series3.Color = System.Drawing.Color.Lime;
-            series3.Legend = "Legend1";
-            series3.LegendText = "Kgf";
-            series3.Name = "Series1";
-            series3.ShadowColor = System.Drawing.Color.Black;
-            this.chartWaveData.Series.Add(series3);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            series2.BackImageTransparentColor = System.Drawing.Color.WhiteSmoke;
+            series2.BackSecondaryColor = System.Drawing.Color.Black;
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.BorderWidth = 2;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series2.Color = System.Drawing.Color.Lime;
+            series2.Legend = "Legend1";
+            series2.LegendText = "Kgf";
+            series2.Name = "Series1";
+            series2.ShadowColor = System.Drawing.Color.Black;
+            this.chartWaveData.Series.Add(series2);
             this.chartWaveData.Size = new System.Drawing.Size(1163, 318);
             this.chartWaveData.TabIndex = 68;
             this.chartWaveData.Text = "chart1";
@@ -221,17 +220,17 @@
             this.PositionView.AllowUserToDeleteRows = false;
             this.PositionView.AllowUserToResizeColumns = false;
             this.PositionView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            this.PositionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.PositionView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PositionView.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.PositionView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.PositionView.ColumnHeadersHeight = 32;
             this.PositionView.Dock = System.Windows.Forms.DockStyle.Top;
             this.PositionView.EnableHeadersVisualStyles = false;
@@ -240,21 +239,21 @@
             this.PositionView.MultiSelect = false;
             this.PositionView.Name = "PositionView";
             this.PositionView.ReadOnly = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PositionView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.PositionView.RowHeadersVisible = false;
             this.PositionView.RowHeadersWidth = 20;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PositionView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.PositionView.RowTemplate.Height = 30;
             this.PositionView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.PositionView.ShowCellErrors = false;
@@ -345,6 +344,18 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             // 
+            // lstLogContent
+            // 
+            this.lstLogContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lstLogContent.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lstLogContent.ForeColor = System.Drawing.SystemColors.Window;
+            this.lstLogContent.FormattingEnabled = true;
+            this.lstLogContent.ItemHeight = 29;
+            this.lstLogContent.Location = new System.Drawing.Point(45, 100);
+            this.lstLogContent.Name = "lstLogContent";
+            this.lstLogContent.Size = new System.Drawing.Size(1245, 584);
+            this.lstLogContent.TabIndex = 10;
+            // 
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.label1);
@@ -352,8 +363,7 @@
             this.flowLayoutPanel4.Controls.Add(this.cmbLogType);
             this.flowLayoutPanel4.Controls.Add(this.label3);
             this.flowLayoutPanel4.Controls.Add(this.cmbFileList);
-            this.flowLayoutPanel4.Controls.Add(this.materialButtonpro4);
-            this.flowLayoutPanel4.Controls.Add(this.materialButtonpro7);
+            this.flowLayoutPanel4.Controls.Add(this.btnClearLog);
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
             this.flowLayoutPanel4.ForeColor = System.Drawing.SystemColors.WindowText;
@@ -459,53 +469,24 @@
             this.cmbFileList.Triangle = true;
             this.cmbFileList.SelectedIndexChanged += new System.EventHandler(this.cmbFileList_SelectedIndexChanged);
             // 
-            // materialButtonpro4
+            // btnClearLog
             // 
-            this.materialButtonpro4.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Buttonmodel = 0;
-            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Constant = 0;
-            this.materialButtonpro4.Depth = 0;
-            this.materialButtonpro4.Location = new System.Drawing.Point(759, 3);
-            this.materialButtonpro4.MaxV = 0;
-            this.materialButtonpro4.MinV = 0;
-            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro4.Name = "materialButtonpro4";
-            this.materialButtonpro4.Size = new System.Drawing.Size(105, 49);
-            this.materialButtonpro4.TabIndex = 214;
-            this.materialButtonpro4.Text = "刷新列表";
-            this.materialButtonpro4.UseVisualStyleBackColor = true;
-            // 
-            // materialButtonpro7
-            // 
-            this.materialButtonpro7.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro7.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro7.Buttonmodel = 0;
-            this.materialButtonpro7.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro7.Constant = 0;
-            this.materialButtonpro7.Depth = 0;
-            this.materialButtonpro7.Location = new System.Drawing.Point(870, 3);
-            this.materialButtonpro7.MaxV = 0;
-            this.materialButtonpro7.MinV = 0;
-            this.materialButtonpro7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro7.Name = "materialButtonpro7";
-            this.materialButtonpro7.Size = new System.Drawing.Size(105, 49);
-            this.materialButtonpro7.TabIndex = 217;
-            this.materialButtonpro7.Text = "清除日志";
-            this.materialButtonpro7.UseVisualStyleBackColor = true;
-            // 
-            // lstLogContent
-            // 
-            this.lstLogContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.lstLogContent.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lstLogContent.ForeColor = System.Drawing.SystemColors.Window;
-            this.lstLogContent.FormattingEnabled = true;
-            this.lstLogContent.ItemHeight = 29;
-            this.lstLogContent.Location = new System.Drawing.Point(45, 100);
-            this.lstLogContent.Name = "lstLogContent";
-            this.lstLogContent.Size = new System.Drawing.Size(1245, 584);
-            this.lstLogContent.TabIndex = 10;
+            this.btnClearLog.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnClearLog.ButtonColor = System.Drawing.Color.White;
+            this.btnClearLog.Buttonmodel = 0;
+            this.btnClearLog.ClickColor = System.Drawing.Color.White;
+            this.btnClearLog.Constant = 0;
+            this.btnClearLog.Depth = 0;
+            this.btnClearLog.Location = new System.Drawing.Point(759, 3);
+            this.btnClearLog.MaxV = 0;
+            this.btnClearLog.MinV = 0;
+            this.btnClearLog.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClearLog.Name = "btnClearLog";
+            this.btnClearLog.Size = new System.Drawing.Size(105, 49);
+            this.btnClearLog.TabIndex = 217;
+            this.btnClearLog.Text = "清除日志";
+            this.btnClearLog.UseVisualStyleBackColor = true;
+            this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
             // 
             // HistoryDataUI
             // 
@@ -552,8 +533,7 @@
         private MaterialSkin.Controls.MaterialComboBox cmbLogType;
         private System.Windows.Forms.Label label3;
         private MaterialSkin.Controls.MaterialComboBox cmbFileList;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro4;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro7;
+        private MaterialSkin.Controls.MaterialButtonpro btnClearLog;
         private System.Windows.Forms.ListBox lstLogContent;
     }
 }

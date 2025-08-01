@@ -31,9 +31,8 @@ namespace AutoScrewSys.Base
     {
         public static bool isInit { get; private set; }//初始化标志
         private static bool _collecting = false;//采集波形数据标志
-        private static bool _end = false;//采集结束标志
-        private static int _collectTotalNum = 0;
         private static int _lastIndex = 0;
+        private static readonly object _binFileLock = new object();
 
         public static Action ClearChartAction;
         public static event Action<List<float>> OnChartDataReceived;
@@ -43,10 +42,7 @@ namespace AutoScrewSys.Base
         public event UpdateChartDelegate OnWaveDataUpdate;
         public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
         static Thread _modbusSyncThread;//住循环线程
-        private static Stopwatch _stopwatch = new Stopwatch();//采集数据计时器
         private static List<double> waveDataInfo = new List<double>();//存储波形数据
-
-
 
         public static void Start(Action successAction, Action<string> faultAction)
         {
@@ -153,12 +149,14 @@ namespace AutoScrewSys.Base
 
             if (code == 1 && !_collecting)
             {
-                int blockSize = 20;
                 _collecting = true;
                 ClearChartAction?.Invoke();
+                waveDataInfo?.Clear();
+                int blockSize = 20;
+                ushort maxValue = 1000;
+                ushort prevValue = 0;
+                int totalAccumulate = 0;
                 ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
-                ModbusCfgModel TotalCollections = ModbusAddressConfig.Instance.GetAddressItem("TotalCollections");
-                ModbusCfgModel Runstatus = ModbusAddressConfig.Instance.GetAddressItem("ScrewResult");
 
                 await Task.Run(async () =>
                 {
@@ -166,32 +164,29 @@ namespace AutoScrewSys.Base
                     {
                         try
                         {
-                            ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
-
+                            //ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
                             //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
+                            ushort currValue = (await ReadRegisterByNameAsync("TotalCollections"))[0];
+                            totalAccumulate += (currValue >= prevValue)? (currValue - prevValue): (currValue + maxValue - prevValue);
+                            prevValue = currValue;
 
-
-                            if (_lastIndex + _collectTotalNum >= totalCollections[0])
+                            if (_lastIndex  >= totalAccumulate)
                             {
-                                LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
-                                _collectTotalNum = 0;
+                                //LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
                                 _lastIndex = 0;
                                 break;
                             }
-                            if (_lastIndex >= 1000)
-                            {
-                                _collectTotalNum += _lastIndex;
-                                _lastIndex = 0;
-                            }
-                            int batchSize = Math.Min(blockSize, totalCollections[0] - _lastIndex - _collectTotalNum);
+
+                            int batchSize = Math.Min(blockSize, totalAccumulate - _lastIndex);
                             int startAddr = TorsionCurve.StartAddress + _lastIndex;
 
                             ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress,(ushort)startAddr,(ushort)batchSize);
                             _lastIndex += batchSize;
-
+                          
                             List<float> torqueValues = waveData.Select(v => (float)v).ToList();
+                            waveDataInfo.AddRange(waveData.Select(x => (double)x));
                             OnChartDataReceived?.Invoke(torqueValues);
-                            LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-collectTotalNum:{totalCollections[0]}", LogType.Run);
+                            //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-TotalNum:{totalAccumulate}-实时:{totalCollections[0]}", LogType.Run);
                             await Task.Delay(5);
                         }
                         catch (Exception ex)
@@ -200,19 +195,15 @@ namespace AutoScrewSys.Base
                             break;
                         }
                     }
-                    //_collecting = false;
                 });
             }
             else if ((code == 2 || code == 3 || code == 4) && _collecting)
             {
                 LogHelper.WriteLog("--------------运行结束--------------", LogType.Run);
-
                 OnResultsUpdated?.Invoke();
-                _collectTotalNum = 0;
                 _lastIndex = 0;
                 _collecting = false;
             }
-
         }
         /// <summary>
         /// 更新拧紧结果
@@ -248,22 +239,8 @@ namespace AutoScrewSys.Base
             string basePath = Path.Combine(Settings.Default.ProductionDataPath, "BinFiles");
             string dateFolder = DateTime.Now.ToString("yyyy-MM-dd");
             string fullFolderPath = Path.Combine(basePath, dateFolder);
+            string fileName = $"{GetBinFilesNum():D3}.bin";
 
-            if (!Directory.Exists(fullFolderPath))
-                Directory.CreateDirectory(fullFolderPath);
-
-            // 获取当天文件夹里的所有bin文件编号
-            var files = Directory.GetFiles(fullFolderPath, "*.bin");
-            List<int> numbers = new List<int>();
-            foreach (var file in files)
-            {
-                string fileName_ = Path.GetFileNameWithoutExtension(file);
-                if (int.TryParse(fileName_, out int num))
-                    numbers.Add(num);
-            }
-
-            int nextNum = numbers.Count > 0 ? numbers.Max() + 1 : 1;
-            string fileName = $"{nextNum:D3}.bin";
             string filePath = Path.Combine(fullFolderPath, fileName);
 
             // 写入数据
@@ -276,17 +253,46 @@ namespace AutoScrewSys.Base
             File.SetAttributes(filePath, FileAttributes.Hidden);
         }
 
-        public static async Task ElectricBatchAction(object sender, byte slaveId, ushort address)
+        public static int GetBinFilesNum()
+        {
+            lock (_binFileLock)
+            {
+                try
+                {
+                    string basePath = Path.Combine(Settings.Default.ProductionDataPath, "BinFiles");
+                    string dateFolder = DateTime.Now.ToString("yyyy-MM-dd");
+                    string fullFolderPath = Path.Combine(basePath, dateFolder);
+
+                    if (!Directory.Exists(fullFolderPath))
+                        Directory.CreateDirectory(fullFolderPath);
+
+                    var files = Directory.GetFiles(fullFolderPath, "*.bin");
+                    List<int> numbers = new List<int>();
+
+                    foreach (var file in files)
+                    {
+                        string fileName = Path.GetFileNameWithoutExtension(file);
+                        if (int.TryParse(fileName, out int num))
+                            numbers.Add(num);
+                    }
+
+                    return numbers.Count > 0 ? numbers.Max() + 1 : 1;
+                }
+                catch (Exception ex)
+                {
+                    LogHelper.WriteLog($"获取Bin文件编号报错:{ex.Message}", LogType.Error);
+                    return -1;
+                }
+            }
+        }
+
+
+        public static async Task ElectricBatchAction( byte slaveId, ushort address,int sourceValue)
         {
             try
             {
-                if (sender is System.Windows.Forms.Button btn)
-                {
-                    bool state = btn.Tag is bool b && b;//改为获取当前扭力状态
-                    ushort valueToWrite = state ? (ushort)0 : (ushort)1;
-                    await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, valueToWrite);
-                    btn.Tag = !state;
-                }
+                await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, (ushort)(1 - sourceValue));
+               
             }
             catch (Exception ex)
             {
@@ -328,6 +334,44 @@ namespace AutoScrewSys.Base
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// 通过配置项名称读取 Modbus 寄存器（异步）
+        /// </summary>
+        /// <param name="name">配置项名称，例如 "TotalCollections"</param>
+        /// <returns>读取到的寄存器值数组</returns>
+        public static async Task<ushort[]> ReadRegisterByNameAsync(string name)
+        {
+            // 获取地址项
+            ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name);
+            if (cfg == null)
+            {
+                throw new ArgumentException($"未找到配置项: {name}");
+            }
+
+            // 调用 Modbus 异步读取方法
+            return await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                (byte)cfg.SlaveAddress,
+                (ushort)cfg.StartAddress,
+                (ushort)cfg.Length
+            );
+        }
+        public static async Task<ushort[]> ReadRegisterByNameAsync(string name1, string name2)
+        {
+            // 获取地址项
+            ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name1,name2);
+            if (cfg == null)
+            {
+                throw new ArgumentException($"未找到配置项: {name1}");
+            }
+
+            // 调用 Modbus 异步读取方法
+            return await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                (byte)cfg.SlaveAddress,
+                (ushort)cfg.StartAddress,
+                (ushort)cfg.Length
+            );
         }
     }
 }

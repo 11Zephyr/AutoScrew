@@ -57,6 +57,7 @@
             this.lblBusySignal = new System.Windows.Forms.Label();
             this.lblEndSignal = new System.Windows.Forms.Label();
             this.lblAlarmSignal = new System.Windows.Forms.Label();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.customPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,7 @@
             this.customPanel1.BackColor = System.Drawing.Color.Black;
             this.customPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.customPanel1.ColumnCount = 7;
+            this.customPanel1.Controls.Add(this.lblTorqueUnit);
             this.customPanel1.Controls.Add(this.ElecBatchPower);
             this.customPanel1.Controls.Add(this.AlarmInfoStr);
             this.customPanel1.Controls.Add(this.ScrewResultStr);
@@ -225,7 +227,7 @@
             this.label6.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label6.Location = new System.Drawing.Point(423, 16);
+            this.label6.Location = new System.Drawing.Point(395, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 33);
             this.label6.TabIndex = 216;
@@ -498,6 +500,20 @@
             this.lblAlarmSignal.Text = "报警信号";
             this.lblAlarmSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.BackColor = System.Drawing.Color.Transparent;
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(441, 16);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(67, 33);
+            this.lblTorqueUnit.TabIndex = 228;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MonitorFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -515,12 +531,11 @@
             this.Controls.Add(this.customPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MonitorFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "监控与操作";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MonitorFrm_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MonitorFrm_FormClosed);
             this.Load += new System.EventHandler(this.MonitorFrm_Load);
             this.customPanel1.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
@@ -559,5 +574,6 @@
         private System.Windows.Forms.Label lblBusySignal;
         private System.Windows.Forms.Label lblEndSignal;
         private System.Windows.Forms.Label lblAlarmSignal;
+        private System.Windows.Forms.Label lblTorqueUnit;
     }
 }

@@ -140,22 +140,22 @@ namespace AutoScrewSys.Frm
 
         private void cbxDataStoredTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // Settings.Default.DataStoredTime = cbxDataStoredTime.SelectedItem.ToString();
+            Settings.Default.DataStoredTime = cbxDataStoredTime.SelectedItem.ToString();
         }
 
         private void cbxTorqueUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // Settings.Default.TorqueUnit = cbxTorqueUnit.SelectedItem.ToString();
+            Settings.Default.TorqueUnit = cbxTorqueUnit.SelectedItem.ToString();
         }
 
         private void cbxLogStoredTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // Settings.Default.LogStoredTime = cbxLogStoredTime.SelectedItem.ToString();
+            Settings.Default.LogStoredTime = cbxLogStoredTime.SelectedItem.ToString();
         }
 
         private void cbxLoggedOutTime_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Settings.Default.LoggedOutTime = cbxLoggedOutTime.SelectedItem.ToString();
+            Settings.Default.LoggedOutTime = cbxLoggedOutTime.SelectedItem.ToString();
         }
     }
 }

@@ -6,6 +6,7 @@ using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
@@ -27,11 +28,6 @@ namespace AutoScrewSys.Frm
 {
     public partial class RunUI : UserControl
     {
-        // 上一次的值（类字段）
-        int lastStateBits, lastTighten, lastLoosen, lastFree;
-        bool isFirst = true;
-        private Thread _refreshThread;
-        private bool _isRunning;
         public RunUI()
         {
             InitializeComponent();
@@ -40,6 +36,10 @@ namespace AutoScrewSys.Frm
         {
             UIThread.Context = SynchronizationContext.Current;
             BindLabels(this, AddrName.Default);
+
+            lblScrews.DataBindings.Add("Text", Properties.Settings.Default, "ScrewNum");
+            lblGoodScrews.DataBindings.Add("Text", Properties.Settings.Default, "GoodScrews");
+            lblBadScrews.DataBindings.Add("Text", Properties.Settings.Default, "BadScrews");
 
             EnableChartZoomAndPan();
             InitTorqueChart();
@@ -57,30 +57,34 @@ namespace AutoScrewSys.Frm
                  {
                      MessageBox.Show(msg, "异常提示");
                  });
+            Settings.Default.ScrewNum = 0;
+            Settings.Default.BadScrews = 0;
+            Settings.Default.GoodScrews = 0;
         }
         private int _torquePointIndex = 0;
         private void InitTorqueChart()
         {
-           GlobalMonitor.OnChartDataReceived += points => {
+            GlobalMonitor.OnChartDataReceived += points =>
+            {
 
-               if (chart1.InvokeRequired)
-               {
-                   chart1.BeginInvoke(new Action(() =>
-                   {
-                       foreach (var val in points)
-                       {
-                           chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
-                       }
-                   }));
-               }
-               else
-               {
-                   foreach (var val in points)
-                   {
-                       chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
-                   }
-               }
-           };
+                if (chart1.InvokeRequired)
+                {
+                    chart1.BeginInvoke(new Action(() =>
+                    {
+                        foreach (var val in points)
+                        {
+                            chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
+                        }
+                    }));
+                }
+                else
+                {
+                    foreach (var val in points)
+                    {
+                        chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
+                    }
+                }
+            };
 
             GlobalMonitor.ClearChartAction = () =>
             {
@@ -96,7 +100,7 @@ namespace AutoScrewSys.Frm
             };
 
         }
-      
+
 
         private void InitResultDgv()
         {
@@ -104,29 +108,59 @@ namespace AutoScrewSys.Frm
             {
                 this.Invoke((Action)(async () =>
                 {
-                    string result = ((ScrewStatus)AddrName.Default.ScrewResult).ToString();
-                    Settings.Default.GoodScrews = result == "OK" ? Settings.Default.GoodScrews + 1 : Settings.Default.GoodScrews;
+                    try
+                    {
+                        string result = AddrName.Default.ScrewResultStr;
+                        int rowIndex = GetBinFilesNum();
+                        string timestamp = Settings.Default.SnCode;
+                        string timeNow = DateTime.Now.ToString("HH:mm:ss");
+                        ushort[] HoldTime = await GlobalMonitor.ReadRegisterByNameAsync("HoldTime", $"Task{AddrName.Default.TaskNumber}");
+                        lblCT.Text = HoldTime[0].ToString();
+                        int newRowIndex = PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
 
-                    ModbusCfgModel HoldTimeAddr = ModbusAddressConfig.Instance.GetAddressItem("HoldTime", $"Task{AddrName.Default.TaskNumber}");
-                    ushort[] HoldTime = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)HoldTimeAddr.SlaveAddress, (ushort)HoldTimeAddr.StartAddress, (ushort)HoldTimeAddr.Length);
+                        if (result != "OK")
+                        {
+                            PositionView.Rows[newRowIndex].DefaultCellStyle.BackColor = Color.Red;
+                            PositionView.Rows[newRowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                        }
+                        else
+                        {
+                            PositionView.Rows[newRowIndex].DefaultCellStyle.BackColor = Color.FromArgb(33, 33, 33);
+                            PositionView.Rows[newRowIndex].DefaultCellStyle.ForeColor = Color.White;
+                        }
 
-                    lblCT.Text = HoldTime[0].ToString();
-
-                    int rowIndex = PositionView.Rows.Count + 1;
-
-                    // 当前时间戳（秒级）
-                    string timestamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-
-                    // 当前时间：时分秒
-                    string timeNow = DateTime.Now.ToString("HH:mm:ss");
-
-                    PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
-                    AppendLastRowToCsv(PositionView, Settings.Default.ProductionDataPath);
-                    SaveWaveformToDatedFolder();
-                   
+                        UpdateScrewNum(result);
+                        if (!Settings.Default.NoCollection)
+                        {
+                            await Task.Run(() =>
+                            {
+                                //要先添加数据到CSV再保存二进制数据
+                                AppendLastRowToCsv(PositionView, Settings.Default.ProductionDataPath);
+                                SaveWaveformToDatedFolder();
+                            });
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LogHelper.WriteLog($"更新结果数据报错:{ex.Message}", LogType.Error);
+                    }
                 }));
             };
         }
+
+        private void UpdateScrewNum(string result)
+        {
+            Settings.Default.ScrewNum ++;
+            Settings.Default.GoodScrews += result == "OK" ? 1 : 0;
+            Settings.Default.BadScrews += result != "OK" ? 1 : 0;
+            Yield.Progress = ((float)Settings.Default.GoodScrews / Settings.Default.ScrewNum) * 100;
+        }
+
+        /// <summary>
+        /// 保存数据到Csv文件
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="folderPath"></param>
         public void AppendLastRowToCsv(DataGridView dgv, string folderPath)
         {
             if (dgv.Rows.Count == 0) return;
@@ -158,6 +192,7 @@ namespace AutoScrewSys.Frm
             StringBuilder rowBuilder = new StringBuilder();
             for (int i = 0; i < dgv.Columns.Count; i++)
             {
+            
                 object cellValue = lastRow.Cells[i].Value ?? "";
                 rowBuilder.Append(cellValue.ToString().Replace(",", "，")).Append(",");
             }
@@ -266,19 +301,6 @@ namespace AutoScrewSys.Frm
         }
         #endregion
 
-
-        public void StopRefreshing()
-        {
-            _isRunning = false;
-            if (_refreshThread != null && _refreshThread.IsAlive)
-            {
-                _refreshThread.Join(200); // 可选：等待线程结束
-            }
-            _refreshThread = null;
-        }
-
-
-     
         private void OnStatusChanged(int s, int t, int l, int f)
         {
             if (InvokeRequired)
@@ -301,11 +323,21 @@ namespace AutoScrewSys.Frm
             {
                 bool isActive = ((s >> i) & 1) == 0; // 0表示有效
                 BEAlabels[i].BackColor = isActive ? Color.LimeGreen : Color.Gray;
+                BEAlabels[i].ForeColor = isActive ? Color.Black : Color.White;
             }
 
-            TLLlabels[0].BackColor = t == 1 ? Color.LimeGreen : Color.Gray;
-            TLLlabels[1].BackColor = l == 1 ? Color.LimeGreen : Color.Gray;
-            TLLlabels[2].BackColor = f == 1 ? Color.LimeGreen : Color.Gray;
+            int[] states = { t, l, f };
+            for (int i = 0; i < 3; i++)
+            {
+                TLLlabels[i].BackColor = states[i] == 1 ? Color.LimeGreen : Color.Gray;
+                TLLlabels[i].ForeColor = states[i] == 1 ? Color.Black : Color.White;
+            }
+
+        }
+
+        private void btnRandomSNCode_Click(object sender, EventArgs e)
+        {
+            Settings.Default.SnCode = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
         }
     }
 }

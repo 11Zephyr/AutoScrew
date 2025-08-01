@@ -109,18 +109,6 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public string CurrTaskStr {
-            get {
-                return ((string)(this["CurrTaskStr"]));
-            }
-            set {
-                this["CurrTaskStr"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool CurrentRunState {
             get {
@@ -236,6 +224,54 @@ namespace AutoScrewSys.Properties {
             }
             set {
                 this["TorqueUnit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SnCode {
+            get {
+                return ((string)(this["SnCode"]));
+            }
+            set {
+                this["SnCode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool NoCollection {
+            get {
+                return ((bool)(this["NoCollection"]));
+            }
+            set {
+                this["NoCollection"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ScrewNum {
+            get {
+                return ((int)(this["ScrewNum"]));
+            }
+            set {
+                this["ScrewNum"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BadScrews {
+            get {
+                return ((int)(this["BadScrews"]));
+            }
+            set {
+                this["BadScrews"] = value;
             }
         }
     }
