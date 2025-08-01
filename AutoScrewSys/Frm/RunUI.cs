@@ -66,23 +66,17 @@ namespace AutoScrewSys.Frm
         {
             GlobalMonitor.OnChartDataReceived += points =>
             {
-
+                // UI 线程安全添加到 Chart
                 if (chart1.InvokeRequired)
                 {
                     chart1.BeginInvoke(new Action(() =>
                     {
-                        foreach (var val in points)
-                        {
-                            chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
-                        }
+                        chart1.Series[0].Points.AddXY(_torquePointIndex++, points.Max());
                     }));
                 }
                 else
                 {
-                    foreach (var val in points)
-                    {
-                        chart1.Series[0].Points.AddXY(_torquePointIndex++, val); // X 是点序号
-                    }
+                    chart1.Series[0].Points.AddXY(_torquePointIndex++, points.Max());
                 }
             };
 

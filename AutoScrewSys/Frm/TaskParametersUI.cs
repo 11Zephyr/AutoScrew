@@ -150,7 +150,7 @@ namespace AutoScrewSys.Frm
                 int col1 = currentState == WorkState.Tighten ? value1 : value2;
                 int col2 = currentState == WorkState.Tighten ? value2 : value1;
 
-                int rowIndex = dgvStepView.Rows.Add(stepName, col1, col2);
+                int rowIndex = dgvStepView.Rows.Add(stepName, col1/100, col2);
                 var row = dgvStepView.Rows[rowIndex];
 
                 // 奇偶行交替背景色

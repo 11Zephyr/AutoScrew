@@ -156,6 +156,7 @@ namespace AutoScrewSys.Base
                 ushort maxValue = 1000;
                 ushort prevValue = 0;
                 int totalAccumulate = 0;
+                int currentTotalCount = 0;
                 ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
 
                 await Task.Run(async () =>
@@ -169,23 +170,27 @@ namespace AutoScrewSys.Base
                             ushort currValue = (await ReadRegisterByNameAsync("TotalCollections"))[0];
                             totalAccumulate += (currValue >= prevValue)? (currValue - prevValue): (currValue + maxValue - prevValue);
                             prevValue = currValue;
-
-                            if (_lastIndex  >= totalAccumulate)
+                            if (_lastIndex >= maxValue) _lastIndex = 0;
+                            if (currentTotalCount >= totalAccumulate)
                             {
                                 //LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
                                 _lastIndex = 0;
                                 break;
                             }
 
-                            int batchSize = Math.Min(blockSize, totalAccumulate - _lastIndex);
+                            int batchSize = Math.Min(blockSize, totalAccumulate - currentTotalCount);
                             int startAddr = TorsionCurve.StartAddress + _lastIndex;
 
                             ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress,(ushort)startAddr,(ushort)batchSize);
                             _lastIndex += batchSize;
-                          
+                            currentTotalCount = _lastIndex;
                             List<float> torqueValues = waveData.Select(v => (float)v).ToList();
+
+
                             waveDataInfo.AddRange(waveData.Select(x => (double)x));
                             OnChartDataReceived?.Invoke(torqueValues);
+
+
                             //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-TotalNum:{totalAccumulate}-实时:{totalCollections[0]}", LogType.Run);
                             await Task.Delay(5);
                         }
