@@ -158,6 +158,7 @@ namespace AutoScrewSys.Base
                 ClearChartAction?.Invoke();
                 ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
                 ModbusCfgModel TotalCollections = ModbusAddressConfig.Instance.GetAddressItem("TotalCollections");
+                ModbusCfgModel Runstatus = ModbusAddressConfig.Instance.GetAddressItem("ScrewResult");
 
                 await Task.Run(async () =>
                 {
@@ -167,9 +168,12 @@ namespace AutoScrewSys.Base
                         {
                             ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
 
+                            //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
+
+
                             if (_lastIndex + _collectTotalNum >= totalCollections[0])
                             {
-                                //LogHelper.WriteLog($"_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
+                                LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
                                 _collectTotalNum = 0;
                                 _lastIndex = 0;
                                 break;
@@ -187,7 +191,7 @@ namespace AutoScrewSys.Base
 
                             List<float> torqueValues = waveData.Select(v => (float)v).ToList();
                             OnChartDataReceived?.Invoke(torqueValues);
-                            //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-collectTotalNum:{collectTotalNum}", LogType.Run);
+                            LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-collectTotalNum:{totalCollections[0]}", LogType.Run);
                             await Task.Delay(5);
                         }
                         catch (Exception ex)
@@ -196,7 +200,7 @@ namespace AutoScrewSys.Base
                             break;
                         }
                     }
-                    _collecting = false;
+                    //_collecting = false;
                 });
             }
             else if ((code == 2 || code == 3 || code == 4) && _collecting)
