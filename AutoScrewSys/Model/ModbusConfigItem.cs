@@ -12,10 +12,10 @@ namespace AutoScrewSys.Model
         public int SlaveAddress { get; set; }
         public int StartAddress { get; set; }
         public int Length { get; set; }
-
-        //public override string ToString()
-        //{
-        //    return $"{Description}, Slave: {SlaveAddress}, Start: {StartAddress}, Length: {Length}";
-        //}
+        /// <summary>
+        /// 比例
+        /// </summary>
+        public float Proportion { get; set; } = 1f;
+       
     }
 }

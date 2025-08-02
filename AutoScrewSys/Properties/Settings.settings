@@ -65,5 +65,17 @@
     <Setting Name="BadScrews" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="RTVoltageColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="ResultBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">SpringGreen</Value>
+    </Setting>
+    <Setting Name="Login" Type="System.Int16" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="UserLevel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">注销</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

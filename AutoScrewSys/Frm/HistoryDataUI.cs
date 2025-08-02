@@ -77,8 +77,7 @@ namespace AutoScrewSys.Frm
                 //listHisData.SelectedIndex = 0;
             }
         }
-
-        private void listHisData_SelectedIndexChanged(object sender, EventArgs e)
+        private void GetHisCsvData()
         {
             if (listHisData.SelectedItem == null || listHisData.SelectedItem.ToString() == "无CSV文件...") return;
 
@@ -113,8 +112,50 @@ namespace AutoScrewSys.Frm
                     }
                 }
             }
+            string barcodeFilter = tbxSnSearchBox.Text.Trim();
+            string circleFilter = textBoxCircle.Text.Trim();
+            string torqueFilter = textBoxTorque.Text.Trim();
+            string resultFilter = comboBoxResult.Text.Trim();
+
+            // ✅ 依次构建筛选条件
+            IEnumerable<DataRow> filteredRows = dt.AsEnumerable();
+
+            if (!string.IsNullOrEmpty(barcodeFilter) && dt.Columns.Count > 1)
+            {
+                filteredRows = filteredRows.Where(row => row.Field<string>(1) == barcodeFilter);
+            }
+
+            if (!string.IsNullOrEmpty(circleFilter) && dt.Columns.Count > 4)
+            {
+                filteredRows = filteredRows.Where(row => row.Field<string>(4) == circleFilter);
+            }
+
+            if (!string.IsNullOrEmpty(torqueFilter) && dt.Columns.Count > 5)
+            {
+                filteredRows = filteredRows.Where(row => row.Field<string>(5) == torqueFilter);
+            }
+
+            // 下拉框不为空且不是“无”或“全部”才过滤
+            if (!string.IsNullOrWhiteSpace(resultFilter) && resultFilter != "无"  && dt.Columns.Count > 6)
+            {
+                filteredRows = filteredRows.Where(row => row.Field<string>(6) == resultFilter);
+            }
+
+            // ✅ 最终应用筛选结果
+            if (filteredRows.Any())
+            {
+                dt = filteredRows.CopyToDataTable();
+            }
+            else
+            {
+                dt.Rows.Clear(); // 没有匹配项就显示空表
+            }
             PositionView.DataSource = dt;
             ColorRowsByStatus(PositionView);
+        }
+        private void listHisData_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GetHisCsvData(); 
         }
         private void ColorRowsByStatus(DataGridView dgv)
         {
@@ -301,5 +342,12 @@ namespace AutoScrewSys.Frm
                 MessageBox.Show($"删除失败：{ex.Message}");
             }
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            GetHisCsvData();
+        }
+
+      
     }
 }

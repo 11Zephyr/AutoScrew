@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoScrewSys.Properties;
+using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -108,58 +109,35 @@ namespace ZimaBlueScrew.Frm
         private void materialButtonpro12_Click(object sender, EventArgs e)
         {
             ButBeep();
-            if (passBox.Text == "061900")
+            if (passBox.Text == "358974" && LevelComboBox.SelectedIndex == 3)
             {
-                //Settings.Default.ModelEnabled = true;
-                //Settings.Default.VisionsEnabled = true;
-                //Debuger = 9;
-                //Settings.Default.Login = 5;
-                Close();
-            }
-            else if (passBox.Text == "358974" && LevelComboBox.SelectedIndex == 3)
-            {
-                //Settings.Default.ModelEnabled = false;
-                //Settings.Default.VisionsEnabled = false;
-                //Debuger = 4;
-                //MainInstance.Upgradebut.Visible = true;
-                //MainInstance.LockingDevicebut.Visible = true;
-                //Settings.Default.Login = 4;
+                Settings.Default.UserLevel = LevelComboBox.SelectedItem.ToString();
+                Settings.Default.Login = 4;
                 Close();
             }
             else if (passBox.Text == "61254" && LevelComboBox.SelectedIndex == 2)
             {
-                //Settings.Default.ModelEnabled = false;
-                //Settings.Default.VisionsEnabled = false;
-                //MainInstance.Upgradebut.Visible = false;
-                //MainInstance.LockingDevicebut.Visible = false;
-                //Debuger = 3;
-                //Settings.Default.Login = 3;
+                Settings.Default.UserLevel = LevelComboBox.SelectedItem.ToString();
+                Settings.Default.Login = 3;
                 Close();
             }
             else if (passBox.Text == "123321" && LevelComboBox.SelectedIndex == 1)
             {
-                //Settings.Default.ModelEnabled = false;
-                //Settings.Default.VisionsEnabled = false;
-                //MainInstance.Upgradebut.Visible = false;
-                //MainInstance.LockingDevicebut.Visible = false;
-                //Debuger = 2;
-                //Settings.Default.Login = 2;
+                Settings.Default.UserLevel = LevelComboBox.SelectedItem.ToString();
+                Settings.Default.Login = 2;
                 Close();
             }
             else if (passBox.Text == "1234" && LevelComboBox.SelectedIndex == 0)
             {
-                //Settings.Default.ModelEnabled = false;
-                //Settings.Default.VisionsEnabled = false;
-                //MainInstance.Upgradebut.Visible = false;
-                //MainInstance.LockingDevicebut.Visible = false;
-                //Debuger = 1;
-                //Settings.Default.Login = 1;
+                Settings.Default.UserLevel = LevelComboBox.SelectedItem.ToString();
+                Settings.Default.Login = 1;
                 Close();
             }
             else
             {
                 Infocom.SelectedIndex = 1;
-                //Debuger = 0;
+                Settings.Default.UserLevel = "未登录";
+                Settings.Default.Login = 0;
                 passBox.Text = "";
                 passlable.ForeColor = Color.Red;
                 passlable.Text = Infocom.Text;
@@ -191,19 +169,8 @@ namespace ZimaBlueScrew.Frm
 
         private void Logout_Click(object sender, EventArgs e)//注销
         {
-            //Settings.Default.VisionsEnabled = false;
-            //MainInstance.Upgradebut.Visible = false;
-            //MainInstance.LockingDevicebut.Visible = false;
-            //if (Debuger==9)
-            //{
-            //    Debuger = 3;
-            //    Settings.Default.Login = 3;
-            //}
-            //else
-            //{
-            //    Debuger = 0;
-            //    Settings.Default.Login = 0;
-            //}
+            Settings.Default.Login = 0;
+            Settings.Default.UserLevel = "未登录";
             Close();
         }
     }

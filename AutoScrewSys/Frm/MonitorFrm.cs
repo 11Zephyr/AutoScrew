@@ -1,6 +1,7 @@
 ﻿using AutoScrewSys.Base;
 using AutoScrewSys.Enums;
 using AutoScrewSys.Interface;
+using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using System;
 using System.Collections.Generic;
@@ -25,18 +26,27 @@ namespace AutoScrewSys.Frm
 
         private async void btnTightenMove_Click(object sender, EventArgs e)
         {
+            GlobalMonitor.CheckLogin(3);
+            if (Settings.Default.Login < 3) return;
+
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress,AddrName.Default.TightenAction);
         }
 
         private async void btnLoosenMove_Click(object sender, EventArgs e)
         {
+            GlobalMonitor.CheckLogin(3);
+            if (Settings.Default.Login < 3) return;
+
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.LoosenAction);
         }
 
         private async void btnFreeMove_Click(object sender, EventArgs e)
         {
+            GlobalMonitor.CheckLogin(3);
+            if (Settings.Default.Login < 3) return;
+
             var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.FreeAction);
         }

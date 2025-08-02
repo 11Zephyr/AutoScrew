@@ -16,12 +16,15 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZimaBlueScrew.Frm;
 using Zmodbus;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Color = System.Drawing.Color;
 using Control = System.Windows.Forms.Control;
 using Path = System.IO.Path;
 
@@ -31,9 +34,7 @@ namespace AutoScrewSys.Base
     {
         public static bool isInit { get; private set; }//初始化标志
         private static bool _collecting = false;//采集波形数据标志
-        private static int _lastIndex = 0;
         private static readonly object _binFileLock = new object();
-
         public static Action ClearChartAction;
         public static event Action<List<float>> OnChartDataReceived;
         public static event Action OnResultsUpdated;
@@ -83,12 +84,12 @@ namespace AutoScrewSys.Base
         public async static void MainThread()
         {
             var cfg = AddrName.Default;
-            var stopwatch = Stopwatch.StartNew();
+            //var stopwatch = Stopwatch.StartNew();
             var semaphore = new SemaphoreSlim(1, 1); // 控制串口物理串行访问
 
             while (isInit)
             {
-                stopwatch.Restart();
+                //stopwatch.Restart();
 
                 var tasks = new List<Task>();
 
@@ -107,12 +108,13 @@ namespace AutoScrewSys.Base
                                 (ushort)addr.StartAddress,
                                 (ushort)addr.Length
                             );
-                            SettingsUpdater.SetIfChanged(cfg, p.Name, result[0]);
-                            UpdateScrewResultStr(cfg, AddrName.Default.ScrewResult);
-
+                            var value = result[0] * addr.Proportion;
+                            SettingsUpdater.SetIfChanged(cfg, p.Name, value);
+                            AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
                         }
                         catch (Exception ex)
                         {
+                            SettingsUpdater.SetResultBackColor(Color.Red);
                             LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
                         }
                         finally
@@ -132,82 +134,107 @@ namespace AutoScrewSys.Base
             }
         }
 
-        public async static void UpdateScrewResultStr(SettingsBase cfg, int code)
+        public async static void AcquireWaveformData(SettingsBase cfg, int code)
         {
-            string resultStr;
-            switch (code)
+            try
             {
-                case 0: resultStr = "就绪"; break;
-                case 1: resultStr = "运行中"; break;
-                case 2: resultStr = "OK"; break;
-                case 3: resultStr = "NG"; break;
-                case 4: resultStr = "未完成"; break;
-                default: resultStr = "未知"; break;
-            }
-
-            SettingsUpdater.SetIfChanged(cfg, "ScrewResultStr", resultStr);
-
-            if (code == 1 && !_collecting)
-            {
-                _collecting = true;
-                ClearChartAction?.Invoke();
-                waveDataInfo?.Clear();
-                int blockSize = 20;
-                ushort maxValue = 1000;
-                ushort prevValue = 0;
-                int totalAccumulate = 0;
-                int currentTotalCount = 0;
-                ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
-
-                await Task.Run(async () =>
+                string resultStr;
+                Color backColor;
+                switch (code)
                 {
-                    while (_collecting)
+                    case 0:
+                        resultStr = "就绪";
+                        backColor = Color.GreenYellow;
+                        break;
+                    case 1:
+                        resultStr = "运行中";
+                        backColor = Color.Orange;
+                        break;
+                    case 2:
+                        resultStr = "OK";
+                        backColor = Color.Green;
+                        break;
+                    case 3:
+                        resultStr = "NG";
+                        backColor = Color.Red;
+                        break;
+                    case 4:
+                        resultStr = "未完成";
+                        backColor = Color.Gray;
+                        break;
+                    default:
+                        resultStr = "未知";
+                        backColor = Color.Brown;
+                        break;
+                }
+
+                SettingsUpdater.SetResultBackColor(backColor);
+                SettingsUpdater.SetIfChanged(cfg, "ScrewResultStr", resultStr);
+
+                if (code == 1 && !_collecting)
+                {
+                    _collecting = true;
+                    ClearChartAction?.Invoke();
+                    waveDataInfo?.Clear();
+                    int blockSize = 20;
+                    ushort maxValue = 1000;
+                    ushort prevValue = 0;
+                    int totalAccumulate = 0;
+                    int currentTotalCount = 0;
+                    int _lastIndex = 0;
+                    ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
+
+                    await Task.Run(async () =>
                     {
-                        try
+                        while (_collecting)
                         {
-                            //ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
-                            //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
-                            ushort currValue = (await ReadRegisterByNameAsync("TotalCollections"))[0];
-                            totalAccumulate += (currValue >= prevValue)? (currValue - prevValue): (currValue + maxValue - prevValue);
-                            prevValue = currValue;
-                            if (_lastIndex >= maxValue) _lastIndex = 0;
-                            if (currentTotalCount >= totalAccumulate)
+                            try
                             {
-                                //LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
-                                _lastIndex = 0;
+                                //ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
+                                //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
+                                ushort currValue = (await ReadRegisterByNameAsync("TotalCollections"))[0];
+                                totalAccumulate += (currValue >= prevValue) ? (currValue - prevValue) : (currValue + maxValue - prevValue);
+                                prevValue = currValue;
+                                if (_lastIndex >= maxValue) _lastIndex = 0;
+                                if (currentTotalCount >= totalAccumulate)
+                                {
+                                    //LogHelper.WriteLog($"跳出:_lastIndex:{_lastIndex}-_collectTotalNum{_collectTotalNum}-collectTotalNum:{totalCollections[0]}", LogType.Run);
+                                    _lastIndex = 0;
+                                    break;
+                                }
+
+                                int batchSize = Math.Min(blockSize, totalAccumulate - currentTotalCount);
+                                int startAddr = TorsionCurve.StartAddress + _lastIndex;
+
+                                ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress, (ushort)startAddr, (ushort)batchSize);
+                                _lastIndex += batchSize;
+                                currentTotalCount = _lastIndex;
+                                List<float> torqueValues = waveData.Select(v => (float)v).ToList();
+
+                                waveDataInfo.AddRange(waveData.Select(x => (double)x));
+                                OnChartDataReceived?.Invoke(torqueValues);
+
+                                //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-TotalNum:{totalAccumulate}-实时:{totalCollections[0]}", LogType.Run);
+                                await Task.Delay(5);
+                            }
+                            catch (Exception ex)
+                            {
+                                LogHelper.WriteLog($"采集异常: {ex.Message}", LogType.Fault);
                                 break;
                             }
-
-                            int batchSize = Math.Min(blockSize, totalAccumulate - currentTotalCount);
-                            int startAddr = TorsionCurve.StartAddress + _lastIndex;
-
-                            ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress,(ushort)startAddr,(ushort)batchSize);
-                            _lastIndex += batchSize;
-                            currentTotalCount = _lastIndex;
-                            List<float> torqueValues = waveData.Select(v => (float)v).ToList();
-
-
-                            waveDataInfo.AddRange(waveData.Select(x => (double)x));
-                            OnChartDataReceived?.Invoke(torqueValues);
-
-
-                            //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-TotalNum:{totalAccumulate}-实时:{totalCollections[0]}", LogType.Run);
-                            await Task.Delay(5);
                         }
-                        catch (Exception ex)
-                        {
-                            LogHelper.WriteLog($"采集异常: {ex.Message}", LogType.Fault);
-                            break;
-                        }
-                    }
-                });
+                    });
+                }
+                else if ((code == 2 || code == 3 || code == 4) && _collecting)
+                {
+                    LogHelper.WriteLog("--------------运行结束--------------", LogType.Run);
+                    OnResultsUpdated?.Invoke();
+                    _collecting = false;
+                }
             }
-            else if ((code == 2 || code == 3 || code == 4) && _collecting)
+            catch (Exception ex)
             {
-                LogHelper.WriteLog("--------------运行结束--------------", LogType.Run);
-                OnResultsUpdated?.Invoke();
-                _lastIndex = 0;
-                _collecting = false;
+                LogHelper.WriteLog($"采集波形数据报错:{ex.Message}", LogType.Error);
             }
         }
         /// <summary>
@@ -235,7 +262,14 @@ namespace AutoScrewSys.Base
             SettingsUpdater.SetIfChanged(cfg, "AlarmInfoStr", alarmMsgStr);
         }
 
-
+        public static void CheckLogin(short level)
+        {
+            if (Settings.Default.Login < level)
+            {
+                LoginFrm frm = new LoginFrm();
+                frm.ShowDialog();
+            }
+        }
         /// <summary>
         /// 保存二进制波形图数据
         /// </summary>
@@ -292,12 +326,12 @@ namespace AutoScrewSys.Base
         }
 
 
-        public static async Task ElectricBatchAction( byte slaveId, ushort address,int sourceValue)
+        public static async Task ElectricBatchAction(byte slaveId, ushort address, int sourceValue)
         {
             try
             {
                 await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, (ushort)(1 - sourceValue));
-               
+
             }
             catch (Exception ex)
             {
@@ -365,7 +399,7 @@ namespace AutoScrewSys.Base
         public static async Task<ushort[]> ReadRegisterByNameAsync(string name1, string name2)
         {
             // 获取地址项
-            ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name1,name2);
+            ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name1, name2);
             if (cfg == null)
             {
                 throw new ArgumentException($"未找到配置项: {name1}");

@@ -7,6 +7,7 @@ using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
 using DocumentFormat.OpenXml.InkML;
+using DocumentFormat.OpenXml.Office.SpreadSheetML.Y2023.MsForms;
 using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace AutoScrewSys.Frm
             lblScrews.DataBindings.Add("Text", Properties.Settings.Default, "ScrewNum");
             lblGoodScrews.DataBindings.Add("Text", Properties.Settings.Default, "GoodScrews");
             lblBadScrews.DataBindings.Add("Text", Properties.Settings.Default, "BadScrews");
+            Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
 
             EnableChartZoomAndPan();
             InitTorqueChart();
@@ -47,16 +49,17 @@ namespace AutoScrewSys.Frm
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
 
             GlobalMonitor.StatusChanged += OnStatusChanged;
-
             GlobalMonitor.Start(
-                 () =>
-                 {
-                     LogHelper.WriteLog("串口连接成功...", LogType.Run);
-                 },
-                 (msg) =>
-                 {
-                     MessageBox.Show(msg, "异常提示");
-                 });
+                          () =>
+                          {
+                              Settings.Default.RTVoltageColor = System.Drawing.Color.Green;
+                              LogHelper.WriteLog("串口连接成功...", LogType.Run);
+                          },
+                          (msg) =>
+                          {
+                              Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
+                              MessageBox.Show(msg, "异常提示");
+                          });
             Settings.Default.ScrewNum = 0;
             Settings.Default.BadScrews = 0;
             Settings.Default.GoodScrews = 0;
@@ -133,6 +136,14 @@ namespace AutoScrewSys.Frm
                                 SaveWaveformToDatedFolder();
                             });
                         }
+                        if (PositionView.Rows.Count > 15)
+                        {
+                            if (!PositionView.Rows[0].IsNewRow)
+                            {
+                                PositionView.Rows.RemoveAt(0);
+                            }
+                        }
+
                     }
                     catch (Exception ex)
                     {
@@ -319,7 +330,6 @@ namespace AutoScrewSys.Frm
                 BEAlabels[i].BackColor = isActive ? Color.LimeGreen : Color.Gray;
                 BEAlabels[i].ForeColor = isActive ? Color.Black : Color.White;
             }
-
             int[] states = { t, l, f };
             for (int i = 0; i < 3; i++)
             {
@@ -328,10 +338,10 @@ namespace AutoScrewSys.Frm
             }
 
         }
-
         private void btnRandomSNCode_Click(object sender, EventArgs e)
         {
             Settings.Default.SnCode = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
         }
+      
     }
 }

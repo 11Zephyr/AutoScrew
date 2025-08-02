@@ -16,6 +16,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Color = System.Drawing.Color;
@@ -49,6 +50,9 @@ namespace AutoScrewSys.Frm
                 currentTask = TaskNumber.Task1;
             else
                 currentTask = (TaskNumber)Settings.Default.CurrentTask;
+
+            btnTighten.ButtonColor = (currentState == WorkState.Tighten) ? Color.FromArgb(255, 128, 0) : Color.White;
+            btnLoosen.ButtonColor = (currentState == WorkState.Loosen) ? Color.FromArgb(255, 128, 0) : Color.White;
         }
         private void TaskLists_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -168,17 +172,64 @@ namespace AutoScrewSys.Frm
 
         private void btnTighten_Click(object sender, EventArgs e)
         {
-            currentState = WorkState.Tighten;
-            SaveSettings();
-            UpdateModbusAddress();
+            HandleWorkStateChange(sender, WorkState.Tighten);
         }
 
         private void btnLoosen_Click(object sender, EventArgs e)
         {
-            currentState = WorkState.Loosen;
+            HandleWorkStateChange(sender, WorkState.Loosen);
+        }
+
+        private void HandleWorkStateChange(object sender, WorkState state)
+        {
+            currentState = state;
             SaveSettings();
             UpdateModbusAddress();
+
+            // 设置按钮背景色
+            var clickedBtn = sender as Button;
+
+            btnTighten.ButtonColor = (currentState == WorkState.Tighten) ? Color.FromArgb(255, 128, 0) : Color.White;
+            btnLoosen.ButtonColor = (currentState == WorkState.Loosen) ? Color.FromArgb(255, 128, 0) : Color.White;
+
+            //int[] rowIndices = { };
+            //switch (currentState)
+            //{
+            //    case WorkState.Tighten:
+            //        rowIndices = new int[] {1, 4,};
+            //        break;
+            //    case WorkState.Loosen:
+            //        rowIndices = new int[] { 13};
+            //        break;
+            //    case WorkState.Free:
+            //        rowIndices = new int[] { 14,15 };
+            //        break;
+            //    default:
+            //        break;
+            //}
+
+            //HighlightRows(dgvParam, rowIndices);
+
         }
+
+
+        private void HighlightRows(DataGridView dgv, params int[] rowIndices)
+        {
+            if (dgv == null || dgv.Rows.Count == 0)
+                return;
+
+            // 设置指定行颜色
+            foreach (int rowIndex in rowIndices)
+            {
+                if (rowIndex >= 0 && rowIndex < dgv.Rows.Count)
+                {
+                    dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 192, 128);
+                    dgv.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
+
 
         private void btnFree_Click(object sender, EventArgs e)
         {
@@ -235,7 +286,7 @@ namespace AutoScrewSys.Frm
                     Remark = paramInfo.Remark
                 });
             }
-            this.Invoke(new Action(() =>
+            this.BeginInvoke(new Action(() =>
             {
                 dgvParam?.Rows.Clear();
 
@@ -263,21 +314,21 @@ namespace AutoScrewSys.Frm
             return new List<ParamInfo>
             {
                 new ParamInfo { Name = "拧紧旋转方向",            Range = "0-1",          Unit = "None",     Remark = "旋转方向:0正向/1反向" },
-                new ParamInfo { Name = "目标扭力mN.M",            Range = "1-5000",       Unit = "mN.m",     Remark = "拧紧过程目标最大扭力,不可太小" },
-                new ParamInfo { Name = "上限偏差mN.M",            Range = "0-1000",      Unit = "None",     Remark = "根据目标扭力判断偏差上限" },
-                new ParamInfo { Name = "下限偏差mN.M",            Range = "0-1000",      Unit = "None",     Remark = "根据目标扭力判断偏差下限" },
-                new ParamInfo { Name = "保持时间ms",              Range = "0-1000",      Unit = "ms",       Remark = "保持时间" },
+                new ParamInfo { Name = "目标扭力mN.M",            Range = "1-5000",       Unit = "mN.m",     Remark = "拧紧过程目标最大扭力,不可太小" },//跟着瓦数变
+                new ParamInfo { Name = "上限偏差mN.M",            Range = "0-100",      Unit = "None",     Remark = "根据目标扭力判断偏差上限" },
+                new ParamInfo { Name = "下限偏差mN.M",            Range = "0-100",      Unit = "None",     Remark = "根据目标扭力判断偏差下限" },
+                new ParamInfo { Name = "保持时间ms",              Range = "0-100",      Unit = "ms",       Remark = "保持时间" },
                 new ParamInfo { Name = "浮高滑牙检测开关",        Range = "0-1",        Unit = "None",     Remark = "浮高滑牙检测:0关闭/1开启" },
-                new ParamInfo { Name = "浮高界定圈数（0.01圈）",  Range = "0-20",       Unit = "0.01 rev", Remark = "Above this = Float" },
-                new ParamInfo { Name = "滑牙界定圈数（0.01圈）",  Range = "0-20",       Unit = "0.01 rev", Remark = "Below this = Slip" },
-                new ParamInfo { Name = "触发速度切换的扭力比值",  Range = "0-1000",      Unit = "%",    Remark = "触发速度切换的扭力比值" },
+                new ParamInfo { Name = "浮高界定圈数（r）",       Range = "0-20",       Unit = "r", Remark = "Above this = Float" },
+                new ParamInfo { Name = "滑牙界定圈数（r）",       Range = "0-20",       Unit = "r", Remark = "Below this = Slip" },
+                new ParamInfo { Name = "触发速度切换的扭力比值",  Range = "0-100",      Unit = "%",    Remark = "触发速度切换的扭力比值" },
                 new ParamInfo { Name = "切换后速度(保留参数)",    Range = "0-1000",       Unit = "%",      Remark = "触发速度切换的速度比值。" },
-                new ParamInfo { Name = "扭力补偿值mN.M",          Range = "0-100",       Unit = "mN.m",     Remark = "扭力补偿" },
+                new ParamInfo { Name = "扭力补偿值mN.M",          Range = "-100-100",       Unit = "mN.m",     Remark = "扭力补偿" },
                 new ParamInfo { Name = "扭力免检圈数",            Range = "0-100",       Unit = "r",      Remark = "扭力免检圈数。" },
-                new ParamInfo { Name = "免检圈数内扭力限定mN.M",  Range = "0-100",      Unit = "mN.m",     Remark = "免检圈数扭力" },
-                new ParamInfo { Name = "拧松扭力",                Range = "0-1500",      Unit = "mN.m",     Remark = "拧松过程目标最大扭力,不可太小" },
-                new ParamInfo { Name = "自由转速度",              Range = "1-5000",       Unit = "r",      Remark = "自由速度" },
-                new ParamInfo { Name = "自由转扭力",              Range = "1-5000",      Unit = "mN.m",     Remark = "自由旋转扭力" },
+                new ParamInfo { Name = "免检圈数内扭力限定mN.M",  Range = "0-100",      Unit = "mN.m",     Remark = "免检圈数扭力" },//跟着瓦数变
+                new ParamInfo { Name = "拧松扭力",                Range = "0-1500",      Unit = "mN.m",     Remark = "拧松过程目标最大扭力,不可太小" },//跟着瓦数变
+                new ParamInfo { Name = "自由转速度",              Range = "1-5000",       Unit = "r",      Remark = "自由速度" },//跟着瓦数变
+                new ParamInfo { Name = "自由转扭力",              Range = "1-5000",      Unit = "mN.m",     Remark = "自由旋转扭力" },//跟着瓦数变
                 new ParamInfo { Name = "偏移角度",                Range = "0~3600",       Unit = "0.1°",    Remark = "In 0.1° units" }
             };
         }
@@ -307,6 +358,9 @@ namespace AutoScrewSys.Frm
         {
             try
             {
+                GlobalMonitor.CheckLogin(4);
+                if (Settings.Default.Login < 4) return;
+
                 if (e.RowIndex < 0 || e.ColumnIndex < 0)
                     return;
 
@@ -331,14 +385,17 @@ namespace AutoScrewSys.Frm
                     };
                     var cellText = dgvParam.CurrentRow.Cells[2].Value?.ToString(); // 第三列
                     double minVal = 0, maxVal = 0;
-                    if (!string.IsNullOrEmpty(cellText) && cellText.Contains("-"))
+
+                    if (!string.IsNullOrEmpty(cellText))
                     {
-                        var parts = cellText.Split('-');
-                        if (parts.Length == 2 &&
-                            double.TryParse(parts[0], out minVal) &&
-                            double.TryParse(parts[1], out maxVal))
+                        // 匹配形如 "-123.45 - 678.9"、"0-100"、"-50-50" 等
+                        var match = Regex.Match(cellText, @"^\s*(-?\d+(\.\d+)?)\s*-\s*(-?\d+(\.\d+)?)\s*$");
+                        if (match.Success)
                         {
-                            // 解析成功，传参
+                            minVal = double.Parse(match.Groups[1].Value);
+                            maxVal = double.Parse(match.Groups[3].Value);
+
+                            // 打开虚拟键盘窗体
                             VirtualkeyboardFrm virtualkeyboardFrm = new VirtualkeyboardFrm(addr, minVal, maxVal);
                             virtualkeyboardFrm.ShowDialog();
                         }
@@ -349,9 +406,8 @@ namespace AutoScrewSys.Frm
                     }
                     else
                     {
-                        MessageBox.Show("第三列内容为空或不包含'-'");
+                        MessageBox.Show("第三列内容为空");
                     }
-                 
                     dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = (await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)addr.SlaveAddress, (ushort)addr.StartAddress, (ushort)addr.Length))[0].ToString();
                 }
             }
@@ -367,6 +423,9 @@ namespace AutoScrewSys.Frm
         {
             try
             {
+                GlobalMonitor.CheckLogin(4);
+                if (Settings.Default.Login < 4) return;
+
                 if (e.RowIndex < 0 || e.ColumnIndex <= 0)
                     return;
                 int taskIndex = (int)currentTask;
@@ -397,7 +456,7 @@ namespace AutoScrewSys.Frm
                 if (addr == null) return;
                 ushort finalAddress = (ushort)(addr.StartAddress + offset);
                 addr.StartAddress = finalAddress;
-
+                if (columnIndex == 1) addr.Proportion = 0.01f;
                 VirtualkeyboardFrm virtualkeyboardFrm = new VirtualkeyboardFrm(addr, 0, 10000);
                 virtualkeyboardFrm.ShowDialog();
                 UpdateModbusAddress();
@@ -406,7 +465,6 @@ namespace AutoScrewSys.Frm
             {
                 LogHelper.WriteLog(ex.Message, LogType.Error);
             }
-
         }
 
         private void TaskParametersUI_Load(object sender, EventArgs e)

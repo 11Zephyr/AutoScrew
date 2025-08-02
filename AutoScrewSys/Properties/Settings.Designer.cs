@@ -274,5 +274,53 @@ namespace AutoScrewSys.Properties {
                 this["BadScrews"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color RTVoltageColor {
+            get {
+                return ((global::System.Drawing.Color)(this["RTVoltageColor"]));
+            }
+            set {
+                this["RTVoltageColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("SpringGreen")]
+        public global::System.Drawing.Color ResultBackColor {
+            get {
+                return ((global::System.Drawing.Color)(this["ResultBackColor"]));
+            }
+            set {
+                this["ResultBackColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public short Login {
+            get {
+                return ((short)(this["Login"]));
+            }
+            set {
+                this["Login"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("注销")]
+        public string UserLevel {
+            get {
+                return ((string)(this["UserLevel"]));
+            }
+            set {
+                this["UserLevel"] = value;
+            }
+        }
     }
 }

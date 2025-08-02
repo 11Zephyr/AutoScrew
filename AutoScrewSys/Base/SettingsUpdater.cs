@@ -1,7 +1,9 @@
-﻿using AutoScrewSys.VariableName;
+﻿using AutoScrewSys.Properties;
+using AutoScrewSys.VariableName;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -44,12 +46,30 @@ namespace AutoScrewSys.Base
                 Set(cfg, key, newValue);
             }
         }
+
+        private static Color _currentResultBackColor = Color.Empty;
+
+        public static void SetResultBackColor(Color newColor)
+        {
+            if (UIThread.Context == null)
+                throw new InvalidOperationException("UIThread.Context 尚未初始化");
+
+            if (_currentResultBackColor != newColor)
+            {
+                _currentResultBackColor = newColor;
+
+                UIThread.Context.Post(_ =>
+                {
+                    Settings.Default.ResultBackColor = newColor;
+                }, null);
+            }
+        }
     }
 
 
     public static class UIThread
     {
-        public static SynchronizationContext Context;
+        public static SynchronizationContext Context; 
     }
 
 }

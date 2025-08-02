@@ -110,9 +110,9 @@ namespace AutoScrewSys.VariableName {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int RealTVoltage {
+        public float RealTVoltage {
             get {
-                return ((int)(this["RealTVoltage"]));
+                return ((float)(this["RealTVoltage"]));
             }
             set {
                 this["RealTVoltage"] = value;

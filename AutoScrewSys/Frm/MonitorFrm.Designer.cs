@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.customPanel1 = new ZimaBlueUI.CustomPanel();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.ElecBatchPower = new System.Windows.Forms.Label();
             this.AlarmInfoStr = new System.Windows.Forms.Label();
             this.ScrewResultStr = new System.Windows.Forms.Label();
@@ -43,9 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.materialButtonpro4 = new MaterialSkin.Controls.MaterialButtonpro();
             this.materialButtonpro5 = new MaterialSkin.Controls.MaterialButtonpro();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnFreeMove = new MaterialSkin.Controls.MaterialButtonpro();
             this.btnLoosenMove = new MaterialSkin.Controls.MaterialButtonpro();
@@ -57,7 +56,6 @@
             this.lblBusySignal = new System.Windows.Forms.Label();
             this.lblEndSignal = new System.Windows.Forms.Label();
             this.lblAlarmSignal = new System.Windows.Forms.Label();
-            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.customPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +88,20 @@
             this.customPanel1.RowCount = 2;
             this.customPanel1.Size = new System.Drawing.Size(904, 123);
             this.customPanel1.TabIndex = 0;
+            // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.BackColor = System.Drawing.Color.Transparent;
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(441, 16);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(67, 33);
+            this.lblTorqueUnit.TabIndex = 228;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ElecBatchPower
             // 
@@ -273,25 +285,6 @@
             this.label4.Text = "任务号";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // materialButtonpro4
-            // 
-            this.materialButtonpro4.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro4.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Buttonmodel = 0;
-            this.materialButtonpro4.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro4.Constant = 0;
-            this.materialButtonpro4.Depth = 0;
-            this.materialButtonpro4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
-            this.materialButtonpro4.Location = new System.Drawing.Point(662, 43);
-            this.materialButtonpro4.MaxV = 0;
-            this.materialButtonpro4.MinV = 0;
-            this.materialButtonpro4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro4.Name = "materialButtonpro4";
-            this.materialButtonpro4.Size = new System.Drawing.Size(105, 49);
-            this.materialButtonpro4.TabIndex = 208;
-            this.materialButtonpro4.Text = "上位机";
-            this.materialButtonpro4.UseVisualStyleBackColor = true;
-            // 
             // materialButtonpro5
             // 
             this.materialButtonpro5.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -310,19 +303,6 @@
             this.materialButtonpro5.TabIndex = 209;
             this.materialButtonpro5.Text = "扭力模式";
             this.materialButtonpro5.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(661, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 33);
-            this.label2.TabIndex = 214;
-            this.label2.Text = "控制方式";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -500,20 +480,6 @@
             this.lblAlarmSignal.Text = "报警信号";
             this.lblAlarmSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTorqueUnit
-            // 
-            this.lblTorqueUnit.BackColor = System.Drawing.Color.Transparent;
-            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTorqueUnit.Location = new System.Drawing.Point(441, 16);
-            this.lblTorqueUnit.Name = "lblTorqueUnit";
-            this.lblTorqueUnit.Size = new System.Drawing.Size(67, 33);
-            this.lblTorqueUnit.TabIndex = 228;
-            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MonitorFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -524,9 +490,7 @@
             this.Controls.Add(this.btnFreeMove);
             this.Controls.Add(this.btnLoosenMove);
             this.Controls.Add(this.btnTightenMove);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.materialButtonpro4);
             this.Controls.Add(this.materialButtonpro5);
             this.Controls.Add(this.customPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -546,9 +510,7 @@
         #endregion
 
         private ZimaBlueUI.CustomPanel customPanel1;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro4;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro5;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label8;

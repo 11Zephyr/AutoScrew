@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AutoScrew_Transparent.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
@@ -102,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSize\ControlScaler.cs" />
+    <Compile Include="Base\AutoLogoutManager.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
@@ -242,6 +246,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="AutoScrew_Transparent.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

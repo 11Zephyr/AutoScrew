@@ -1,4 +1,5 @@
-﻿using AutoScrewSys.Modbus;
+﻿using AutoScrewSys.Base;
+using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using System;
 using System.Drawing;
@@ -45,31 +46,46 @@ namespace SharedCore
         //软键盘
 
         public string KeyboardValue { get; private set; }
-        private  async void Enterbut_Click(object sender, EventArgs e)
+        private async void Enterbut_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(Inputbox.Text, out double inputvlaue))
+            try
             {
-                Convert.ToDouble(UpperLimitlab.Text);
-                Convert.ToDouble(LowerLimitlab.Text);
-
-                if (inputvlaue >= Convert.ToDouble(LowerLimitlab.Text) && inputvlaue <= Convert.ToDouble(UpperLimitlab.Text))
+                if (double.TryParse(Inputbox.Text, out double inputvlaue))
                 {
-                    await ModbusRtuHelper.Instance.WriteSingleRegisterAsync((byte)_modnusAddrModel.SlaveAddress, (ushort)_modnusAddrModel.StartAddress, (ushort)inputvlaue);
+                    double lowerLimit = Convert.ToDouble(LowerLimitlab.Text);
+                    double upperLimit = Convert.ToDouble(UpperLimitlab.Text);
+
+                    if (inputvlaue >= lowerLimit && inputvlaue <= upperLimit)
+                    {
+                        double scaled = inputvlaue / _modnusAddrModel.Proportion;
+                        scaled = Math.Max(0, Math.Min(scaled, ushort.MaxValue)); // Clamp
+
+                        await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(
+                            (byte)_modnusAddrModel.SlaveAddress,
+                            (ushort)_modnusAddrModel.StartAddress,
+                            (ushort)scaled
+                        );
+
+                        Close();
+                    }
+                    else
+                    {
+                        SystemSounds.Beep.Play();
+                        label2.ForeColor = zRoundPanel1.PanelBorderColor = Enterbut.ButtonColor = Color.Red;
+                        label2.Text = "超出范围";
+                    }
+
+                }
+                else if (Inputbox.Text == "")
+                {
                     Close();
                 }
-                else
-                {
-                    SystemSounds.Beep.Play();
-                    label2.ForeColor = Color.Red;
-                    zRoundPanel1.PanelBorderColor = Color.Red;
-                    Enterbut.ButtonColor = Color.Red;
-                    label2.Text = "超出范围";
-                }
             }
-            else if (Inputbox.Text == "")
+            catch (Exception ex)
             {
-                Close();
+                LogHelper.WriteLog($"键盘写入报错:{ex.Message}", LogType.Error);
             }
+
         }
 
         private void Num1_Click(object sender, EventArgs e)

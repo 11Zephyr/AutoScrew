@@ -5,38 +5,59 @@ using System.Windows.Forms;
 
 public class ControlScaler
 {
-    private Dictionary<Control, Rectangle> originalControlBounds = new Dictionary<Control, Rectangle>();
+    private Dictionary<Control, ControlRect> _originals = new Dictionary<Control, ControlRect>();
+    private Control _root;
 
     public void Init(Control root)
     {
-        originalControlBounds.Clear();
-        SaveOriginalBounds(root);
+        _originals.Clear();
+        _root = root;
+        SaveOriginals(root);
     }
 
-    private void SaveOriginalBounds(Control parent)
+    private void SaveOriginals(Control ctrl)
     {
-        foreach (Control ctrl in parent.Controls)
+        _originals[ctrl] = new ControlRect(ctrl);
+
+        foreach (Control child in ctrl.Controls)
         {
-            originalControlBounds[ctrl] = ctrl.Bounds;
-            if (ctrl.HasChildren)
-                SaveOriginalBounds(ctrl);
+            SaveOriginals(child);
         }
     }
 
-    public void Scale(Control root, float scaleX, float scaleY)
+    public void Scale(double scaleX, double scaleY)
     {
-        foreach (var kvp in originalControlBounds)
+        foreach (var kv in _originals)
         {
-            Control ctrl = kvp.Key;
-            Rectangle original = kvp.Value;
-            ctrl.Bounds = new Rectangle(
-                (int)(original.X * scaleX),
-                (int)(original.Y * scaleY),
-                (int)(original.Width * scaleX),
-                (int)(original.Height * scaleY));
+            var ctrl = kv.Key;
+            var rect = kv.Value;
+
+            ctrl.Left = (int)(rect.Left * scaleX);
+            ctrl.Top = (int)(rect.Top * scaleY);
+            ctrl.Width = (int)(rect.Width * scaleX);
+            ctrl.Height = (int)(rect.Height * scaleY);
+
+            // 字体缩放
+            ctrl.Font = new Font(ctrl.Font.FontFamily, (float)(rect.FontSize * Math.Min(scaleX, scaleY)), ctrl.Font.Style);
+        }
+    }
+
+    private class ControlRect
+    {
+        public int Left, Top, Width, Height;
+        public float FontSize;
+
+        public ControlRect(Control ctrl)
+        {
+            Left = ctrl.Left;
+            Top = ctrl.Top;
+            Width = ctrl.Width;
+            Height = ctrl.Height;
+            FontSize = ctrl.Font.Size;
         }
     }
 }
+
 
 
 

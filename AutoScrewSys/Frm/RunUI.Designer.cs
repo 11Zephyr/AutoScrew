@@ -61,14 +61,12 @@
             this.lblCT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.Torque = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tpanel5 = new ZimaBlueUI.Tpanel();
             this.LapsNum = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tpanel2 = new ZimaBlueUI.Tpanel();
-            this.ScrewResultStr = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
             this.AlarmInfoStr = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -84,6 +82,7 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel8 = new ZimaBlueUI.Tpanel();
+            this.tbxSnCode = new ZimaBlueUI.ZtextBoxRua();
             this.label20 = new System.Windows.Forms.Label();
             this.btnRandomSNCode = new ZimaBlueUI.ZRoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -97,9 +96,10 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.tbxSnCode = new ZimaBlueUI.ZtextBoxRua();
+            this.tpanel2 = new ZimaBlueUI.Tpanel();
+            this.ScrewResultStr = new System.Windows.Forms.Label();
             this.cbxNoCollection = new System.Windows.Forms.CheckBox();
-            this.lblTorqueUnit = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -110,13 +110,13 @@
             this.tpanel4.SuspendLayout();
             this.tpanel6.SuspendLayout();
             this.tpanel5.SuspendLayout();
-            this.tpanel2.SuspendLayout();
             this.tpanel7.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.tpanel8.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tpanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -262,7 +262,7 @@
             this.PositionView.ShowCellToolTips = false;
             this.PositionView.ShowEditingIcon = false;
             this.PositionView.ShowRowErrors = false;
-            this.PositionView.Size = new System.Drawing.Size(642, 410);
+            this.PositionView.Size = new System.Drawing.Size(642, 415);
             this.PositionView.TabIndex = 66;
             this.PositionView.TabStop = false;
             // 
@@ -379,7 +379,7 @@
             this.tpanel3.Location = new System.Drawing.Point(3, 3);
             this.tpanel3.Name = "tpanel3";
             this.tpanel3.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel3.PanelBorderColor = System.Drawing.Color.Black;
+            this.tpanel3.PanelBorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tpanel3.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
             this.tpanel3.PanelOffsetY = 21F;
             this.tpanel3.PanelText = "";
@@ -419,7 +419,7 @@
             this.tpanel4.Location = new System.Drawing.Point(371, 3);
             this.tpanel4.Name = "tpanel4";
             this.tpanel4.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel4.PanelBorderColor = System.Drawing.Color.Black;
+            this.tpanel4.PanelBorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tpanel4.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
             this.tpanel4.PanelOffsetY = 21F;
             this.tpanel4.PanelText = "";
@@ -460,12 +460,25 @@
             this.tpanel6.Location = new System.Drawing.Point(3, 77);
             this.tpanel6.Name = "tpanel6";
             this.tpanel6.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel6.PanelBorderColor = System.Drawing.Color.Black;
+            this.tpanel6.PanelBorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tpanel6.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
             this.tpanel6.PanelOffsetY = 21F;
             this.tpanel6.PanelText = "";
             this.tpanel6.Size = new System.Drawing.Size(362, 71);
             this.tpanel6.TabIndex = 68;
+            // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(261, 19);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(98, 33);
+            this.lblTorqueUnit.TabIndex = 199;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Torque
             // 
@@ -500,7 +513,7 @@
             this.tpanel5.Location = new System.Drawing.Point(371, 77);
             this.tpanel5.Name = "tpanel5";
             this.tpanel5.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tpanel5.PanelBorderColor = System.Drawing.Color.Black;
+            this.tpanel5.PanelBorderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.tpanel5.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
             this.tpanel5.PanelOffsetY = 21F;
             this.tpanel5.PanelText = "";
@@ -530,48 +543,6 @@
             this.label4.TabIndex = 197;
             this.label4.Text = "圈数:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tpanel2
-            // 
-            this.tpanel2.Alpha = 50;
-            this.tpanel2.BackColor = System.Drawing.Color.Transparent;
-            this.tpanel2.Controls.Add(this.ScrewResultStr);
-            this.tpanel2.Controls.Add(this.cbxNoCollection);
-            this.tpanel2.Controls.Add(this.label5);
-            this.tpanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tpanel2.Location = new System.Drawing.Point(651, 151);
-            this.tpanel2.Name = "tpanel2";
-            this.tpanel2.PanelBackColor = System.Drawing.Color.SpringGreen;
-            this.tpanel2.PanelBorderColor = System.Drawing.Color.Black;
-            this.tpanel2.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
-            this.tpanel2.PanelOffsetY = 21F;
-            this.tpanel2.PanelText = "";
-            this.tpanel2.Size = new System.Drawing.Size(727, 132);
-            this.tpanel2.TabIndex = 67;
-            // 
-            // ScrewResultStr
-            // 
-            this.ScrewResultStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ScrewResultStr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ScrewResultStr.Location = new System.Drawing.Point(201, 2);
-            this.ScrewResultStr.Name = "ScrewResultStr";
-            this.ScrewResultStr.Size = new System.Drawing.Size(380, 120);
-            this.ScrewResultStr.TabIndex = 200;
-            this.ScrewResultStr.Text = "Ready";
-            this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label5.Location = new System.Drawing.Point(25, 19);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 33);
-            this.label5.TabIndex = 197;
-            this.label5.Text = "拧紧结果:";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tpanel7
             // 
@@ -781,6 +752,25 @@
             this.tpanel8.Size = new System.Drawing.Size(593, 46);
             this.tpanel8.TabIndex = 0;
             // 
+            // tbxSnCode
+            // 
+            this.tbxSnCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "SnCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSnCode.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSnCode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.Location = new System.Drawing.Point(125, 2);
+            this.tbxSnCode.Name = "tbxSnCode";
+            this.tbxSnCode.ReadOnly = false;
+            this.tbxSnCode.Size = new System.Drawing.Size(468, 43);
+            this.tbxSnCode.TabIndex = 204;
+            this.tbxSnCode.Tag = "Text";
+            this.tbxSnCode.Text = global::AutoScrewSys.Properties.Settings.Default.SnCode;
+            this.tbxSnCode.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.TextBorderRadius = 5;
+            this.tbxSnCode.TextBorderSize = 1;
+            this.tbxSnCode.TextBorderWidth = 2;
+            // 
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
@@ -956,28 +946,43 @@
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tbxSnCode
+            // tpanel2
             // 
-            this.tbxSnCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSnCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "SnCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbxSnCode.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.tbxSnCode.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbxSnCode.Location = new System.Drawing.Point(125, 2);
-            this.tbxSnCode.Name = "tbxSnCode";
-            this.tbxSnCode.ReadOnly = false;
-            this.tbxSnCode.Size = new System.Drawing.Size(468, 43);
-            this.tbxSnCode.TabIndex = 204;
-            this.tbxSnCode.Tag = "Text";
-            this.tbxSnCode.Text = global::AutoScrewSys.Properties.Settings.Default.SnCode;
-            this.tbxSnCode.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSnCode.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.tbxSnCode.TextBorderRadius = 5;
-            this.tbxSnCode.TextBorderSize = 1;
-            this.tbxSnCode.TextBorderWidth = 2;
+            this.tpanel2.Alpha = 50;
+            this.tpanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel2.Controls.Add(this.ScrewResultStr);
+            this.tpanel2.Controls.Add(this.cbxNoCollection);
+            this.tpanel2.Controls.Add(this.label5);
+            this.tpanel2.DataBindings.Add(new System.Windows.Forms.Binding("PanelBorderColor", global::AutoScrewSys.Properties.Settings.Default, "ResultBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tpanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tpanel2.Location = new System.Drawing.Point(651, 151);
+            this.tpanel2.Name = "tpanel2";
+            this.tpanel2.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpanel2.PanelBorderColor = global::AutoScrewSys.Properties.Settings.Default.ResultBackColor;
+            this.tpanel2.PanelFont = new System.Drawing.Font("思源黑体 CN Bold", 30F);
+            this.tpanel2.PanelOffsetY = 21F;
+            this.tpanel2.PanelText = "";
+            this.tpanel2.Size = new System.Drawing.Size(727, 132);
+            this.tpanel2.TabIndex = 67;
+            // 
+            // ScrewResultStr
+            // 
+            this.ScrewResultStr.BackColor = System.Drawing.Color.Transparent;
+            this.ScrewResultStr.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "ResultBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ScrewResultStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ScrewResultStr.ForeColor = global::AutoScrewSys.Properties.Settings.Default.ResultBackColor;
+            this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ScrewResultStr.Location = new System.Drawing.Point(181, 2);
+            this.ScrewResultStr.Name = "ScrewResultStr";
+            this.ScrewResultStr.Size = new System.Drawing.Size(380, 120);
+            this.ScrewResultStr.TabIndex = 200;
+            this.ScrewResultStr.Text = "Ready";
+            this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbxNoCollection
             // 
             this.cbxNoCollection.AutoSize = true;
+            this.cbxNoCollection.BackColor = System.Drawing.Color.Transparent;
             this.cbxNoCollection.Checked = global::AutoScrewSys.Properties.Settings.Default.NoCollection;
             this.cbxNoCollection.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::AutoScrewSys.Properties.Settings.Default, "NoCollection", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.cbxNoCollection.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -987,20 +992,20 @@
             this.cbxNoCollection.Size = new System.Drawing.Size(92, 33);
             this.cbxNoCollection.TabIndex = 199;
             this.cbxNoCollection.Text = "不采集";
-            this.cbxNoCollection.UseVisualStyleBackColor = true;
+            this.cbxNoCollection.UseVisualStyleBackColor = false;
             // 
-            // lblTorqueUnit
+            // label5
             // 
-            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTorqueUnit.Location = new System.Drawing.Point(261, 19);
-            this.lblTorqueUnit.Name = "lblTorqueUnit";
-            this.lblTorqueUnit.Size = new System.Drawing.Size(98, 33);
-            this.lblTorqueUnit.TabIndex = 199;
-            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label5.Location = new System.Drawing.Point(25, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 33);
+            this.label5.TabIndex = 197;
+            this.label5.Text = "拧紧结果:";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RunUI
             // 
@@ -1027,14 +1032,14 @@
             this.tpanel4.ResumeLayout(false);
             this.tpanel6.ResumeLayout(false);
             this.tpanel5.ResumeLayout(false);
-            this.tpanel2.ResumeLayout(false);
-            this.tpanel2.PerformLayout();
             this.tpanel7.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.tpanel8.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tpanel2.ResumeLayout(false);
+            this.tpanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +19,7 @@ namespace AutoScrewSys.Frm
 {
     public partial class ParameterSettingUI : UserControl
     {
+        private AutoLogoutManager _autoLogoutManager;
         public ParameterSettingUI()
         {
             InitializeComponent();
@@ -25,18 +28,16 @@ namespace AutoScrewSys.Frm
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-          
             ///启动全局监控
             GlobalMonitor.Start(
-                 // 串口打开成功时回调，打开主窗口
                  () =>
                  {
+                     Settings.Default.RTVoltageColor = System.Drawing.Color.Green;
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
-                     //MessageBox.Show("串口连接成功");
                  },
-                 // 串口打开失败时回调，错误消息提醒，并退出程序
                  (msg) =>
                  {
+                     Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
                      MessageBox.Show(msg, "异常提示");
                  });
         }
@@ -67,18 +68,80 @@ namespace AutoScrewSys.Frm
 
         private void ParameterSettingUI_Load(object sender, EventArgs e)
         {
-            LoadSerialPortSettings();
-            ////启动全局监控
-            //GlobalMonitor.Start(
-            //     () =>
-            //     {
-            //         LogHelper.WriteLog("串口连接成功!", LogType.Run);
-            //     },
-            //     (msg) =>
-            //     {
-            //         LogHelper.WriteLog("串口连接失败...", LogType.Run);
-            //     });
+            try
+            {
+                LoadSerialPortSettings();
+
+                // 清理数据文件夹
+                if (Settings.Default.DataStoredTime != "永久")
+                {
+                    CleanFolder(Settings.Default.ProductionDataPath, Settings.Default.DataStoredTime, "数据文件");
+                }
+                // 清理日志文件夹
+
+                if (Settings.Default.LogStoredTime != "永久")
+                {
+                    CleanFolder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log"), Settings.Default.LogStoredTime, "日志文件");
+                }
+
+
+                _autoLogoutManager = new AutoLogoutManager();
+
+                // 窗体加载时应用一次配置
+                _autoLogoutManager.ApplySettings();
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"参数设置页面加载报错:{ex.Message}", LogType.Error);
+            }
+         
         }
+
+        private static void CleanFolder(string folderPath, string keepTime, string label)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))
+                {
+                    LogHelper.WriteLog($"[{label}] 路径不存在或无效：{folderPath}", LogType.Fault);
+                    return;
+                }
+
+                var match = Regex.Match(keepTime, @"\d+");
+                if (!match.Success)
+                {
+                    LogHelper.WriteLog($"[{label}] 保留时间格式错误，示例：15天，当前值：{keepTime}", LogType.Fault);
+                    return;
+                }
+
+                int days = int.Parse(match.Value);
+                DateTime threshold = DateTime.Now.AddDays(-days);
+
+                int deleteCount = 0;
+                foreach (var file in Directory.GetFiles(folderPath, "*", SearchOption.AllDirectories))
+                {
+                    try
+                    {
+                        if (File.GetLastWriteTime(file) < threshold)
+                        {
+                            File.Delete(file);
+                            deleteCount++;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        LogHelper.WriteLog($"[{label}] 删除文件失败：{file}，原因：{ex.Message}", LogType.Fault);
+                    }
+                }
+
+                LogHelper.WriteLog($"[{label}] 清理完成，删除文件 {deleteCount} 个，超过 {days} 天。", LogType.Run);
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"[{label}] 清理异常：{ex.Message}", LogType.Error);
+            }
+        }
+
         private void LoadSerialPortSettings()
         {
             // 1. 串口号
@@ -156,6 +219,9 @@ namespace AutoScrewSys.Frm
         private void cbxLoggedOutTime_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.LoggedOutTime = cbxLoggedOutTime.SelectedItem.ToString();
+            // 重新应用权限计时器设置
+            _autoLogoutManager.ApplySettings();
+
         }
     }
 }
