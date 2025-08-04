@@ -64,13 +64,13 @@
             this.cbxStopBits = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.sendOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
             this.receptOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.label13 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
             this.btnConnect = new MaterialSkin.Controls.MaterialButtonpro();
+            this.sendOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -195,16 +195,17 @@
             this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
             this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
             this.tbxSaveDataPath.Name = "tbxSaveDataPath";
-            this.tbxSaveDataPath.ReadOnly = false;
+            this.tbxSaveDataPath.ReadOnly = true;
             this.tbxSaveDataPath.Size = new System.Drawing.Size(729, 43);
             this.tbxSaveDataPath.TabIndex = 203;
             this.tbxSaveDataPath.Tag = "Text";
             this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
             this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSaveDataPath.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.TextBorderColor = System.Drawing.Color.Transparent;
             this.tbxSaveDataPath.TextBorderRadius = 5;
             this.tbxSaveDataPath.TextBorderSize = 1;
             this.tbxSaveDataPath.TextBorderWidth = 2;
+            this.tbxSaveDataPath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbxSaveDataPath_MouseDown);
             // 
             // label1
             // 
@@ -283,7 +284,7 @@
             // 
             // panel4
             // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.cbxLogStoredTime);
             this.panel4.Controls.Add(this.label3);
             this.panel4.Location = new System.Drawing.Point(3, 253);
@@ -337,7 +338,7 @@
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 54);
+            this.label3.Size = new System.Drawing.Size(142, 56);
             this.label3.TabIndex = 202;
             this.label3.Text = "日志保存时长:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -745,25 +746,6 @@
             this.label12.Text = "发送超时:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // sendOutTime
-            // 
-            this.sendOutTime.BackColor = System.Drawing.Color.Black;
-            this.sendOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "sendOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.sendOutTime.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.sendOutTime.ForeColor = System.Drawing.SystemColors.Window;
-            this.sendOutTime.Location = new System.Drawing.Point(205, 10);
-            this.sendOutTime.Name = "sendOutTime";
-            this.sendOutTime.ReadOnly = false;
-            this.sendOutTime.Size = new System.Drawing.Size(137, 28);
-            this.sendOutTime.TabIndex = 204;
-            this.sendOutTime.Tag = "Text";
-            this.sendOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.sendOutTime;
-            this.sendOutTime.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.sendOutTime.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.sendOutTime.TextBorderRadius = 5;
-            this.sendOutTime.TextBorderSize = 1;
-            this.sendOutTime.TextBorderWidth = 2;
-            // 
             // tpanel7
             // 
             this.tpanel7.Alpha = 50;
@@ -858,6 +840,25 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
+            // sendOutTime
+            // 
+            this.sendOutTime.BackColor = System.Drawing.Color.Black;
+            this.sendOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "sendOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.sendOutTime.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.sendOutTime.ForeColor = System.Drawing.SystemColors.Window;
+            this.sendOutTime.Location = new System.Drawing.Point(205, 10);
+            this.sendOutTime.Name = "sendOutTime";
+            this.sendOutTime.ReadOnly = false;
+            this.sendOutTime.Size = new System.Drawing.Size(137, 28);
+            this.sendOutTime.TabIndex = 204;
+            this.sendOutTime.Tag = "Text";
+            this.sendOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.sendOutTime;
+            this.sendOutTime.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.sendOutTime.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.sendOutTime.TextBorderRadius = 5;
+            this.sendOutTime.TextBorderSize = 1;
+            this.sendOutTime.TextBorderWidth = 2;
+            // 
             // ParameterSettingUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -926,10 +927,10 @@
         private System.Windows.Forms.Label label12;
         private ZimaBlueUI.Tpanel tpanel7;
         private System.Windows.Forms.Label label13;
-        private ZimaBlueUI.ZtextBoxRua sendOutTime;
         private ZimaBlueUI.ZtextBoxRua receptOutTime;
         private System.Windows.Forms.Panel panel6;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
         private MaterialSkin.Controls.MaterialButtonpro btnConnect;
+        private ZimaBlueUI.ZtextBoxRua sendOutTime;
     }
 }

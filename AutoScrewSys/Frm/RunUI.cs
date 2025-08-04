@@ -21,6 +21,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static AutoScrewSys.Base.GlobalMonitor;
 using Color = System.Drawing.Color;
 using Settings = AutoScrewSys.Properties.Settings;
@@ -36,14 +37,14 @@ namespace AutoScrewSys.Frm
         private void RunUI_Load(object sender, EventArgs e)
         {
             UIThread.Context = SynchronizationContext.Current;
-            BindLabels(this, AddrName.Default);
 
+            BindLabels(this, AddrName.Default);
             lblScrews.DataBindings.Add("Text", Properties.Settings.Default, "ScrewNum");
             lblGoodScrews.DataBindings.Add("Text", Properties.Settings.Default, "GoodScrews");
             lblBadScrews.DataBindings.Add("Text", Properties.Settings.Default, "BadScrews");
-            Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
 
-            EnableChartZoomAndPan();
+            Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
+            //EnableChartZoomAndPan();
             InitTorqueChart();
             InitResultDgv();
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
@@ -52,13 +53,13 @@ namespace AutoScrewSys.Frm
             GlobalMonitor.Start(
                           () =>
                           {
-                              Settings.Default.RTVoltageColor = System.Drawing.Color.Green;
+                              SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
                               LogHelper.WriteLog("串口连接成功...", LogType.Run);
                           },
                           (msg) =>
                           {
-                              Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
-                              MessageBox.Show(msg, "异常提示");
+                              SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
+                              LogHelper.WriteLog (msg, LogType.Fault);
                           });
             Settings.Default.ScrewNum = 0;
             Settings.Default.BadScrews = 0;
@@ -69,17 +70,13 @@ namespace AutoScrewSys.Frm
         {
             GlobalMonitor.OnChartDataReceived += points =>
             {
-                // UI 线程安全添加到 Chart
                 if (chart1.InvokeRequired)
                 {
-                    chart1.BeginInvoke(new Action(() =>
-                    {
-                        chart1.Series[0].Points.AddXY(_torquePointIndex++, points.Max());
-                    }));
+                    chart1.BeginInvoke(new Action(() => AddRollingPoint(chart1, points.Max())));
                 }
                 else
                 {
-                    chart1.Series[0].Points.AddXY(_torquePointIndex++, points.Max());
+                    AddRollingPoint(chart1, points.Max());
                 }
             };
 
@@ -97,7 +94,24 @@ namespace AutoScrewSys.Frm
             };
 
         }
+        private void AddRollingPoint(Chart chart, double value)
+        {
+            var series = chart.Series[0];
 
+            // 添加新点
+            series.Points.AddXY(_torquePointIndex++, value);
+
+            // 保持点数不超过最大值
+            if (series.Points.Count > 800)
+            {
+                series.Points.RemoveAt(0);
+            }
+
+            // 滚动X轴范围
+            var area = chart.ChartAreas[0];
+            area.AxisX.Minimum = _torquePointIndex - 800;
+            area.AxisX.Maximum = _torquePointIndex;
+        }
 
         private void InitResultDgv()
         {
@@ -111,7 +125,7 @@ namespace AutoScrewSys.Frm
                         int rowIndex = GetBinFilesNum();
                         string timestamp = Settings.Default.SnCode;
                         string timeNow = DateTime.Now.ToString("HH:mm:ss");
-                        ushort[] HoldTime = await GlobalMonitor.ReadRegisterByNameAsync("HoldTime", $"Task{AddrName.Default.TaskNumber}");
+                        short[] HoldTime = await GlobalMonitor.ReadRegisterByNameAsync("HoldTime", $"Task{AddrName.Default.TaskNumber}");
                         lblCT.Text = HoldTime[0].ToString();
                         int newRowIndex = PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
 
@@ -306,11 +320,11 @@ namespace AutoScrewSys.Frm
         }
         #endregion
 
-        private void OnStatusChanged(int s, int t, int l, int f)
+        private void OnStatusChanged(int s, int t, int l, int f, int torqueMode)
         {
             if (InvokeRequired)
             {
-                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f)));
+                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f, torqueMode)));
                 return;
             }
 

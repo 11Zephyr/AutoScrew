@@ -32,12 +32,12 @@ namespace AutoScrewSys.Frm
             GlobalMonitor.Start(
                  () =>
                  {
-                     Settings.Default.RTVoltageColor = System.Drawing.Color.Green;
+                     SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
                      LogHelper.WriteLog("串口连接成功...", LogType.Run);
                  },
                  (msg) =>
                  {
-                     Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
+                     SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
                      MessageBox.Show(msg, "异常提示");
                  });
         }
@@ -61,7 +61,7 @@ namespace AutoScrewSys.Frm
                 else
                 {
                     // 可选：提示某个 ComboBox 没有在 settings 中定义项
-                     MessageBox.Show($"Settings 中没有名为 {settingName} 的设置项");
+                    MessageBox.Show($"Settings 中没有名为 {settingName} 的设置项");
                 }
             }
         }
@@ -94,7 +94,7 @@ namespace AutoScrewSys.Frm
             {
                 LogHelper.WriteLog($"参数设置页面加载报错:{ex.Message}", LogType.Error);
             }
-         
+
         }
 
         private static void CleanFolder(string folderPath, string keepTime, string label)
@@ -179,7 +179,7 @@ namespace AutoScrewSys.Frm
                 cbxParity.SelectedIndex = 0;
 
             // 4. 数据位
-            string[] dataBits = {"5","6","7", "8" };
+            string[] dataBits = { "5", "6", "7", "8" };
             cbxDataBits.Items.Clear();
             cbxDataBits.Items.AddRange(dataBits);
 
@@ -190,7 +190,7 @@ namespace AutoScrewSys.Frm
                 cbxDataBits.SelectedIndex = 0;
 
             // 5. 停止位
-            string[] stopBits = {"0", "1", "1.5", "2" };
+            string[] stopBits = { "0", "1", "1.5", "2" };
             cbxStopBits.Items.Clear();
             cbxStopBits.Items.AddRange(stopBits);
 
@@ -222,6 +222,20 @@ namespace AutoScrewSys.Frm
             // 重新应用权限计时器设置
             _autoLogoutManager.ApplySettings();
 
+        }
+
+        private void tbxSaveDataPath_MouseDown(object sender, MouseEventArgs e)
+        {
+            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            {
+                dialog.Description = "请选择储存数据文件夹";
+                dialog.ShowNewFolderButton = true;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Settings.Default.ProductionDataPath = dialog.SelectedPath;
+                }
+            }
         }
     }
 }

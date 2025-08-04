@@ -21,13 +21,11 @@ namespace SharedCore
                 return cp;
             }
         }
-
-
-
         private double Max;
         private double Min;
         private ModbusCfgModel _modnusAddrModel;
-
+        private bool _isModbusMode = false;
+        public string InputValue => Inputbox.Text;
         public VirtualkeyboardFrm(ModbusCfgModel modbusCfgModel, double min, double max)
         {
             InitializeComponent();
@@ -35,6 +33,13 @@ namespace SharedCore
             _modnusAddrModel = modbusCfgModel;
             Max = max;
             Min = min;
+            _isModbusMode = true; // Modbus 模式
+        }
+        public VirtualkeyboardFrm() // 只输入，无限制
+        {
+            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            _isModbusMode = false; // 简单输入模式
         }
 
         private void VirtualkeyboardFrm_Load(object sender, EventArgs e)
@@ -50,43 +55,54 @@ namespace SharedCore
         {
             try
             {
-                if (double.TryParse(Inputbox.Text, out double inputvlaue))
+                if (string.IsNullOrWhiteSpace(Inputbox.Text))
                 {
-                    double lowerLimit = Convert.ToDouble(LowerLimitlab.Text);
-                    double upperLimit = Convert.ToDouble(UpperLimitlab.Text);
-
-                    if (inputvlaue >= lowerLimit && inputvlaue <= upperLimit)
-                    {
-                        double scaled = inputvlaue / _modnusAddrModel.Proportion;
-                        scaled = Math.Max(0, Math.Min(scaled, ushort.MaxValue)); // Clamp
-
-                        await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(
-                            (byte)_modnusAddrModel.SlaveAddress,
-                            (ushort)_modnusAddrModel.StartAddress,
-                            (ushort)scaled
-                        );
-
-                        Close();
-                    }
-                    else
-                    {
-                        SystemSounds.Beep.Play();
-                        label2.ForeColor = zRoundPanel1.PanelBorderColor = Enterbut.ButtonColor = Color.Red;
-                        label2.Text = "超出范围";
-                    }
-
+                    Close(); return;
                 }
-                else if (Inputbox.Text == "")
+
+                if (_isModbusMode)
                 {
-                    Close();
+                    // ✅ 模式一：带 Modbus 写入逻辑
+                    if (double.TryParse(Inputbox.Text, out double inputvlaue))
+                    {
+                        double lowerLimit = Convert.ToDouble(LowerLimitlab.Text);
+                        double upperLimit = Convert.ToDouble(UpperLimitlab.Text);
+
+                        if (inputvlaue >= lowerLimit && inputvlaue <= upperLimit)
+                        {
+                            double scaled = inputvlaue / _modnusAddrModel.Proportion;
+                            scaled = Math.Max(0, Math.Min(scaled, ushort.MaxValue)); // Clamp
+
+                            await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(
+                                (byte)_modnusAddrModel.SlaveAddress,
+                                (ushort)_modnusAddrModel.StartAddress,
+                                (ushort)scaled
+                            );
+
+                            this.DialogResult = DialogResult.OK;
+                            Close();
+                        }
+                        else
+                        {
+                            SystemSounds.Beep.Play();
+                            label2.ForeColor = zRoundPanel1.PanelBorderColor = Enterbut.ButtonColor = Color.Red;
+                            label2.Text = "超出范围";
+                        }
+                    }
+                }
+                else
+                {
+                    // ✅ 模式二：仅返回输入值
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
                 }
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog($"键盘写入报错:{ex.Message}", LogType.Error);
             }
-
         }
+
 
         private void Num1_Click(object sender, EventArgs e)
         {
@@ -145,7 +161,6 @@ namespace SharedCore
 
         private void Escbut_Click(object sender, EventArgs e)
         {
-
             Close();
         }
 

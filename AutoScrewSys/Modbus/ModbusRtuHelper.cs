@@ -66,24 +66,48 @@ namespace AutoScrewSys.Modbus
             return _queue.EnqueueAsync(() => SendAndReceiveInternalAsync_(request, expectedLength));
         }
 
-
-        public async Task<ushort[]> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
+        public async Task<(bool result, short[] values)> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
         {
-            byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
-
-            // 异步等待响应
-            byte[] response = await SendAndReceiveAsync_(frame, length * 2 + 5);
-
-            if (response.Length < 5 || response[1] != 0x03)
-                throw new Exception("无效响应");
-
-            ushort[] values = new ushort[length];
-            for (int i = 0; i < length; i++)
+            try
             {
-                values[i] = (ushort)(response[3 + i * 2] << 8 | response[4 + i * 2]);
+                byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
+                byte[] response = await SendAndReceiveAsync_(frame, length * 2 + 5);
+
+                if (response.Length < 5 || response[1] != 0x03)
+                    return (false, Array.Empty<short>());
+
+                short[] values = new short[length];
+                for (int i = 0; i < length; i++)
+                {
+                    values[i] = (short)(response[3 + i * 2] << 8 | response[4 + i * 2]);
+                }
+
+                return (true, values);
             }
-            return values;
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"读取寄存器异常: {ex.Message}", LogType.Error);
+                return (false, Array.Empty<short>());
+            }
         }
+
+        //public async Task<(bool success, ushort[] values)> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
+        //{
+        //    byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
+
+        //    // 异步等待响应
+        //    byte[] response = await SendAndReceiveAsync_(frame, length * 2 + 5);
+
+        //    if (response.Length < 5 || response[1] != 0x03)
+        //        throw new Exception("无效响应");
+
+        //    ushort[] values = new ushort[length];
+        //    for (int i = 0; i < length; i++)
+        //    {
+        //        values[i] = (ushort)(response[3 + i * 2] << 8 | response[4 + i * 2]);
+        //    }
+        //    return (values);
+        //}
 
         public ushort[] ReadRegisters(byte slaveId, ushort startAddress, ushort length)
         {
@@ -182,7 +206,6 @@ namespace AutoScrewSys.Modbus
 
         public async Task<byte[]> SendAndReceiveAsync_(byte[] request, int expectedLength, int timeoutMs = 1000)
         {
-            await Task.Delay(5);
             await _asyncLock.WaitAsync();
             var cts = new CancellationTokenSource(timeoutMs);
             try

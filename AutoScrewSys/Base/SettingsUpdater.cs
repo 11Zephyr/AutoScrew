@@ -64,6 +64,23 @@ namespace AutoScrewSys.Base
                 }, null);
             }
         }
+        private static Color _currentVoltageColor = Color.Empty;
+
+        public static void SetVoltageColor(Color newColor)
+        {
+            if (UIThread.Context == null)
+                throw new InvalidOperationException("UIThread.Context 尚未初始化");
+
+            if (_currentVoltageColor != newColor)
+            {
+                _currentVoltageColor = newColor;
+
+                UIThread.Context.Post(_ =>
+                {
+                    Settings.Default.RTVoltageColor = newColor;
+                }, null);
+            }
+        }
     }
 
 

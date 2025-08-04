@@ -53,15 +53,15 @@ namespace AutoScrewSys.Frm
         private void MonitorFrm_Load(object sender, EventArgs e)
         {
             BindLabels(this, AddrName.Default);
-            OnStatusChanged(AddrName.Default.StateBits, AddrName.Default.TightenAction, AddrName.Default.LoosenAction, AddrName.Default.FreeAction);//首次进入手动赋值
+            OnStatusChanged(AddrName.Default.StateBits, AddrName.Default.TightenAction, AddrName.Default.LoosenAction, AddrName.Default.FreeAction,AddrName.Default.TorqueMode);//首次进入手动赋值
             GlobalMonitor.StatusChanged += OnStatusChanged;
         }
 
-        private void OnStatusChanged(int s, int t, int l, int f)
+        private void OnStatusChanged(int s, int t, int l, int f, int torqueMode)
         {
             if (InvokeRequired)
             {
-                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f)));
+                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f, torqueMode)));
                 return;
             }
 
@@ -80,6 +80,8 @@ namespace AutoScrewSys.Frm
                  btnTightenMove, btnLoosenMove, btnFreeMove
             };
 
+            btnTorqueMode.ButtonColor = torqueMode == 1? Color.FromArgb(255, 128, 0): Color.Green;
+            btnTorqueMode.Text = torqueMode == 1 ? "连续旋转模式" : "固定圈数模式";
 
             for (int i = 0; i < BEAlabels.Length; i++)
             {
@@ -95,6 +97,16 @@ namespace AutoScrewSys.Frm
                 TLLlabels[i].BackColor = states[i] == 1 ? Color.LimeGreen : Color.Gray;
                 TLLlabels[i].ForeColor = states[i] == 1 ? Color.Black : Color.White;
             }
+
+        }
+
+        private async void btnTorqueMode_Click(object sender, EventArgs e)
+        {
+            GlobalMonitor.CheckLogin(3);
+            if (Settings.Default.Login < 3) return;
+
+            var addr = ModbusAddressConfig.Instance.GetAddressItem("TorqueMode");
+            await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.TorqueMode);
         }
     }
 }

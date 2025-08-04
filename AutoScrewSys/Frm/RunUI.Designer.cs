@@ -41,6 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RunUI));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel12 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -61,7 +62,6 @@
             this.lblCT = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
-            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.Torque = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tpanel5 = new ZimaBlueUI.Tpanel();
@@ -82,7 +82,6 @@
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpanel8 = new ZimaBlueUI.Tpanel();
-            this.tbxSnCode = new ZimaBlueUI.ZtextBoxRua();
             this.label20 = new System.Windows.Forms.Label();
             this.btnRandomSNCode = new ZimaBlueUI.ZRoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -96,10 +95,18 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tbxSnCode = new ZimaBlueUI.ZtextBoxRua();
             this.tpanel2 = new ZimaBlueUI.Tpanel();
             this.ScrewResultStr = new System.Windows.Forms.Label();
             this.cbxNoCollection = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -373,6 +380,7 @@
             // 
             this.tpanel3.Alpha = 50;
             this.tpanel3.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel3.Controls.Add(this.panel2);
             this.tpanel3.Controls.Add(this.TaskNumber);
             this.tpanel3.Controls.Add(this.label3);
             this.tpanel3.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold);
@@ -391,9 +399,9 @@
             this.TaskNumber.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.TaskNumber.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.TaskNumber.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.TaskNumber.Location = new System.Drawing.Point(148, 18);
+            this.TaskNumber.Location = new System.Drawing.Point(148, 14);
             this.TaskNumber.Name = "TaskNumber";
-            this.TaskNumber.Size = new System.Drawing.Size(139, 33);
+            this.TaskNumber.Size = new System.Drawing.Size(119, 40);
             this.TaskNumber.TabIndex = 197;
             this.TaskNumber.Text = "0";
             this.TaskNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -403,9 +411,9 @@
             this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(52, 18);
+            this.label3.Location = new System.Drawing.Point(75, 18);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 33);
+            this.label3.Size = new System.Drawing.Size(67, 40);
             this.label3.TabIndex = 196;
             this.label3.Text = "任务号:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -414,6 +422,7 @@
             // 
             this.tpanel4.Alpha = 50;
             this.tpanel4.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel4.Controls.Add(this.panel10);
             this.tpanel4.Controls.Add(this.lblCT);
             this.tpanel4.Controls.Add(this.label1);
             this.tpanel4.Location = new System.Drawing.Point(371, 3);
@@ -431,9 +440,9 @@
             this.lblCT.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblCT.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblCT.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCT.Location = new System.Drawing.Point(143, 18);
+            this.lblCT.Location = new System.Drawing.Point(146, 14);
             this.lblCT.Name = "lblCT";
-            this.lblCT.Size = new System.Drawing.Size(179, 33);
+            this.lblCT.Size = new System.Drawing.Size(119, 40);
             this.lblCT.TabIndex = 198;
             this.lblCT.Text = "0";
             this.lblCT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -443,9 +452,9 @@
             this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(34, 18);
+            this.label1.Location = new System.Drawing.Point(70, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 33);
+            this.label1.Size = new System.Drawing.Size(67, 40);
             this.label1.TabIndex = 197;
             this.label1.Text = "时间:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -454,6 +463,7 @@
             // 
             this.tpanel6.Alpha = 50;
             this.tpanel6.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel6.Controls.Add(this.panel3);
             this.tpanel6.Controls.Add(this.lblTorqueUnit);
             this.tpanel6.Controls.Add(this.Torque);
             this.tpanel6.Controls.Add(this.label2);
@@ -467,27 +477,14 @@
             this.tpanel6.Size = new System.Drawing.Size(362, 71);
             this.tpanel6.TabIndex = 68;
             // 
-            // lblTorqueUnit
-            // 
-            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTorqueUnit.Location = new System.Drawing.Point(261, 19);
-            this.lblTorqueUnit.Name = "lblTorqueUnit";
-            this.lblTorqueUnit.Size = new System.Drawing.Size(98, 33);
-            this.lblTorqueUnit.TabIndex = 199;
-            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Torque
             // 
             this.Torque.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Torque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Torque.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Torque.Location = new System.Drawing.Point(148, 19);
+            this.Torque.Location = new System.Drawing.Point(148, 14);
             this.Torque.Name = "Torque";
-            this.Torque.Size = new System.Drawing.Size(139, 33);
+            this.Torque.Size = new System.Drawing.Size(119, 40);
             this.Torque.TabIndex = 198;
             this.Torque.Text = "0";
             this.Torque.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -497,9 +494,9 @@
             this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(52, 21);
+            this.label2.Location = new System.Drawing.Point(75, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 33);
+            this.label2.Size = new System.Drawing.Size(67, 40);
             this.label2.TabIndex = 197;
             this.label2.Text = "扭力:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -508,6 +505,7 @@
             // 
             this.tpanel5.Alpha = 50;
             this.tpanel5.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel5.Controls.Add(this.panel4);
             this.tpanel5.Controls.Add(this.LapsNum);
             this.tpanel5.Controls.Add(this.label4);
             this.tpanel5.Location = new System.Drawing.Point(371, 77);
@@ -525,9 +523,9 @@
             this.LapsNum.Font = new System.Drawing.Font("思源黑体 CN Bold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.LapsNum.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.LapsNum.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.LapsNum.Location = new System.Drawing.Point(143, 19);
+            this.LapsNum.Location = new System.Drawing.Point(146, 16);
             this.LapsNum.Name = "LapsNum";
-            this.LapsNum.Size = new System.Drawing.Size(179, 33);
+            this.LapsNum.Size = new System.Drawing.Size(119, 40);
             this.LapsNum.TabIndex = 198;
             this.LapsNum.Text = "0";
             this.LapsNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -537,9 +535,9 @@
             this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(34, 20);
+            this.label4.Location = new System.Drawing.Point(70, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 33);
+            this.label4.Size = new System.Drawing.Size(67, 40);
             this.label4.TabIndex = 197;
             this.label4.Text = "圈数:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -548,6 +546,7 @@
             // 
             this.tpanel7.Alpha = 50;
             this.tpanel7.BackColor = System.Drawing.Color.Transparent;
+            this.tpanel7.Controls.Add(this.panel5);
             this.tpanel7.Controls.Add(this.AlarmInfoStr);
             this.tpanel7.Controls.Add(this.label7);
             this.tpanel7.Dock = System.Windows.Forms.DockStyle.Top;
@@ -566,9 +565,9 @@
             this.AlarmInfoStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.AlarmInfoStr.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.AlarmInfoStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.AlarmInfoStr.Location = new System.Drawing.Point(155, 15);
+            this.AlarmInfoStr.Location = new System.Drawing.Point(197, 14);
             this.AlarmInfoStr.Name = "AlarmInfoStr";
-            this.AlarmInfoStr.Size = new System.Drawing.Size(566, 48);
+            this.AlarmInfoStr.Size = new System.Drawing.Size(524, 48);
             this.AlarmInfoStr.TabIndex = 199;
             this.AlarmInfoStr.Text = "无故障";
             this.AlarmInfoStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -578,7 +577,7 @@
             this.label7.Font = new System.Drawing.Font("思源黑体 CN Bold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label7.Location = new System.Drawing.Point(51, 15);
+            this.label7.Location = new System.Drawing.Point(83, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 48);
             this.label7.TabIndex = 198;
@@ -740,6 +739,7 @@
             // 
             this.tpanel8.Alpha = 50;
             this.tpanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpanel8.Controls.Add(this.panel6);
             this.tpanel8.Controls.Add(this.tbxSnCode);
             this.tpanel8.Controls.Add(this.label20);
             this.tpanel8.Location = new System.Drawing.Point(3, 3);
@@ -752,37 +752,18 @@
             this.tpanel8.Size = new System.Drawing.Size(593, 46);
             this.tpanel8.TabIndex = 0;
             // 
-            // tbxSnCode
-            // 
-            this.tbxSnCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSnCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "SnCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbxSnCode.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.tbxSnCode.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbxSnCode.Location = new System.Drawing.Point(125, 2);
-            this.tbxSnCode.Name = "tbxSnCode";
-            this.tbxSnCode.ReadOnly = false;
-            this.tbxSnCode.Size = new System.Drawing.Size(468, 43);
-            this.tbxSnCode.TabIndex = 204;
-            this.tbxSnCode.Tag = "Text";
-            this.tbxSnCode.Text = global::AutoScrewSys.Properties.Settings.Default.SnCode;
-            this.tbxSnCode.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSnCode.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.tbxSnCode.TextBorderRadius = 5;
-            this.tbxSnCode.TextBorderSize = 1;
-            this.tbxSnCode.TextBorderWidth = 2;
-            // 
             // label20
             // 
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label20.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label20.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label20.Location = new System.Drawing.Point(8, 7);
+            this.label20.Location = new System.Drawing.Point(47, 3);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(111, 33);
+            this.label20.Size = new System.Drawing.Size(70, 39);
             this.label20.TabIndex = 200;
-            this.label20.Text = "产品码:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label20.Text = "SN码:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnRandomSNCode
             // 
@@ -825,9 +806,9 @@
             this.lblBadScrews.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblBadScrews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblBadScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblBadScrews.Location = new System.Drawing.Point(502, 48);
+            this.lblBadScrews.Location = new System.Drawing.Point(562, 48);
             this.lblBadScrews.Name = "lblBadScrews";
-            this.lblBadScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblBadScrews.Size = new System.Drawing.Size(133, 33);
             this.lblBadScrews.TabIndex = 206;
             this.lblBadScrews.Text = "0";
             this.lblBadScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -838,9 +819,9 @@
             this.lblScrews.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblScrews.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblScrews.Location = new System.Drawing.Point(502, 9);
+            this.lblScrews.Location = new System.Drawing.Point(562, 9);
             this.lblScrews.Name = "lblScrews";
-            this.lblScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblScrews.Size = new System.Drawing.Size(133, 33);
             this.lblScrews.TabIndex = 205;
             this.lblScrews.Text = "0";
             this.lblScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -853,7 +834,7 @@
             this.lblGoodScrews.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lblGoodScrews.Location = new System.Drawing.Point(179, 48);
             this.lblGoodScrews.Name = "lblGoodScrews";
-            this.lblGoodScrews.Size = new System.Drawing.Size(111, 33);
+            this.lblGoodScrews.Size = new System.Drawing.Size(133, 33);
             this.lblGoodScrews.TabIndex = 204;
             this.lblGoodScrews.Text = "0";
             this.lblGoodScrews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -866,7 +847,7 @@
             this.ScrewsTotal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ScrewsTotal.Location = new System.Drawing.Point(179, 9);
             this.ScrewsTotal.Name = "ScrewsTotal";
-            this.ScrewsTotal.Size = new System.Drawing.Size(111, 33);
+            this.ScrewsTotal.Size = new System.Drawing.Size(133, 33);
             this.ScrewsTotal.TabIndex = 203;
             this.ScrewsTotal.Text = "0";
             this.ScrewsTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -892,7 +873,7 @@
             this.label19.Size = new System.Drawing.Size(73, 33);
             this.label19.TabIndex = 200;
             this.label19.Text = "良率:";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label17
             // 
@@ -900,7 +881,7 @@
             this.label17.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label17.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label17.Location = new System.Drawing.Point(348, 48);
+            this.label17.Location = new System.Drawing.Point(408, 48);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(111, 33);
             this.label17.TabIndex = 202;
@@ -918,7 +899,7 @@
             this.label18.Size = new System.Drawing.Size(111, 33);
             this.label18.TabIndex = 201;
             this.label18.Text = "螺丝总数:";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label16
             // 
@@ -931,7 +912,7 @@
             this.label16.Size = new System.Drawing.Size(111, 33);
             this.label16.TabIndex = 200;
             this.label16.Text = "螺丝良数:";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label15
             // 
@@ -939,12 +920,85 @@
             this.label15.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label15.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label15.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label15.Location = new System.Drawing.Point(348, 9);
+            this.label15.Location = new System.Drawing.Point(408, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(111, 33);
             this.label15.TabIndex = 199;
             this.label15.Text = "螺丝数:";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel10
+            // 
+            this.panel10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel10.BackgroundImage")));
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel10.Location = new System.Drawing.Point(24, 14);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(40, 40);
+            this.panel10.TabIndex = 199;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(26, 14);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(40, 40);
+            this.panel2.TabIndex = 200;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(28, 14);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(40, 40);
+            this.panel3.TabIndex = 200;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(24, 16);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(40, 40);
+            this.panel4.TabIndex = 200;
+            // 
+            // panel5
+            // 
+            this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(30, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(40, 40);
+            this.panel5.TabIndex = 200;
+            // 
+            // panel6
+            // 
+            this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(6, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(40, 40);
+            this.panel6.TabIndex = 205;
+            // 
+            // tbxSnCode
+            // 
+            this.tbxSnCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "SnCode", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSnCode.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSnCode.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.Location = new System.Drawing.Point(114, 2);
+            this.tbxSnCode.Name = "tbxSnCode";
+            this.tbxSnCode.ReadOnly = false;
+            this.tbxSnCode.Size = new System.Drawing.Size(479, 43);
+            this.tbxSnCode.TabIndex = 204;
+            this.tbxSnCode.Tag = "Text";
+            this.tbxSnCode.Text = global::AutoScrewSys.Properties.Settings.Default.SnCode;
+            this.tbxSnCode.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSnCode.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.tbxSnCode.TextBorderRadius = 5;
+            this.tbxSnCode.TextBorderSize = 1;
+            this.tbxSnCode.TextBorderWidth = 2;
             // 
             // tpanel2
             // 
@@ -1006,6 +1060,19 @@
             this.label5.TabIndex = 197;
             this.label5.Text = "拧紧结果:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(261, 19);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(98, 33);
+            this.lblTorqueUnit.TabIndex = 199;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RunUI
             // 
@@ -1104,5 +1171,11 @@
         private System.Windows.Forms.Label label15;
         private ZimaBlueUI.ZtextBoxRua tbxSnCode;
         private System.Windows.Forms.Label lblTorqueUnit;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }

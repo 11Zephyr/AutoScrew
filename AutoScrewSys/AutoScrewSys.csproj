@@ -179,6 +179,7 @@
     <Compile Include="Modbus\RTU.cs" />
     <Compile Include="Model\ModbusConfigItem.cs" />
     <Compile Include="Model\ParamDisplayModel.cs" />
+    <Compile Include="Model\PowerRangeModel.cs" />
     <Compile Include="Model\StorageModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

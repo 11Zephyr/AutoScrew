@@ -4,6 +4,8 @@ using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml;
@@ -34,11 +36,13 @@ namespace AutoScrewSys.Base
     {
         public static bool isInit { get; private set; }//初始化标志
         private static bool _collecting = false;//采集波形数据标志
-        private static readonly object _binFileLock = new object();
+        private static readonly object _binFileLock = new object();//二进制文件锁
+
         public static Action ClearChartAction;
         public static event Action<List<float>> OnChartDataReceived;
         public static event Action OnResultsUpdated;
-        public static event Action<int, int, int, int> StatusChanged;
+        public static event Action<int, int, int, int, int> StatusChanged;
+
         public delegate void UpdateChartDelegate(List<float> yValues);
         public event UpdateChartDelegate OnWaveDataUpdate;
         public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
@@ -84,56 +88,79 @@ namespace AutoScrewSys.Base
         public async static void MainThread()
         {
             var cfg = AddrName.Default;
-            //var stopwatch = Stopwatch.StartNew();
             var semaphore = new SemaphoreSlim(1, 1); // 控制串口物理串行访问
 
             while (isInit)
             {
-                //stopwatch.Restart();
-
-                var tasks = new List<Task>();
-
                 foreach (SettingsProperty p in cfg.Properties)
                 {
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
                     if (addr == null) continue;
-
-                    var task = Task.Run(async () =>
+                    if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))
                     {
-                        await semaphore.WaitAsync();
-                        try
+                        var task = Task.Run(async () =>
                         {
-                            ushort[] result = await ModbusRtuHelper.Instance.ReadRegistersAsync(
-                                (byte)addr.SlaveAddress,
-                                (ushort)addr.StartAddress,
-                                (ushort)addr.Length
-                            );
-                            var value = result[0] * addr.Proportion;
-                            SettingsUpdater.SetIfChanged(cfg, p.Name, value);
-                            AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
-                        }
-                        catch (Exception ex)
-                        {
-                            SettingsUpdater.SetResultBackColor(Color.Red);
-                            LogHelper.WriteLog($"读取 {p.Name} 失败: {ex.Message}", LogType.Error);
-                        }
-                        finally
-                        {
-                            semaphore.Release();
-                        }
-                    });
-
-                    tasks.Add(task);
+                            try
+                            {
+                                var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                                    (byte)addr.SlaveAddress,
+                                    (ushort)addr.StartAddress,
+                                    (ushort)addr.Length
+                                );
+                                if (success)
+                                {
+                                    var value = values[0] * addr.Proportion;
+                                    SettingsUpdater.SetIfChanged(cfg, p.Name, value);
+                                    AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
+                                }
+                                else
+                                {
+                                    LogHelper.WriteLog($"读取: {addr.Description} 失败-从站:{addr.SlaveAddress}-地址:{addr.StartAddress}-长度:{addr.Length}", LogType.Fault);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LogHelper.WriteLog($"读取 {p.Name} 报错: {ex.Message}", LogType.Error);
+                            }
+                            finally
+                            {
+                                semaphore.Release();
+                            }
+                        });
+                    }
+                    else
+                    {
+                        SettingsUpdater.SetVoltageColor(Color.Red);
+                        LogHelper.WriteLog($"读取超时......", LogType.Error);
+                        StopModbusSyncThread();
+                        break;
+                    }
+                   
                 }
-                // 等待所有读取任务完成
-                // await Task.WhenAll(tasks);
                 UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
                 StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
-                //LogHelper.WriteLog($"耗时 {stopwatch.ElapsedMilliseconds}ms", LogType.Run);
                 await Task.Delay(10);
             }
         }
+        /// <summary>
+        /// 停止 Modbus 循环线程
+        /// </summary>
+        public static void StopModbusSyncThread()
+        {
+            isInit = false;
 
+            if (_modbusSyncThread != null && _modbusSyncThread.IsAlive)
+            {
+                // 最多等待1秒让线程退出
+                if (!_modbusSyncThread.Join(1000))
+                {
+                    LogHelper.WriteLog("强制释放线程", LogType.Run);
+                    _modbusSyncThread.Abort(); // 危险，建议避免使用
+                }
+            }
+
+            _modbusSyncThread = null;
+        }
         public async static void AcquireWaveformData(SettingsBase cfg, int code)
         {
             try
@@ -192,7 +219,7 @@ namespace AutoScrewSys.Base
                             {
                                 //ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
                                 //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
-                                ushort currValue = (await ReadRegisterByNameAsync("TotalCollections"))[0];
+                                ushort currValue = (ushort)(await ReadRegisterByNameAsync("TotalCollections"))[0];
                                 totalAccumulate += (currValue >= prevValue) ? (currValue - prevValue) : (currValue + maxValue - prevValue);
                                 prevValue = currValue;
                                 if (_lastIndex >= maxValue) _lastIndex = 0;
@@ -206,12 +233,12 @@ namespace AutoScrewSys.Base
                                 int batchSize = Math.Min(blockSize, totalAccumulate - currentTotalCount);
                                 int startAddr = TorsionCurve.StartAddress + _lastIndex;
 
-                                ushort[] waveData = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress, (ushort)startAddr, (ushort)batchSize);
+                                var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TorsionCurve.SlaveAddress, (ushort)startAddr, (ushort)batchSize);
                                 _lastIndex += batchSize;
                                 currentTotalCount = _lastIndex;
-                                List<float> torqueValues = waveData.Select(v => (float)v).ToList();
+                                List<float> torqueValues = values.Select(v => (float)v).ToList();
 
-                                waveDataInfo.AddRange(waveData.Select(x => (double)x));
+                                waveDataInfo.AddRange(values.Select(x => (double)x));
                                 OnChartDataReceived?.Invoke(torqueValues);
 
                                 //LogHelper.WriteLog($"起始: {startAddr}-大小:{batchSize}-_lastIndex:{_lastIndex}-TotalNum:{totalAccumulate}-实时:{totalCollections[0]}", LogType.Run);
@@ -331,7 +358,6 @@ namespace AutoScrewSys.Base
             try
             {
                 await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, (ushort)(1 - sourceValue));
-
             }
             catch (Exception ex)
             {
@@ -380,7 +406,7 @@ namespace AutoScrewSys.Base
         /// </summary>
         /// <param name="name">配置项名称，例如 "TotalCollections"</param>
         /// <returns>读取到的寄存器值数组</returns>
-        public static async Task<ushort[]> ReadRegisterByNameAsync(string name)
+        public static async Task<short[]> ReadRegisterByNameAsync(string name)
         {
             // 获取地址项
             ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name);
@@ -388,15 +414,14 @@ namespace AutoScrewSys.Base
             {
                 throw new ArgumentException($"未找到配置项: {name}");
             }
-
-            // 调用 Modbus 异步读取方法
-            return await ModbusRtuHelper.Instance.ReadRegistersAsync(
+            var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
                 (byte)cfg.SlaveAddress,
                 (ushort)cfg.StartAddress,
                 (ushort)cfg.Length
             );
+            return values;
         }
-        public static async Task<ushort[]> ReadRegisterByNameAsync(string name1, string name2)
+        public static async Task<short[]> ReadRegisterByNameAsync(string name1, string name2)
         {
             // 获取地址项
             ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem(name1, name2);
@@ -405,12 +430,12 @@ namespace AutoScrewSys.Base
                 throw new ArgumentException($"未找到配置项: {name1}");
             }
 
-            // 调用 Modbus 异步读取方法
-            return await ModbusRtuHelper.Instance.ReadRegistersAsync(
+            var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
                 (byte)cfg.SlaveAddress,
                 (ushort)cfg.StartAddress,
                 (ushort)cfg.Length
             );
+            return values;
         }
     }
 }

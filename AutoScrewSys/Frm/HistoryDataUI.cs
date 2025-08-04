@@ -1,5 +1,6 @@
 ﻿using AutoScrewSys.Base;
 using DocumentFormat.OpenXml.Wordprocessing;
+using SharedCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using ZimaBlueUI;
 using Color = System.Drawing.Color;
 using Settings = AutoScrewSys.Properties.Settings;
 
@@ -48,7 +50,7 @@ namespace AutoScrewSys.Frm
         {
             string folderPath = Settings.Default.ProductionDataPath;
 
-            if (!Directory.Exists(folderPath))
+            if (string.IsNullOrWhiteSpace(folderPath) || !Directory.Exists(folderPath))
             {
                 string appRoot = AppDomain.CurrentDomain.BaseDirectory;
                 string newFolderPath = Path.Combine(appRoot, "ScrewData");
@@ -56,14 +58,21 @@ namespace AutoScrewSys.Frm
                 if (!Directory.Exists(newFolderPath))
                 {
                     Directory.CreateDirectory(newFolderPath);
+                    LogHelper.WriteLog($"保存数据路径不存在，已创建默认文件夹：{newFolderPath}", LogType.Run);
                 }
+
+                // 设置新的路径，并保存
                 Settings.Default.ProductionDataPath = newFolderPath;
-                LogHelper.WriteLog($"保存数据路径不存在，已创建默认文件夹：{newFolderPath}",LogType.Run);
+                //Settings.Default.Save();
+
+                // 重新赋值变量
+                folderPath = newFolderPath;
             }
 
             listHisData?.Items?.Clear(); // 清空之前的数据
 
             var files = Directory.GetFiles(folderPath, "*.csv");
+
             foreach (var file in files)
             {
                 listHisData.Items.Add(Path.GetFileNameWithoutExtension(file)); // 只显示文件名
@@ -347,7 +356,23 @@ namespace AutoScrewSys.Frm
         {
             GetHisCsvData();
         }
+        private void InputTextBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (sender is ZtextBoxRua txtBox)
+            {
+                using (var frm = new VirtualkeyboardFrm())
+                {
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        txtBox.Text = frm.InputValue; // 将输入值赋值给当前点击的文本框
+                    }
+                }
+            }
+        }
 
-      
+        private void tbxSnSearchBox_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

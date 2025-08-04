@@ -24,11 +24,11 @@ namespace AutoScrewSys.Frm
         {
             GlobalMonitor.StatusChanged += OnStatusChanged;
         }
-        private void OnStatusChanged(int s, int t, int l, int f)
+        private void OnStatusChanged(int s, int t, int l, int f, int TorqueMode)
         {
             if (InvokeRequired)
             {
-                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f)));
+                BeginInvoke(new Action(() => OnStatusChanged(s, t, l, f, TorqueMode)));
                 return;
             }
 
@@ -55,6 +55,7 @@ namespace AutoScrewSys.Frm
                 TLLlabels[i].BackColor = states[i] == 1 ? Color.LimeGreen : Color.Gray;
                 TLLlabels[i].ForeColor = states[i] == 1 ? Color.Black : Color.White;
             }
+
         }
     }
 }
