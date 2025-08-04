@@ -93,6 +93,7 @@ namespace AutoScrewSys.Frm
 
             GlobalMonitor.ClearChartAction = () =>
             {
+                chart1.ChartAreas[0].AxisX.Minimum = 0;
                 _torquePointIndex = 0;
                 if (chart1.InvokeRequired)
                 {
