@@ -117,7 +117,10 @@ namespace AutoScrewSys.Frm
             {
                 series.Points.RemoveAt(0);
             }
-
+            else
+            {
+                return;
+            }
             // 滚动X轴范围
             var area = chart.ChartAreas[0];
             area.AxisX.Minimum = _torquePointIndex - 800;
