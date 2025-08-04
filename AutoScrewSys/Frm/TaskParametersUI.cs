@@ -274,12 +274,12 @@ namespace AutoScrewSys.Frm
         private static readonly Dictionary<int, PowerRangeModel> PowerMap = new Dictionary<int, PowerRangeModel>
         {
             //功率                       //扭力范围                //速度
-            { 30,  new PowerRangeModel { TorqueRange = "0.2-3",    SpeedRange = "10-3000" } },
-            { 50,  new PowerRangeModel { TorqueRange = "0.6-4.5",  SpeedRange = "10-3000" } },
-            { 100, new PowerRangeModel { TorqueRange = "1-9",      SpeedRange = "30-3000" } },
-            { 200, new PowerRangeModel { TorqueRange = "3-18",     SpeedRange = "30-3000" } },
-            { 400, new PowerRangeModel { TorqueRange = "10-36",    SpeedRange = "30-2000" } },
-            { 600, new PowerRangeModel { TorqueRange = "15-55",    SpeedRange = "30-2000" } }
+            { 30,  new PowerRangeModel { TorqueRange = "20-300",    SpeedRange = "10-3000" } },
+            { 50,  new PowerRangeModel { TorqueRange = "60-450",  SpeedRange = "10-3000" } },
+            { 100, new PowerRangeModel { TorqueRange = "100-900",      SpeedRange = "30-3000" } },
+            { 200, new PowerRangeModel { TorqueRange = "300-1800",     SpeedRange = "30-3000" } },
+            { 400, new PowerRangeModel { TorqueRange = "1000-3600",    SpeedRange = "30-2000" } },
+            { 600, new PowerRangeModel { TorqueRange = "1500-5500",    SpeedRange = "30-2000" } }
         };
         private PowerRangeModel GetPowerRange(int power)
         {
