@@ -125,7 +125,7 @@ namespace AutoScrewSys.Frm
             // 滚动X轴范围
             var area = chart.ChartAreas[0];
             area.AxisX.Minimum = _torquePointIndex - 800;
-            area.AxisX.Maximum = _torquePointIndex;
+            //area.AxisX.Maximum = _torquePointIndex;
         }
 
         private void InitResultDgv()
