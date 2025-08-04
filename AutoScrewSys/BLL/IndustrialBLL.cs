@@ -13,6 +13,10 @@ namespace AutoScrewSys.BLL
 {
     public class IndustrialBLL
     {
+        /// <summary>
+        /// 初始化串口信息
+        /// </summary>
+        /// <returns></returns>
         public DataResult<ModbusSerialInfo> InitSerialInfo()
         {
             DataResult<ModbusSerialInfo> result = new DataResult<ModbusSerialInfo>();
@@ -37,6 +41,11 @@ namespace AutoScrewSys.BLL
 
             return result;
         }
+        /// <summary>
+        /// 存储到数据库使用该方式
+        /// </summary>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public DataResult<List<StorageModel>> InitStorageArea(string filePath)
         {
             DataResult<List<StorageModel>> result = new DataResult<List<StorageModel>>();

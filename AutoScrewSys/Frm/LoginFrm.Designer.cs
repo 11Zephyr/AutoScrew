@@ -47,8 +47,8 @@
             this.materialButtonpro1 = new MaterialSkin.Controls.MaterialButtonpro();
             this.LevelComboBox = new MaterialSkin.Controls.MaterialComboBox();
             this.zRoundPanel2 = new ZimaBlueUI.ZRoundPanel();
-            this.Logout = new MaterialSkin.Controls.MaterialButtonpro();
             this.Infocom = new System.Windows.Forms.ComboBox();
+            this.Logout = new MaterialSkin.Controls.MaterialButtonpro();
             this.zRoundPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +125,7 @@
             // passlable
             // 
             resources.ApplyResources(this.passlable, "passlable");
-            this.passlable.ForeColor = System.Drawing.Color.Green;
+            this.passlable.ForeColor = System.Drawing.Color.Aqua;
             this.passlable.Name = "passlable";
             // 
             // materialButtonpro9
@@ -304,6 +304,7 @@
             resources.GetString("LevelComboBox.Items3")});
             this.LevelComboBox.MouseState = MaterialSkin.MouseState.OUT;
             this.LevelComboBox.Name = "LevelComboBox";
+            this.LevelComboBox.ShowScrollbar = false;
             this.LevelComboBox.StartIndex = 0;
             this.LevelComboBox.Triangle = true;
             // 
@@ -335,6 +336,15 @@
             this.zRoundPanel2.PanelBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(38)))), ((int)(((byte)(48)))));
             this.zRoundPanel2.PanelBorderRadius = 15F;
             // 
+            // Infocom
+            // 
+            this.Infocom.FormattingEnabled = true;
+            this.Infocom.Items.AddRange(new object[] {
+            resources.GetString("Infocom.Items"),
+            resources.GetString("Infocom.Items1")});
+            resources.ApplyResources(this.Infocom, "Infocom");
+            this.Infocom.Name = "Infocom";
+            // 
             // Logout
             // 
             this.Logout.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
@@ -350,15 +360,6 @@
             this.Logout.Name = "Logout";
             this.Logout.UseVisualStyleBackColor = true;
             this.Logout.Click += new System.EventHandler(this.Logout_Click);
-            // 
-            // Infocom
-            // 
-            this.Infocom.FormattingEnabled = true;
-            this.Infocom.Items.AddRange(new object[] {
-            resources.GetString("Infocom.Items"),
-            resources.GetString("Infocom.Items1")});
-            resources.ApplyResources(this.Infocom, "Infocom");
-            this.Infocom.Name = "Infocom";
             // 
             // LoginFrm
             // 

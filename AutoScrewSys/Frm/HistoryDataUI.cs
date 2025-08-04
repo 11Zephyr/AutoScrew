@@ -30,7 +30,10 @@ namespace AutoScrewSys.Frm
         {
             InitializeComponent();
         }
-
+        private void HistoryDataUI_Load(object sender, EventArgs e)
+        {
+            RefreshHisDataList();
+        }
         private void btnHisData_Click(object sender, EventArgs e)
         {
             hisFrmTabControl.SelectedIndex = 0;
@@ -45,7 +48,9 @@ namespace AutoScrewSys.Frm
         {
             RefreshHisDataList();
         }
-
+        /// <summary>
+        /// 刷新历史数据列表
+        /// </summary>
         private void RefreshHisDataList()
         {
             string folderPath = Settings.Default.ProductionDataPath;
@@ -192,13 +197,34 @@ namespace AutoScrewSys.Frm
             }
         }
 
-        private void ShowWaveform(List<double> data)
+        private async void ShowWaveform(List<double> data)
         {
-            chartWaveData.Series.Clear();
-            var series = new Series("扭力") { ChartType = SeriesChartType.Line };
-            for (int i = 0; i < data.Count; i++)
-                series.Points.AddXY(i, data[i]);
-            chartWaveData.Series.Add(series);
+
+            // 在后台处理数据（可选：预处理、滤波等）
+            var series = await Task.Run(() =>
+            {
+                var s = new Series("扭力") { ChartType = SeriesChartType.Line };
+                for (int i = 0; i < data.Count; i++)
+                {
+                    s.Points.AddXY(i, data[i]);
+                }
+                return s;
+            });
+
+            // 在UI线程更新Chart控件
+            if (chartWaveData.InvokeRequired)
+            {
+                chartWaveData.BeginInvoke(new Action(() =>
+                {
+                    chartWaveData.Series.Clear();
+                    chartWaveData.Series.Add(series);
+                }));
+            }
+            else
+            {
+                chartWaveData.Series.Clear();
+                chartWaveData.Series.Add(series);
+            }
         }
 
         private void PositionView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -239,14 +265,7 @@ namespace AutoScrewSys.Frm
                 while (reader.BaseStream.Position < reader.BaseStream.Length)
                     waveform.Add(reader.ReadDouble());
             }
-
-            ShowWaveform(waveform);
-
-        }
-
-        private void HistoryDataUI_Load(object sender, EventArgs e)
-        {
-            RefreshHisDataList();
+            Task.Run(() =>{ ShowWaveform(waveform); });
         }
 
         private void cmbLogType_SelectedIndexChanged(object sender, EventArgs e)
@@ -352,10 +371,6 @@ namespace AutoScrewSys.Frm
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            GetHisCsvData();
-        }
         private void InputTextBox_MouseDown(object sender, MouseEventArgs e)
         {
             if (sender is ZtextBoxRua txtBox)
@@ -368,11 +383,6 @@ namespace AutoScrewSys.Frm
                     }
                 }
             }
-        }
-
-        private void tbxSnSearchBox_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

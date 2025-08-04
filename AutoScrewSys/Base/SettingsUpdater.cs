@@ -14,6 +14,9 @@ namespace AutoScrewSys.Base
 {
     public static class SettingsUpdater
     {
+        private static Color _currentResultBackColor = Color.Empty;//拧紧结果颜色
+        private static Color _currentVoltageColor = Color.Empty;//显示电压颜色
+
         /// <summary>
         /// 强制设置属性（始终更新，无论值是否改变）
         /// </summary>
@@ -47,8 +50,11 @@ namespace AutoScrewSys.Base
             }
         }
 
-        private static Color _currentResultBackColor = Color.Empty;
-
+        /// <summary>
+        /// 拧紧结果发生改变时颜色改变
+        /// </summary>
+        /// <param name="newColor"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void SetResultBackColor(Color newColor)
         {
             if (UIThread.Context == null)
@@ -64,8 +70,11 @@ namespace AutoScrewSys.Base
                 }, null);
             }
         }
-        private static Color _currentVoltageColor = Color.Empty;
-
+        /// <summary>
+        /// 改变显示电压label的颜色
+        /// </summary>
+        /// <param name="newColor"></param>
+        /// <exception cref="InvalidOperationException"></exception>
         public static void SetVoltageColor(Color newColor)
         {
             if (UIThread.Context == null)
@@ -82,7 +91,6 @@ namespace AutoScrewSys.Base
             }
         }
     }
-
 
     public static class UIThread
     {

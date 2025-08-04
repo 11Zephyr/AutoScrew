@@ -35,6 +35,7 @@ namespace ZimaBlueScrew.Frm
             Task.Run(() =>
             { Beep(1500, 200); });
         }
+        #region 点击事件
         private void materialButtonpro11_Click(object sender, EventArgs e)
         {
             Close();
@@ -143,7 +144,8 @@ namespace ZimaBlueScrew.Frm
                 passlable.Text = Infocom.Text;
                 passBox.Focus();
             }
-        }
+        } 
+        #endregion
         private void LoginFrm1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

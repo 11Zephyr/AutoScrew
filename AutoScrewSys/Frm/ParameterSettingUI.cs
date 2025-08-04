@@ -23,12 +23,10 @@ namespace AutoScrewSys.Frm
         public ParameterSettingUI()
         {
             InitializeComponent();
-            //this.Load += SettingsControl_Load;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            ///启动全局监控
             GlobalMonitor.Start(
                  () =>
                  {

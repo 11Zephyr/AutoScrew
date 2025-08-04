@@ -20,7 +20,11 @@ namespace AutoScrewSys.Base
         private static RichTextBox _logBox;
         private static Color _fontColor = Color.White;
         private static readonly object _lock = new object();
-
+        /// <summary>
+        /// 初始化日志信息
+        /// </summary>
+        /// <param name="logBox"></param>
+        /// <param name="fontColor"></param>
         public static void InitializeLogBox(RichTextBox logBox, Color fontColor)
         {
             _logBox = logBox;

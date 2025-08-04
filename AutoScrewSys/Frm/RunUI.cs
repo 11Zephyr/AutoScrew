@@ -30,6 +30,9 @@ namespace AutoScrewSys.Frm
 {
     public partial class RunUI : UserControl
     {
+        private bool isPanning = false;
+        private int panStartX;
+        private int _torquePointIndex = 0;
         public RunUI()
         {
             InitializeComponent();
@@ -38,15 +41,26 @@ namespace AutoScrewSys.Frm
         {
             UIThread.Context = SynchronizationContext.Current;
 
+            #region 数据绑定
             BindLabels(this, AddrName.Default);
+            //手动绑定
             lblScrews.DataBindings.Add("Text", Properties.Settings.Default, "ScrewNum");
             lblGoodScrews.DataBindings.Add("Text", Properties.Settings.Default, "GoodScrews");
             lblBadScrews.DataBindings.Add("Text", Properties.Settings.Default, "BadScrews");
+            #endregion
 
-            Settings.Default.RTVoltageColor = System.Drawing.Color.Red;
+            #region 数据初始化
+            Settings.Default.RTVoltageColor = System.Drawing.Color.Red;//电压为红显示未连接
+            Settings.Default.ScrewNum = 0;
+            Settings.Default.BadScrews = 0;
+            Settings.Default.GoodScrews = 0;
+            #endregion
+
+            #region 表格图表初始化
             //EnableChartZoomAndPan();
             InitTorqueChart();
-            InitResultDgv();
+            InitResultDgv(); 
+            #endregion
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
 
             GlobalMonitor.StatusChanged += OnStatusChanged;
@@ -61,11 +75,8 @@ namespace AutoScrewSys.Frm
                               SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
                               LogHelper.WriteLog (msg, LogType.Fault);
                           });
-            Settings.Default.ScrewNum = 0;
-            Settings.Default.BadScrews = 0;
-            Settings.Default.GoodScrews = 0;
+
         }
-        private int _torquePointIndex = 0;
         private void InitTorqueChart()
         {
             GlobalMonitor.OnChartDataReceived += points =>
@@ -125,7 +136,7 @@ namespace AutoScrewSys.Frm
                         int rowIndex = GetBinFilesNum();
                         string timestamp = Settings.Default.SnCode;
                         string timeNow = DateTime.Now.ToString("HH:mm:ss");
-                        short[] HoldTime = await GlobalMonitor.ReadRegisterByNameAsync("HoldTime", $"Task{AddrName.Default.TaskNumber}");
+                        short[] HoldTime = await GlobalMonitor.ReadRegisterByNameAsync("HoldTime", $"Task{AddrName.Default.TaskNumber}");//获取时间
                         lblCT.Text = HoldTime[0].ToString();
                         int newRowIndex = PositionView.Rows.Add(rowIndex, timestamp, timeNow, rowIndex, AddrName.Default.LapsNum, AddrName.Default.Torque, result);
 
@@ -166,7 +177,10 @@ namespace AutoScrewSys.Frm
                 }));
             };
         }
-
+        /// <summary>
+        /// 更新螺丝数
+        /// </summary>
+        /// <param name="result"></param>
         private void UpdateScrewNum(string result)
         {
             Settings.Default.ScrewNum ++;
@@ -276,8 +290,7 @@ namespace AutoScrewSys.Frm
                 // 防止越界异常
             }
         }
-        private bool isPanning = false;
-        private int panStartX;
+      
 
         private void Chart1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -319,7 +332,14 @@ namespace AutoScrewSys.Frm
             chartArea.AxisY.ScaleView.ZoomReset();
         }
         #endregion
-
+        /// <summary>
+        /// 状态改变时触发
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <param name="l"></param>
+        /// <param name="f"></param>
+        /// <param name="torqueMode"></param>
         private void OnStatusChanged(int s, int t, int l, int f, int torqueMode)
         {
             if (InvokeRequired)

@@ -34,21 +34,24 @@ namespace AutoScrewSys.Base
 {
     public class GlobalMonitor
     {
-        public static bool isInit { get; private set; }//初始化标志
+        public static bool isInit { get; private set; } //初始化标志
         private static bool _collecting = false;//采集波形数据标志
         private static readonly object _binFileLock = new object();//二进制文件锁
 
-        public static Action ClearChartAction;
-        public static event Action<List<float>> OnChartDataReceived;
-        public static event Action OnResultsUpdated;
-        public static event Action<int, int, int, int, int> StatusChanged;
+        public static Action ClearChartAction;//清除波形图委托
+        public static event Action<List<float>> OnChartDataReceived;//波形图接收事件
+        public static event Action OnResultsUpdated;//更新表格事件
+        public static event Action<int, int, int, int, int> StatusChanged;//状态变换事件
 
-        public delegate void UpdateChartDelegate(List<float> yValues);
-        public event UpdateChartDelegate OnWaveDataUpdate;
         public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
-        static Thread _modbusSyncThread;//住循环线程
+        static Thread _modbusSyncThread;//主循环线程
         private static List<double> waveDataInfo = new List<double>();//存储波形数据
 
+        /// <summary>
+        /// 启动检测主函数
+        /// </summary>
+        /// <param name="successAction">成功委托</param>
+        /// <param name="faultAction">失败委托</param>
         public static void Start(Action successAction, Action<string> faultAction)
         {
             try
@@ -85,9 +88,12 @@ namespace AutoScrewSys.Base
             }
         }
 
+        /// <summary>
+        /// 主循环线程
+        /// </summary>
         public async static void MainThread()
         {
-            var cfg = AddrName.Default;
+            var cfg = AddrName.Default;//存储地址名称设置文件
             var semaphore = new SemaphoreSlim(1, 1); // 控制串口物理串行访问
 
             while (isInit)
@@ -96,7 +102,7 @@ namespace AutoScrewSys.Base
                 {
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
                     if (addr == null) continue;
-                    if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))
+                    if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))//异步锁,3秒超时
                     {
                         var task = Task.Run(async () =>
                         {
@@ -161,6 +167,11 @@ namespace AutoScrewSys.Base
 
             _modbusSyncThread = null;
         }
+        /// <summary>
+        /// 根据运行状态判断是否开始采集波形图
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <param name="code"></param>
         public async static void AcquireWaveformData(SettingsBase cfg, int code)
         {
             try
@@ -203,13 +214,13 @@ namespace AutoScrewSys.Base
                     _collecting = true;
                     ClearChartAction?.Invoke();
                     waveDataInfo?.Clear();
-                    int blockSize = 20;
-                    ushort maxValue = 1000;
-                    ushort prevValue = 0;
-                    int totalAccumulate = 0;
-                    int currentTotalCount = 0;
-                    int _lastIndex = 0;
-                    ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");
+                    int blockSize = 20;//一次采集20个数据
+                    ushort maxValue = 1000;//1000个之后从头开始采集
+                    ushort prevValue = 0;//当前值
+                    int totalAccumulate = 0;//采集总数
+                    int currentTotalCount = 0;//当前总数
+                    int _lastIndex = 0;//上一次索引
+                    ModbusCfgModel TorsionCurve = ModbusAddressConfig.Instance.GetAddressItem("TorsionCurve");//采集扭力地址
 
                     await Task.Run(async () =>
                     {
@@ -217,8 +228,6 @@ namespace AutoScrewSys.Base
                         {
                             try
                             {
-                                //ushort[] totalCollections = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)TotalCollections.SlaveAddress,(ushort)TotalCollections.StartAddress,(ushort)TotalCollections.Length);
-                                //ushort[] runStatus = await ModbusRtuHelper.Instance.ReadRegistersAsync((byte)Runstatus.SlaveAddress, (ushort)Runstatus.StartAddress, (ushort)Runstatus.Length);
                                 ushort currValue = (ushort)(await ReadRegisterByNameAsync("TotalCollections"))[0];
                                 totalAccumulate += (currValue >= prevValue) ? (currValue - prevValue) : (currValue + maxValue - prevValue);
                                 prevValue = currValue;
@@ -288,7 +297,10 @@ namespace AutoScrewSys.Base
 
             SettingsUpdater.SetIfChanged(cfg, "AlarmInfoStr", alarmMsgStr);
         }
-
+        /// <summary>
+        /// 权限检查
+        /// </summary>
+        /// <param name="level"></param>
         public static void CheckLogin(short level)
         {
             if (Settings.Default.Login < level)
@@ -318,7 +330,10 @@ namespace AutoScrewSys.Base
 
             File.SetAttributes(filePath, FileAttributes.Hidden);
         }
-
+        /// <summary>
+        /// 获取当天二进制波形数据索引
+        /// </summary>
+        /// <returns></returns>
         public static int GetBinFilesNum()
         {
             lock (_binFileLock)
@@ -352,12 +367,18 @@ namespace AutoScrewSys.Base
             }
         }
 
-
+        /// <summary>
+        /// 写入数据按钮操作
+        /// </summary>
+        /// <param name="slaveId"></param>
+        /// <param name="address"></param>
+        /// <param name="sourceValue"></param>
+        /// <returns></returns>
         public static async Task ElectricBatchAction(byte slaveId, ushort address, int sourceValue)
         {
             try
             {
-                await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, (ushort)(1 - sourceValue));
+                await ModbusRtuHelper.Instance.WriteSingleRegisterAsync(slaveId, address, (ushort)(1 - sourceValue));//根据原值判断1写0，0写1
             }
             catch (Exception ex)
             {
@@ -384,7 +405,6 @@ namespace AutoScrewSys.Base
                 {
                     BindLabels(control, settingsSource);
                 }
-
                 // 只处理 Label 控件
                 if (control is Label lbl)
                 {

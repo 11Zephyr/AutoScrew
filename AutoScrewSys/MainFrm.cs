@@ -26,7 +26,6 @@ namespace AutoScrewSys
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HTCAPTION = 0x2;
-        private Image[] radioBtnSelectedImg;
         private List<UserControl> formList;
         private int nCurTag;
 
@@ -46,14 +45,6 @@ namespace AutoScrewSys
         }
         private void MainFm_Load(object sender, EventArgs e)
         {
-            //radioBtnSelectedImg = new Image[]
-            //{
-            //    global :: AutoScrewSys.Properties.Resources.User,
-            //    global::AutoScrewSys.Properties.Resources.MainPage,
-
-            //};
-
-            //Image img = AutoScrewSys.Properties.Resources.User;
             this.formList = new System.Collections.Generic.List<UserControl>();
 
             RunUI runUI = new RunUI();
@@ -126,22 +117,6 @@ namespace AutoScrewSys
 
                 }
             }
-
-            #region MyRegion
-
-            #endregion
-            //rBtn.BackgroundImage = rBtn.Checked ? radioBtnSelectedImg[tag] : radioBtnUnselectedImg[tag];
-            // rBtn.ForeColor = rBtn.Checked ? Color.White : Color.Black;
-
-            //if (rBtn.Checked)
-            //{
-            //    formList[tag].Show();
-
-            //}
-            //else
-            //{
-            //    formList[tag].Hide();
-            //}
         }
 
         private void Panel_MouseDown(object sender, MouseEventArgs e)

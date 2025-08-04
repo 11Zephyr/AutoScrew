@@ -34,7 +34,6 @@ namespace AutoScrewSys.Frm
             InitializeComponent();
             LoadSettings();
             InitTaskList();
-            //InitDgv();
         }
 
         private void InitTaskList()
@@ -152,23 +151,35 @@ namespace AutoScrewSys.Frm
             Color lightRowColor = Color.FromArgb(55, 55, 55);     // 偶数行颜色
             Color foreColor = Color.White;                        // 字体颜色（亮背景用黑，暗背景用白）
 
+            // 遍历 result 数组，每两个值作为一组处理
             for (int i = 0; i < result.Length; i += 2)
             {
+                // 生成步骤名称，例如 Step1、Step2、Step3...
                 string stepName = $"Step{i / 2 + 1}";
 
+                // 提取当前这组的两个值
                 int value1 = result[i];
-                int value2 = (i + 1 < result.Length) ? result[i + 1] : -1;
+                int value2 = (i + 1 < result.Length) ? result[i + 1] : -1; // 防止越界，如果缺一个补 -1
 
+                // 根据当前状态决定哪一个是 col1、col2
+                // 如果是“拧紧状态”，value1 是 col1，value2 是 col2
+                // 如果不是“拧紧状态”，则反过来
                 int col1 = currentState == WorkState.Tighten ? value1 : value2;
                 int col2 = currentState == WorkState.Tighten ? value2 : value1;
 
+                // 添加一行到 DataGridView，显示步骤名、col1（转成单位/100）、col2（原始值）
                 int rowIndex = dgvStepView.Rows.Add(stepName, col1 / 100, col2);
+
+                // 获取新添加的行
                 var row = dgvStepView.Rows[rowIndex];
 
-                // 奇偶行交替背景色
+                // 设置行的背景色：奇偶行不同颜色（斑马纹效果）
                 row.DefaultCellStyle.BackColor = (rowIndex % 2 == 0) ? darkRowColor : lightRowColor;
+
+                // 设置行的前景色（字体颜色）
                 row.DefaultCellStyle.ForeColor = foreColor;
             }
+
         }
 
         private void SaveSettings()
@@ -200,44 +211,7 @@ namespace AutoScrewSys.Frm
             btnTighten.ButtonColor = (currentState == WorkState.Tighten) ? Color.FromArgb(255, 128, 0) : Color.White;
             btnLoosen.ButtonColor = (currentState == WorkState.Loosen) ? Color.FromArgb(255, 128, 0) : Color.White;
 
-            //int[] rowIndices = { };
-            //switch (currentState)
-            //{
-            //    case WorkState.Tighten:
-            //        rowIndices = new int[] {1, 4,};
-            //        break;
-            //    case WorkState.Loosen:
-            //        rowIndices = new int[] { 13};
-            //        break;
-            //    case WorkState.Free:
-            //        rowIndices = new int[] { 14,15 };
-            //        break;
-            //    default:
-            //        break;
-            //}
-
-            //HighlightRows(dgvParam, rowIndices);
-
         }
-
-
-        private void HighlightRows(DataGridView dgv, params int[] rowIndices)
-        {
-            if (dgv == null || dgv.Rows.Count == 0)
-                return;
-
-            // 设置指定行颜色
-            foreach (int rowIndex in rowIndices)
-            {
-                if (rowIndex >= 0 && rowIndex < dgv.Rows.Count)
-                {
-                    dgv.Rows[rowIndex].DefaultCellStyle.BackColor = Color.FromArgb(255, 192, 128);
-                    dgv.Rows[rowIndex].DefaultCellStyle.ForeColor = Color.Black;
-                }
-            }
-        }
-
-
 
         private void btnFree_Click(object sender, EventArgs e)
         {
@@ -246,22 +220,6 @@ namespace AutoScrewSys.Frm
             UpdateModbusAddress();
         }
 
-        private async void btnTightenMove_Click(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
-            await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.TightenAction);
-        }
-        private async void btnLoosenMove_Click(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
-            await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.LoosenAction);
-        }
-
-        private async void btnFreeMove_Click(object sender, EventArgs e)
-        {
-            var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
-            await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.FreeAction);
-        }
 
         public async Task LoadTaskParameters()
         {
@@ -271,16 +229,13 @@ namespace AutoScrewSys.Frm
                 LogHelper.WriteLog("任务号索引无效！", LogType.Fault);
                 return;
             }
-
             var paramList = GetParamList(AddrName.Default.ElecBatchPower);
             var displayList = new List<ParamDisplayModel>();
 
             for (int row = 0; row < paramList.Count; row++)
             {
-                // 获取 Modbus 地址（你提供的）
                 ushort address = AddressTable[row, taskIndex];
 
-                // 从 Modbus 读取一个寄存器
                 var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(1, address, 1);
                 int value = values != null && values.Length > 0 ? values[0] : -1;
 
@@ -328,34 +283,38 @@ namespace AutoScrewSys.Frm
         };
         private PowerRangeModel GetPowerRange(int power)
         {
-            return PowerMap.ContainsKey(power)? PowerMap[power]: new PowerRangeModel { TorqueRange = "1-5000", SpeedRange = "1-5000" }; // 默认值
+            return PowerMap.ContainsKey(power) ? PowerMap[power] : new PowerRangeModel { TorqueRange = "1-5000", SpeedRange = "1-5000" }; // 默认值
         }
 
         private List<ParamInfo> GetParamList(int power)
         {
             var range = GetPowerRange(power);
+
             return new List<ParamInfo>
             {
-                new ParamInfo { Name = "拧紧旋转方向",            Range = "0-1",          Unit = "None",     Remark = "旋转方向:0正向/1反向" },
-                new ParamInfo { Name = "目标扭力mN.M",            Range = range.TorqueRange,       Unit = "mN.m",     Remark = "拧紧过程目标最大扭力,不可太小" },//跟着瓦数变
-                new ParamInfo { Name = "上限偏差mN.M",            Range = "0-100",      Unit = "None",       Remark = "根据目标扭力判断偏差上限" },
-                new ParamInfo { Name = "下限偏差mN.M",            Range = "0-100",      Unit = "None",       Remark = "根据目标扭力判断偏差下限" },
-                new ParamInfo { Name = "保持时间ms",              Range = "0-100",      Unit = "ms",         Remark = "保持时间" },
-                new ParamInfo { Name = "浮高滑牙检测开关",        Range = "0-1",        Unit = "None",       Remark = "浮高滑牙检测:0关闭/1开启" },
-                new ParamInfo { Name = "浮高界定圈数（r）",       Range = "0-20",       Unit = "r",          Remark = "Above this = Float" },
-                new ParamInfo { Name = "滑牙界定圈数（r）",       Range = "0-20",       Unit = "r",          Remark = "Below this = Slip" },
-                new ParamInfo { Name = "触发速度切换的扭力比值",  Range = "0-100",      Unit = "%",          Remark = "触发速度切换的扭力比值" },
-                new ParamInfo { Name = "切换后速度(保留参数)",    Range = "0-1000",       Unit = "%",        Remark = "触发速度切换的速度比值。" },
-                new ParamInfo { Name = "扭力补偿值mN.M",          Range = "-100-100",       Unit = "mN.m",   Remark = "扭力补偿" },
-                new ParamInfo { Name = "扭力免检圈数",            Range = "0-100",       Unit = "r",         Remark = "扭力免检圈数。" },
-                new ParamInfo { Name = "免检圈数内扭力限定mN.M",  Range =range.TorqueRange,      Unit = "mN.m",       Remark = "免检圈数扭力" },//跟着瓦数变
-                new ParamInfo { Name = "拧松扭力",                Range = range.TorqueRange,      Unit = "mN.m",      Remark = "拧松过程目标最大扭力,不可太小" },//跟着瓦数变
-                new ParamInfo { Name = "自由转速度",              Range = range.SpeedRange,       Unit = "r",        Remark = "自由速度" },//跟着瓦数变
-                new ParamInfo { Name = "自由转扭力",              Range = range.TorqueRange,      Unit = "mN.m",      Remark = "自由旋转扭力" },//跟着瓦数变
-                new ParamInfo { Name = "偏移角度",                Range = "0~3600",       Unit = "0.1°",    Remark = "In 0.1° units" }
+                new ParamInfo { Name = "拧紧旋转方向",              Range = "0-1",                 Unit = "None",   Remark = "旋转方向:0正向/1反向" },
+                new ParamInfo { Name = "目标扭力mN.M",              Range = range.TorqueRange,     Unit = "mN.m",   Remark = "拧紧过程目标最大扭力,不可太小" },
+                new ParamInfo { Name = "上限偏差mN.M",              Range = "0-100",               Unit = "None",   Remark = "根据目标扭力判断偏差上限" },
+                new ParamInfo { Name = "下限偏差mN.M",              Range = "0-100",               Unit = "None",   Remark = "根据目标扭力判断偏差下限" },
+                new ParamInfo { Name = "保持时间ms",                Range = "0-100",               Unit = "ms",     Remark = "保持时间" },
+                new ParamInfo { Name = "浮高滑牙检测开关",          Range = "0-1",                 Unit = "None",   Remark = "浮高滑牙检测:0关闭/1开启" },
+                new ParamInfo { Name = "浮高界定圈数（r）",         Range = "0-20",                Unit = "r",      Remark = "Above this = Float" },
+                new ParamInfo { Name = "滑牙界定圈数（r）",         Range = "0-20",                Unit = "r",      Remark = "Below this = Slip" },
+                new ParamInfo { Name = "触发速度切换的扭力比值",    Range = "0-100",               Unit = "%",      Remark = "触发速度切换的扭力比值" },
+                new ParamInfo { Name = "切换后速度(保留参数)",      Range = "0-1000",              Unit = "%",      Remark = "触发速度切换的速度比值。" },
+                new ParamInfo { Name = "扭力补偿值mN.M",            Range = "-100-100",            Unit = "mN.m",   Remark = "扭力补偿" },
+                new ParamInfo { Name = "扭力免检圈数",              Range = "0-100",               Unit = "r",      Remark = "扭力免检圈数。" },
+                new ParamInfo { Name = "免检圈数内扭力限定mN.M",    Range = range.TorqueRange,     Unit = "mN.m",   Remark = "免检圈数扭力" },
+                new ParamInfo { Name = "拧松扭力",                  Range = range.TorqueRange,     Unit = "mN.m",   Remark = "拧松过程目标最大扭力,不可太小" },
+                new ParamInfo { Name = "自由转速度",                Range = range.SpeedRange,      Unit = "r",      Remark = "自由速度" },
+                new ParamInfo { Name = "自由转扭力",                Range = range.TorqueRange,     Unit = "mN.m",   Remark = "自由旋转扭力" },
+                new ParamInfo { Name = "偏移角度",                  Range = "0~3600",              Unit = "0.1°",   Remark = "In 0.1° units" }
             };
         }
 
+        /// <summary>
+        /// 地址表
+        /// </summary>
         private static readonly ushort[,] AddressTable = new ushort[,]
         {
             { 5888, 5952, 6016, 6080, 6144, 6208, 6272, 6336 }, // 拧紧旋转方向
@@ -381,11 +340,11 @@ namespace AutoScrewSys.Frm
         {
             try
             {
-                GlobalMonitor.CheckLogin(4);
-                if (Settings.Default.Login < 4) return;
-
                 if (e.RowIndex < 0 || e.ColumnIndex < 0)
                     return;
+
+                GlobalMonitor.CheckLogin(4);
+                if (Settings.Default.Login < 4) return;
 
                 if (e.ColumnIndex == 1)
                 {
@@ -439,7 +398,6 @@ namespace AutoScrewSys.Frm
             catch (Exception ex)
             {
                 LogHelper.WriteLog(ex.Message, LogType.Error);
-
             }
 
         }
@@ -448,11 +406,11 @@ namespace AutoScrewSys.Frm
         {
             try
             {
+                if (e.RowIndex < 0 || e.ColumnIndex <= 0)
+                    return;
                 GlobalMonitor.CheckLogin(4);
                 if (Settings.Default.Login < 4) return;
 
-                if (e.RowIndex < 0 || e.ColumnIndex <= 0)
-                    return;
                 int taskIndex = (int)currentTask;
                 if (taskIndex < 0 || taskIndex > AddressTable.GetLength(1))
                 {
@@ -486,7 +444,7 @@ namespace AutoScrewSys.Frm
                 // 第三列（速度范围）
                 if (e.ColumnIndex == 2)
                 {
-                    var rangeStr = GetPowerRange(AddrName.Default.ElecBatchPower).SpeedRange; 
+                    var rangeStr = GetPowerRange(AddrName.Default.ElecBatchPower).SpeedRange;
                     var (min, max) = ParseRange(rangeStr); // 提取扭力范围
                     var vkForm = new VirtualkeyboardFrm(addr, min, max);
                     vkForm.ShowDialog();
