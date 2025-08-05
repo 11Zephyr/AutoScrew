@@ -104,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoSize\AutoControlSize.cs" />
     <Compile Include="AutoSize\ControlScaler.cs" />
     <Compile Include="Base\AutoLogoutManager.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
@@ -112,12 +113,18 @@
     <Compile Include="Base\SerialPortTaskQueue.cs" />
     <Compile Include="Base\SettingsUpdater.cs" />
     <Compile Include="Base\StatusChangeNotifier.cs" />
+    <Compile Include="Base\ZProgressBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="BLL\DataResult.cs" />
     <Compile Include="BLL\IndustrialBLL.cs" />
     <Compile Include="DAL\DataAccess.cs" />
     <Compile Include="Enums\ScrewStatus.cs" />
     <Compile Include="Enums\TaskNumber.cs" />
     <Compile Include="Enums\WorkState.cs" />
+    <Compile Include="Frm\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Frm\HistoryDataUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -129,6 +136,12 @@
     </Compile>
     <Compile Include="Frm\IOMonitorUI.Designer.cs">
       <DependentUpon>IOMonitorUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm\LoadFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm\LoadFrm.Designer.cs">
+      <DependentUpon>LoadFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm\LoginFrm.cs">
       <SubType>Form</SubType>
@@ -194,6 +207,12 @@
     <EmbeddedResource Include="Frm\IOMonitorUI.resx">
       <DependentUpon>IOMonitorUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\LoadFrm.en.resx">
+      <DependentUpon>LoadFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\LoadFrm.resx">
+      <DependentUpon>LoadFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\LoginFrm.en.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -218,6 +237,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrm.resx">
       <DependentUpon>MainFrm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

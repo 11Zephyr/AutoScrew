@@ -36,6 +36,7 @@ namespace AutoScrewSys.Base
     {
         public static bool isInit { get; private set; } //初始化标志
         private static bool _collecting = false;//采集波形数据标志
+        public static bool Isload { get;  set; }
         private static readonly object _binFileLock = new object();//二进制文件锁
 
         public static Action ClearChartAction;//清除波形图委托
@@ -60,25 +61,31 @@ namespace AutoScrewSys.Base
                 {
                     IndustrialBLL bll = new IndustrialBLL();
                     var si = bll.InitSerialInfo();
-                    if (si.State) SerialInfo = si.Data;
+                    if (si.State)
+                    {
+                        SerialInfo = si.Data;
+
+                        if (ModbusRtuHelper.Instance.TryConnectSerialPort(
+                            new SerialPort(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits)
+                            {
+                                ReadTimeout = Convert.ToInt32(Settings.Default.receptOutTime),
+                                WriteTimeout = Convert.ToInt32(Settings.Default.sendOutTime)
+
+                            }))
+                        {
+                            isInit = true;
+                            _modbusSyncThread = new Thread(MainThread)
+                            {
+                                IsBackground = true,
+                                Priority = ThreadPriority.Highest // 设置为最高优先级
+                            };
+                            _modbusSyncThread.Start();
+                            successAction?.Invoke();
+                        }
+                    }
                     else
                     {
                         faultAction.Invoke(si.Message); return;
-                    }
-                    if (ModbusRtuHelper.Instance.Init(SerialInfo.PortName, SerialInfo.BaudRate, SerialInfo.Parity, SerialInfo.DataBit, SerialInfo.StopBits, Convert.ToInt32(Settings.Default.receptOutTime), Convert.ToInt32(Settings.Default.sendOutTime)))
-                    {
-                        isInit = true;
-                        _modbusSyncThread = new Thread(MainThread)
-                        {
-                            IsBackground = true,
-                            Priority = ThreadPriority.Highest // 设置为最高优先级
-                        };
-                        _modbusSyncThread.Start();
-                        successAction?.Invoke();
-                    }
-                    else
-                    {
-                        faultAction.Invoke("打开串口失败...");
                     }
                 }));
             }
@@ -94,7 +101,6 @@ namespace AutoScrewSys.Base
         public async static void MainThread()
         {
             var cfg = AddrName.Default;//存储地址名称设置文件
-            var semaphore = new SemaphoreSlim(1, 1); // 控制串口物理串行访问
 
             while (isInit)
             {
@@ -102,47 +108,51 @@ namespace AutoScrewSys.Base
                 {
                     var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
                     if (addr == null) continue;
-                    if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))//异步锁,3秒超时
+                    try
                     {
-                        var task = Task.Run(async () =>
+                        var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                            (byte)addr.SlaveAddress,
+                            (ushort)addr.StartAddress,
+                            (ushort)addr.Length
+                        );
+                        if (success)
                         {
-                            try
-                            {
-                                var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
-                                    (byte)addr.SlaveAddress,
-                                    (ushort)addr.StartAddress,
-                                    (ushort)addr.Length
-                                );
-                                if (success)
-                                {
-                                    var value = values[0] * addr.Proportion;
-                                    SettingsUpdater.SetIfChanged(cfg, p.Name, value);
-                                    AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
-                                }
-                                else
-                                {
-                                    LogHelper.WriteLog($"读取: {addr.Description} 失败-从站:{addr.SlaveAddress}-地址:{addr.StartAddress}-长度:{addr.Length}", LogType.Fault);
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                LogHelper.WriteLog($"读取 {p.Name} 报错: {ex.Message}", LogType.Error);
-                            }
-                            finally
-                            {
-                                semaphore.Release();
-                            }
-                        });
+                            var value = values[0] * addr.Proportion;
+                            SettingsUpdater.SetIfChanged(cfg, p.Name, value);
+                            SettingsUpdater.SetVoltageColor(Color.Green);
+                            AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
+                        }
+                        else
+                        {
+                            SettingsUpdater.SetVoltageColor(Color.Red);
+                            LogHelper.WriteLog($"读取: {addr.Description} 失败-从站:{addr.SlaveAddress}-地址:{addr.StartAddress}-长度:{addr.Length}", LogType.Fault);
+                            await Task.Delay(3000);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        SettingsUpdater.SetVoltageColor(Color.Red);
-                        LogHelper.WriteLog($"读取超时......", LogType.Error);
-                        StopModbusSyncThread();
-                        break;
+                        LogHelper.WriteLog($"读取 {p.Name} 报错: {ex.Message}", LogType.Error);
                     }
-                   
+
+                    #region 注释
+                    //var task = Task.Run(async () =>
+                    //{
+
+                    //});
+                    //if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))//异步锁,3秒超时
+                    //{
+
+                    //}
+                    //else
+                    //{
+                    //    SettingsUpdater.SetVoltageColor(Color.Red);
+                    //    LogHelper.WriteLog($"读取超时......", LogType.Error);
+                    //    StopModbusSyncThread();
+                    //    break;
+                    //} 
+                    #endregion
                 }
+
                 UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
                 StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
                 await Task.Delay(10);

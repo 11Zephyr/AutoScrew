@@ -26,8 +26,8 @@ namespace AutoScrewSys.Frm
 
         private async void btnTightenMove_Click(object sender, EventArgs e)
         {
-            GlobalMonitor.CheckLogin(3);
-            if (Settings.Default.Login < 3) return;
+            GlobalMonitor.CheckLogin(2);
+            if (Settings.Default.Login < 2) return;
 
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TightenAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress,AddrName.Default.TightenAction);
@@ -35,8 +35,8 @@ namespace AutoScrewSys.Frm
 
         private async void btnLoosenMove_Click(object sender, EventArgs e)
         {
-            GlobalMonitor.CheckLogin(3);
-            if (Settings.Default.Login < 3) return;
+            GlobalMonitor.CheckLogin(2);
+            if (Settings.Default.Login < 2) return;
 
             var addr = ModbusAddressConfig.Instance.GetAddressItem("LoosenAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.LoosenAction);
@@ -44,8 +44,8 @@ namespace AutoScrewSys.Frm
 
         private async void btnFreeMove_Click(object sender, EventArgs e)
         {
-            GlobalMonitor.CheckLogin(3);
-            if (Settings.Default.Login < 3) return;
+            GlobalMonitor.CheckLogin(2);
+            if (Settings.Default.Login < 2) return;
 
             var addr = ModbusAddressConfig.Instance.GetAddressItem("FreeAction");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.FreeAction);
@@ -102,8 +102,8 @@ namespace AutoScrewSys.Frm
 
         private async void btnTorqueMode_Click(object sender, EventArgs e)
         {
-            GlobalMonitor.CheckLogin(3);
-            if (Settings.Default.Login < 3) return;
+            GlobalMonitor.CheckLogin(2);
+            if (Settings.Default.Login < 2) return;
 
             var addr = ModbusAddressConfig.Instance.GetAddressItem("TorqueMode");
             await GlobalMonitor.ElectricBatchAction((byte)addr.SlaveAddress, (ushort)addr.StartAddress, AddrName.Default.TorqueMode);

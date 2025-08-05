@@ -25,7 +25,7 @@ using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class TaskParametersUI : UserControl
+    public partial class TaskParametersUI : BaseUserControl
     {
         private WorkState currentState;
         private TaskNumber currentTask;
@@ -343,8 +343,8 @@ namespace AutoScrewSys.Frm
                 if (e.RowIndex < 0 || e.ColumnIndex < 0)
                     return;
 
-                GlobalMonitor.CheckLogin(4);
-                if (Settings.Default.Login < 4) return;
+                GlobalMonitor.CheckLogin(3);
+                if (Settings.Default.Login < 3) return;
 
                 if (e.ColumnIndex == 1)
                 {
@@ -408,8 +408,8 @@ namespace AutoScrewSys.Frm
             {
                 if (e.RowIndex < 0 || e.ColumnIndex <= 0)
                     return;
-                GlobalMonitor.CheckLogin(4);
-                if (Settings.Default.Login < 4) return;
+                GlobalMonitor.CheckLogin(3);
+                if (Settings.Default.Login < 3) return;
 
                 int taskIndex = (int)currentTask;
                 if (taskIndex < 0 || taskIndex > AddressTable.GetLength(1))

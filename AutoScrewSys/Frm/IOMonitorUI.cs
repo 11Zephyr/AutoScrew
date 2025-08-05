@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class IOMonitorUI : UserControl
+    public partial class IOMonitorUI : BaseUserControl
     {
         public IOMonitorUI()
         {

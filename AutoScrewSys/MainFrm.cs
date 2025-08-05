@@ -4,6 +4,7 @@ using AutoScrewSys.Interface;
 using AutoScrewSys.Modbus;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ZimaBlueScrew;
 using ZimaBlueScrew.Frm;
 namespace AutoScrewSys
 {
@@ -33,18 +35,25 @@ namespace AutoScrewSys
         public MainFm()
         {
             InitializeComponent();
-            EnableDoubleBuffer(tpContainer);
+            AutoControlSize.RegisterFormControl(this);
+            EnableDoubleBuffer();
         }
-        private void EnableDoubleBuffer(Control control)
+        public void EnableDoubleBuffer()
         {
-            typeof(Control).InvokeMember("DoubleBuffered",
-                System.Reflection.BindingFlags.SetProperty |
-                System.Reflection.BindingFlags.Instance |
-                System.Reflection.BindingFlags.NonPublic,
-                null, control, new object[] { true });
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
+                          ControlStyles.AllPaintingInWmPaint |
+                          ControlStyles.UserPaint, true);
+            this.UpdateStyles();
         }
+
         private void MainFm_Load(object sender, EventArgs e)
         {
+            LoadFrm loadFrm = new LoadFrm();
+            Task.Run(() =>
+            {
+                loadFrm.ShowDialog();
+            });
             this.formList = new System.Collections.Generic.List<UserControl>();
 
             RunUI runUI = new RunUI();
@@ -85,8 +94,8 @@ namespace AutoScrewSys
             this.radioBtnIOMonitor.Tag = 4;
             this.nCurTag = 0;
             this.radioBtnRunFrm.Checked = true;
-            //this.WindowState = FormWindowState.Maximized;
-
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
             //LoadControlToPanel(new HistoryDataUI());
 
             RealTVoltage.DataBindings.Add("Text", AddrName.Default, "RealTVoltage");//实时电压值
@@ -133,6 +142,7 @@ namespace AutoScrewSys
         {
             try
             {
+                GlobalMonitor.StopModbusSyncThread();
                 Settings.Default.Save();
                 var result = MessageBox.Show("确认要退出程序吗？", "退出提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -172,6 +182,28 @@ namespace AutoScrewSys
         private void btnToggleSize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void MainFm_Resize(object sender, EventArgs e)
+        {
+            AutoControlSize.ChangeFormControlSize(this);
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (this.WindowState == FormWindowState.Maximized)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void MainFm_Shown(object sender, EventArgs e)
+        {
+           // GlobalMonitor.Isload = true;
         }
     }
 }

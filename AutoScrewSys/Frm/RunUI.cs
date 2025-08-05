@@ -6,6 +6,7 @@ using AutoScrewSys.Modbus;
 using AutoScrewSys.Model;
 using AutoScrewSys.Properties;
 using AutoScrewSys.VariableName;
+using Common;
 using DocumentFormat.OpenXml.InkML;
 using DocumentFormat.OpenXml.Office.SpreadSheetML.Y2023.MsForms;
 using DocumentFormat.OpenXml.Wordprocessing;
@@ -28,7 +29,7 @@ using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class RunUI : UserControl
+    public partial class RunUI : BaseUserControl
     {
         private bool isPanning = false;
         private int panStartX;
@@ -36,6 +37,8 @@ namespace AutoScrewSys.Frm
         public RunUI()
         {
             InitializeComponent();
+            //AutoControlSize.RegisterFormControl(this);
+
         }
         private void RunUI_Load(object sender, EventArgs e)
         {
@@ -59,21 +62,22 @@ namespace AutoScrewSys.Frm
             #region 表格图表初始化
             //EnableChartZoomAndPan();
             InitTorqueChart();
-            InitResultDgv(); 
+            InitResultDgv();
             #endregion
             LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
+            SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
 
             GlobalMonitor.StatusChanged += OnStatusChanged;
             GlobalMonitor.Start(
                           () =>
                           {
-                              SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
-                              LogHelper.WriteLog("串口连接成功...", LogType.Run);
+                              //SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
+                              LogHelper.WriteLog("程序启动...", LogType.Run);
                           },
                           (msg) =>
                           {
                               SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
-                              LogHelper.WriteLog (msg, LogType.Fault);
+                              LogHelper.WriteLog(msg, LogType.Fault);
                           });
 
         }
@@ -93,15 +97,20 @@ namespace AutoScrewSys.Frm
 
             GlobalMonitor.ClearChartAction = () =>
             {
-                chart1.ChartAreas[0].AxisX.Minimum = 0;
                 _torquePointIndex = 0;
                 if (chart1.InvokeRequired)
                 {
-                    chart1.BeginInvoke(new Action(() => chart1.Series[0].Points.Clear()));
+                    chart1.BeginInvoke(new Action(() =>
+                    {
+                        chart1.ChartAreas[0].AxisX.Minimum = 0;
+                        chart1.Series[0].Points.Clear();
+
+                    }));
                 }
                 else
                 {
                     chart1.Series[0].Points.Clear();
+                    chart1.ChartAreas[0].AxisX.Minimum = 0;
                 }
             };
 
@@ -187,7 +196,7 @@ namespace AutoScrewSys.Frm
         /// <param name="result"></param>
         private void UpdateScrewNum(string result)
         {
-            Settings.Default.ScrewNum ++;
+            Settings.Default.ScrewNum++;
             Settings.Default.GoodScrews += result == "OK" ? 1 : 0;
             Settings.Default.BadScrews += result != "OK" ? 1 : 0;
             Yield.Progress = ((float)Settings.Default.GoodScrews / Settings.Default.ScrewNum) * 100;
@@ -229,7 +238,7 @@ namespace AutoScrewSys.Frm
             StringBuilder rowBuilder = new StringBuilder();
             for (int i = 0; i < dgv.Columns.Count; i++)
             {
-            
+
                 object cellValue = lastRow.Cells[i].Value ?? "";
                 rowBuilder.Append(cellValue.ToString().Replace(",", "，")).Append(",");
             }
@@ -294,7 +303,7 @@ namespace AutoScrewSys.Frm
                 // 防止越界异常
             }
         }
-      
+
 
         private void Chart1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -380,6 +389,6 @@ namespace AutoScrewSys.Frm
         {
             Settings.Default.SnCode = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
         }
-      
+
     }
 }

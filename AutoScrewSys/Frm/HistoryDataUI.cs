@@ -18,7 +18,7 @@ using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class HistoryDataUI : UserControl
+    public partial class HistoryDataUI : BaseUserControl
     {
         private readonly Dictionary<string, string> logTypeFolderMap = new Dictionary<string, string>
         {
@@ -383,6 +383,11 @@ namespace AutoScrewSys.Frm
                     }
                 }
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            GetHisCsvData();
         }
     }
 }

@@ -28,23 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblMesTextR = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cbxTorqueUnit = new MaterialSkin.Controls.MaterialComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tbxSaveDataPath = new ZimaBlueUI.ZtextBoxRua();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.cbxDataStoredTime = new MaterialSkin.Controls.MaterialComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.cbxLogStoredTime = new MaterialSkin.Controls.MaterialComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.cbxLoggedOutTime = new MaterialSkin.Controls.MaterialComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.tpanel1 = new ZimaBlueUI.Tpanel();
@@ -64,19 +48,31 @@
             this.cbxStopBits = new MaterialSkin.Controls.MaterialComboBox();
             this.tpanel6 = new ZimaBlueUI.Tpanel();
             this.label12 = new System.Windows.Forms.Label();
+            this.sendOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.tpanel7 = new ZimaBlueUI.Tpanel();
             this.receptOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.label13 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
             this.btnConnect = new MaterialSkin.Controls.MaterialButtonpro();
-            this.sendOutTime = new ZimaBlueUI.ZtextBoxRua();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblMesTextR = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxTorqueUnit = new MaterialSkin.Controls.MaterialComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.tbxSaveDataPath = new ZimaBlueUI.ZtextBoxRua();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cbxDataStoredTime = new MaterialSkin.Controls.MaterialComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.cbxLogStoredTime = new MaterialSkin.Controls.MaterialComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.cbxLoggedOutTime = new MaterialSkin.Controls.MaterialComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tpanel1.SuspendLayout();
             this.tpanel2.SuspendLayout();
@@ -86,323 +82,28 @@
             this.tpanel6.SuspendLayout();
             this.tpanel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // tableLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.lblMesTextR);
-            this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Controls.Add(this.panel2);
-            this.flowLayoutPanel1.Controls.Add(this.panel3);
-            this.flowLayoutPanel1.Controls.Add(this.panel4);
-            this.flowLayoutPanel1.Controls.Add(this.panel5);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold);
-            this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(928, 753);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // lblMesTextR
-            // 
-            this.lblMesTextR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.lblMesTextR.Font = new System.Drawing.Font("思源黑体 CN Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMesTextR.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMesTextR.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblMesTextR.Location = new System.Drawing.Point(3, 0);
-            this.lblMesTextR.Name = "lblMesTextR";
-            this.lblMesTextR.Size = new System.Drawing.Size(925, 58);
-            this.lblMesTextR.TabIndex = 40;
-            this.lblMesTextR.Tag = "AccessibleName";
-            this.lblMesTextR.Text = "数 据 管 理 参 数";
-            this.lblMesTextR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.cbxTorqueUnit);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(3, 61);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(925, 58);
-            this.panel1.TabIndex = 41;
-            // 
-            // cbxTorqueUnit
-            // 
-            this.cbxTorqueUnit.AutoResize = false;
-            this.cbxTorqueUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxTorqueUnit.Borderwidht = 7;
-            this.cbxTorqueUnit.ComboxColor = System.Drawing.Color.White;
-            this.cbxTorqueUnit.Commodel = 0;
-            this.cbxTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxTorqueUnit.Depth = 0;
-            this.cbxTorqueUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxTorqueUnit.DropDownHeight = 217;
-            this.cbxTorqueUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxTorqueUnit.DropDownWidth = 121;
-            this.cbxTorqueUnit.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxTorqueUnit.FormattingEnabled = true;
-            this.cbxTorqueUnit.IntegralHeight = false;
-            this.cbxTorqueUnit.ItemHeight = 43;
-            this.cbxTorqueUnit.Items.AddRange(new object[] {
-            "mN·m",
-            "N·m",
-            "lb·ft",
-            "kg·m",
-            "kgf·cm"});
-            this.cbxTorqueUnit.Location = new System.Drawing.Point(189, 2);
-            this.cbxTorqueUnit.MaxDropDownItems = 5;
-            this.cbxTorqueUnit.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxTorqueUnit.Name = "cbxTorqueUnit";
-            this.cbxTorqueUnit.ShowScrollbar = false;
-            this.cbxTorqueUnit.Size = new System.Drawing.Size(137, 49);
-            this.cbxTorqueUnit.StartIndex = 0;
-            this.cbxTorqueUnit.TabIndex = 202;
-            this.cbxTorqueUnit.Triangle = true;
-            this.cbxTorqueUnit.SelectedIndexChanged += new System.EventHandler(this.cbxTorqueUnit_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(0, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 54);
-            this.label10.TabIndex = 201;
-            this.label10.Text = "扭力单位:";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.tbxSaveDataPath);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 125);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(925, 58);
-            this.panel2.TabIndex = 42;
-            // 
-            // tbxSaveDataPath
-            // 
-            this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
-            this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbxSaveDataPath.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
-            this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
-            this.tbxSaveDataPath.Name = "tbxSaveDataPath";
-            this.tbxSaveDataPath.ReadOnly = true;
-            this.tbxSaveDataPath.Size = new System.Drawing.Size(729, 43);
-            this.tbxSaveDataPath.TabIndex = 203;
-            this.tbxSaveDataPath.Tag = "Text";
-            this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
-            this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.tbxSaveDataPath.TextBorderColor = System.Drawing.Color.Transparent;
-            this.tbxSaveDataPath.TextBorderRadius = 5;
-            this.tbxSaveDataPath.TextBorderSize = 1;
-            this.tbxSaveDataPath.TextBorderWidth = 2;
-            this.tbxSaveDataPath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbxSaveDataPath_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 56);
-            this.label1.TabIndex = 202;
-            this.label1.Text = "数据保存路径:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel3
-            // 
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.cbxDataStoredTime);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(3, 189);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(925, 58);
-            this.panel3.TabIndex = 43;
-            // 
-            // cbxDataStoredTime
-            // 
-            this.cbxDataStoredTime.AutoResize = false;
-            this.cbxDataStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxDataStoredTime.Borderwidht = 7;
-            this.cbxDataStoredTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxDataStoredTime.Commodel = 0;
-            this.cbxDataStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "DataStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxDataStoredTime.Depth = 0;
-            this.cbxDataStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxDataStoredTime.DropDownHeight = 217;
-            this.cbxDataStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDataStoredTime.DropDownWidth = 121;
-            this.cbxDataStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxDataStoredTime.FormattingEnabled = true;
-            this.cbxDataStoredTime.IntegralHeight = false;
-            this.cbxDataStoredTime.ItemHeight = 43;
-            this.cbxDataStoredTime.Items.AddRange(new object[] {
-            "15天",
-            "30天",
-            "60天",
-            "90天",
-            "180天",
-            "360天",
-            "永久"});
-            this.cbxDataStoredTime.Location = new System.Drawing.Point(189, 4);
-            this.cbxDataStoredTime.MaxDropDownItems = 5;
-            this.cbxDataStoredTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxDataStoredTime.Name = "cbxDataStoredTime";
-            this.cbxDataStoredTime.ShowScrollbar = false;
-            this.cbxDataStoredTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxDataStoredTime.StartIndex = 0;
-            this.cbxDataStoredTime.TabIndex = 203;
-            this.cbxDataStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.DataStoredTime;
-            this.cbxDataStoredTime.Triangle = true;
-            this.cbxDataStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxDataStoredTime_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 54);
-            this.label2.TabIndex = 202;
-            this.label2.Text = "数据保存时长:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.cbxLogStoredTime);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Location = new System.Drawing.Point(3, 253);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(925, 58);
-            this.panel4.TabIndex = 44;
-            // 
-            // cbxLogStoredTime
-            // 
-            this.cbxLogStoredTime.AutoResize = false;
-            this.cbxLogStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxLogStoredTime.Borderwidht = 7;
-            this.cbxLogStoredTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxLogStoredTime.Commodel = 0;
-            this.cbxLogStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LogStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxLogStoredTime.Depth = 0;
-            this.cbxLogStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxLogStoredTime.DropDownHeight = 217;
-            this.cbxLogStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxLogStoredTime.DropDownWidth = 121;
-            this.cbxLogStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxLogStoredTime.FormattingEnabled = true;
-            this.cbxLogStoredTime.IntegralHeight = false;
-            this.cbxLogStoredTime.ItemHeight = 43;
-            this.cbxLogStoredTime.Items.AddRange(new object[] {
-            "15天",
-            "30天",
-            "60天",
-            "90天",
-            "180天",
-            "360天",
-            "永久"});
-            this.cbxLogStoredTime.Location = new System.Drawing.Point(189, 2);
-            this.cbxLogStoredTime.MaxDropDownItems = 5;
-            this.cbxLogStoredTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxLogStoredTime.Name = "cbxLogStoredTime";
-            this.cbxLogStoredTime.ShowScrollbar = false;
-            this.cbxLogStoredTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxLogStoredTime.StartIndex = 0;
-            this.cbxLogStoredTime.TabIndex = 203;
-            this.cbxLogStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.LogStoredTime;
-            this.cbxLogStoredTime.Triangle = true;
-            this.cbxLogStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxLogStoredTime_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 56);
-            this.label3.TabIndex = 202;
-            this.label3.Text = "日志保存时长:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel5.Controls.Add(this.cbxLoggedOutTime);
-            this.panel5.Controls.Add(this.label4);
-            this.panel5.Location = new System.Drawing.Point(3, 317);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(925, 58);
-            this.panel5.TabIndex = 45;
-            // 
-            // cbxLoggedOutTime
-            // 
-            this.cbxLoggedOutTime.AutoResize = false;
-            this.cbxLoggedOutTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.cbxLoggedOutTime.Borderwidht = 7;
-            this.cbxLoggedOutTime.ComboxColor = System.Drawing.Color.White;
-            this.cbxLoggedOutTime.Commodel = 0;
-            this.cbxLoggedOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LoggedOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbxLoggedOutTime.Depth = 0;
-            this.cbxLoggedOutTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.cbxLoggedOutTime.DropDownHeight = 217;
-            this.cbxLoggedOutTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxLoggedOutTime.DropDownWidth = 121;
-            this.cbxLoggedOutTime.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.cbxLoggedOutTime.FormattingEnabled = true;
-            this.cbxLoggedOutTime.IntegralHeight = false;
-            this.cbxLoggedOutTime.ItemHeight = 43;
-            this.cbxLoggedOutTime.Items.AddRange(new object[] {
-            "1分钟",
-            "3分钟",
-            "5分钟",
-            "10分钟",
-            "30分钟",
-            "1小时",
-            "永久"});
-            this.cbxLoggedOutTime.Location = new System.Drawing.Point(189, 3);
-            this.cbxLoggedOutTime.MaxDropDownItems = 5;
-            this.cbxLoggedOutTime.MouseState = MaterialSkin.MouseState.OUT;
-            this.cbxLoggedOutTime.Name = "cbxLoggedOutTime";
-            this.cbxLoggedOutTime.ShowScrollbar = false;
-            this.cbxLoggedOutTime.Size = new System.Drawing.Size(137, 49);
-            this.cbxLoggedOutTime.StartIndex = 0;
-            this.cbxLoggedOutTime.TabIndex = 203;
-            this.cbxLoggedOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.LoggedOutTime;
-            this.cbxLoggedOutTime.Triangle = true;
-            this.cbxLoggedOutTime.SelectedIndexChanged += new System.EventHandler(this.cbxLoggedOutTime_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 54);
-            this.label4.TabIndex = 202;
-            this.label4.Text = "权限自动注销时长:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.12627F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.87373F));
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1378, 753);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // flowLayoutPanel2
             // 
@@ -415,13 +116,13 @@
             this.flowLayoutPanel2.Controls.Add(this.tpanel6);
             this.flowLayoutPanel2.Controls.Add(this.tpanel7);
             this.flowLayoutPanel2.Controls.Add(this.panel6);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold);
             this.flowLayoutPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(934, 0);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(927, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(444, 753);
-            this.flowLayoutPanel2.TabIndex = 1;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(448, 747);
+            this.flowLayoutPanel2.TabIndex = 2;
             // 
             // label5
             // 
@@ -746,6 +447,25 @@
             this.label12.Text = "发送超时:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // sendOutTime
+            // 
+            this.sendOutTime.BackColor = System.Drawing.Color.Black;
+            this.sendOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "sendOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.sendOutTime.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.sendOutTime.ForeColor = System.Drawing.SystemColors.Window;
+            this.sendOutTime.Location = new System.Drawing.Point(205, 10);
+            this.sendOutTime.Name = "sendOutTime";
+            this.sendOutTime.ReadOnly = false;
+            this.sendOutTime.Size = new System.Drawing.Size(137, 28);
+            this.sendOutTime.TabIndex = 204;
+            this.sendOutTime.Tag = "Text";
+            this.sendOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.sendOutTime;
+            this.sendOutTime.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.sendOutTime.TextBorderColor = System.Drawing.SystemColors.Window;
+            this.sendOutTime.TextBorderRadius = 5;
+            this.sendOutTime.TextBorderSize = 1;
+            this.sendOutTime.TextBorderWidth = 2;
+            // 
             // tpanel7
             // 
             this.tpanel7.Alpha = 50;
@@ -800,7 +520,7 @@
             this.panel6.Controls.Add(this.btnConnect);
             this.panel6.Location = new System.Drawing.Point(3, 435);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(438, 150);
+            this.panel6.Size = new System.Drawing.Size(438, 160);
             this.panel6.TabIndex = 53;
             // 
             // materialButtonpro3
@@ -840,40 +560,331 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // sendOutTime
+            // flowLayoutPanel1
             // 
-            this.sendOutTime.BackColor = System.Drawing.Color.Black;
-            this.sendOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "sendOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.sendOutTime.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
-            this.sendOutTime.ForeColor = System.Drawing.SystemColors.Window;
-            this.sendOutTime.Location = new System.Drawing.Point(205, 10);
-            this.sendOutTime.Name = "sendOutTime";
-            this.sendOutTime.ReadOnly = false;
-            this.sendOutTime.Size = new System.Drawing.Size(137, 28);
-            this.sendOutTime.TabIndex = 204;
-            this.sendOutTime.Tag = "Text";
-            this.sendOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.sendOutTime;
-            this.sendOutTime.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.sendOutTime.TextBorderColor = System.Drawing.SystemColors.Window;
-            this.sendOutTime.TextBorderRadius = 5;
-            this.sendOutTime.TextBorderSize = 1;
-            this.sendOutTime.TextBorderWidth = 2;
+            this.flowLayoutPanel1.Controls.Add(this.lblMesTextR);
+            this.flowLayoutPanel1.Controls.Add(this.panel1);
+            this.flowLayoutPanel1.Controls.Add(this.panel2);
+            this.flowLayoutPanel1.Controls.Add(this.panel3);
+            this.flowLayoutPanel1.Controls.Add(this.panel4);
+            this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold);
+            this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(918, 747);
+            this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // lblMesTextR
+            // 
+            this.lblMesTextR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lblMesTextR.Font = new System.Drawing.Font("思源黑体 CN Bold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMesTextR.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMesTextR.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblMesTextR.Location = new System.Drawing.Point(3, 0);
+            this.lblMesTextR.Name = "lblMesTextR";
+            this.lblMesTextR.Size = new System.Drawing.Size(906, 58);
+            this.lblMesTextR.TabIndex = 40;
+            this.lblMesTextR.Tag = "AccessibleName";
+            this.lblMesTextR.Text = "数 据 管 理 参 数";
+            this.lblMesTextR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.cbxTorqueUnit);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Location = new System.Drawing.Point(3, 61);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(906, 58);
+            this.panel1.TabIndex = 41;
+            // 
+            // cbxTorqueUnit
+            // 
+            this.cbxTorqueUnit.AutoResize = false;
+            this.cbxTorqueUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxTorqueUnit.Borderwidht = 7;
+            this.cbxTorqueUnit.ComboxColor = System.Drawing.Color.White;
+            this.cbxTorqueUnit.Commodel = 0;
+            this.cbxTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxTorqueUnit.Depth = 0;
+            this.cbxTorqueUnit.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxTorqueUnit.DropDownHeight = 217;
+            this.cbxTorqueUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTorqueUnit.DropDownWidth = 121;
+            this.cbxTorqueUnit.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxTorqueUnit.FormattingEnabled = true;
+            this.cbxTorqueUnit.IntegralHeight = false;
+            this.cbxTorqueUnit.ItemHeight = 43;
+            this.cbxTorqueUnit.Items.AddRange(new object[] {
+            "mN·m",
+            "N·m",
+            "lb·ft",
+            "kg·m",
+            "kgf·cm"});
+            this.cbxTorqueUnit.Location = new System.Drawing.Point(189, 2);
+            this.cbxTorqueUnit.MaxDropDownItems = 5;
+            this.cbxTorqueUnit.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxTorqueUnit.Name = "cbxTorqueUnit";
+            this.cbxTorqueUnit.ShowScrollbar = false;
+            this.cbxTorqueUnit.Size = new System.Drawing.Size(137, 49);
+            this.cbxTorqueUnit.StartIndex = 0;
+            this.cbxTorqueUnit.TabIndex = 202;
+            this.cbxTorqueUnit.Triangle = true;
+            this.cbxTorqueUnit.SelectedIndexChanged += new System.EventHandler(this.cbxTorqueUnit_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label10.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 54);
+            this.label10.TabIndex = 201;
+            this.label10.Text = "扭力单位:";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.tbxSaveDataPath);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 125);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(906, 58);
+            this.panel2.TabIndex = 42;
+            // 
+            // tbxSaveDataPath
+            // 
+            this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
+            this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbxSaveDataPath.Font = new System.Drawing.Font("思源黑体 CN Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
+            this.tbxSaveDataPath.Location = new System.Drawing.Point(189, 6);
+            this.tbxSaveDataPath.Name = "tbxSaveDataPath";
+            this.tbxSaveDataPath.ReadOnly = true;
+            this.tbxSaveDataPath.Size = new System.Drawing.Size(712, 43);
+            this.tbxSaveDataPath.TabIndex = 203;
+            this.tbxSaveDataPath.Tag = "Text";
+            this.tbxSaveDataPath.Text = global::AutoScrewSys.Properties.Settings.Default.ProductionDataPath;
+            this.tbxSaveDataPath.TextBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tbxSaveDataPath.TextBorderColor = System.Drawing.Color.Transparent;
+            this.tbxSaveDataPath.TextBorderRadius = 5;
+            this.tbxSaveDataPath.TextBorderSize = 1;
+            this.tbxSaveDataPath.TextBorderWidth = 2;
+            this.tbxSaveDataPath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tbxSaveDataPath_MouseDown);
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 56);
+            this.label1.TabIndex = 202;
+            this.label1.Text = "数据保存路径:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel3.Controls.Add(this.cbxDataStoredTime);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Location = new System.Drawing.Point(3, 189);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(906, 58);
+            this.panel3.TabIndex = 43;
+            // 
+            // cbxDataStoredTime
+            // 
+            this.cbxDataStoredTime.AutoResize = false;
+            this.cbxDataStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxDataStoredTime.Borderwidht = 7;
+            this.cbxDataStoredTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxDataStoredTime.Commodel = 0;
+            this.cbxDataStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "DataStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxDataStoredTime.Depth = 0;
+            this.cbxDataStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxDataStoredTime.DropDownHeight = 217;
+            this.cbxDataStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDataStoredTime.DropDownWidth = 121;
+            this.cbxDataStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxDataStoredTime.FormattingEnabled = true;
+            this.cbxDataStoredTime.IntegralHeight = false;
+            this.cbxDataStoredTime.ItemHeight = 43;
+            this.cbxDataStoredTime.Items.AddRange(new object[] {
+            "15天",
+            "30天",
+            "60天",
+            "90天",
+            "180天",
+            "360天",
+            "永久"});
+            this.cbxDataStoredTime.Location = new System.Drawing.Point(189, 4);
+            this.cbxDataStoredTime.MaxDropDownItems = 5;
+            this.cbxDataStoredTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxDataStoredTime.Name = "cbxDataStoredTime";
+            this.cbxDataStoredTime.ShowScrollbar = false;
+            this.cbxDataStoredTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxDataStoredTime.StartIndex = 0;
+            this.cbxDataStoredTime.TabIndex = 203;
+            this.cbxDataStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.DataStoredTime;
+            this.cbxDataStoredTime.Triangle = true;
+            this.cbxDataStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxDataStoredTime_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 54);
+            this.label2.TabIndex = 202;
+            this.label2.Text = "数据保存时长:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.cbxLogStoredTime);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Location = new System.Drawing.Point(3, 253);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(906, 58);
+            this.panel4.TabIndex = 44;
+            // 
+            // cbxLogStoredTime
+            // 
+            this.cbxLogStoredTime.AutoResize = false;
+            this.cbxLogStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxLogStoredTime.Borderwidht = 7;
+            this.cbxLogStoredTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxLogStoredTime.Commodel = 0;
+            this.cbxLogStoredTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LogStoredTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxLogStoredTime.Depth = 0;
+            this.cbxLogStoredTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxLogStoredTime.DropDownHeight = 217;
+            this.cbxLogStoredTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLogStoredTime.DropDownWidth = 121;
+            this.cbxLogStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxLogStoredTime.FormattingEnabled = true;
+            this.cbxLogStoredTime.IntegralHeight = false;
+            this.cbxLogStoredTime.ItemHeight = 43;
+            this.cbxLogStoredTime.Items.AddRange(new object[] {
+            "15天",
+            "30天",
+            "60天",
+            "90天",
+            "180天",
+            "360天",
+            "永久"});
+            this.cbxLogStoredTime.Location = new System.Drawing.Point(189, 2);
+            this.cbxLogStoredTime.MaxDropDownItems = 5;
+            this.cbxLogStoredTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxLogStoredTime.Name = "cbxLogStoredTime";
+            this.cbxLogStoredTime.ShowScrollbar = false;
+            this.cbxLogStoredTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxLogStoredTime.StartIndex = 0;
+            this.cbxLogStoredTime.TabIndex = 203;
+            this.cbxLogStoredTime.Text = global::AutoScrewSys.Properties.Settings.Default.LogStoredTime;
+            this.cbxLogStoredTime.Triangle = true;
+            this.cbxLogStoredTime.SelectedIndexChanged += new System.EventHandler(this.cbxLogStoredTime_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label3.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 56);
+            this.label3.TabIndex = 202;
+            this.label3.Text = "日志保存时长:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel5.Controls.Add(this.cbxLoggedOutTime);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(3, 317);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(906, 58);
+            this.panel5.TabIndex = 45;
+            // 
+            // cbxLoggedOutTime
+            // 
+            this.cbxLoggedOutTime.AutoResize = false;
+            this.cbxLoggedOutTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.cbxLoggedOutTime.Borderwidht = 7;
+            this.cbxLoggedOutTime.ComboxColor = System.Drawing.Color.White;
+            this.cbxLoggedOutTime.Commodel = 0;
+            this.cbxLoggedOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "LoggedOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbxLoggedOutTime.Depth = 0;
+            this.cbxLoggedOutTime.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cbxLoggedOutTime.DropDownHeight = 217;
+            this.cbxLoggedOutTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxLoggedOutTime.DropDownWidth = 121;
+            this.cbxLoggedOutTime.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.cbxLoggedOutTime.FormattingEnabled = true;
+            this.cbxLoggedOutTime.IntegralHeight = false;
+            this.cbxLoggedOutTime.ItemHeight = 43;
+            this.cbxLoggedOutTime.Items.AddRange(new object[] {
+            "1分钟",
+            "3分钟",
+            "5分钟",
+            "10分钟",
+            "30分钟",
+            "1小时",
+            "永久"});
+            this.cbxLoggedOutTime.Location = new System.Drawing.Point(189, 3);
+            this.cbxLoggedOutTime.MaxDropDownItems = 5;
+            this.cbxLoggedOutTime.MouseState = MaterialSkin.MouseState.OUT;
+            this.cbxLoggedOutTime.Name = "cbxLoggedOutTime";
+            this.cbxLoggedOutTime.ShowScrollbar = false;
+            this.cbxLoggedOutTime.Size = new System.Drawing.Size(137, 49);
+            this.cbxLoggedOutTime.StartIndex = 0;
+            this.cbxLoggedOutTime.TabIndex = 203;
+            this.cbxLoggedOutTime.Text = global::AutoScrewSys.Properties.Settings.Default.LoggedOutTime;
+            this.cbxLoggedOutTime.Triangle = true;
+            this.cbxLoggedOutTime.SelectedIndexChanged += new System.EventHandler(this.cbxLoggedOutTime_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label4.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 54);
+            this.label4.TabIndex = 202;
+            this.label4.Text = "权限自动注销时长:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // ParameterSettingUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ParameterSettingUI";
             this.Size = new System.Drawing.Size(1378, 753);
             this.Load += new System.EventHandler(this.ParameterSettingUI_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tpanel1.ResumeLayout(false);
             this.tpanel2.ResumeLayout(false);
@@ -883,29 +894,19 @@
             this.tpanel6.ResumeLayout(false);
             this.tpanel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label lblMesTextR;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label10;
-        private MaterialSkin.Controls.MaterialComboBox cbxTorqueUnit;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label4;
-        private ZimaBlueUI.ZtextBoxRua tbxSaveDataPath;
-        private MaterialSkin.Controls.MaterialComboBox cbxDataStoredTime;
-        private MaterialSkin.Controls.MaterialComboBox cbxLogStoredTime;
-        private MaterialSkin.Controls.MaterialComboBox cbxLoggedOutTime;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label5;
         private ZimaBlueUI.Tpanel tpanel1;
@@ -925,12 +926,29 @@
         private MaterialSkin.Controls.MaterialComboBox cbxStopBits;
         private ZimaBlueUI.Tpanel tpanel6;
         private System.Windows.Forms.Label label12;
+        private ZimaBlueUI.ZtextBoxRua sendOutTime;
         private ZimaBlueUI.Tpanel tpanel7;
-        private System.Windows.Forms.Label label13;
         private ZimaBlueUI.ZtextBoxRua receptOutTime;
+        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel6;
         private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
         private MaterialSkin.Controls.MaterialButtonpro btnConnect;
-        private ZimaBlueUI.ZtextBoxRua sendOutTime;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label lblMesTextR;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialComboBox cbxTorqueUnit;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel2;
+        private ZimaBlueUI.ZtextBoxRua tbxSaveDataPath;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel3;
+        private MaterialSkin.Controls.MaterialComboBox cbxDataStoredTime;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel4;
+        private MaterialSkin.Controls.MaterialComboBox cbxLogStoredTime;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel5;
+        private MaterialSkin.Controls.MaterialComboBox cbxLoggedOutTime;
+        private System.Windows.Forms.Label label4;
     }
 }

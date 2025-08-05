@@ -48,7 +48,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="sendOutTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="TorqueUnit" Type="System.String" Scope="User">
       <Value Profile="(Default)">mn</Value>

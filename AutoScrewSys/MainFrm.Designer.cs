@@ -32,39 +32,41 @@ namespace AutoScrewSys
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFm));
             this.tpTitlebar = new ZimaBlueUI.Tpanel();
-            this.btnToggleSize = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.Panel();
             this.lblMesTextR = new System.Windows.Forms.Label();
-            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.tpContainer = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.RT_Voltage = new System.Windows.Forms.Label();
+            this.RealTVoltage = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioBtnRunFrm = new System.Windows.Forms.RadioButton();
             this.radioBtnHistoryData = new System.Windows.Forms.RadioButton();
             this.radioBtnTaskParam = new System.Windows.Forms.RadioButton();
             this.radioBtnParamSet = new System.Windows.Forms.RadioButton();
             this.radioBtnIOMonitor = new System.Windows.Forms.RadioButton();
             this.radioBtnStatusAction = new System.Windows.Forms.RadioButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.radioBtnLogin = new System.Windows.Forms.RadioButton();
-            this.RT_Voltage = new System.Windows.Forms.Label();
-            this.RealTVoltage = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Panel();
+            this.btnMax = new System.Windows.Forms.Panel();
+            this.btnToggleSize = new System.Windows.Forms.Panel();
+            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.tpTitlebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tpTitlebar
             // 
             this.tpTitlebar.Alpha = 50;
             this.tpTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpTitlebar.Controls.Add(this.flowLayoutPanel2);
             this.tpTitlebar.Controls.Add(this.RT_Voltage);
             this.tpTitlebar.Controls.Add(this.LogoPictureBox);
             this.tpTitlebar.Controls.Add(this.RealTVoltage);
-            this.tpTitlebar.Controls.Add(this.btnToggleSize);
-            this.tpTitlebar.Controls.Add(this.btnClose);
             this.tpTitlebar.Controls.Add(this.lblMesTextR);
             this.tpTitlebar.Dock = System.Windows.Forms.DockStyle.Top;
             this.tpTitlebar.Location = new System.Drawing.Point(0, 0);
@@ -80,28 +82,6 @@ namespace AutoScrewSys
             this.tpTitlebar.TabIndex = 1;
             this.tpTitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
-            // btnToggleSize
-            // 
-            this.btnToggleSize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleSize.BackgroundImage")));
-            this.btnToggleSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnToggleSize.Location = new System.Drawing.Point(1374, 12);
-            this.btnToggleSize.Name = "btnToggleSize";
-            this.btnToggleSize.Size = new System.Drawing.Size(59, 52);
-            this.btnToggleSize.TabIndex = 5;
-            this.btnToggleSize.Click += new System.EventHandler(this.btnToggleSize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClose.Location = new System.Drawing.Point(1449, 12);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(59, 52);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // lblMesTextR
             // 
             this.lblMesTextR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -113,20 +93,9 @@ namespace AutoScrewSys
             this.lblMesTextR.Size = new System.Drawing.Size(386, 58);
             this.lblMesTextR.TabIndex = 39;
             this.lblMesTextR.Tag = "AccessibleName";
-            this.lblMesTextR.Text = "SCREW  SYSTEM";
+            this.lblMesTextR.Text = "索莱斯克 · 智能电批解决方案";
             this.lblMesTextR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblMesTextR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
-            // 
-            // LogoPictureBox
-            // 
-            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
-            this.LogoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoPictureBox.Image")));
-            this.LogoPictureBox.Location = new System.Drawing.Point(7, 7);
-            this.LogoPictureBox.Name = "LogoPictureBox";
-            this.LogoPictureBox.Size = new System.Drawing.Size(149, 57);
-            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.LogoPictureBox.TabIndex = 40;
-            this.LogoPictureBox.TabStop = false;
             // 
             // tpContainer
             // 
@@ -159,6 +128,63 @@ namespace AutoScrewSys
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(155, 753);
             this.flowLayoutPanel1.TabIndex = 14;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.radioBtnLogin);
+            this.panel1.Location = new System.Drawing.Point(3, 357);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(153, 393);
+            this.panel1.TabIndex = 12;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
+            this.panel2.Controls.Add(this.tpTitlebar);
+            this.panel2.Controls.Add(this.tpContainer);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1535, 825);
+            this.panel2.TabIndex = 3;
+            // 
+            // RT_Voltage
+            // 
+            this.RT_Voltage.BackColor = System.Drawing.Color.Transparent;
+            this.RT_Voltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.RT_Voltage.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RT_Voltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
+            this.RT_Voltage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.RT_Voltage.Location = new System.Drawing.Point(168, 21);
+            this.RT_Voltage.Name = "RT_Voltage";
+            this.RT_Voltage.Size = new System.Drawing.Size(79, 33);
+            this.RT_Voltage.TabIndex = 230;
+            this.RT_Voltage.Text = "V (RT)";
+            this.RT_Voltage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // RealTVoltage
+            // 
+            this.RealTVoltage.BackColor = System.Drawing.Color.Transparent;
+            this.RealTVoltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.RealTVoltage.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RealTVoltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
+            this.RealTVoltage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.RealTVoltage.Location = new System.Drawing.Point(253, 21);
+            this.RealTVoltage.Name = "RealTVoltage";
+            this.RealTVoltage.Size = new System.Drawing.Size(88, 33);
+            this.RealTVoltage.TabIndex = 229;
+            this.RealTVoltage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.btnClose);
+            this.flowLayoutPanel2.Controls.Add(this.btnMax);
+            this.flowLayoutPanel2.Controls.Add(this.btnToggleSize);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(1134, 8);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(377, 57);
+            this.flowLayoutPanel2.TabIndex = 0;
             // 
             // radioBtnRunFrm
             // 
@@ -302,25 +328,6 @@ namespace AutoScrewSys
             this.radioBtnStatusAction.UseVisualStyleBackColor = true;
             this.radioBtnStatusAction.Click += new System.EventHandler(this.radioBtnStatusAction_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.radioBtnLogin);
-            this.panel1.Location = new System.Drawing.Point(3, 357);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(153, 393);
-            this.panel1.TabIndex = 12;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Controls.Add(this.tpTitlebar);
-            this.panel2.Controls.Add(this.tpContainer);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1535, 825);
-            this.panel2.TabIndex = 3;
-            // 
             // radioBtnLogin
             // 
             this.radioBtnLogin.Appearance = System.Windows.Forms.Appearance.Button;
@@ -346,32 +353,48 @@ namespace AutoScrewSys
             this.radioBtnLogin.UseVisualStyleBackColor = true;
             this.radioBtnLogin.Click += new System.EventHandler(this.radioBtnLogin_Click);
             // 
-            // RT_Voltage
+            // btnClose
             // 
-            this.RT_Voltage.BackColor = System.Drawing.Color.Transparent;
-            this.RT_Voltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RT_Voltage.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RT_Voltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
-            this.RT_Voltage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.RT_Voltage.Location = new System.Drawing.Point(168, 21);
-            this.RT_Voltage.Name = "RT_Voltage";
-            this.RT_Voltage.Size = new System.Drawing.Size(79, 33);
-            this.RT_Voltage.TabIndex = 230;
-            this.RT_Voltage.Text = "V (RT)";
-            this.RT_Voltage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose.BackgroundImage")));
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnClose.Location = new System.Drawing.Point(315, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(59, 48);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // RealTVoltage
+            // btnMax
             // 
-            this.RealTVoltage.BackColor = System.Drawing.Color.Transparent;
-            this.RealTVoltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RealTVoltage.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RealTVoltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
-            this.RealTVoltage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.RealTVoltage.Location = new System.Drawing.Point(253, 21);
-            this.RealTVoltage.Name = "RealTVoltage";
-            this.RealTVoltage.Size = new System.Drawing.Size(88, 33);
-            this.RealTVoltage.TabIndex = 229;
-            this.RealTVoltage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMax.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMax.BackgroundImage")));
+            this.btnMax.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMax.Location = new System.Drawing.Point(250, 3);
+            this.btnMax.Name = "btnMax";
+            this.btnMax.Size = new System.Drawing.Size(59, 48);
+            this.btnMax.TabIndex = 231;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
+            // 
+            // btnToggleSize
+            // 
+            this.btnToggleSize.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToggleSize.BackgroundImage")));
+            this.btnToggleSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnToggleSize.Location = new System.Drawing.Point(185, 3);
+            this.btnToggleSize.Name = "btnToggleSize";
+            this.btnToggleSize.Size = new System.Drawing.Size(59, 48);
+            this.btnToggleSize.TabIndex = 5;
+            this.btnToggleSize.Click += new System.EventHandler(this.btnToggleSize_Click);
+            // 
+            // LogoPictureBox
+            // 
+            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.LogoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("LogoPictureBox.Image")));
+            this.LogoPictureBox.Location = new System.Drawing.Point(7, 7);
+            this.LogoPictureBox.Name = "LogoPictureBox";
+            this.LogoPictureBox.Size = new System.Drawing.Size(149, 57);
+            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.LogoPictureBox.TabIndex = 40;
+            this.LogoPictureBox.TabStop = false;
             // 
             // MainFm
             // 
@@ -388,11 +411,14 @@ namespace AutoScrewSys
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainFm_Load);
+            this.Shown += new System.EventHandler(this.MainFm_Shown);
+            this.Resize += new System.EventHandler(this.MainFm_Resize);
             this.tpTitlebar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,6 +442,8 @@ namespace AutoScrewSys
         private System.Windows.Forms.Label RealTVoltage;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton radioBtnLogin;
+        private System.Windows.Forms.Panel btnMax;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
     }
 }
 

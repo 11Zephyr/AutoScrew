@@ -17,9 +17,10 @@ using System.Windows.Forms;
 
 namespace AutoScrewSys.Frm
 {
-    public partial class ParameterSettingUI : UserControl
+    public partial class ParameterSettingUI : BaseUserControl
     {
         private AutoLogoutManager _autoLogoutManager;
+        private bool isHandlingLogoutTimeChange = false;
         public ParameterSettingUI()
         {
             InitializeComponent();
@@ -30,8 +31,8 @@ namespace AutoScrewSys.Frm
             GlobalMonitor.Start(
                  () =>
                  {
-                     SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
-                     LogHelper.WriteLog("串口连接成功...", LogType.Run);
+                     //SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
+                     LogHelper.WriteLog("程序启动...", LogType.Run);
                  },
                  (msg) =>
                  {
@@ -216,8 +217,30 @@ namespace AutoScrewSys.Frm
 
         private void cbxLoggedOutTime_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // 避免内部设置触发重复事件
+            if (isHandlingLogoutTimeChange)
+                return;
+
+            GlobalMonitor.CheckLogin(3);
+
+            if (Settings.Default.Login < 3)
+            {
+                isHandlingLogoutTimeChange = true;
+
+                this.BeginInvoke(new Action(() =>
+                {
+                    cbxLoggedOutTime.SelectedIndex = 0;
+                    Settings.Default.LoggedOutTime = cbxLoggedOutTime.SelectedItem.ToString();
+                    _autoLogoutManager.ApplySettings();
+
+                    isHandlingLogoutTimeChange = false;
+                }));
+
+                return;
+            }
+
+            // 权限足够，保存设置
             Settings.Default.LoggedOutTime = cbxLoggedOutTime.SelectedItem.ToString();
-            // 重新应用权限计时器设置
             _autoLogoutManager.ApplySettings();
 
         }
