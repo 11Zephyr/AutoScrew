@@ -313,7 +313,7 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("注销")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Logout")]
         public string UserLevel {
             get {
                 return ((string)(this["UserLevel"]));

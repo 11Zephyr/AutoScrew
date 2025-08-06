@@ -189,6 +189,9 @@
   <data name="&gt;&gt;versionlabel.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="zmProgressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="zmProgressBar1.Location" type="System.Drawing.Point, System.Drawing">
     <value>65, 74</value>
   </data>

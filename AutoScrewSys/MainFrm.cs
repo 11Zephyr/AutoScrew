@@ -35,16 +35,18 @@ namespace AutoScrewSys
         public MainFm()
         {
             InitializeComponent();
-            AutoControlSize.RegisterFormControl(this);
             EnableDoubleBuffer();
+            AutoControlSize.RegisterFormControl(this);
         }
         public void EnableDoubleBuffer()
         {
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.AllPaintingInWmPaint |
-                          ControlStyles.UserPaint, true);
+            // 启用双缓冲
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             this.UpdateStyles();
+
+            // 如果tpContainer是Panel或者UserControl，也做同样设置
+            typeof(Panel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(tpContainer, true, null);
         }
 
         private void MainFm_Load(object sender, EventArgs e)
@@ -92,9 +94,11 @@ namespace AutoScrewSys
             this.radioBtnTaskParam.Tag = 2;
             this.radioBtnParamSet.Tag = 3;
             this.radioBtnIOMonitor.Tag = 4;
+            this.radioBtnStatusAction.Tag = 5;
             this.nCurTag = 0;
+
             this.radioBtnRunFrm.Checked = true;
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
             //LoadControlToPanel(new HistoryDataUI());
 
@@ -111,21 +115,30 @@ namespace AutoScrewSys
 
             if (sender is RadioButton rBtn)
             {
-                int tag = Convert.ToInt32(rBtn.Tag);
-                if (tag < this.formList.Count)
+                if (int.TryParse(rBtn.Tag?.ToString(), out int tag) && tag < formList.Count && tag != nCurTag)
                 {
-                    if (tag != nCurTag)
+                    foreach (var rb in rBtn.Parent.Controls.OfType<RadioButton>())
                     {
-                        nCurTag = tag;
-                        tpContainer.Controls.Clear();
-                        var uc = formList[tag];
-                        uc.Dock = DockStyle.Fill;
-                        tpContainer.Controls.Add(uc);
+                        if (rb.Tag == null) continue;
 
+                        if (tag != nCurTag)
+                        {
+                            rb.BackColor = Color.FromArgb(33, 33, 33);
+                            rb.ForeColor = Color.White;
+                            rb.Checked = false;
+                        }
                     }
+                    rBtn.BackColor = SystemColors.ActiveCaption;
+                    rBtn.ForeColor = Color.Black;
 
+                    nCurTag = tag;
+                    tpContainer.Controls.Clear();
+                    var uc = formList[tag];
+                    uc.Dock = DockStyle.Fill;
+                    tpContainer.Controls.Add(uc);
                 }
             }
+
         }
 
         private void Panel_MouseDown(object sender, MouseEventArgs e)
@@ -187,6 +200,12 @@ namespace AutoScrewSys
         private void MainFm_Resize(object sender, EventArgs e)
         {
             AutoControlSize.ChangeFormControlSize(this);
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                btnClose.Invalidate(); // 强制刷新 Panel
+                btnClose.Update();
+            }
         }
 
         private void btnMax_Click(object sender, EventArgs e)
@@ -203,7 +222,7 @@ namespace AutoScrewSys
 
         private void MainFm_Shown(object sender, EventArgs e)
         {
-           // GlobalMonitor.Isload = true;
+            // GlobalMonitor.Isload = true;
         }
     }
 }

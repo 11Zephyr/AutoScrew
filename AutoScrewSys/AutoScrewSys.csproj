@@ -105,9 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSize\AutoControlSize.cs" />
-    <Compile Include="AutoSize\ControlScaler.cs" />
     <Compile Include="Base\AutoLogoutManager.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
+    <Compile Include="Base\LocalizationHelper.cs" />
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
     <Compile Include="Base\SerialPortTaskQueue.cs" />
@@ -234,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\VirtualkeyboardFrm.resx">
       <DependentUpon>VirtualkeyboardFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFrm.en.resx">
+      <DependentUpon>MainFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFrm.resx">
       <DependentUpon>MainFrm.cs</DependentUpon>

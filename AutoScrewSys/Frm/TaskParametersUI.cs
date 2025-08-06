@@ -274,8 +274,8 @@ namespace AutoScrewSys.Frm
         private static readonly Dictionary<int, PowerRangeModel> PowerMap = new Dictionary<int, PowerRangeModel>
         {
             //功率                       //扭力范围                //速度
-            { 30,  new PowerRangeModel { TorqueRange = "20-300",    SpeedRange = "10-3000" } },
-            { 50,  new PowerRangeModel { TorqueRange = "60-450",  SpeedRange = "10-3000" } },
+            { 30,  new PowerRangeModel { TorqueRange = "20-300",       SpeedRange = "10-3000" } },
+            { 50,  new PowerRangeModel { TorqueRange = "60-450",       SpeedRange = "10-3000" } },
             { 100, new PowerRangeModel { TorqueRange = "100-900",      SpeedRange = "30-3000" } },
             { 200, new PowerRangeModel { TorqueRange = "300-1800",     SpeedRange = "30-3000" } },
             { 400, new PowerRangeModel { TorqueRange = "1000-3600",    SpeedRange = "30-2000" } },
@@ -308,7 +308,7 @@ namespace AutoScrewSys.Frm
                 new ParamInfo { Name = "拧松扭力",                  Range = range.TorqueRange,     Unit = "mN.m",   Remark = "拧松过程目标最大扭力,不可太小" },
                 new ParamInfo { Name = "自由转速度",                Range = range.SpeedRange,      Unit = "r",      Remark = "自由速度" },
                 new ParamInfo { Name = "自由转扭力",                Range = range.TorqueRange,     Unit = "mN.m",   Remark = "自由旋转扭力" },
-                new ParamInfo { Name = "偏移角度",                  Range = "0~3600",              Unit = "0.1°",   Remark = "In 0.1° units" }
+                new ParamInfo { Name = "偏移角度",                  Range = "0-3600",              Unit = "0.1°",   Remark = "In 0.1° units" }
             };
         }
 

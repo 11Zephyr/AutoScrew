@@ -72,6 +72,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.cbxLoggedOutTime = new MaterialSkin.Controls.MaterialComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.comboBoxLanguage = new MaterialSkin.Controls.MaterialComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tpanel1.SuspendLayout();
@@ -88,6 +91,7 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -568,6 +572,7 @@
             this.flowLayoutPanel1.Controls.Add(this.panel3);
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
+            this.flowLayoutPanel1.Controls.Add(this.panel7);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Font = new System.Drawing.Font("思源黑体 CN Bold", 14.25F, System.Drawing.FontStyle.Bold);
@@ -876,6 +881,60 @@
             this.label4.Text = "权限自动注销时长:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel7
+            // 
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.comboBoxLanguage);
+            this.panel7.Controls.Add(this.label14);
+            this.panel7.Location = new System.Drawing.Point(3, 381);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(906, 58);
+            this.panel7.TabIndex = 46;
+            // 
+            // comboBoxLanguage
+            // 
+            this.comboBoxLanguage.AutoResize = false;
+            this.comboBoxLanguage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.comboBoxLanguage.Borderwidht = 7;
+            this.comboBoxLanguage.ComboxColor = System.Drawing.Color.White;
+            this.comboBoxLanguage.Commodel = 0;
+            this.comboBoxLanguage.Depth = 0;
+            this.comboBoxLanguage.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.comboBoxLanguage.DropDownHeight = 217;
+            this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLanguage.DropDownWidth = 121;
+            this.comboBoxLanguage.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.comboBoxLanguage.FormattingEnabled = true;
+            this.comboBoxLanguage.IntegralHeight = false;
+            this.comboBoxLanguage.ItemHeight = 43;
+            this.comboBoxLanguage.Items.AddRange(new object[] {
+            "中文",
+            "英语"});
+            this.comboBoxLanguage.Location = new System.Drawing.Point(189, 2);
+            this.comboBoxLanguage.MaxDropDownItems = 5;
+            this.comboBoxLanguage.MouseState = MaterialSkin.MouseState.OUT;
+            this.comboBoxLanguage.Name = "comboBoxLanguage";
+            this.comboBoxLanguage.ShowScrollbar = false;
+            this.comboBoxLanguage.Size = new System.Drawing.Size(137, 49);
+            this.comboBoxLanguage.StartIndex = 0;
+            this.comboBoxLanguage.TabIndex = 203;
+            this.comboBoxLanguage.Triangle = true;
+            this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLanguage_SelectedIndexChanged);
+            // 
+            // label14
+            // 
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(142, 56);
+            this.label14.TabIndex = 202;
+            this.label14.Text = "语言:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // ParameterSettingUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -900,6 +959,7 @@
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -950,5 +1010,8 @@
         private System.Windows.Forms.Panel panel5;
         private MaterialSkin.Controls.MaterialComboBox cbxLoggedOutTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel7;
+        private MaterialSkin.Controls.MaterialComboBox comboBoxLanguage;
+        private System.Windows.Forms.Label label14;
     }
 }

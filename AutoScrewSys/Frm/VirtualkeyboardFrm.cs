@@ -55,13 +55,13 @@ namespace SharedCore
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(Inputbox.Text))
-                {
-                    Close(); return;
-                }
-
                 if (_isModbusMode)
                 {
+                    if (string.IsNullOrWhiteSpace(Inputbox.Text))
+                    {
+                        Close(); return;
+                    }
+
                     // ✅ 模式一：带 Modbus 写入逻辑
                     if (double.TryParse(Inputbox.Text, out double inputvlaue))
                     {

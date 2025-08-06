@@ -49,9 +49,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.Yield = new ZimaBlueUI.ZGradientProgressBar();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.rtbLog = new System.Windows.Forms.RichTextBox();
             this.tpanel9 = new ZimaBlueUI.Tpanel();
@@ -102,6 +99,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.TaskNumber = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Yield = new ZimaBlueUI.ZGradientProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -113,7 +113,6 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -125,6 +124,7 @@
             this.tpanel6.SuspendLayout();
             this.tpanel4.SuspendLayout();
             this.tpanel3.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer2
@@ -337,7 +337,6 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel1, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel5, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.flowLayoutPanel2, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 4);
@@ -345,6 +344,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tpanel7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tpanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel6, 0, 5);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -359,39 +359,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.14741F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(732, 753);
             this.tableLayoutPanel1.TabIndex = 68;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.label19);
-            this.flowLayoutPanel1.Controls.Add(this.Yield);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 548);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(726, 44);
-            this.flowLayoutPanel1.TabIndex = 207;
-            // 
-            // label19
-            // 
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label19.Location = new System.Drawing.Point(3, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(68, 44);
-            this.label19.TabIndex = 202;
-            this.label19.Text = "良率:";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Yield
-            // 
-            this.Yield.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
-            this.Yield.Location = new System.Drawing.Point(77, 3);
-            this.Yield.Name = "Yield";
-            this.Yield.Progress = 0F;
-            this.Yield.Size = new System.Drawing.Size(644, 32);
-            this.Yield.TabIndex = 203;
-            this.Yield.Text = "zGradientProgressBar1";
             // 
             // tableLayoutPanel5
             // 
@@ -839,7 +806,7 @@
             this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.ScrewResultStr.Location = new System.Drawing.Point(181, 2);
             this.ScrewResultStr.Name = "ScrewResultStr";
-            this.ScrewResultStr.Size = new System.Drawing.Size(380, 115);
+            this.ScrewResultStr.Size = new System.Drawing.Size(380, 109);
             this.ScrewResultStr.TabIndex = 200;
             this.ScrewResultStr.Text = "Ready";
             this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1109,6 +1076,45 @@
             this.label3.Text = "任务号:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.90909F));
+            this.tableLayoutPanel6.Controls.Add(this.label19, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Yield, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 548);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(726, 44);
+            this.tableLayoutPanel6.TabIndex = 207;
+            // 
+            // label19
+            // 
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
+            this.label19.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label19.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label19.Location = new System.Drawing.Point(3, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 44);
+            this.label19.TabIndex = 204;
+            this.label19.Text = "良率:";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // Yield
+            // 
+            this.Yield.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
+            this.Yield.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Yield.Location = new System.Drawing.Point(69, 3);
+            this.Yield.Name = "Yield";
+            this.Yield.Progress = 0F;
+            this.Yield.Size = new System.Drawing.Size(654, 38);
+            this.Yield.TabIndex = 205;
+            this.Yield.Text = "zGradientProgressBar1";
+            // 
             // RunUI
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1128,7 +1134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -1141,6 +1146,7 @@
             this.tpanel6.ResumeLayout(false);
             this.tpanel4.ResumeLayout(false);
             this.tpanel3.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1154,11 +1160,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.RichTextBox rtbLog;
         private ZimaBlueUI.Tpanel tpanel9;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label20;
-        private ZimaBlueUI.ZtextBoxRua tbxSnCode;
-        private ZimaBlueUI.ZRoundButton btnRandomSNCode;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label lblBadScrews;
         private System.Windows.Forms.Label label17;
@@ -1201,9 +1202,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label TaskNumber;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label19;
-        private ZimaBlueUI.ZGradientProgressBar Yield;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1211,5 +1209,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label19;
+        private ZimaBlueUI.ZGradientProgressBar Yield;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label20;
+        private ZimaBlueUI.ZtextBoxRua tbxSnCode;
+        private ZimaBlueUI.ZRoundButton btnRandomSNCode;
     }
 }

@@ -36,7 +36,7 @@ namespace AutoScrewSys.Base
     {
         public static bool isInit { get; private set; } //初始化标志
         private static bool _collecting = false;//采集波形数据标志
-        public static bool Isload { get;  set; }
+        public static bool Isload { get; set; }
         private static readonly object _binFileLock = new object();//二进制文件锁
 
         public static Action ClearChartAction;//清除波形图委托

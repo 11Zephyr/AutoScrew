@@ -258,5 +258,23 @@ namespace AutoScrewSys.Frm
                 }
             }
         }
+
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedLang = comboBoxLanguage.SelectedItem.ToString();
+
+            if (selectedLang == "中文")
+                LocalizationHelper.SetCulture("zh-CN");
+            else
+                LocalizationHelper.SetCulture("en-US");
+
+            // 重新加载 UI 文字
+            ReloadUI();
+        }
+        private void ReloadUI()
+        {
+            // 设置窗体控件的语言
+            LocalizationHelper.ApplyLanguage(this.Controls);
+        }
     }
 }

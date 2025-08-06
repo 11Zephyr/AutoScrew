@@ -32,9 +32,9 @@ namespace ZimaBlueScrew
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadFrm));
             this.zRoundPanel3 = new ZimaBlueUI.ZRoundPanel();
+            this.label9 = new System.Windows.Forms.Label();
             this.versionlabel = new System.Windows.Forms.Label();
             this.zmProgressBar1 = new AutoScrewSys.Base.ZMProgressBar();
-            this.label9 = new System.Windows.Forms.Label();
             this.zRoundPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +49,13 @@ namespace ZimaBlueScrew
             this.zRoundPanel3.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.zRoundPanel3.PanelBorderColor = System.Drawing.Color.White;
             this.zRoundPanel3.PanelBorderRadius = 15F;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label9.Name = "label9";
             // 
             // versionlabel
             // 
@@ -65,13 +72,6 @@ namespace ZimaBlueScrew
             this.zmProgressBar1.Name = "zmProgressBar1";
             this.zmProgressBar1.Step = 1;
             this.zmProgressBar1.Value = 5;
-            // 
-            // label9
-            // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label9.Name = "label9";
             // 
             // LoadFrm
             // 

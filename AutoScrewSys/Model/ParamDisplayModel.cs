@@ -21,6 +21,8 @@ namespace AutoScrewSys.Model
         public string Range { get; set; }
         public string Unit { get; set; }
         public string Remark { get; set; }
+
+       // public string IsProportion { get; set; }
     }
 
 }
