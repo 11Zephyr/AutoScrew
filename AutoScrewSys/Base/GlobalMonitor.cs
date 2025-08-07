@@ -9,6 +9,7 @@ using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.Presentation;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Vml;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -29,6 +30,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Color = System.Drawing.Color;
 using Control = System.Windows.Forms.Control;
 using Path = System.IO.Path;
+using Settings = AutoScrewSys.Properties.Settings;
 
 namespace AutoScrewSys.Base
 {
@@ -43,7 +45,6 @@ namespace AutoScrewSys.Base
         public static event Action<List<float>> OnChartDataReceived;//波形图接收事件
         public static event Action OnResultsUpdated;//更新表格事件
         public static event Action<int, int, int, int, int> StatusChanged;//状态变换事件
-
         public static ModbusSerialInfo SerialInfo { get; set; }//ModBus串口信息
         static Thread _modbusSyncThread;//主循环线程
         private static List<double> waveDataInfo = new List<double>();//存储波形数据
@@ -95,68 +96,103 @@ namespace AutoScrewSys.Base
             }
         }
 
+        private async static void HeartbeatChecker()
+        {
+            try
+            {
+                ModbusCfgModel cfg = ModbusAddressConfig.Instance.GetAddressItem("RealTVoltage");//实时电压
+                if (cfg == null) return;
+
+                (bool success, short[] values) reader = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                   (byte)cfg.SlaveAddress,
+                   (ushort)cfg.StartAddress,
+                   (ushort)cfg.Length
+               );
+                ModbusRtuHelper.Controller = reader.success;
+                if (!ModbusRtuHelper.Controller)
+                {
+                    SettingsUpdater.SetVoltageColor(Color.Red);
+                    SettingsUpdater.SetIfChanged(AddrName.Default, "RealTVoltage", "设备未连接...");
+                }
+            }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"心跳检查报错:{ex.Message}",LogType.Error);
+            }
+        }
         /// <summary>
         /// 主循环线程
         /// </summary>
         public async static void MainThread()
         {
             var cfg = AddrName.Default;//存储地址名称设置文件
-
-            while (isInit)
+            try
             {
-                foreach (SettingsProperty p in cfg.Properties)
+                while (isInit)
                 {
-                    var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
-                    if (addr == null) continue;
-                    try
+                    HeartbeatChecker();
+                    if (!ModbusRtuHelper.Controller) 
                     {
-                        var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
-                            (byte)addr.SlaveAddress,
-                            (ushort)addr.StartAddress,
-                            (ushort)addr.Length
-                        );
-                        if (success)
-                        {
-                            var value = values[0] * addr.Proportion;
-                            SettingsUpdater.SetIfChanged(cfg, p.Name, value);
-                            SettingsUpdater.SetVoltageColor(Color.Green);
-                            AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
-                        }
-                        else
-                        {
-                            SettingsUpdater.SetVoltageColor(Color.Red);
-                            LogHelper.WriteLog($"读取: {addr.Description} 失败-从站:{addr.SlaveAddress}-地址:{addr.StartAddress}-长度:{addr.Length}", LogType.Fault);
-                            await Task.Delay(3000);
-                        }
+                        await Task.Delay(3000); continue;
                     }
-                    catch (Exception ex)
+                    foreach (SettingsProperty p in cfg.Properties)
                     {
-                        LogHelper.WriteLog($"读取 {p.Name} 报错: {ex.Message}", LogType.Error);
+                        var addr = ModbusAddressConfig.Instance.GetAddressItem(p.Name);
+                        if (addr == null) continue;
+                        try
+                        {
+                            var (success, values) = await ModbusRtuHelper.Instance.ReadRegistersAsync(
+                                (byte)addr.SlaveAddress,
+                                (ushort)addr.StartAddress,
+                                (ushort)addr.Length
+                            );
+                            if (success)
+                            {
+                                var value = values[0] * addr.Proportion;
+                                SettingsUpdater.SetIfChanged(cfg, p.Name, value);
+                                SettingsUpdater.SetVoltageColor(Color.Green);
+                                AcquireWaveformData(cfg, AddrName.Default.ScrewResult);
+                            }
+                            else
+                            {
+                                LogHelper.WriteLog($"读取: {addr.Description} 失败-从站:{addr.SlaveAddress}-地址:{addr.StartAddress}-长度:{addr.Length}", LogType.Fault,false);
+                                break;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            LogHelper.WriteLog($"读取 {p.Name} 报错: {ex.Message}", LogType.Error);
+                        }
+
+                        #region 注释
+                        //var task = Task.Run(async () =>
+                        //{
+
+                        //});
+                        //if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))//异步锁,3秒超时
+                        //{
+
+                        //}
+                        //else
+                        //{
+                        //    SettingsUpdater.SetVoltageColor(Color.Red);
+                        //    LogHelper.WriteLog($"读取超时......", LogType.Error);
+                        //    StopModbusSyncThread();
+                        //    break;
+                        //} 
+                        #endregion
                     }
 
-                    #region 注释
-                    //var task = Task.Run(async () =>
-                    //{
-
-                    //});
-                    //if (await semaphore.WaitAsync(TimeSpan.FromSeconds(3)))//异步锁,3秒超时
-                    //{
-
-                    //}
-                    //else
-                    //{
-                    //    SettingsUpdater.SetVoltageColor(Color.Red);
-                    //    LogHelper.WriteLog($"读取超时......", LogType.Error);
-                    //    StopModbusSyncThread();
-                    //    break;
-                    //} 
-                    #endregion
+                    UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
+                    StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
+                    await Task.Delay(10);
                 }
-
-                UpdateAlarmMsgStr(cfg, AddrName.Default.AlarmInfo);
-                StatusChangeNotifier.CheckAndNotifyStatusChange(StatusChanged);
-                await Task.Delay(10);
             }
+            catch (Exception ex)
+            {
+                LogHelper.WriteLog($"主循环报错:{ex.Message}", LogType.Error);
+            }
+            
         }
         /// <summary>
         /// 停止 Modbus 循环线程
@@ -273,7 +309,6 @@ namespace AutoScrewSys.Base
                 }
                 else if ((code == 2 || code == 3 || code == 4) && _collecting)
                 {
-                    LogHelper.WriteLog("--------------运行结束--------------", LogType.Run);
                     OnResultsUpdated?.Invoke();
                     _collecting = false;
                 }

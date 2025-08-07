@@ -213,13 +213,6 @@ namespace AutoScrewSys.Frm
 
         }
 
-        private void btnFree_Click(object sender, EventArgs e)
-        {
-            currentState = WorkState.Free;
-            SaveSettings();
-            UpdateModbusAddress();
-        }
-
 
         public async Task LoadTaskParameters()
         {

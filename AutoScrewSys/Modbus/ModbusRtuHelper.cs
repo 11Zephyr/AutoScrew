@@ -13,9 +13,16 @@ namespace AutoScrewSys.Modbus
 {
     public class ModbusRtuHelper
     {
+        private byte[] _receiveBuffer;
+        private int _receiveOffset = 0;
+        private int _expectedLength = 0;
+        private bool _dataReady = false;
+        private readonly object _receiveLock = new object();
+
         private static ModbusRtuHelper _instance;//单例
         private static readonly object _lock = new object();//单例锁
         public bool Debug { get; set; } = false;//调试使用
+        public static bool Controller { get; set; }
         private SerialPort _serialPort;
         private readonly SemaphoreSlim _asyncLock = new SemaphoreSlim(1, 1);
         public static ModbusRtuHelper Instance
@@ -52,6 +59,7 @@ namespace AutoScrewSys.Modbus
 
                 if (!_serialPort.IsOpen)
                 {
+                    _serialPort.DataReceived += SerialPort_DataReceived;
                     _serialPort.Open();
                     LogHelper.WriteLog("串口连接成功", LogType.Run);
                 }
@@ -64,29 +72,31 @@ namespace AutoScrewSys.Modbus
                 return false;
             }
         }
-
-        public async Task<(bool result, short[] values)> ReadRegistersAsync_(byte slaveId, ushort startAddress, ushort length)
+        private void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
-                byte[] frame = BuildRequestFrame(slaveId, 0x03, startAddress, length);
-                byte[] response = await SendAndReceiveAsync(frame, length * 2 + 5);
+                int bytesToRead = _serialPort.BytesToRead;
+                if (bytesToRead == 0) return;
 
-                if (response?.Length < 5 || response?[1] != 0x03)
-                    return (false, Array.Empty<short>());
+                byte[] buffer = new byte[bytesToRead];
+                int read = _serialPort.Read(buffer, 0, bytesToRead);
 
-                short[] values = new short[length];
-                for (int i = 0; i < length; i++)
+                lock (_receiveLock)
                 {
-                    values[i] = (short)(response[3 + i * 2] << 8 | response[4 + i * 2]);
-                }
+                    int copyLen = Math.Min(read, _expectedLength - _receiveOffset);
+                    Array.Copy(buffer, 0, _receiveBuffer, _receiveOffset, copyLen);
+                    _receiveOffset += copyLen;
 
-                return (true, values);
+                    if (_receiveOffset >= _expectedLength)
+                    {
+                        _dataReady = true;
+                    }
+                }
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog($"读取寄存器异常: {ex.Message}", LogType.Error);
-                return (false, Array.Empty<short>());
+                LogHelper.WriteLog("串口接收异常：" + ex.Message, LogType.Error);
             }
         }
         /// <summary>
@@ -96,7 +106,7 @@ namespace AutoScrewSys.Modbus
         /// <param name="startAddress"></param>
         /// <param name="length"></param>
         /// <returns></returns>
-        public async Task<(bool result, short[] values)> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)
+        public async Task<(bool result, short[] values)> ReadRegistersAsync(byte slaveId, ushort startAddress, ushort length)//读取
         {
             try
             {
@@ -107,7 +117,7 @@ namespace AutoScrewSys.Modbus
 
                 if (response?.Length < 5 || response?[1] != 0x03)
                 {
-                    LogHelper.WriteLog("响应格式错误或功能码不一致", LogType.Fault);
+                    //LogHelper.WriteLog("响应格式错误或功能码不一致", LogType.Fault);
                     return (false, Array.Empty<short>());
                 }
 
@@ -121,7 +131,7 @@ namespace AutoScrewSys.Modbus
             }
             catch (TimeoutException tex)
             {
-                LogHelper.WriteLog("读取寄存器超时: " + tex.Message, LogType.Error);
+                LogHelper.WriteLog("读取寄存器超时: " + tex.Message, LogType.Error,false);
             }
             catch (IOException ioex)
             {
@@ -148,6 +158,50 @@ namespace AutoScrewSys.Modbus
             return (false, Array.Empty<short>());
         }
 
+        public async Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength, int timeoutMs = 1000)
+        {
+            await _asyncLock.WaitAsync(); // 不设超时
+            _dataReady = false;
+
+            lock (_receiveLock)
+            {
+                _expectedLength = expectedLength;
+                _receiveBuffer = new byte[expectedLength];
+                _receiveOffset = 0;
+            }
+
+            await _serialPort.BaseStream.WriteAsync(request, 0, request.Length);
+            if (Debug)
+                LogHelper.WriteLog($"TX:{BitConverter.ToString(request).Replace("-", " ")}", LogType.Run);
+
+            // 开始等待接收完成或超时
+            var sw = Stopwatch.StartNew();
+            while (sw.ElapsedMilliseconds < timeoutMs)
+            {
+                if (_dataReady)
+                {
+                    var result = new byte[_expectedLength];
+                    lock (_receiveLock)
+                    {
+                        Array.Copy(_receiveBuffer, result, _expectedLength);
+                    }
+
+                    if (Debug)
+                        LogHelper.WriteLog($"RX:{BitConverter.ToString(result).Replace("-", " ")}", LogType.Run);
+
+                    _asyncLock.Release();
+                    return result;
+                }
+
+                await Task.Delay(0); // 避免占满CPU
+            }
+
+            _asyncLock.Release();
+            LogHelper.WriteLog("串口接收超时...", LogType.Run, false);
+            return null;
+        }
+
+
         /// <summary>
         /// 写入数据
         /// </summary>
@@ -156,7 +210,7 @@ namespace AutoScrewSys.Modbus
         /// <param name="value"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public async Task<bool> WriteSingleRegisterAsync(byte slaveId, ushort address, ushort value)
+        public async Task<bool> WriteSingleRegisterAsync(byte slaveId, ushort address, ushort value)//写入
         {
             byte[] frame = BuildRequestFrame(slaveId, 0x06, address, value);
 
@@ -191,19 +245,21 @@ namespace AutoScrewSys.Modbus
         /// <returns></returns>
         /// <exception cref="IOException"></exception>
         /// <exception cref="TimeoutException"></exception>
-        public async Task<byte[]> SendAndReceiveAsync(byte[] request, int expectedLength, int timeoutMs = 1000)
+        public async Task<byte[]> SendAndReceiveAsyncCanUse(byte[] request, int expectedLength, int timeoutMs = 1000)
         {
             var cts = new CancellationTokenSource(timeoutMs);
             bool acquired = false;
+
             try
             {
                 acquired = await _asyncLock.WaitAsync(TimeSpan.FromSeconds(3));
                 if (!acquired)
                 {
-                    LogHelper.WriteLog("等待串口访问超时，跳过此次任务", LogType.Error);
+                    // LogHelper.WriteLog("连接失败,等待串口访问超时......", LogType.Error);
+                    LogHelper.WriteLog($"串口状态: {_serialPort.IsOpen}, 端口: {_serialPort.PortName}", LogType.Run);
+
                     return null;
                 }
-
                 await _serialPort.BaseStream.WriteAsync(request, 0, request.Length);
 
                 if (Debug)
