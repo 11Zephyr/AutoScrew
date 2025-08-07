@@ -61,7 +61,14 @@ namespace AutoScrewSys.Base
             if (_logBox != null && !_logBox.IsDisposed)
             {
                 _logBox.Invoke((MethodInvoker)delegate
-                {
+                { 
+                    string[] lines = _logBox.Lines;
+
+                    if (lines.Length >= 10)
+                    {
+                        // 移除第一行（最旧的一条）
+                        _logBox.Lines = lines.Skip(1).ToArray();
+                    }
                     int start = _logBox.TextLength;
                     _logBox.AppendText(logLine);
                     _logBox.Select(start, logLine.Length);

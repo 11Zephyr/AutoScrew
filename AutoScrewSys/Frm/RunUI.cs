@@ -64,7 +64,7 @@ namespace AutoScrewSys.Frm
             InitTorqueChart();
             InitResultDgv();
             #endregion
-            LogHelper.InitializeLogBox(rtbLog, System.Drawing.Color.White);
+            LogHelper.InitializeLogBox(rtbLog, Color.FromArgb(255,128,0));
             SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
 
             GlobalMonitor.StatusChanged += OnStatusChanged;
