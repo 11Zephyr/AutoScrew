@@ -59,10 +59,12 @@ namespace AutoScrewSys.Frm
             Settings.Default.GoodScrews = 0;
             #endregion
 
-            #region 表格图表初始化
+            #region 控件初始化
             //EnableChartZoomAndPan();
             InitTorqueChart();
             InitResultDgv();
+            cbxNoCollection.ForeColor = Settings.Default.NoCollection ? Color.Red : Color.White;
+
             #endregion
             LogHelper.InitializeLogBox(rtbLog, Color.FromArgb(255,128,0));
             SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
@@ -71,7 +73,6 @@ namespace AutoScrewSys.Frm
             GlobalMonitor.Start(
                           () =>
                           {
-                              //SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
                               LogHelper.WriteLog("程序启动...", LogType.Run);
                           },
                           (msg) =>
@@ -141,6 +142,7 @@ namespace AutoScrewSys.Frm
         {
             GlobalMonitor.OnResultsUpdated += () =>
             {
+                if(Settings.Default.NoCollection)return;
                 this.Invoke((Action)(async () =>
                 {
                     try
@@ -390,5 +392,10 @@ namespace AutoScrewSys.Frm
             Settings.Default.SnCode = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
         }
 
+        private void cbxNoCollection_CheckedChanged(object sender, EventArgs e)
+        {
+            cbxNoCollection.ForeColor = cbxNoCollection.Checked? Color.Red:Color.White;
+          
+        }
     }
 }

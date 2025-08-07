@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.customPanel1 = new ZimaBlueUI.CustomPanel();
+            this.lblTorqueUnit = new System.Windows.Forms.Label();
             this.ElecBatchPower = new System.Windows.Forms.Label();
             this.AlarmInfoStr = new System.Windows.Forms.Label();
+            this.ScrewResultStr = new System.Windows.Forms.Label();
             this.Torque = new System.Windows.Forms.Label();
             this.LapsNum = new System.Windows.Forms.Label();
             this.RotateSpeed = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.lblBusySignal = new System.Windows.Forms.Label();
             this.lblEndSignal = new System.Windows.Forms.Label();
             this.lblAlarmSignal = new System.Windows.Forms.Label();
-            this.lblTorqueUnit = new System.Windows.Forms.Label();
-            this.ScrewResultStr = new System.Windows.Forms.Label();
             this.customPanel1.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,20 @@
             this.customPanel1.Size = new System.Drawing.Size(904, 123);
             this.customPanel1.TabIndex = 0;
             // 
+            // lblTorqueUnit
+            // 
+            this.lblTorqueUnit.BackColor = System.Drawing.Color.Transparent;
+            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lblTorqueUnit.Location = new System.Drawing.Point(441, 16);
+            this.lblTorqueUnit.Name = "lblTorqueUnit";
+            this.lblTorqueUnit.Size = new System.Drawing.Size(67, 33);
+            this.lblTorqueUnit.TabIndex = 228;
+            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
+            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // ElecBatchPower
             // 
             this.ElecBatchPower.BackColor = System.Drawing.Color.Transparent;
@@ -113,6 +127,20 @@
             this.AlarmInfoStr.TabIndex = 226;
             this.AlarmInfoStr.Text = "无故障";
             this.AlarmInfoStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ScrewResultStr
+            // 
+            this.ScrewResultStr.BackColor = System.Drawing.Color.Transparent;
+            this.ScrewResultStr.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "ResultBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ScrewResultStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ScrewResultStr.ForeColor = global::AutoScrewSys.Properties.Settings.Default.ResultBackColor;
+            this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.ScrewResultStr.Location = new System.Drawing.Point(526, 74);
+            this.ScrewResultStr.Name = "ScrewResultStr";
+            this.ScrewResultStr.Size = new System.Drawing.Size(111, 33);
+            this.ScrewResultStr.TabIndex = 225;
+            this.ScrewResultStr.Text = "OK";
+            this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Torque
             // 
@@ -440,34 +468,6 @@
             this.lblAlarmSignal.Text = "报警信号";
             this.lblAlarmSignal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTorqueUnit
-            // 
-            this.lblTorqueUnit.BackColor = System.Drawing.Color.Transparent;
-            this.lblTorqueUnit.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "TorqueUnit", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTorqueUnit.Font = new System.Drawing.Font("思源黑体 CN Bold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTorqueUnit.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTorqueUnit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblTorqueUnit.Location = new System.Drawing.Point(441, 16);
-            this.lblTorqueUnit.Name = "lblTorqueUnit";
-            this.lblTorqueUnit.Size = new System.Drawing.Size(67, 33);
-            this.lblTorqueUnit.TabIndex = 228;
-            this.lblTorqueUnit.Text = global::AutoScrewSys.Properties.Settings.Default.TorqueUnit;
-            this.lblTorqueUnit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // ScrewResultStr
-            // 
-            this.ScrewResultStr.BackColor = System.Drawing.Color.Transparent;
-            this.ScrewResultStr.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "ResultBackColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ScrewResultStr.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ScrewResultStr.ForeColor = global::AutoScrewSys.Properties.Settings.Default.ResultBackColor;
-            this.ScrewResultStr.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.ScrewResultStr.Location = new System.Drawing.Point(526, 74);
-            this.ScrewResultStr.Name = "ScrewResultStr";
-            this.ScrewResultStr.Size = new System.Drawing.Size(111, 33);
-            this.ScrewResultStr.TabIndex = 225;
-            this.ScrewResultStr.Text = "OK";
-            this.ScrewResultStr.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // MonitorFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -480,12 +480,12 @@
             this.Controls.Add(this.btnTightenMove);
             this.Controls.Add(this.btnTorqueMode);
             this.Controls.Add(this.customPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MonitorFrm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "监控与操作";
+            this.Text = "操作面板";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MonitorFrm_Load);
             this.customPanel1.ResumeLayout(false);

@@ -825,6 +825,7 @@
             this.cbxNoCollection.TabIndex = 199;
             this.cbxNoCollection.Text = "不采集";
             this.cbxNoCollection.UseVisualStyleBackColor = false;
+            this.cbxNoCollection.CheckedChanged += new System.EventHandler(this.cbxNoCollection_CheckedChanged);
             // 
             // label5
             // 
