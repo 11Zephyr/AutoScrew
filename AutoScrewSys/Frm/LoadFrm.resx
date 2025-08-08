@@ -117,154 +117,157 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;zmProgressBar1.Name" xml:space="preserve">
+    <value>zmProgressBar1</value>
+  </data>
+  <data name="versionlabel.Text" xml:space="preserve">
+    <value>程序加载中......</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 139</value>
-  </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>471, 136</value>
+  <data name="zRoundPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 360</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>201</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>索莱斯克 · 智能电批解决方案</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>600, 360</value>
   </data>
-  <data name="label9.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
-  </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>zRoundPanel3</value>
-  </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;zRoundPanel3.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="versionlabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
-  </data>
-  <data name="versionlabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="versionlabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>62, 41</value>
   </data>
-  <data name="versionlabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
-  <data name="versionlabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>476, 23</value>
-  </data>
-  <data name="versionlabel.TabIndex" type="System.Int32, mscorlib">
-    <value>69</value>
-  </data>
-  <data name="versionlabel.Text" xml:space="preserve">
-    <value>程序加载中......</value>
-  </data>
-  <data name="versionlabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="&gt;&gt;versionlabel.Name" xml:space="preserve">
-    <value>versionlabel</value>
-  </data>
-  <data name="&gt;&gt;versionlabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;versionlabel.Parent" xml:space="preserve">
-    <value>zRoundPanel3</value>
-  </data>
-  <data name="&gt;&gt;versionlabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="zmProgressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="zmProgressBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>65, 74</value>
-  </data>
-  <data name="zmProgressBar1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
-  </data>
-  <data name="zmProgressBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>472, 20</value>
-  </data>
-  <data name="zmProgressBar1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;zmProgressBar1.Name" xml:space="preserve">
-    <value>zmProgressBar1</value>
-  </data>
-  <data name="&gt;&gt;zmProgressBar1.Type" xml:space="preserve">
-    <value>AutoScrewSys.Base.ZMProgressBar, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;zmProgressBar1.Parent" xml:space="preserve">
-    <value>zRoundPanel3</value>
-  </data>
-  <data name="&gt;&gt;zmProgressBar1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="zRoundPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="zRoundPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="zRoundPanel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
-  <data name="zRoundPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 360</value>
-  </data>
-  <data name="zRoundPanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
   <data name="&gt;&gt;zRoundPanel3.Name" xml:space="preserve">
     <value>zRoundPanel3</value>
+  </data>
+  <data name="versionlabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>476, 23</value>
+  </data>
+  <data name="zmProgressBar1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="zmProgressBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 20</value>
+  </data>
+  <data name="&gt;&gt;versionlabel.Name" xml:space="preserve">
+    <value>versionlabel</value>
+  </data>
+  <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  </data>
+  <data name="versionlabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  </data>
+  <data name="zmProgressBar1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="versionlabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>LoadFrm</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>LoadFrm</value>
+  </data>
+  <data name="label9.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;versionlabel.Parent" xml:space="preserve">
+    <value>zRoundPanel3</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;versionlabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;zmProgressBar1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
   </data>
   <data name="&gt;&gt;zRoundPanel3.Type" xml:space="preserve">
     <value>ZimaBlueUI.ZRoundPanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="zmProgressBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="versionlabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="zRoundPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="versionlabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>zRoundPanel3</value>
+  </data>
+  <data name="&gt;&gt;zmProgressBar1.Type" xml:space="preserve">
+    <value>AutoScrewSys.Base.ZMProgressBar, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterParent</value>
+  </data>
+  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>471, 136</value>
+  </data>
+  <data name="zmProgressBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>65, 74</value>
+  </data>
+  <data name="zRoundPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;versionlabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 139</value>
+  </data>
+  <data name="zRoundPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;zmProgressBar1.Parent" xml:space="preserve">
+    <value>zRoundPanel3</value>
+  </data>
+  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>索莱斯克 · 智能电批解决方案</value>
+  </data>
   <data name="&gt;&gt;zRoundPanel3.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;zRoundPanel3.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;label9.Name" xml:space="preserve">
+    <value>label9</value>
+  </data>
+  <data name="versionlabel.TabIndex" type="System.Int32, mscorlib">
+    <value>69</value>
+  </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>600, 360</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterParent</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>LoadFrm</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>LoadFrm</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
 </root>

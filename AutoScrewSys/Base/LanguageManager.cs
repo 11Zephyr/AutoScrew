@@ -126,6 +126,35 @@ namespace AutoScrewSys.Base
                 }
             }
         }
+        /// <summary>
+        /// 根据传入语言代码（如 "zh-CN" 或 "en"），设置程序语言，
+        /// 并刷新主窗体及所有用户控件的资源显示。
+        /// 这个函数适合程序启动时调用，语言从配置文件（Settings）读取后传入。
+        /// </summary>
+        /// <param name="cultureCode">语言代码，如 "zh-CN"、"en"</param>
+        /// <param name="mainForm">主窗体实例</param>
+        /// <param name="userControls">所有用户控件列表</param>
+        public static void ApplyLanguage(string cultureCode, Form mainForm, IEnumerable<UserControl> userControls)
+        {
+            if (mainForm == null) throw new ArgumentNullException(nameof(mainForm));
+            if (string.IsNullOrWhiteSpace(cultureCode)) cultureCode = "zh-CN";
+
+            ApplyResourcesForComponent(mainForm);
+
+            if (userControls != null)
+            {
+                foreach (var uc in userControls)
+                {
+                    if (uc == null) continue;
+                    ApplyResourcesForComponent(uc);
+                }
+            }
+        }
+        public static void SetCurrentCulture(string cultureCode)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(cultureCode);
+        }
     }
 
 }

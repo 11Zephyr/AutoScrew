@@ -39,7 +39,6 @@ namespace AutoScrewSys
             this.RT_Voltage = new System.Windows.Forms.Label();
             this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.RealTVoltage = new System.Windows.Forms.Label();
-            this.lblMesTextR = new System.Windows.Forms.Label();
             this.tpContainer = new ZimaBlueUI.Tpanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.radioBtnRunFrm = new System.Windows.Forms.RadioButton();
@@ -51,6 +50,7 @@ namespace AutoScrewSys
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioBtnLogin = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblSoftwareTitle = new System.Windows.Forms.Label();
             this.tpTitlebar.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
@@ -63,11 +63,11 @@ namespace AutoScrewSys
             // 
             this.tpTitlebar.Alpha = 50;
             this.tpTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.tpTitlebar.Controls.Add(this.lblSoftwareTitle);
             this.tpTitlebar.Controls.Add(this.flowLayoutPanel2);
             this.tpTitlebar.Controls.Add(this.RT_Voltage);
             this.tpTitlebar.Controls.Add(this.LogoPictureBox);
             this.tpTitlebar.Controls.Add(this.RealTVoltage);
-            this.tpTitlebar.Controls.Add(this.lblMesTextR);
             resources.ApplyResources(this.tpTitlebar, "tpTitlebar");
             this.tpTitlebar.Name = "tpTitlebar";
             this.tpTitlebar.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
@@ -126,15 +126,6 @@ namespace AutoScrewSys
             resources.ApplyResources(this.RealTVoltage, "RealTVoltage");
             this.RealTVoltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
             this.RealTVoltage.Name = "RealTVoltage";
-            // 
-            // lblMesTextR
-            // 
-            this.lblMesTextR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.lblMesTextR, "lblMesTextR");
-            this.lblMesTextR.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMesTextR.Name = "lblMesTextR";
-            this.lblMesTextR.Tag = "AccessibleName";
-            this.lblMesTextR.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
             // tpContainer
             // 
@@ -268,6 +259,15 @@ namespace AutoScrewSys
             resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
+            // lblSoftwareTitle
+            // 
+            this.lblSoftwareTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.lblSoftwareTitle, "lblSoftwareTitle");
+            this.lblSoftwareTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSoftwareTitle.Name = "lblSoftwareTitle";
+            this.lblSoftwareTitle.Tag = "AccessibleName";
+            this.lblSoftwareTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
+            // 
             // MainFm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -291,7 +291,6 @@ namespace AutoScrewSys
 
         #endregion
         private ZimaBlueUI.Tpanel tpTitlebar;
-        private System.Windows.Forms.Label lblMesTextR;
         private ZimaBlueUI.Tpanel tpContainer;
         private System.Windows.Forms.Panel btnClose;
         private System.Windows.Forms.Panel btnToggleSize;
@@ -310,6 +309,7 @@ namespace AutoScrewSys
         private System.Windows.Forms.RadioButton radioBtnLogin;
         private System.Windows.Forms.Panel btnMax;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label lblSoftwareTitle;
     }
 }
 

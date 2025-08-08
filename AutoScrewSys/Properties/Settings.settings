@@ -45,10 +45,10 @@
       <Value Profile="(Default)">1分钟</Value>
     </Setting>
     <Setting Name="receptOutTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="sendOutTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)">0</Value>
+      <Value Profile="(Default)">1000</Value>
     </Setting>
     <Setting Name="TorqueUnit" Type="System.String" Scope="User">
       <Value Profile="(Default)">mn</Value>

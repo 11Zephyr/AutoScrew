@@ -1,5 +1,6 @@
 ﻿using AutoScrewSys.Base;
 using System;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +15,24 @@ namespace ZimaBlueScrew
             InitializeComponent();
             LoadFrmInstance = this;
         }
+        public void ApplyLanguage()
+        {
+            var resources = new ComponentResourceManager(this.GetType());
+            resources.ApplyResources(this, "$this");
+            ApplyResourcesToChildren(this, resources);
+        }
 
+        private void ApplyResourcesToChildren(Control parent, ComponentResourceManager parentResources)
+        {
+            foreach (Control child in parent.Controls)
+            {
+                parentResources.ApplyResources(child, child.Name);
+                if (child.HasChildren)
+                {
+                    ApplyResourcesToChildren(child, parentResources);
+                }
+            }
+        }
         private void LoadFrm_Load(object sender, EventArgs e)
         {
             zmProgressBar1.Value = 0;

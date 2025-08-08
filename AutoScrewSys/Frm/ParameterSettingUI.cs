@@ -20,10 +20,9 @@ namespace AutoScrewSys.Frm
 {
     public partial class ParameterSettingUI : BaseUserControl
     {
-        public event EventHandler LanguageChanged;
+        public event Action<string> LanguageChanged;
         private AutoLogoutManager _autoLogoutManager;
         private bool isHandlingLogoutTimeChange = false;
-        public string SelectedLanguage => comboBoxLanguage.SelectedItem?.ToString();
         public ParameterSettingUI()
         {
             InitializeComponent();
@@ -264,7 +263,21 @@ namespace AutoScrewSys.Frm
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LanguageChanged?.Invoke(this, EventArgs.Empty);
+            string langCode = "zh-CN"; // 默认值
+
+            switch (comboBoxLanguage.SelectedIndex)
+            {
+                case 0:
+                    langCode = "zh-CN";
+                    break;
+                case 1:
+                    langCode = "en";
+                    break;
+                default:
+                    langCode = "zh-CN"; // 默认
+                    break;
+            }
+            LanguageChanged?.Invoke(langCode);
         }
     }
 }

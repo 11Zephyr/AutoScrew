@@ -40,11 +40,11 @@ namespace ZimaBlueScrew
             // 
             // zRoundPanel3
             // 
+            resources.ApplyResources(this.zRoundPanel3, "zRoundPanel3");
             this.zRoundPanel3.BackColor = System.Drawing.Color.Transparent;
             this.zRoundPanel3.Controls.Add(this.label9);
             this.zRoundPanel3.Controls.Add(this.versionlabel);
             this.zRoundPanel3.Controls.Add(this.zmProgressBar1);
-            resources.ApplyResources(this.zRoundPanel3, "zRoundPanel3");
             this.zRoundPanel3.Name = "zRoundPanel3";
             this.zRoundPanel3.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(39)))), ((int)(((byte)(42)))));
             this.zRoundPanel3.PanelBorderColor = System.Drawing.Color.White;
@@ -52,22 +52,22 @@ namespace ZimaBlueScrew
             // 
             // label9
             // 
-            this.label9.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.label9, "label9");
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.label9.Name = "label9";
             // 
             // versionlabel
             // 
-            this.versionlabel.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.versionlabel, "versionlabel");
+            this.versionlabel.BackColor = System.Drawing.Color.Transparent;
             this.versionlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.versionlabel.Name = "versionlabel";
             // 
             // zmProgressBar1
             // 
-            this.zmProgressBar1.Depth = 0;
             resources.ApplyResources(this.zmProgressBar1, "zmProgressBar1");
+            this.zmProgressBar1.Depth = 0;
             this.zmProgressBar1.MouseState = MaterialSkin.MouseState.HOVER;
             this.zmProgressBar1.Name = "zmProgressBar1";
             this.zmProgressBar1.Step = 1;

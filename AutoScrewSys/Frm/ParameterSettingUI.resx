@@ -131,9 +131,6 @@
   <data name="label8.Text" xml:space="preserve">
     <value>校验位:</value>
   </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 56</value>
-  </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
     <value>93, 10</value>
   </data>
@@ -161,17 +158,17 @@
   <data name="cbxLoggedOutTime.Items2" xml:space="preserve">
     <value>5分钟</value>
   </data>
-  <data name="&gt;&gt;cbxStopBits.Type" xml:space="preserve">
-    <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="comboBoxLanguage.ItemHeight" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
   <data name="cbxLoggedOutTime.Items1" xml:space="preserve">
     <value>3分钟</value>
   </data>
-  <data name="&gt;&gt;tpanel2.Name" xml:space="preserve">
-    <value>tpanel2</value>
-  </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>201</value>
+  </data>
+  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>906, 58</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -179,14 +176,8 @@
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="flowLayoutPanel2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;cbxLogStoredTime.Parent" xml:space="preserve">
-    <value>panel4</value>
-  </data>
-  <data name="cbxLogStoredTime.Items6" xml:space="preserve">
-    <value>永久</value>
+  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tpanel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
@@ -210,9 +201,6 @@
   <data name="&gt;&gt;cbxLoggedOutTime.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="flowLayoutPanel1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
-  </data>
   <data name="cbxPort.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, -1</value>
   </data>
@@ -221,12 +209,6 @@
   </data>
   <data name="tpanel7.TabIndex" type="System.Int32, mscorlib">
     <value>48</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>波特率:</value>
-  </data>
-  <data name="cbxDataStoredTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 49</value>
   </data>
   <data name="cbxTorqueUnit.Items" xml:space="preserve">
     <value>mN·m</value>
@@ -237,17 +219,26 @@
   <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label9.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
   </data>
   <data name="cbxBaudRate.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 32</value>
+  </data>
   <data name="tbxSaveDataPath.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 6</value>
   </data>
   <data name="&gt;&gt;cbxBaudRate.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="cbxTorqueUnit.Items2" xml:space="preserve">
+    <value>lb·ft</value>
   </data>
   <data name="label12.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -264,14 +255,14 @@
   <data name="cbxStopBits.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="cbxLoggedOutTime.Items" xml:space="preserve">
-    <value>1分钟</value>
+  <data name="comboBoxLanguage.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tpanel6.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 32</value>
@@ -282,9 +273,6 @@
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
   </data>
-  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
-    <value>panel4</value>
-  </data>
   <data name="cbxTorqueUnit.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
@@ -294,11 +282,11 @@
   <data name="&gt;&gt;label14.Parent" xml:space="preserve">
     <value>panel7</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>数据保存时长:</value>
+  <data name="&gt;&gt;comboBoxLanguage.Parent" xml:space="preserve">
+    <value>panel7</value>
   </data>
-  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="cbxLogStoredTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>189, 2</value>
   </data>
   <data name="cbxParity.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>5</value>
@@ -333,11 +321,17 @@
   <data name="&gt;&gt;cbxLogStoredTime.Name" xml:space="preserve">
     <value>cbxLogStoredTime</value>
   </data>
+  <data name="tpanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 160</value>
+  </data>
   <data name="cbxParity.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
   </data>
-  <data name="comboBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 49</value>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>tpanel3</value>
   </data>
   <data name="tpanel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
@@ -354,11 +348,8 @@
   <data name="&gt;&gt;tpanel4.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
   </data>
-  <data name="&gt;&gt;sendOutTime.Type" xml:space="preserve">
-    <value>ZimaBlueUI.ZtextBoxRua, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 253</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 32</value>
@@ -372,11 +363,17 @@
   <data name="&gt;&gt;cbxLoggedOutTime.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="cbxDataStoredTime.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="&gt;&gt;tpanel2.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
+  </data>
+  <data name="cbxDataBits.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 49</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -384,14 +381,17 @@
   <data name="tpanel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
   </data>
+  <data name="tpanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="flowLayoutPanel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="flowLayoutPanel1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,67.12627,Percent,32.87373" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;cbxTorqueUnit.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;cbxStopBits.Parent" xml:space="preserve">
+    <value>tpanel5</value>
   </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>扭力单位:</value>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 10</value>
   </data>
   <data name="cbxTorqueUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 2</value>
@@ -402,8 +402,11 @@
   <data name="tpanel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 325</value>
   </data>
-  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 10</value>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="label11.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
   <data name="cbxDataStoredTime.Items2" xml:space="preserve">
     <value>60天</value>
@@ -414,11 +417,23 @@
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>数据位:</value>
+  </data>
   <data name="receptOutTime.TabIndex" type="System.Int32, mscorlib">
     <value>205</value>
   </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;tpanel1.Name" xml:space="preserve">
+    <value>tpanel1</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>串 口 参 数</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 32</value>
@@ -432,17 +447,20 @@
   <data name="&gt;&gt;comboBoxLanguage.Name" xml:space="preserve">
     <value>comboBoxLanguage</value>
   </data>
-  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
   <data name="&gt;&gt;label14.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;tpanel6.Type" xml:space="preserve">
+    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 0</value>
   </data>
-  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 10</value>
+  <data name="&gt;&gt;panel4.Name" xml:space="preserve">
+    <value>panel4</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>数据保存路径:</value>
@@ -459,8 +477,8 @@
   <data name="cbxLogStoredTime.Items4" xml:space="preserve">
     <value>180天</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="cbxLogStoredTime.Items6" xml:space="preserve">
+    <value>永久</value>
   </data>
   <data name="&gt;&gt;panel4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -480,20 +498,14 @@
   <data name="cbxStopBits.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 49</value>
   </data>
-  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label11.Text" xml:space="preserve">
+    <value>停止位:</value>
   </data>
   <data name="materialButtonpro3.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 30</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>ParameterSettingUI</value>
-  </data>
-  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
-    <value>46</value>
   </data>
   <data name="&gt;&gt;tpanel3.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
@@ -504,14 +516,11 @@
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>tpanel2</value>
   </data>
-  <data name="label13.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="comboBoxLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 49</value>
   </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 125</value>
-  </data>
-  <data name="&gt;&gt;tbxSaveDataPath.Type" xml:space="preserve">
-    <value>ZimaBlueUI.ZtextBoxRua, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="cbxLoggedOutTime.Items" xml:space="preserve">
+    <value>1分钟</value>
   </data>
   <data name="materialButtonpro3.Text" xml:space="preserve">
     <value>断开</value>
@@ -528,8 +537,8 @@
   <data name="cbxPort.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="&gt;&gt;cbxTorqueUnit.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -543,38 +552,32 @@
   <data name="&gt;&gt;cbxPort.Name" xml:space="preserve">
     <value>cbxPort</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>日志保存时长:</value>
-  </data>
-  <data name="cbxDataStoredTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 4</value>
-  </data>
   <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;tpanel5.Name" xml:space="preserve">
-    <value>tpanel5</value>
+  <data name="cbxLoggedOutTime.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
+  <data name="cbxLoggedOutTime.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblMesTextR.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lblMesTextR.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 189</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>数据位:</value>
+  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="cbxLogStoredTime.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
@@ -588,8 +591,8 @@
   <data name="&gt;&gt;tpanel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label14.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -612,6 +615,9 @@
   <data name="tbxSaveDataPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>712, 43</value>
   </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 32</value>
+  </data>
   <data name="comboBoxLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
   </data>
@@ -621,8 +627,8 @@
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="cbxLoggedOutTime.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;label13.Name" xml:space="preserve">
+    <value>label13</value>
   </data>
   <data name="tpanel2.TabIndex" type="System.Int32, mscorlib">
     <value>43</value>
@@ -639,20 +645,17 @@
   <data name="cbxTorqueUnit.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="lblMesTextR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="cbxLoggedOutTime.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 56</value>
   </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 160</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>93, 10</value>
-  </data>
-  <data name="flowLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;cbxTorqueUnit.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
@@ -675,8 +678,8 @@
   <data name="cbxTorqueUnit.Items4" xml:space="preserve">
     <value>kgf·cm</value>
   </data>
-  <data name="label14.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="flowLayoutPanel1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
   <data name="cbxLogStoredTime.Items" xml:space="preserve">
     <value>15天</value>
@@ -684,17 +687,14 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="lblMesTextR.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15.75pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbxPort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 49</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -717,17 +717,11 @@
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="comboBoxLanguage.ItemHeight" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
   <data name="&gt;&gt;tpanel3.Name" xml:space="preserve">
     <value>tpanel3</value>
   </data>
   <data name="&gt;&gt;tpanel3.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
@@ -735,20 +729,14 @@
   <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>906, 58</value>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 10</value>
   </data>
-  <data name="comboBoxLanguage.Items1" xml:space="preserve">
-    <value>英语</value>
+  <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="cbxBaudRate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>205, -1</value>
-  </data>
-  <data name="cbxLogStoredTime.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 61</value>
@@ -762,11 +750,8 @@
   <data name="&gt;&gt;lblMesTextR.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblMesTextR.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1378, 753</value>
   </data>
   <data name="cbxDataStoredTime.Items4" xml:space="preserve">
     <value>180天</value>
@@ -780,9 +765,6 @@
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>93, 10</value>
   </data>
-  <data name="label4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
   <data name="cbxDataBits.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
@@ -792,17 +774,17 @@
   <data name="cbxLoggedOutTime.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
   </data>
-  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
-    <value>tpanel3</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 56</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
+  </data>
+  <data name="cbxBaudRate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, -1</value>
   </data>
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -816,14 +798,17 @@
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="cbxLogStoredTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>189, 2</value>
+  <data name="&gt;&gt;tpanel5.Type" xml:space="preserve">
+    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="btnConnect.TabIndex" type="System.Int32, mscorlib">
     <value>208</value>
@@ -849,6 +834,9 @@
   <data name="flowLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>448, 747</value>
   </data>
+  <data name="&gt;&gt;btnConnect.Name" xml:space="preserve">
+    <value>btnConnect</value>
+  </data>
   <data name="label12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -858,9 +846,6 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 56</value>
   </data>
-  <data name="&gt;&gt;panel3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -869,9 +854,6 @@
   </data>
   <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="comboBoxLanguage.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;cbxDataBits.Name" xml:space="preserve">
     <value>cbxDataBits</value>
@@ -894,14 +876,17 @@
   <data name="sendOutTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 10</value>
   </data>
+  <data name="&gt;&gt;materialButtonpro3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="label13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="comboBoxLanguage.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="tpanel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
@@ -912,8 +897,14 @@
   <data name="&gt;&gt;receptOutTime.Name" xml:space="preserve">
     <value>receptOutTime</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="cbxDataBits.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;label13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cbxDataStoredTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 49</value>
   </data>
   <data name="&gt;&gt;cbxDataStoredTime.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -921,8 +912,8 @@
   <data name="&gt;&gt;cbxParity.Name" xml:space="preserve">
     <value>cbxParity</value>
   </data>
-  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="comboBoxLanguage.Items1" xml:space="preserve">
+    <value>英语</value>
   </data>
   <data name="comboBoxLanguage.Items" xml:space="preserve">
     <value>中文</value>
@@ -930,8 +921,8 @@
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>906, 58</value>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -942,8 +933,8 @@
   <data name="tpanel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 270</value>
   </data>
-  <data name="cbxPort.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 32</value>
@@ -957,6 +948,9 @@
   <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
+  </data>
   <data name="btnConnect.Location" type="System.Drawing.Point, System.Drawing">
     <value>98, 92</value>
   </data>
@@ -969,11 +963,11 @@
   <data name="&gt;&gt;cbxPort.Parent" xml:space="preserve">
     <value>tpanel1</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>tpanel4</value>
   </data>
-  <data name="label11.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="cbxDataStoredTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>189, 4</value>
   </data>
   <data name="&gt;&gt;cbxPort.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -987,8 +981,8 @@
   <data name="label3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;label13.Name" xml:space="preserve">
-    <value>label13</value>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 189</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -999,8 +993,8 @@
   <data name="&gt;&gt;materialButtonpro3.Parent" xml:space="preserve">
     <value>panel6</value>
   </data>
-  <data name="label9.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>日志保存时长:</value>
   </data>
   <data name="cbxTorqueUnit.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 49</value>
@@ -1008,14 +1002,11 @@
   <data name="&gt;&gt;btnConnect.Parent" xml:space="preserve">
     <value>panel6</value>
   </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ParameterSettingUI</value>
   </data>
-  <data name="cbxDataStoredTime.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="flowLayoutPanel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1035,20 +1026,11 @@
   <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>AutoScrewSys.Frm.BaseUserControl, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;cbxStopBits.Parent" xml:space="preserve">
-    <value>tpanel5</value>
-  </data>
   <data name="cbxDataStoredTime.Items" xml:space="preserve">
     <value>15天</value>
   </data>
   <data name="&gt;&gt;tpanel7.Type" xml:space="preserve">
     <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;cbxTorqueUnit.Name" xml:space="preserve">
     <value>cbxTorqueUnit</value>
@@ -1056,14 +1038,14 @@
   <data name="&gt;&gt;cbxBaudRate.Name" xml:space="preserve">
     <value>cbxBaudRate</value>
   </data>
-  <data name="tpanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
+  <data name="panel7.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="cbxLogStoredTime.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>906, 58</value>
+  <data name="cbxTorqueUnit.Items3" xml:space="preserve">
+    <value>kg·m</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -1071,29 +1053,38 @@
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 317</value>
   </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 253</value>
-  </data>
   <data name="label11.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;tpanel4.Name" xml:space="preserve">
     <value>tpanel4</value>
   </data>
-  <data name="materialButtonpro3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>247, 92</value>
+  <data name="label13.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;cbxParity.Parent" xml:space="preserve">
+    <value>tpanel3</value>
+  </data>
+  <data name="cbxPort.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="label6.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;tpanel5.Name" xml:space="preserve">
+    <value>tpanel5</value>
   </data>
   <data name="&gt;&gt;label13.Parent" xml:space="preserve">
     <value>tpanel7</value>
   </data>
-  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 32</value>
+  <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="cbxParity.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="label14.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="&gt;&gt;cbxDataStoredTime.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
@@ -1110,8 +1101,8 @@
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;cbxStopBits.Type" xml:space="preserve">
+    <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tbxSaveDataPath.Name" xml:space="preserve">
     <value>tbxSaveDataPath</value>
@@ -1125,8 +1116,11 @@
   <data name="cbxBaudRate.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;btnConnect.Name" xml:space="preserve">
-    <value>btnConnect</value>
+  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>906, 58</value>
   </data>
   <data name="panel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>906, 58</value>
@@ -1140,10 +1134,10 @@
   <data name="cbxDataStoredTime.Items3" xml:space="preserve">
     <value>90天</value>
   </data>
-  <data name="&gt;&gt;lblMesTextR.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel1.Parent" xml:space="preserve">
@@ -1155,11 +1149,14 @@
   <data name="cbxLoggedOutTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 3</value>
   </data>
-  <data name="cbxDataBits.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="flowLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblMesTextR.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
   </data>
   <data name="cbxBaudRate.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1167,17 +1164,11 @@
   <data name="&gt;&gt;label12.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="comboBoxLanguage.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="tableLayoutPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 54</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>串 口 参 数</value>
+  <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="label14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -1191,6 +1182,9 @@
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>116, 54</value>
   </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;tbxSaveDataPath.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -1200,20 +1194,14 @@
   <data name="label12.Text" xml:space="preserve">
     <value>发送超时:</value>
   </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
-  </data>
   <data name="flowLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>918, 747</value>
   </data>
   <data name="&gt;&gt;cbxPort.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="cbxLoggedOutTime.Items5" xml:space="preserve">
-    <value>1小时</value>
-  </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 10</value>
+  <data name="&gt;&gt;lblMesTextR.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;cbxLoggedOutTime.Name" xml:space="preserve">
     <value>cbxLoggedOutTime</value>
@@ -1221,11 +1209,11 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 54</value>
   </data>
-  <data name="&gt;&gt;label13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbxDataStoredTime.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;tpanel1.Name" xml:space="preserve">
-    <value>tpanel1</value>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1236,14 +1224,14 @@
   <data name="cbxDataStoredTime.Items1" xml:space="preserve">
     <value>30天</value>
   </data>
-  <data name="cbxTorqueUnit.Items2" xml:space="preserve">
-    <value>lb·ft</value>
+  <data name="label10.Text" xml:space="preserve">
+    <value>扭力单位:</value>
   </data>
-  <data name="label2.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
+  <data name="label4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="&gt;&gt;cbxParity.Parent" xml:space="preserve">
-    <value>tpanel3</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>波特率:</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>接收超时:</value>
@@ -1257,11 +1245,11 @@
   <data name="tpanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>数据保存时长:</value>
   </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>tpanel4</value>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
@@ -1269,11 +1257,11 @@
   <data name="&gt;&gt;cbxTorqueUnit.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="&gt;&gt;materialButtonpro3.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
   </data>
-  <data name="&gt;&gt;btnConnect.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;cbxLogStoredTime.Parent" xml:space="preserve">
+    <value>panel4</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>串口号:</value>
@@ -1284,8 +1272,8 @@
   <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 54</value>
   </data>
   <data name="tpanel3.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
@@ -1296,14 +1284,11 @@
   <data name="cbxLogStoredTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 49</value>
   </data>
-  <data name="flowLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 10</value>
   </data>
-  <data name="tpanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 105</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>停止位:</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="sendOutTime.TabIndex" type="System.Int32, mscorlib">
     <value>204</value>
@@ -1335,20 +1320,23 @@
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>tpanel6</value>
+  </data>
   <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;comboBoxLanguage.Parent" xml:space="preserve">
-    <value>panel7</value>
+  <data name="materialButtonpro3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>247, 92</value>
   </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 32</value>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblMesTextR.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="cbxPort.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 49</value>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 125</value>
   </data>
   <data name="cbxStopBits.IntegralHeight" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1359,11 +1347,14 @@
   <data name="&gt;&gt;btnConnect.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialButtonpro, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+  <data name="&gt;&gt;tpanel7.Parent" xml:space="preserve">
+    <value>flowLayoutPanel2</value>
+  </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="&gt;&gt;tpanel7.Parent" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+  <data name="&gt;&gt;btnConnect.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -1374,8 +1365,8 @@
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;tpanel5.Type" xml:space="preserve">
-    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="lblMesTextR.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15.75pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1395,11 +1386,11 @@
   <data name="&gt;&gt;cbxBaudRate.Parent" xml:space="preserve">
     <value>tpanel2</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 32</value>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="cbxDataStoredTime.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="lblMesTextR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>tpanel5</value>
@@ -1419,8 +1410,8 @@
   <data name="materialButtonpro3.TabIndex" type="System.Int32, mscorlib">
     <value>209</value>
   </data>
-  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 381</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>AutoScrewSys.Frm.BaseUserControl, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tpanel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 49</value>
@@ -1437,14 +1428,11 @@
   <data name="label10.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="cbxLoggedOutTime.Items5" xml:space="preserve">
+    <value>1小时</value>
   </data>
-  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
-    <value>tpanel6</value>
-  </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 56</value>
+  <data name="panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 381</value>
   </data>
   <data name="&gt;&gt;tpanel5.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1452,11 +1440,14 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;tpanel6.Type" xml:space="preserve">
-    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>906, 58</value>
   </data>
   <data name="lblMesTextR.Size" type="System.Drawing.Size, System.Drawing">
     <value>906, 58</value>
+  </data>
+  <data name="&gt;&gt;tbxSaveDataPath.Type" xml:space="preserve">
+    <value>ZimaBlueUI.ZtextBoxRua, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
@@ -1473,8 +1464,8 @@
   <data name="&gt;&gt;receptOutTime.Type" xml:space="preserve">
     <value>ZimaBlueUI.ZtextBoxRua, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="tpanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 160</value>
+  <data name="&gt;&gt;sendOutTime.Type" xml:space="preserve">
+    <value>ZimaBlueUI.ZtextBoxRua, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;tpanel4.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1485,8 +1476,8 @@
   <data name="cbxPort.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="cbxTorqueUnit.Items3" xml:space="preserve">
-    <value>kg·m</value>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -1494,14 +1485,17 @@
   <data name="&gt;&gt;flowLayoutPanel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;tpanel2.Name" xml:space="preserve">
+    <value>tpanel2</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>panel4</value>
   </data>
   <data name="&gt;&gt;tpanel4.Type" xml:space="preserve">
     <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
@@ -1512,23 +1506,29 @@
   <data name="&gt;&gt;tbxSaveDataPath.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 32</value>
+  </data>
   <data name="label13.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="cbxDataBits.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 49</value>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1378, 753</value>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tpanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 105</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

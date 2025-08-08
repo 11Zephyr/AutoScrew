@@ -215,6 +215,9 @@
     <EmbeddedResource Include="Frm\LoginFrm.resx">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm\MonitorFrm.en.resx">
+      <DependentUpon>MonitorFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\MonitorFrm.resx">
       <DependentUpon>MonitorFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\ParameterSettingUI.resx">
       <DependentUpon>ParameterSettingUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\RunUI.en.resx">
+      <DependentUpon>RunUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\RunUI.resx">
       <DependentUpon>RunUI.cs</DependentUpon>

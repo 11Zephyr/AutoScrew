@@ -10,9 +10,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZimaBlueScrew;
@@ -51,7 +53,10 @@ namespace AutoScrewSys
 
         private void MainFm_Load(object sender, EventArgs e)
         {
+            LanguageManager.SetCurrentCulture(Settings.Default.Language);
+
             LoadFrm loadFrm = new LoadFrm();
+            loadFrm.ApplyLanguage();
             Task.Run(() =>
             {
                 loadFrm.ShowDialog();
@@ -76,34 +81,30 @@ namespace AutoScrewSys
             ParameterSettingUI parameterSettingUI = new ParameterSettingUI();
             parameterSettingUI.Dock = DockStyle.Fill;
             parameterSettingUI.Parent = this.tpContainer;
-            parameterSettingUI.LanguageChanged += (s, ev) =>
+            parameterSettingUI.LanguageChanged += (langcode) =>
             {
-                // 确认在 UI 线程
                 if (this.InvokeRequired)
                 {
                     this.BeginInvoke(new Action(() =>
                     {
-                        if (parameterSettingUI.SelectedLanguage == "中文")
-                            LanguageManager.SetLanguage("zh-CN", this, formList);
-                        else
-                            LanguageManager.SetLanguage("en", this, formList);
+                        LanguageManager.SetLanguage(langcode, this, formList);
                     }));
                 }
                 else
                 {
-                    if (parameterSettingUI.SelectedLanguage == "中文")
-                        LanguageManager.SetLanguage("zh-CN", this, formList);
-                    else
-                        LanguageManager.SetLanguage("en", this, formList);
+                    LanguageManager.SetLanguage(langcode, this, formList);
                 }
+               
+                Settings.Default.Language = langcode;
             };
+           
             this.formList.Add(parameterSettingUI);
             
             IOMonitorUI ioMonitorUI = new IOMonitorUI();
             ioMonitorUI.Dock = DockStyle.Fill;
             ioMonitorUI.Parent = this.tpContainer;
             this.formList.Add(ioMonitorUI);
-
+       
             runUI.Tag = 0;
             historyDataUI.Tag = 1;
             taskParametersUI.Tag = 2;
@@ -117,14 +118,11 @@ namespace AutoScrewSys
             this.radioBtnIOMonitor.Tag = 4;
             this.radioBtnStatusAction.Tag = 5;
             this.nCurTag = 0;
-
             this.radioBtnRunFrm.Checked = true;
-            //this.WindowState = FormWindowState.Maximized;
-            //LoadControlToPanel(new HistoryDataUI());
 
             //this.TopMost = true;
             RealTVoltage.DataBindings.Add("Text", AddrName.Default, "RealTVoltage");//实时电压值
-
+            LanguageManager.ApplyLanguage(Settings.Default.Language, this, formList);
         }
 
 

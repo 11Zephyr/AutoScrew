@@ -193,7 +193,7 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public string receptOutTime {
             get {
                 return ((string)(this["receptOutTime"]));
@@ -205,7 +205,7 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1000")]
         public string sendOutTime {
             get {
                 return ((string)(this["sendOutTime"]));
