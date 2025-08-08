@@ -12,6 +12,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,8 +20,10 @@ namespace AutoScrewSys.Frm
 {
     public partial class ParameterSettingUI : BaseUserControl
     {
+        public event EventHandler LanguageChanged;
         private AutoLogoutManager _autoLogoutManager;
         private bool isHandlingLogoutTimeChange = false;
+        public string SelectedLanguage => comboBoxLanguage.SelectedItem?.ToString();
         public ParameterSettingUI()
         {
             InitializeComponent();
@@ -261,20 +264,7 @@ namespace AutoScrewSys.Frm
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedLang = comboBoxLanguage.SelectedItem.ToString();
-
-            if (selectedLang == "中文")
-                LocalizationHelper.SetCulture("zh-CN");
-            else
-                LocalizationHelper.SetCulture("en-US");
-
-            // 重新加载 UI 文字
-            ReloadUI();
-        }
-        private void ReloadUI()
-        {
-            // 设置窗体控件的语言
-            LocalizationHelper.ApplyLanguage(this.Controls);
+            LanguageChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

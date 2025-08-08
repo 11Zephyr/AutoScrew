@@ -76,8 +76,29 @@ namespace AutoScrewSys
             ParameterSettingUI parameterSettingUI = new ParameterSettingUI();
             parameterSettingUI.Dock = DockStyle.Fill;
             parameterSettingUI.Parent = this.tpContainer;
+            parameterSettingUI.LanguageChanged += (s, ev) =>
+            {
+                // 确认在 UI 线程
+                if (this.InvokeRequired)
+                {
+                    this.BeginInvoke(new Action(() =>
+                    {
+                        if (parameterSettingUI.SelectedLanguage == "中文")
+                            LanguageManager.SetLanguage("zh-CN", this, formList);
+                        else
+                            LanguageManager.SetLanguage("en", this, formList);
+                    }));
+                }
+                else
+                {
+                    if (parameterSettingUI.SelectedLanguage == "中文")
+                        LanguageManager.SetLanguage("zh-CN", this, formList);
+                    else
+                        LanguageManager.SetLanguage("en", this, formList);
+                }
+            };
             this.formList.Add(parameterSettingUI);
-
+            
             IOMonitorUI ioMonitorUI = new IOMonitorUI();
             ioMonitorUI.Dock = DockStyle.Fill;
             ioMonitorUI.Parent = this.tpContainer;
@@ -99,9 +120,9 @@ namespace AutoScrewSys
 
             this.radioBtnRunFrm.Checked = true;
             //this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
             //LoadControlToPanel(new HistoryDataUI());
 
+            //this.TopMost = true;
             RealTVoltage.DataBindings.Add("Text", AddrName.Default, "RealTVoltage");//实时电压值
 
         }
@@ -155,11 +176,12 @@ namespace AutoScrewSys
         {
             try
             {
-                GlobalMonitor.StopModbusSyncThread();
-                Settings.Default.Save();
+
                 var result = MessageBox.Show("确认要退出程序吗？", "退出提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
+                    GlobalMonitor.StopModbusSyncThread();
+                    Settings.Default.Save();
                     Application.Exit();
                 }
             }
@@ -219,6 +241,7 @@ namespace AutoScrewSys
                 this.WindowState = FormWindowState.Normal;
             }
         }
+      
 
         private void MainFm_Shown(object sender, EventArgs e)
         {

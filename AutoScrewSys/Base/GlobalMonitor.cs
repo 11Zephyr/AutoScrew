@@ -25,7 +25,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZimaBlueScrew.Frm;
-using Zmodbus;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Color = System.Drawing.Color;
 using Control = System.Windows.Forms.Control;

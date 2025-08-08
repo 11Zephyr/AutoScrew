@@ -60,9 +60,6 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
-    </Reference>
     <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
       <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
     </Reference>
@@ -99,15 +96,12 @@
     <Reference Include="ZimaBlueUI">
       <HintPath>..\..\Co-Development\ZimaBlueUI\ZimaBlueUI\bin\x64\Debug\ZimaBlueUI.dll</HintPath>
     </Reference>
-    <Reference Include="Zmodbus">
-      <HintPath>C:\Windows\System32\Dependency\Zmodbus.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoSize\AutoControlSize.cs" />
     <Compile Include="Base\AutoLogoutManager.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
-    <Compile Include="Base\LocalizationHelper.cs" />
+    <Compile Include="Base\LanguageManager.cs" />
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
     <Compile Include="Base\SerialPortTaskQueue.cs" />
@@ -189,7 +183,6 @@
     </Compile>
     <Compile Include="Modbus\ModbusRtuHelper.cs" />
     <Compile Include="Modbus\ModbusSerialInfo.cs" />
-    <Compile Include="Modbus\RTU.cs" />
     <Compile Include="Model\ModbusConfigItem.cs" />
     <Compile Include="Model\ParamDisplayModel.cs" />
     <Compile Include="Model\PowerRangeModel.cs" />
@@ -201,6 +194,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>AddrName.settings</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Frm\HistoryDataUI.en.resx">
+      <DependentUpon>HistoryDataUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm\HistoryDataUI.resx">
       <DependentUpon>HistoryDataUI.cs</DependentUpon>
     </EmbeddedResource>
@@ -221,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\MonitorFrm.resx">
       <DependentUpon>MonitorFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\ParameterSettingUI.en.resx">
+      <DependentUpon>ParameterSettingUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\ParameterSettingUI.resx">
       <DependentUpon>ParameterSettingUI.cs</DependentUpon>
