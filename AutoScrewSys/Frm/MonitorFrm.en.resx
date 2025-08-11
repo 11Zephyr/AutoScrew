@@ -117,7 +117,90 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblTorqueUnit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 16</value>
+  </data>
+  <data name="lblTorqueUnit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="AlarmInfoStr.Text" xml:space="preserve">
+    <value>No Fault</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Drive Power</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Alarm State</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Tighten Res</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 33</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Torque</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Turns(r)</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Speed(r/m)</value>
+  </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Task</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnTorqueMode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTorqueMode.Text" xml:space="preserve">
+    <value>Torque Mode</value>
+  </data>
+  <data name="btnFreeMove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnFreeMove.Text" xml:space="preserve">
+    <value>Free</value>
+  </data>
+  <data name="btnLoosenMove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnLoosenMove.Text" xml:space="preserve">
+    <value>Loosen</value>
+  </data>
+  <data name="btnTightenMove.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnTightenMove.Text" xml:space="preserve">
+    <value>Tighten</value>
+  </data>
+  <data name="lblTightenSignal.Text" xml:space="preserve">
+    <value>Tighten Sig
+
+</value>
+  </data>
+  <data name="lblLoosenSignal.Text" xml:space="preserve">
+    <value>Loosen Sig
+
+</value>
+  </data>
+  <data name="lblLdlingSignal.Text" xml:space="preserve">
+    <value>Free Sig
+
+</value>
+  </data>
+  <data name="lblBusySignal.Text" xml:space="preserve">
+    <value>Busy Sig</value>
+  </data>
+  <data name="lblEndSignal.Text" xml:space="preserve">
+    <value>End Sig</value>
+  </data>
+  <data name="lblAlarmSignal.Text" xml:space="preserve">
+    <value>Alarm Sig</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Control Panel</value>
   </data>
 </root>

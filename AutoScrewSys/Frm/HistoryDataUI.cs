@@ -203,7 +203,8 @@ namespace AutoScrewSys.Frm
             // 在后台处理数据（可选：预处理、滤波等）
             var series = await Task.Run(() =>
             {
-                var s = new Series("扭力") { ChartType = SeriesChartType.Line };
+                string torqueStr = Settings.Default.LanguageIndex == 0 ? "扭力" : "Torque";
+                var s = new Series(torqueStr) { ChartType = SeriesChartType.Line };
                 for (int i = 0; i < data.Count; i++)
                 {
                     s.Points.AddXY(i, data[i]);

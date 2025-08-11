@@ -117,31 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblTightenSignal.TabIndex" type="System.Int32, mscorlib">
-    <value>104</value>
-  </data>
-  <data name="&gt;&gt;lblTorqueUnit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>904, 276</value>
   </data>
   <data name="&gt;&gt;btnLoosenMove.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblAlarmSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;btnLoosenMove.Name" xml:space="preserve">
-    <value>btnLoosenMove</value>
   </data>
   <data name="&gt;&gt;ElecBatchPower.Parent" xml:space="preserve">
     <value>customPanel1</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>904, 276</value>
-  </data>
-  <data name="&gt;&gt;ScrewResultStr.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="Torque.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="flowLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>14, 98</value>
@@ -149,32 +139,40 @@
   <data name="ElecBatchPower.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblLdlingSignal.TabIndex" type="System.Int32, mscorlib">
     <value>106</value>
   </data>
   <data name="lblTorqueUnit.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;lblTightenSignal.Type" xml:space="preserve">
+  <data name="&gt;&gt;TaskNumber.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RotateSpeed.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="TaskNumber.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>53, 33</value>
   </data>
-  <data name="lblTorqueUnit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>441, 16</value>
+  <data name="lblTightenSignal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="&gt;&gt;lblBusySignal.Name" xml:space="preserve">
-    <value>lblBusySignal</value>
+  <data name="lblAlarmSignal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 40</value>
   </data>
-  <data name="AlarmInfoStr.Text" xml:space="preserve">
-    <value>无故障</value>
+  <data name="btnFreeMove.Text" xml:space="preserve">
+    <value>自由</value>
   </data>
-  <data name="ElecBatchPower.Location" type="System.Drawing.Point, System.Drawing">
-    <value>781, 74</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTightenSignal.Text" xml:space="preserve">
+    <value>拧紧信号</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLdlingSignal.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 40</value>
@@ -188,27 +186,23 @@
   <data name="&gt;&gt;flowLayoutPanel5.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label16.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblTightenSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <data name="btnTorqueMode.Location" type="System.Drawing.Point, System.Drawing">
     <value>457, 43</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>395, 16</value>
-  </data>
-  <data name="&gt;&gt;flowLayoutPanel5.Name" xml:space="preserve">
-    <value>flowLayoutPanel5</value>
+  <data name="ScrewResultStr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>526, 74</value>
   </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
-  </data>
-  <data name="lblTightenSignal.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
   <data name="btnTightenMove.TabIndex" type="System.Int32, mscorlib">
     <value>215</value>
@@ -219,8 +213,8 @@
   <data name="lblTightenSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>525, 16</value>
+  <data name="lblAlarmSignal.TabIndex" type="System.Int32, mscorlib">
+    <value>109</value>
   </data>
   <data name="ElecBatchPower.TabIndex" type="System.Int32, mscorlib">
     <value>227</value>
@@ -240,6 +234,9 @@
   <data name="btnFreeMove.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 43</value>
   </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
+  </data>
   <data name="btnTorqueMode.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 43</value>
   </data>
@@ -249,14 +246,8 @@
   <data name="label8.Text" xml:space="preserve">
     <value>报警状态</value>
   </data>
-  <data name="lblLoosenSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="&gt;&gt;lblEndSignal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnTightenMove.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="ScrewResultStr.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="lblBusySignal.Text" xml:space="preserve">
     <value>忙碌信号</value>
@@ -267,17 +258,14 @@
   <data name="ScrewResultStr.TabIndex" type="System.Int32, mscorlib">
     <value>225</value>
   </data>
-  <data name="&gt;&gt;label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>customPanel1</value>
   </data>
   <data name="TaskNumber.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 74</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel5.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;btnTorqueMode.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="LapsNum.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
@@ -288,8 +276,8 @@
   <data name="&gt;&gt;ScrewResultStr.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblAlarmSignal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 40</value>
+  <data name="&gt;&gt;lblAlarmSignal.Parent" xml:space="preserve">
+    <value>flowLayoutPanel5</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>customPanel1</value>
@@ -300,17 +288,20 @@
   <data name="lblLdlingSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
+  <data name="label15.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  </data>
   <data name="Torque.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="AlarmInfoStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;lblBusySignal.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>速度(r/m)</value>
   </data>
-  <data name="btnTorqueMode.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="&gt;&gt;lblLoosenSignal.Name" xml:space="preserve">
+    <value>lblLoosenSignal</value>
   </data>
   <data name="label16.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -318,47 +309,32 @@
   <data name="lblLoosenSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
-  <data name="lblBusySignal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 40</value>
-  </data>
   <data name="&gt;&gt;btnLoosenMove.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="lblEndSignal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 40</value>
-  </data>
-  <data name="lblTightenSignal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="lblAlarmSignal.Text" xml:space="preserve">
+    <value>报警信号</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MonitorFrm</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
-  </data>
   <data name="&gt;&gt;lblLdlingSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="Torque.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 33</value>
+  <data name="&gt;&gt;flowLayoutPanel5.Name" xml:space="preserve">
+    <value>flowLayoutPanel5</value>
   </data>
   <data name="lblEndSignal.Location" type="System.Drawing.Point, System.Drawing">
     <value>587, 3</value>
   </data>
-  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="lblLdlingSignal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 3</value>
   </data>
   <data name="btnFreeMove.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
-  <data name="lblLdlingSignal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 3</value>
-  </data>
-  <data name="lblBusySignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>215</value>
   </data>
   <data name="btnLoosenMove.Text" xml:space="preserve">
     <value>拧松</value>
@@ -366,17 +342,17 @@
   <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <data name="lblEndSignal.TabIndex" type="System.Int32, mscorlib">
-    <value>108</value>
-  </data>
-  <data name="lblTightenSignal.Text" xml:space="preserve">
-    <value>拧紧信号</value>
+  <data name="&gt;&gt;lblBusySignal.Name" xml:space="preserve">
+    <value>lblBusySignal</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
+  <data name="AlarmInfoStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;btnLoosenMove.Type" xml:space="preserve">
+    <value>MaterialSkin.Controls.MaterialButtonpro, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;ElecBatchPower.Name" xml:space="preserve">
     <value>ElecBatchPower</value>
@@ -387,26 +363,20 @@
   <data name="lblLoosenSignal.Location" type="System.Drawing.Point, System.Drawing">
     <value>149, 3</value>
   </data>
-  <data name="&gt;&gt;lblBusySignal.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="RotateSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblBusySignal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 3</value>
   </data>
   <data name="lblEndSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;TaskNumber.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="lblLoosenSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="lblTightenSignal.TabIndex" type="System.Int32, mscorlib">
+    <value>104</value>
   </data>
   <data name="TaskNumber.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
-  </data>
-  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -414,14 +384,14 @@
   <data name="&gt;&gt;RotateSpeed.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblBusySignal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>441, 3</value>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>customPanel1</value>
   </data>
   <data name="&gt;&gt;LapsNum.Name" xml:space="preserve">
     <value>LapsNum</value>
   </data>
-  <data name="&gt;&gt;btnLoosenMove.Type" xml:space="preserve">
-    <value>MaterialSkin.Controls.MaterialButtonpro, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="ScrewResultStr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
   </data>
   <data name="&gt;&gt;lblTorqueUnit.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -432,8 +402,8 @@
   <data name="customPanel1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label15.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  <data name="lblEndSignal.TabIndex" type="System.Int32, mscorlib">
+    <value>108</value>
   </data>
   <data name="&gt;&gt;lblTorqueUnit.Parent" xml:space="preserve">
     <value>customPanel1</value>
@@ -450,11 +420,11 @@
   <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="lblEndSignal.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 13pt, style=Bold</value>
+  <data name="&gt;&gt;flowLayoutPanel5.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="btnFreeMove.Text" xml:space="preserve">
-    <value>自由</value>
+  <data name="&gt;&gt;lblLoosenSignal.Parent" xml:space="preserve">
+    <value>flowLayoutPanel5</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>圈数(r)</value>
@@ -468,8 +438,8 @@
   <data name="Torque.Text" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
+  <data name="&gt;&gt;btnTorqueMode.Name" xml:space="preserve">
+    <value>btnTorqueMode</value>
   </data>
   <data name="&gt;&gt;btnTightenMove.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialButtonpro, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
@@ -477,14 +447,17 @@
   <data name="&gt;&gt;customPanel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="btnLoosenMove.Location" type="System.Drawing.Point, System.Drawing">
+    <value>161, 43</value>
+  </data>
   <data name="LapsNum.TabIndex" type="System.Int32, mscorlib">
     <value>223</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
   </data>
-  <data name="RotateSpeed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>13</value>
   </data>
   <data name="btnTightenMove.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
@@ -492,14 +465,8 @@
   <data name="TaskNumber.Text" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>13</value>
-  </data>
   <data name="label16.Text" xml:space="preserve">
     <value>驱动功率</value>
-  </data>
-  <data name="&gt;&gt;lblEndSignal.Name" xml:space="preserve">
-    <value>lblEndSignal</value>
   </data>
   <data name="lblLdlingSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -516,14 +483,17 @@
   <data name="LapsNum.Text" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>525, 16</value>
+  </data>
   <data name="&gt;&gt;RotateSpeed.Parent" xml:space="preserve">
     <value>customPanel1</value>
   </data>
   <data name="Torque.Location" type="System.Drawing.Point, System.Drawing">
     <value>402, 74</value>
   </data>
-  <data name="ScrewResultStr.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="&gt;&gt;lblEndSignal.Name" xml:space="preserve">
+    <value>lblEndSignal</value>
   </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
@@ -531,8 +501,8 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="lblBusySignal.TabIndex" type="System.Int32, mscorlib">
-    <value>107</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
   </data>
   <data name="lblBusySignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -552,6 +522,9 @@
   <data name="&gt;&gt;btnFreeMove.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="ElecBatchPower.Location" type="System.Drawing.Point, System.Drawing">
+    <value>781, 74</value>
+  </data>
   <data name="&gt;&gt;lblLdlingSignal.Name" xml:space="preserve">
     <value>lblLdlingSignal</value>
   </data>
@@ -564,20 +537,20 @@
   <data name="&gt;&gt;label15.Parent" xml:space="preserve">
     <value>customPanel1</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
+  <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="lblLoosenSignal.Text" xml:space="preserve">
     <value>拧松信号</value>
   </data>
-  <data name="lblBusySignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="&gt;&gt;btnTorqueMode.Name" xml:space="preserve">
-    <value>btnTorqueMode</value>
+  <data name="&gt;&gt;Torque.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ScrewResultStr.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
+  </data>
+  <data name="Torque.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 33</value>
   </data>
   <data name="&gt;&gt;ScrewResultStr.Name" xml:space="preserve">
     <value>ScrewResultStr</value>
@@ -591,14 +564,17 @@
   <data name="&gt;&gt;AlarmInfoStr.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblTorqueUnit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="btnTightenMove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 43</value>
+  <data name="lblTorqueUnit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>441, 16</value>
+  </data>
+  <data name="&gt;&gt;LapsNum.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="RotateSpeed.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -615,8 +591,8 @@
   <data name="&gt;&gt;RotateSpeed.Name" xml:space="preserve">
     <value>RotateSpeed</value>
   </data>
-  <data name="lblLoosenSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="ScrewResultStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -627,8 +603,8 @@
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
     <value>780, 16</value>
   </data>
-  <data name="&gt;&gt;LapsNum.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblBusySignal.TabIndex" type="System.Int32, mscorlib">
+    <value>107</value>
   </data>
   <data name="&gt;&gt;customPanel1.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -639,8 +615,14 @@
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>218</value>
   </data>
-  <data name="TaskNumber.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="RotateSpeed.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  </data>
+  <data name="RotateSpeed.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RotateSpeed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="lblAlarmSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -657,32 +639,29 @@
   <data name="&gt;&gt;AlarmInfoStr.Parent" xml:space="preserve">
     <value>customPanel1</value>
   </data>
-  <data name="&gt;&gt;lblLoosenSignal.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblEndSignal.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblBusySignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 16</value>
   </data>
-  <data name="&gt;&gt;lblLoosenSignal.Parent" xml:space="preserve">
-    <value>flowLayoutPanel5</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>customPanel1</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
   </data>
   <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <data name="lblAlarmSignal.TabIndex" type="System.Int32, mscorlib">
-    <value>109</value>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel5.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="customPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>904, 123</value>
+  <data name="btnFreeMove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 43</value>
   </data>
   <data name="btnLoosenMove.TabIndex" type="System.Int32, mscorlib">
     <value>216</value>
@@ -696,9 +675,6 @@
   <data name="LapsNum.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;lblBusySignal.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;lblTightenSignal.Name" xml:space="preserve">
     <value>lblTightenSignal</value>
   </data>
@@ -708,8 +684,8 @@
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="lblTorqueUnit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;btnLoosenMove.Name" xml:space="preserve">
+    <value>btnLoosenMove</value>
   </data>
   <data name="LapsNum.Location" type="System.Drawing.Point, System.Drawing">
     <value>268, 74</value>
@@ -726,14 +702,14 @@
   <data name="RotateSpeed.Location" type="System.Drawing.Point, System.Drawing">
     <value>141, 74</value>
   </data>
-  <data name="AlarmInfoStr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
   <data name="lblTorqueUnit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
+  <data name="&gt;&gt;ScrewResultStr.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;btnFreeMove.Name" xml:space="preserve">
     <value>btnFreeMove</value>
@@ -747,35 +723,41 @@
   <data name="&gt;&gt;btnFreeMove.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;TaskNumber.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="&gt;&gt;lblAlarmSignal.Name" xml:space="preserve">
     <value>lblAlarmSignal</value>
   </data>
   <data name="&gt;&gt;lblAlarmSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;lblBusySignal.Parent" xml:space="preserve">
-    <value>flowLayoutPanel5</value>
+  <data name="&gt;&gt;lblEndSignal.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="AlarmInfoStr.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="TaskNumber.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="lblLoosenSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
   </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="lblEndSignal.Text" xml:space="preserve">
     <value>结束信号</value>
   </data>
-  <data name="ScrewResultStr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>526, 74</value>
+  <data name="AlarmInfoStr.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
   </data>
   <data name="&gt;&gt;lblTightenSignal.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;lblEndSignal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LapsNum.Parent" xml:space="preserve">
     <value>customPanel1</value>
@@ -786,11 +768,11 @@
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="&gt;&gt;LapsNum.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="RotateSpeed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
   </data>
-  <data name="&gt;&gt;TaskNumber.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="lblEndSignal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 40</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -804,20 +786,23 @@
   <data name="label15.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="label7.TabIndex" type="System.Int32, mscorlib">
-    <value>215</value>
+  <data name="&gt;&gt;lblTightenSignal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLdlingSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;btnTorqueMode.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="lblTightenSignal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
   <data name="label15.Text" xml:space="preserve">
     <value>拧紧结果</value>
   </data>
   <data name="label16.TabIndex" type="System.Int32, mscorlib">
     <value>219</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 33</value>
   </data>
   <data name="&gt;&gt;ScrewResultStr.Parent" xml:space="preserve">
     <value>customPanel1</value>
@@ -831,9 +816,6 @@
   <data name="AlarmInfoStr.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <data name="btnFreeMove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 43</value>
-  </data>
   <data name="label4.Text" xml:space="preserve">
     <value>任务号</value>
   </data>
@@ -843,20 +825,20 @@
   <data name="lblEndSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="ScrewResultStr.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 33</value>
+  <data name="lblLoosenSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="lblBusySignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="&gt;&gt;label16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblBusySignal.Parent" xml:space="preserve">
+    <value>flowLayoutPanel5</value>
   </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>395, 16</value>
   </data>
-  <data name="&gt;&gt;lblLoosenSignal.Name" xml:space="preserve">
-    <value>lblLoosenSignal</value>
+  <data name="&gt;&gt;lblLoosenSignal.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="lblLoosenSignal.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 40</value>
@@ -879,22 +861,25 @@
   <data name="customPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 153</value>
   </data>
-  <data name="&gt;&gt;lblAlarmSignal.Parent" xml:space="preserve">
-    <value>flowLayoutPanel5</value>
-  </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="Torque.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblLdlingSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
   </data>
-  <data name="&gt;&gt;btnTorqueMode.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="customPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>904, 123</value>
+  </data>
+  <data name="TaskNumber.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;btnTorqueMode.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="btnTorqueMode.TabIndex" type="System.Int32, mscorlib">
     <value>209</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lblLoosenSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="&gt;&gt;AlarmInfoStr.ZOrder" xml:space="preserve">
@@ -921,11 +906,14 @@
   <data name="&gt;&gt;customPanel1.Name" xml:space="preserve">
     <value>customPanel1</value>
   </data>
-  <data name="Torque.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="&gt;&gt;btnTightenMove.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 33</value>
+  </data>
+  <data name="btnTightenMove.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 43</value>
   </data>
   <data name="ElecBatchPower.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -933,8 +921,8 @@
   <data name="btnTightenMove.Text" xml:space="preserve">
     <value>拧紧</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>214</value>
@@ -942,8 +930,11 @@
   <data name="&gt;&gt;Torque.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="Torque.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblEndSignal.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;ElecBatchPower.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -960,20 +951,32 @@
   <data name="&gt;&gt;customPanel1.Type" xml:space="preserve">
     <value>ZimaBlueUI.CustomPanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;Torque.Type" xml:space="preserve">
+  <data name="&gt;&gt;LapsNum.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblBusySignal.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AlarmInfoStr.Text" xml:space="preserve">
+    <value>无故障</value>
   </data>
   <data name="&gt;&gt;Torque.Name" xml:space="preserve">
     <value>Torque</value>
   </data>
+  <data name="lblLdlingSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
   <data name="btnLoosenMove.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  </data>
+  <data name="lblTorqueUnit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="lblTightenSignal.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 40</value>
   </data>
-  <data name="lblAlarmSignal.Text" xml:space="preserve">
-    <value>报警信号</value>
+  <data name="btnTorqueMode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -987,14 +990,11 @@
   <data name="label16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnLoosenMove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>161, 43</value>
+  <data name="lblBusySignal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 40</value>
   </data>
   <data name="lblAlarmSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
-  </data>
-  <data name="RotateSpeed.Text" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="AlarmInfoStr.Location" type="System.Drawing.Point, System.Drawing">
     <value>655, 74</value>

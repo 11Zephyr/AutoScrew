@@ -34,7 +34,7 @@ namespace AutoScrewSys.Frm
                  () =>
                  {
                      //SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
-                     LogHelper.WriteLog("程序启动...", LogType.Run);
+                     MessageBox.Show("程序启动成功!");
                  },
                  (msg) =>
                  {
@@ -269,15 +269,27 @@ namespace AutoScrewSys.Frm
             {
                 case 0:
                     langCode = "zh-CN";
+                    Settings.Default.LanguageIndex = 0;
                     break;
                 case 1:
                     langCode = "en";
+                    Settings.Default.LanguageIndex = 1;
                     break;
                 default:
                     langCode = "zh-CN"; // 默认
+                    Settings.Default.LanguageIndex = 0;
+
                     break;
             }
             LanguageChanged?.Invoke(langCode);
         }
+
+        private void btnDisConnect_Click(object sender, EventArgs e)
+        {
+            GlobalMonitor.StopModbusSyncThread();
+
+        }
+
+    
     }
 }

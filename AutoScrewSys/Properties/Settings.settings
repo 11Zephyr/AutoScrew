@@ -6,7 +6,7 @@
       <Value Profile="(Default)">COM1</Value>
     </Setting>
     <Setting Name="cbxBaudRate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">9600</Value>
+      <Value Profile="(Default)">115200</Value>
     </Setting>
     <Setting Name="cbxDataBits" Type="System.String" Scope="User">
       <Value Profile="(Default)">8</Value>
@@ -79,6 +79,9 @@
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="LanguageIndex" Type="System.UInt16" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

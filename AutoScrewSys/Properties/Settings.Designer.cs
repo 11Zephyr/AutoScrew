@@ -37,7 +37,7 @@ namespace AutoScrewSys.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9600")]
+        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
         public string cbxBaudRate {
             get {
                 return ((string)(this["cbxBaudRate"]));
@@ -332,6 +332,18 @@ namespace AutoScrewSys.Properties {
             }
             set {
                 this["Language"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public ushort LanguageIndex {
+            get {
+                return ((ushort)(this["LanguageIndex"]));
+            }
+            set {
+                this["LanguageIndex"] = value;
             }
         }
     }

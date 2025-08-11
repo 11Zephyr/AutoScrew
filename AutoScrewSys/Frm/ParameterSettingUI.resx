@@ -327,9 +327,6 @@
   <data name="cbxParity.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
   </data>
-  <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
-  </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>tpanel3</value>
   </data>
@@ -360,11 +357,8 @@
   <data name="&gt;&gt;cbxDataStoredTime.Name" xml:space="preserve">
     <value>cbxDataStoredTime</value>
   </data>
-  <data name="&gt;&gt;cbxLoggedOutTime.Type" xml:space="preserve">
-    <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="cbxDataStoredTime.IntegralHeight" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -387,8 +381,8 @@
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="flowLayoutPanel2" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="flowLayoutPanel1" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,67.12627,Percent,32.87373" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;cbxStopBits.Parent" xml:space="preserve">
-    <value>tpanel5</value>
+  <data name="&gt;&gt;cbxTorqueUnit.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
     <value>93, 10</value>
@@ -501,8 +495,8 @@
   <data name="label11.Text" xml:space="preserve">
     <value>停止位:</value>
   </data>
-  <data name="materialButtonpro3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 30</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 54</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>41</value>
@@ -522,8 +516,8 @@
   <data name="cbxLoggedOutTime.Items" xml:space="preserve">
     <value>1分钟</value>
   </data>
-  <data name="materialButtonpro3.Text" xml:space="preserve">
-    <value>断开</value>
+  <data name="cbxLoggedOutTime.MaxDropDownItems" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="tbxSaveDataPath.TabIndex" type="System.Int32, mscorlib">
     <value>203</value>
@@ -537,8 +531,8 @@
   <data name="cbxPort.ItemHeight" type="System.Int32, mscorlib">
     <value>43</value>
   </data>
-  <data name="&gt;&gt;cbxTorqueUnit.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
   </data>
   <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -564,8 +558,8 @@
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="cbxLoggedOutTime.MaxDropDownItems" type="System.Int32, mscorlib">
-    <value>5</value>
+  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;lblMesTextR.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -648,9 +642,6 @@
   <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 56</value>
-  </data>
   <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>438, 160</value>
   </data>
@@ -665,6 +656,9 @@
   </data>
   <data name="flowLayoutPanel1.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
+  </data>
+  <data name="cbxTorqueUnit.Items3" xml:space="preserve">
+    <value>kg·m</value>
   </data>
   <data name="&gt;&gt;cbxStopBits.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -729,9 +723,6 @@
   <data name="flowLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 10</value>
-  </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
@@ -752,6 +743,9 @@
   </data>
   <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>1378, 753</value>
+  </data>
+  <data name="&gt;&gt;lblMesTextR.Parent" xml:space="preserve">
+    <value>flowLayoutPanel1</value>
   </data>
   <data name="cbxDataStoredTime.Items4" xml:space="preserve">
     <value>180天</value>
@@ -804,9 +798,6 @@
   <data name="&gt;&gt;panel7.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="label12.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
-  </data>
   <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
@@ -858,6 +849,9 @@
   <data name="&gt;&gt;cbxDataBits.Name" xml:space="preserve">
     <value>cbxDataBits</value>
   </data>
+  <data name="btnConnect.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="receptOutTime.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 28</value>
   </data>
@@ -875,9 +869,6 @@
   </data>
   <data name="sendOutTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, 10</value>
-  </data>
-  <data name="&gt;&gt;materialButtonpro3.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -984,14 +975,11 @@
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 189</value>
   </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>202</value>
-  </data>
   <data name="label9.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;materialButtonpro3.Parent" xml:space="preserve">
-    <value>panel6</value>
+  <data name="&gt;&gt;cbxLoggedOutTime.Type" xml:space="preserve">
+    <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>日志保存时长:</value>
@@ -1044,14 +1032,17 @@
   <data name="cbxLogStoredTime.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="cbxTorqueUnit.Items3" xml:space="preserve">
-    <value>kg·m</value>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>906, 58</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>panel5</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 317</value>
+  </data>
+  <data name="lblMesTextR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="label11.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1170,8 +1161,8 @@
   <data name="&gt;&gt;flowLayoutPanel1.Name" xml:space="preserve">
     <value>flowLayoutPanel1</value>
   </data>
-  <data name="label14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 56</value>
   </data>
   <data name="cbxTorqueUnit.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -1200,8 +1191,8 @@
   <data name="&gt;&gt;cbxPort.Type" xml:space="preserve">
     <value>MaterialSkin.Controls.MaterialComboBox, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;lblMesTextR.Parent" xml:space="preserve">
-    <value>flowLayoutPanel1</value>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 10</value>
   </data>
   <data name="&gt;&gt;cbxLoggedOutTime.Name" xml:space="preserve">
     <value>cbxLoggedOutTime</value>
@@ -1272,8 +1263,8 @@
   <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 54</value>
+  <data name="label14.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
   <data name="tpanel3.TabIndex" type="System.Int32, mscorlib">
     <value>44</value>
@@ -1305,9 +1296,6 @@
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 435</value>
   </data>
-  <data name="&gt;&gt;materialButtonpro3.Name" xml:space="preserve">
-    <value>materialButtonpro3</value>
-  </data>
   <data name="cbxParity.Location" type="System.Drawing.Point, System.Drawing">
     <value>205, -1</value>
   </data>
@@ -1325,9 +1313,6 @@
   </data>
   <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
-  </data>
-  <data name="materialButtonpro3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>247, 92</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1354,7 +1339,7 @@
     <value>label2</value>
   </data>
   <data name="&gt;&gt;btnConnect.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>202</value>
@@ -1371,9 +1356,6 @@
   <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;materialButtonpro3.Type" xml:space="preserve">
-    <value>MaterialSkin.Controls.MaterialButtonpro, MaterialSkin, Version=2.2.1.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <data name="cbxLogStoredTime.Items1" xml:space="preserve">
     <value>30天</value>
   </data>
@@ -1389,8 +1371,8 @@
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblMesTextR.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="cbxDataStoredTime.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>tpanel5</value>
@@ -1406,9 +1388,6 @@
   </data>
   <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
-  </data>
-  <data name="materialButtonpro3.TabIndex" type="System.Int32, mscorlib">
-    <value>209</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>AutoScrewSys.Frm.BaseUserControl, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -1440,8 +1419,8 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>906, 58</value>
+  <data name="&gt;&gt;cbxStopBits.Parent" xml:space="preserve">
+    <value>tpanel5</value>
   </data>
   <data name="lblMesTextR.Size" type="System.Drawing.Size, System.Drawing">
     <value>906, 58</value>

@@ -117,6 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Serial Port Parameters</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>COM Port:</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Baud Rate:</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Parity Bit:</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Data Bits:</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Stop Bits</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>25, 10</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 32</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Send Timeout:</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 10</value>
+  </data>
+  <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 32</value>
+  </data>
+  <data name="label13.Text" xml:space="preserve">
+    <value>Receive Timeout:</value>
+  </data>
+  <data name="btnConnect.Location" type="System.Drawing.Point, System.Drawing">
+    <value>205, 20</value>
+  </data>
+  <data name="btnConnect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 36</value>
+  </data>
+  <data name="btnConnect.Text" xml:space="preserve">
+    <value>Connect</value>
+  </data>
+  <data name="lblMesTextR.Text" xml:space="preserve">
+    <value>Data Management Parameters</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 54</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Torque Unit:</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Data Path:</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Save Time:</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 56</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Log Period:</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Logout Time:</value>
+  </data>
+  <data name="comboBoxLanguage.Items" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="comboBoxLanguage.Items1" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="label14.Text" xml:space="preserve">
     <value>Language:</value>
   </data>

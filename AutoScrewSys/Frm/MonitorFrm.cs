@@ -81,7 +81,9 @@ namespace AutoScrewSys.Frm
             };
 
             btnTorqueMode.ButtonColor = torqueMode == 1? Color.FromArgb(255, 128, 0): Color.Green;
-            btnTorqueMode.Text = torqueMode == 1 ? "连续旋转模式" : "固定圈数模式";
+            btnTorqueMode.Text = Settings.Default.LanguageIndex == 0
+            ? (torqueMode == 1 ? "连续旋转" : "固定圈数")
+            : (torqueMode == 1 ? "Cont. Rotate" : "Fixed Turns");
 
             for (int i = 0; i < BEAlabels.Length; i++)
             {

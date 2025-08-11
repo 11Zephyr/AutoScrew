@@ -64,10 +64,10 @@ namespace AutoScrewSys.Frm
             InitTorqueChart();
             InitResultDgv();
             cbxNoCollection.ForeColor = Settings.Default.NoCollection ? Color.Red : Color.White;
-
-            #endregion
-            LogHelper.InitializeLogBox(rtbLog, Color.FromArgb(255,128,0));
+            LogHelper.InitializeLogBox(rtbLog, Color.FromArgb(255, 128, 0));
             SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
+            #endregion
+
 
             GlobalMonitor.StatusChanged += OnStatusChanged;
             GlobalMonitor.Start(

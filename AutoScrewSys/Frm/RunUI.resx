@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>tpanel6</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="panel10.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -146,14 +143,20 @@
   <data name="cbxNoCollection.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 33</value>
   </data>
-  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;Yield.Name" xml:space="preserve">
+    <value>Yield</value>
+  </data>
+  <data name="&gt;&gt;PositionView.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 40</value>
   </data>
-  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+  <data name="&gt;&gt;ScrewsTotal.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label18.TabIndex" type="System.Int32, mscorlib">
@@ -222,17 +225,14 @@
         AElFTkSuQmCC
 </value>
   </data>
-  <data name="tpanel5.TabIndex" type="System.Int32, mscorlib">
-    <value>76</value>
-  </data>
-  <data name="Yield.Text" xml:space="preserve">
-    <value>zGradientProgressBar1</value>
+  <data name="label19.TabIndex" type="System.Int32, mscorlib">
+    <value>204</value>
   </data>
   <data name="label18.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>tpanel3</value>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
   </data>
   <data name="lblBusySignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
@@ -249,14 +249,11 @@
   <data name="flowLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1378, 753</value>
+  <data name="ScrewResultStr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 2</value>
   </data>
   <data name="chart1.Size" type="System.Drawing.Size, System.Drawing">
     <value>642, 344</value>
-  </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 14</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel5.Name" xml:space="preserve">
     <value>tableLayoutPanel5</value>
@@ -276,11 +273,14 @@
   <data name="&gt;&gt;lblEndSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tpanel7.TabIndex" type="System.Int32, mscorlib">
-    <value>84</value>
+  <data name="tpanel9.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="lblAlarmSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1378, 753</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -288,17 +288,26 @@
   <data name="&gt;&gt;ScrewsTotal.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;lblLoosenSignal.Name" xml:space="preserve">
-    <value>lblLoosenSignal</value>
+  <data name="Yield.Text" xml:space="preserve">
+    <value>zGradientProgressBar1</value>
   </data>
   <data name="PositionView.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
-  <data name="&gt;&gt;cbxNoCollection.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label19.Text" xml:space="preserve">
+    <value>良率:</value>
+  </data>
+  <data name="Column4.HeaderText" xml:space="preserve">
+    <value>点位</value>
+  </data>
+  <data name="&gt;&gt;Column7.Name" xml:space="preserve">
+    <value>Column7</value>
   </data>
   <data name="panel6.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
+  </data>
+  <data name="tableLayoutPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>197</value>
@@ -306,20 +315,23 @@
   <data name="Column6.HeaderText" xml:space="preserve">
     <value>扭力</value>
   </data>
-  <data name="lblBadScrews.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
   </data>
   <data name="lblBadScrews.TabIndex" type="System.Int32, mscorlib">
     <value>210</value>
   </data>
-  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 548</value>
+  <data name="LapsNum.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;btnRandomSNCode.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="&gt;&gt;panel10.Name" xml:space="preserve">
     <value>panel10</value>
+  </data>
+  <data name="Yield.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;lblLdlingSignal.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -333,8 +345,8 @@
   <data name="&gt;&gt;label17.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
   </data>
-  <data name="lblCT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tableLayoutPanel5.RowCount" type="System.Int32, mscorlib">
     <value>1</value>
@@ -360,14 +372,17 @@
   <data name="&gt;&gt;tpanel2.Name" xml:space="preserve">
     <value>tpanel2</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel6.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="lblGoodScrews.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;AlarmInfoStr.Parent" xml:space="preserve">
     <value>tpanel7</value>
   </data>
   <data name="flowLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 598</value>
+  </data>
+  <data name="&gt;&gt;tpanel9.Parent" xml:space="preserve">
+    <value>tableLayoutPanel5</value>
   </data>
   <data name="lblCT.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 18pt, style=Bold</value>
@@ -376,7 +391,7 @@
     <value>Column5</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 44</value>
+    <value>120, 44</value>
   </data>
   <data name="&gt;&gt;tbxSnCode.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
@@ -399,17 +414,20 @@
   <data name="tableLayoutPanel5.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="rtbLog" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tpanel9" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,16.66667,Percent,83.33334" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="&gt;&gt;Column4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblGoodScrews.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label19" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Yield" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,9.090909,Percent,90.90909" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 656</value>
+  </data>
+  <data name="&gt;&gt;tpanel5.Parent" xml:space="preserve">
+    <value>tableLayoutPanel2</value>
   </data>
   <data name="lblAlarmSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
-    <value>tableLayoutPanel6</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>tpanel7</value>
@@ -432,23 +450,29 @@
   <data name="&gt;&gt;btnRandomSNCode.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblBusySignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tbxSnCode.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 14pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;rtbLog.Name" xml:space="preserve">
-    <value>rtbLog</value>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 14</value>
   </data>
-  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>tpanel6</value>
   </data>
   <data name="cbxNoCollection.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tableLayoutPanel5" Row="7" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="flowLayoutPanel2" Row="6" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel4" Row="4" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel3" Row="3" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tpanel7" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tpanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel2" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tableLayoutPanel6" Row="5" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100,Absolute,20" /&gt;&lt;Rows Styles="Percent,21.11554,Percent,15.53785,Percent,8.76494,Percent,14.47543,Percent,12.4834,Percent,6.640106,Percent,7.702523,Percent,13.14741" /&gt;&lt;/TableLayoutSettings&gt;</value>
+  </data>
+  <data name="&gt;&gt;Torque.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblScrews.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -459,8 +483,8 @@
   <data name="tableLayoutPanel2.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="tpanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>357, 70</value>
+  <data name="lblAlarmSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="lblGoodScrews.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -485,11 +509,14 @@
   <data name="&gt;&gt;lblGoodScrews.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 16</value>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label18.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tpanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>72</value>
   </data>
   <data name="lblLdlingSignal.Text" xml:space="preserve">
     <value>空转信号</value>
@@ -523,20 +550,23 @@
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;Yield.Parent" xml:space="preserve">
-    <value>tableLayoutPanel6</value>
+  <data name="tpanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>357, 71</value>
   </data>
   <data name="tpanel7.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 60</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="LapsNum.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="&gt;&gt;tpanel2.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
-  <data name="tpanel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>357, 71</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 40</value>
+  </data>
+  <data name="tableLayoutPanel6.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
+    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="label19" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="Yield" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,17.49311,Percent,82.50689" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="&gt;&gt;chart1.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -544,8 +574,8 @@
   <data name="&gt;&gt;Torque.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Column4.Name" xml:space="preserve">
-    <value>Column4</value>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>tpanel6</value>
   </data>
   <data name="tpanel4.TabIndex" type="System.Int32, mscorlib">
     <value>74</value>
@@ -556,8 +586,8 @@
   <data name="&gt;&gt;lblAlarmSignal.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel3.Type" xml:space="preserve">
     <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -565,8 +595,8 @@
   <data name="label16.Text" xml:space="preserve">
     <value>螺丝良数:</value>
   </data>
-  <data name="TaskNumber.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 18pt, style=Bold</value>
+  <data name="TaskNumber.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;tpanel9.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -592,26 +622,23 @@
   <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
     <value>splitContainer1.Panel1</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;label19.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblLdlingSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;cbxNoCollection.Parent" xml:space="preserve">
-    <value>tpanel2</value>
+  <data name="Column2.HeaderText" xml:space="preserve">
+    <value>SN码</value>
   </data>
-  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cbxNoCollection.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="LapsNum.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;cbxNoCollection.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tpanel3.Name" xml:space="preserve">
     <value>tpanel3</value>
@@ -631,8 +658,11 @@
   <data name="tableLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 345</value>
   </data>
-  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;AlarmInfoStr.Name" xml:space="preserve">
+    <value>AlarmInfoStr</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Panel1.Name" xml:space="preserve">
     <value>splitContainer2.Panel1</value>
@@ -658,8 +688,8 @@
   <data name="label1.Text" xml:space="preserve">
     <value>时间:</value>
   </data>
-  <data name="lblBusySignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;Column4.Name" xml:space="preserve">
+    <value>Column4</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.Name" xml:space="preserve">
     <value>tableLayoutPanel2</value>
@@ -670,8 +700,8 @@
   <data name="&gt;&gt;chart1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;rtbLog.Name" xml:space="preserve">
+    <value>rtbLog</value>
   </data>
   <data name="&gt;&gt;panel4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -684,6 +714,9 @@
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>70, 14</value>
+  </data>
+  <data name="tpanel7.TabIndex" type="System.Int32, mscorlib">
+    <value>84</value>
   </data>
   <data name="chart1.Text" xml:space="preserve">
     <value>chart1</value>
@@ -709,11 +742,11 @@
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 44</value>
   </data>
-  <data name="&gt;&gt;lblLdlingSignal.Name" xml:space="preserve">
-    <value>lblLdlingSignal</value>
+  <data name="LapsNum.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 40</value>
   </data>
-  <data name="&gt;&gt;tpanel3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel2</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>扭力:</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>198</value>
@@ -721,8 +754,8 @@
   <data name="label15.Text" xml:space="preserve">
     <value>螺丝数:</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="lblCT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label15.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -736,8 +769,8 @@
   <data name="&gt;&gt;lblScrews.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="&gt;&gt;Column7.Name" xml:space="preserve">
-    <value>Column7</value>
+  <data name="lblAlarmSignal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 46</value>
   </data>
   <data name="panel5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -760,11 +793,11 @@
   <data name="&gt;&gt;tableLayoutPanel4.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="LapsNum.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tpanel5.TabIndex" type="System.Int32, mscorlib">
+    <value>76</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>196</value>
@@ -774,6 +807,9 @@
   </data>
   <data name="&gt;&gt;rtbLog.Type" xml:space="preserve">
     <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -790,17 +826,17 @@
   <data name="Column7.HeaderText" xml:space="preserve">
     <value>结果</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
+    <value>tpanel3</value>
   </data>
   <data name="label4.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;PositionView.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="label16.TabIndex" type="System.Int32, mscorlib">
+    <value>207</value>
   </data>
-  <data name="lblGoodScrews.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -832,14 +868,8 @@
   <data name="tpanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="Torque.Location" type="System.Drawing.Point, System.Drawing">
-    <value>148, 14</value>
-  </data>
   <data name="tableLayoutPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
-  </data>
-  <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>197</value>
   </data>
   <data name="splitContainer2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -856,8 +886,8 @@
   <data name="lblBadScrews.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="tpanel9.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="&gt;&gt;lblLoosenSignal.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
   </data>
   <data name="tpanel9.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 88</value>
@@ -865,11 +895,11 @@
   <data name="&gt;&gt;splitContainer2.Panel2.Name" xml:space="preserve">
     <value>splitContainer2.Panel2</value>
   </data>
-  <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
-    <value>86</value>
-  </data>
-  <data name="&gt;&gt;tpanel5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tpanel3.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
+  </data>
+  <data name="lblLoosenSignal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>236, 45</value>
   </data>
   <data name="&gt;&gt;panel6.Name" xml:space="preserve">
     <value>panel6</value>
@@ -898,14 +928,26 @@
   <data name="lblTorqueUnit.Location" type="System.Drawing.Point, System.Drawing">
     <value>261, 19</value>
   </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="tpanel2.TabIndex" type="System.Int32, mscorlib">
     <value>83</value>
   </data>
   <data name="lblTorqueUnit.TabIndex" type="System.Int32, mscorlib">
     <value>199</value>
   </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>tpanel2</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
   </data>
   <data name="PositionView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -916,14 +958,14 @@
   <data name="tpanel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>tpanel2</value>
+  <data name="panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
   </data>
   <data name="Torque.Text" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="label19.Text" xml:space="preserve">
-    <value>良率:</value>
+  <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel6.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -934,11 +976,11 @@
   <data name="tableLayoutPanel3.ColumnCount" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="label18.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>tpanel5</value>
   </data>
-  <data name="&gt;&gt;tpanel2.Type" xml:space="preserve">
-    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="&gt;&gt;cbxNoCollection.Parent" xml:space="preserve">
+    <value>tpanel2</value>
   </data>
   <data name="panel6.TabIndex" type="System.Int32, mscorlib">
     <value>207</value>
@@ -949,8 +991,8 @@
   <data name="&gt;&gt;lblAlarmSignal.Name" xml:space="preserve">
     <value>lblAlarmSignal</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>75, 14</value>
+  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -964,11 +1006,14 @@
   <data name="splitContainer2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cbxNoCollection.Location" type="System.Drawing.Point, System.Drawing">
+    <value>608, 25</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+  <data name="AlarmInfoStr.Location" type="System.Drawing.Point, System.Drawing">
+    <value>197, 8</value>
+  </data>
+  <data name="&gt;&gt;btnRandomSNCode.Type" xml:space="preserve">
+    <value>ZimaBlueUI.ZRoundButton, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;panel10.Parent" xml:space="preserve">
     <value>tpanel4</value>
@@ -982,17 +1027,23 @@
   <data name="cbxNoCollection.TabIndex" type="System.Int32, mscorlib">
     <value>199</value>
   </data>
+  <data name="Yield.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 3</value>
+  </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>30, 11</value>
   </data>
   <data name="rtbLog.Location" type="System.Drawing.Point, System.Drawing">
     <value>124, 3</value>
   </data>
-  <data name="lblAlarmSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lblTorqueUnit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="tpanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>357, 70</value>
   </data>
   <data name="&gt;&gt;tpanel3.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1002,9 +1053,6 @@
   </data>
   <data name="&gt;&gt;PositionView.Parent" xml:space="preserve">
     <value>splitContainer2.Panel2</value>
-  </data>
-  <data name="label16.TabIndex" type="System.Int32, mscorlib">
-    <value>207</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
@@ -1039,29 +1087,32 @@
   <data name="lblTightenSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="&gt;&gt;tpanel2.Type" xml:space="preserve">
+    <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
   <data name="label17.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>83, 6</value>
   </data>
-  <data name="AlarmInfoStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>75, 14</value>
   </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>tpanel6</value>
+  <data name="tpanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;panel6.Parent" xml:space="preserve">
     <value>flowLayoutPanel2</value>
   </data>
-  <data name="TaskNumber.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
     <value>365, 44</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel3.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 40</value>
@@ -1069,29 +1120,23 @@
   <data name="panel10.TabIndex" type="System.Int32, mscorlib">
     <value>199</value>
   </data>
-  <data name="lblLoosenSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>75, 18</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>报警</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>RunUI</value>
+  <data name="&gt;&gt;panel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tpanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 111</value>
   </data>
-  <data name="&gt;&gt;Torque.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblBusySignal.Text" xml:space="preserve">
     <value>忙碌信号</value>
   </data>
-  <data name="lblGoodScrews.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Torque.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 40</value>
@@ -1114,14 +1159,14 @@
   <data name="label16.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;lblLoosenSignal.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>197</value>
   </data>
   <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
     <value>tpanel7</value>
   </data>
-  <data name="LapsNum.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="lblAlarmSignal.TabIndex" type="System.Int32, mscorlib">
+    <value>110</value>
   </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="tpanel5" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tpanel6" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="tpanel4" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="tpanel3" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
@@ -1132,35 +1177,38 @@
   <data name="lblEndSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label19.TabIndex" type="System.Int32, mscorlib">
-    <value>204</value>
+  <data name="ScrewsTotal.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="Yield.Size" type="System.Drawing.Size, System.Drawing">
-    <value>654, 38</value>
+    <value>594, 38</value>
   </data>
   <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 44</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label19.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
-  <data name="Column2.HeaderText" xml:space="preserve">
-    <value>SN码</value>
+  <data name="lblScrews.TabIndex" type="System.Int32, mscorlib">
+    <value>206</value>
   </data>
-  <data name="&gt;&gt;lblTightenSignal.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="panel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
-  <data name="tableLayoutPanel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 656</value>
+  <data name="flowLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>726, 52</value>
   </data>
   <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 103</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+  <data name="lblLoosenSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tpanel6.Name" xml:space="preserve">
     <value>tpanel6</value>
+  </data>
+  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
+    <value>Column2</value>
   </data>
   <data name="tableLayoutPanel5.TabIndex" type="System.Int32, mscorlib">
     <value>206</value>
@@ -1174,14 +1222,14 @@
   <data name="lblLoosenSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 548</value>
   </data>
   <data name="&gt;&gt;tpanel2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="panel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="lblEndSignal.Text" xml:space="preserve">
+    <value>结束信号</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
     <value>splitContainer1</value>
@@ -1192,17 +1240,14 @@
   <data name="label17.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lblLoosenSignal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 45</value>
+  <data name="lblTightenSignal.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="AlarmInfoStr.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
   <data name="label17.TabIndex" type="System.Int32, mscorlib">
     <value>209</value>
-  </data>
-  <data name="tbxSnCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>469, 43</value>
   </data>
   <data name="&gt;&gt;ScrewResultStr.Parent" xml:space="preserve">
     <value>tpanel2</value>
@@ -1213,8 +1258,8 @@
   <data name="&gt;&gt;btnRandomSNCode.Name" xml:space="preserve">
     <value>btnRandomSNCode</value>
   </data>
-  <data name="Yield.Location" type="System.Drawing.Point, System.Drawing">
-    <value>69, 3</value>
+  <data name="&gt;&gt;flowLayoutPanel2.Name" xml:space="preserve">
+    <value>flowLayoutPanel2</value>
   </data>
   <data name="&gt;&gt;lblGoodScrews.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1222,14 +1267,17 @@
   <data name="&gt;&gt;label20.Name" xml:space="preserve">
     <value>label20</value>
   </data>
-  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+  <data name="lblBadScrews.Text" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="lblBusySignal.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 46</value>
   </data>
   <data name="TaskNumber.TabIndex" type="System.Int32, mscorlib">
     <value>197</value>
+  </data>
+  <data name="cbxNoCollection.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="rtbLog.Text" xml:space="preserve">
     <value />
@@ -1243,11 +1291,8 @@
   <data name="&gt;&gt;LapsNum.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tableLayoutPanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="chart1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="lblLdlingSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="lblBusySignal.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 54</value>
@@ -1261,20 +1306,14 @@
   <data name="lblLoosenSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
-    <value>344</value>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>tpanel4</value>
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="lblAlarmSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
@@ -1288,17 +1327,14 @@
   <data name="LapsNum.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 18pt, style=Bold</value>
   </data>
-  <data name="lblScrews.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 44</value>
-  </data>
   <data name="&gt;&gt;Column6.Name" xml:space="preserve">
     <value>Column6</value>
   </data>
   <data name="lblCT.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 40</value>
   </data>
-  <data name="&gt;&gt;tpanel9.Parent" xml:space="preserve">
-    <value>tableLayoutPanel5</value>
+  <data name="&gt;&gt;lblLdlingSignal.Name" xml:space="preserve">
+    <value>lblLdlingSignal</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -1318,11 +1354,11 @@
   <data name="label18.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lblEndSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="tbxSnCode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>469, 43</value>
   </data>
-  <data name="&gt;&gt;lblCT.Parent" xml:space="preserve">
-    <value>tpanel4</value>
+  <data name="&gt;&gt;lblScrews.Name" xml:space="preserve">
+    <value>lblScrews</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -1333,14 +1369,8 @@
   <data name="tableLayoutPanel3.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblAlarmSignal" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblEndSignal" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblBusySignal" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblLdlingSignal" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblLoosenSignal" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="lblTightenSignal" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,33.33333,Percent,33.33333,Percent,33.33333" /&gt;&lt;Rows Styles="Percent,50,Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="lblLoosenSignal.TabIndex" type="System.Int32, mscorlib">
-    <value>106</value>
-  </data>
-  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 14</value>
-  </data>
-  <data name="cbxNoCollection.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="tableLayoutPanel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1348,23 +1378,20 @@
   <data name="tpanel6.TabIndex" type="System.Int32, mscorlib">
     <value>75</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 44</value>
   </data>
-  <data name="&gt;&gt;AlarmInfoStr.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="lblBusySignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;Yield.Parent" xml:space="preserve">
+    <value>tableLayoutPanel6</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblEndSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
-  <data name="AlarmInfoStr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>197, 8</value>
+  <data name="panel5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="splitContainer2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1375,14 +1402,17 @@
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 153</value>
   </data>
-  <data name="label15.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 14</value>
   </data>
-  <data name="tbxSnCode.TabIndex" type="System.Int32, mscorlib">
-    <value>208</value>
+  <data name="&gt;&gt;splitContainer2.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel1</value>
   </data>
   <data name="&gt;&gt;LapsNum.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;Yield.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1393,26 +1423,26 @@
   <data name="btnRandomSNCode.Location" type="System.Drawing.Point, System.Drawing">
     <value>600, 3</value>
   </data>
-  <data name="ScrewResultStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;splitContainer2.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="tableLayoutPanel4.RowCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
+  <data name="&gt;&gt;Column5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="lblCT.Location" type="System.Drawing.Point, System.Drawing">
     <value>152, 14</value>
   </data>
-  <data name="lblAlarmSignal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>236, 46</value>
+  <data name="lblEndSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="TaskNumber.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
-  </data>
-  <data name="&gt;&gt;lblScrews.Name" xml:space="preserve">
-    <value>lblScrews</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1432,20 +1462,17 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 24pt, style=Bold</value>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>扭力:</value>
+  <data name="btnRandomSNCode.Text" xml:space="preserve">
+    <value>随机码</value>
   </data>
   <data name="lblLdlingSignal.Location" type="System.Drawing.Point, System.Drawing">
     <value>487, 3</value>
   </data>
   <data name="&gt;&gt;lblTightenSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 40</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>AutoScrewSys.Frm.BaseUserControl, AutoScrewSys, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
@@ -1459,11 +1486,11 @@
   <data name="btnRandomSNCode.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 46</value>
   </data>
-  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="Yield.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="lblEndSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="lblScrews.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
   <data name="Torque.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 18pt, style=Bold</value>
@@ -1474,14 +1501,14 @@
   <data name="&gt;&gt;lblAlarmSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="lblEndSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;cbxNoCollection.Name" xml:space="preserve">
     <value>cbxNoCollection</value>
   </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>tpanel5</value>
+  <data name="&gt;&gt;ScrewResultStr.Name" xml:space="preserve">
+    <value>ScrewResultStr</value>
   </data>
   <data name="panel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1500,8 +1527,8 @@
         FL4EOQLc8Z52G9lyZJ5qC34DRGYcYL5cgGUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="&gt;&gt;Yield.Type" xml:space="preserve">
-    <value>ZimaBlueUI.ZGradientProgressBar, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 16</value>
   </data>
   <data name="lblTightenSignal.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 13pt, style=Bold</value>
@@ -1521,14 +1548,14 @@
   <data name="lblEndSignal.TabIndex" type="System.Int32, mscorlib">
     <value>109</value>
   </data>
-  <data name="&gt;&gt;flowLayoutPanel2.Name" xml:space="preserve">
-    <value>flowLayoutPanel2</value>
+  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label16.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="&gt;&gt;Yield.Name" xml:space="preserve">
-    <value>Yield</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>报警</value>
   </data>
   <data name="&gt;&gt;splitContainer2.Name" xml:space="preserve">
     <value>splitContainer2</value>
@@ -1545,14 +1572,14 @@
   <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 46</value>
   </data>
-  <data name="ScrewsTotal.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;lblAlarmSignal.Parent" xml:space="preserve">
+    <value>tableLayoutPanel3</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>200</value>
   </data>
-  <data name="LapsNum.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 40</value>
+  <data name="lblScrews.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 44</value>
   </data>
   <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 88</value>
@@ -1560,14 +1587,11 @@
   <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="lblAlarmSignal.TabIndex" type="System.Int32, mscorlib">
-    <value>110</value>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>tableLayoutPanel4</value>
   </data>
   <data name="&gt;&gt;tpanel9.Name" xml:space="preserve">
     <value>tpanel9</value>
-  </data>
-  <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
-    <value>tpanel3</value>
   </data>
   <data name="ScrewResultStr.Size" type="System.Drawing.Size, System.Drawing">
     <value>380, 109</value>
@@ -1577,9 +1601,6 @@
   </data>
   <data name="lblGoodScrews.Size" type="System.Drawing.Size, System.Drawing">
     <value>175, 44</value>
-  </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="lblLdlingSignal.TabIndex" type="System.Int32, mscorlib">
     <value>107</value>
@@ -1596,8 +1617,8 @@
   <data name="lblLoosenSignal.Text" xml:space="preserve">
     <value>拧松信号</value>
   </data>
-  <data name="&gt;&gt;TaskNumber.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="LapsNum.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="panel4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1618,8 +1639,11 @@
         HyLx+b4TQg3/AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="label19.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label19.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel5.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1627,20 +1651,11 @@
   <data name="&gt;&gt;lblBadScrews.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
-    <value>tableLayoutPanel4</value>
-  </data>
-  <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="lblBusySignal.TabIndex" type="System.Int32, mscorlib">
     <value>108</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;panel6.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="&gt;&gt;lblCT.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1672,14 +1687,14 @@
   <data name="lblTightenSignal.TabIndex" type="System.Int32, mscorlib">
     <value>105</value>
   </data>
-  <data name="lblLdlingSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="&gt;&gt;tableLayoutPanel6.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
   <data name="&gt;&gt;label20.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tpanel2.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lblScrews.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -1687,11 +1702,11 @@
   <data name="tableLayoutPanel6.TabIndex" type="System.Int32, mscorlib">
     <value>207</value>
   </data>
-  <data name="&gt;&gt;AlarmInfoStr.Name" xml:space="preserve">
-    <value>AlarmInfoStr</value>
+  <data name="ScrewsTotal.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 44</value>
   </data>
-  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
-    <value>Column3</value>
+  <data name="TaskNumber.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 18pt, style=Bold</value>
   </data>
   <data name="lblTorqueUnit.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1714,8 +1729,8 @@
   <data name="lblAlarmSignal.Text" xml:space="preserve">
     <value>报警信号</value>
   </data>
-  <data name="&gt;&gt;Column2.Name" xml:space="preserve">
-    <value>Column2</value>
+  <data name="lblLdlingSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="lblBadScrews.Location" type="System.Drawing.Point, System.Drawing">
     <value>546, 44</value>
@@ -1741,8 +1756,8 @@
   <data name="lblTightenSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblEndSignal.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="tableLayoutPanel5.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1759,29 +1774,17 @@
   <data name="&gt;&gt;tpanel6.Parent" xml:space="preserve">
     <value>tableLayoutPanel2</value>
   </data>
-  <data name="ScrewsTotal.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 44</value>
-  </data>
-  <data name="&gt;&gt;lblAlarmSignal.Parent" xml:space="preserve">
-    <value>tableLayoutPanel3</value>
-  </data>
-  <data name="Column4.HeaderText" xml:space="preserve">
-    <value>点位</value>
-  </data>
   <data name="label20.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="panel5.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="flowLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>726, 52</value>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 40</value>
   </data>
   <data name="lblBadScrews.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 15pt, style=Bold</value>
   </data>
-  <data name="cbxNoCollection.Location" type="System.Drawing.Point, System.Drawing">
-    <value>608, 25</value>
+  <data name="chart1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="&gt;&gt;tpanel4.Name" xml:space="preserve">
     <value>tpanel4</value>
@@ -1789,14 +1792,11 @@
   <data name="&gt;&gt;tpanel3.Type" xml:space="preserve">
     <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;splitContainer2.Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="&gt;&gt;ScrewsTotal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ScrewResultStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;lblGoodScrews.Parent" xml:space="preserve">
     <value>tableLayoutPanel4</value>
@@ -1804,11 +1804,8 @@
   <data name="&gt;&gt;tableLayoutPanel5.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="lblTightenSignal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>200</value>
+  <data name="panel3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="lblBusySignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1819,11 +1816,17 @@
   <data name="&gt;&gt;lblLdlingSignal.Parent" xml:space="preserve">
     <value>tableLayoutPanel3</value>
   </data>
+  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;lblBadScrews.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="tpanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>72</value>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>tpanel3</value>
+  </data>
+  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
+    <value>splitContainer1</value>
   </data>
   <data name="label5.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1834,17 +1837,17 @@
   <data name="&gt;&gt;label16.Name" xml:space="preserve">
     <value>label16</value>
   </data>
-  <data name="&gt;&gt;tpanel7.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;Column3.Name" xml:space="preserve">
+    <value>Column3</value>
   </data>
   <data name="&gt;&gt;TaskNumber.Name" xml:space="preserve">
     <value>TaskNumber</value>
   </data>
-  <data name="AlarmInfoStr.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 24pt, style=Bold</value>
+  <data name="tableLayoutPanel4.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="lblGoodScrews.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -1852,8 +1855,8 @@
   <data name="&gt;&gt;lblLoosenSignal.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="lblEndSignal.Text" xml:space="preserve">
-    <value>结束信号</value>
+  <data name="&gt;&gt;Column7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel6.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -1870,14 +1873,14 @@
   <data name="&gt;&gt;lblTightenSignal.Name" xml:space="preserve">
     <value>lblTightenSignal</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel6.Name" xml:space="preserve">
-    <value>tableLayoutPanel6</value>
+  <data name="AlarmInfoStr.TabIndex" type="System.Int32, mscorlib">
+    <value>199</value>
   </data>
   <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
   </data>
-  <data name="&gt;&gt;ScrewsTotal.Parent" xml:space="preserve">
-    <value>tableLayoutPanel4</value>
+  <data name="&gt;&gt;tableLayoutPanel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblTorqueUnit.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1903,35 +1906,38 @@
   <data name="tableLayoutPanel6.ColumnCount" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>197</value>
+  <data name="&gt;&gt;lblCT.Parent" xml:space="preserve">
+    <value>tpanel4</value>
   </data>
-  <data name="&gt;&gt;Column4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tbxSnCode.TabIndex" type="System.Int32, mscorlib">
+    <value>208</value>
   </data>
-  <data name="&gt;&gt;btnRandomSNCode.Type" xml:space="preserve">
-    <value>ZimaBlueUI.ZRoundButton, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  <data name="AlarmInfoStr.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;Yield.Type" xml:space="preserve">
+    <value>ZimaBlueUI.ZGradientProgressBar, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
     <value>726, 44</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RunUI</value>
   </data>
-  <data name="btnRandomSNCode.Text" xml:space="preserve">
-    <value>随机码</value>
+  <data name="&gt;&gt;lblLoosenSignal.Name" xml:space="preserve">
+    <value>lblLoosenSignal</value>
+  </data>
+  <data name="panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>200</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
-  <data name="&gt;&gt;panel6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;tpanel7.Parent" xml:space="preserve">
+    <value>tableLayoutPanel1</value>
   </data>
-  <data name="ScrewResultStr.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 2</value>
+  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>732, 753</value>
   </data>
   <data name="lblCT.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -1948,8 +1954,8 @@
   <data name="&gt;&gt;tpanel5.Type" xml:space="preserve">
     <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="AlarmInfoStr.TabIndex" type="System.Int32, mscorlib">
-    <value>199</value>
+  <data name="&gt;&gt;panel4.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;Column1.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1969,32 +1975,32 @@
   <data name="lblLdlingSignal.Size" type="System.Drawing.Size, System.Drawing">
     <value>236, 45</value>
   </data>
-  <data name="&gt;&gt;Column5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
   </data>
   <data name="ScrewResultStr.Text" xml:space="preserve">
     <value>Ready</value>
   </data>
-  <data name="&gt;&gt;panel10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Torque.Location" type="System.Drawing.Point, System.Drawing">
+    <value>148, 14</value>
   </data>
   <data name="lblBadScrews.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>197</value>
   </data>
-  <data name="tpanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
-  <data name="&gt;&gt;ScrewResultStr.Name" xml:space="preserve">
-    <value>ScrewResultStr</value>
+  <data name="&gt;&gt;cbxNoCollection.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="&gt;&gt;lblLoosenSignal.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
-    <value>tableLayoutPanel4</value>
+  <data name="splitContainer2.SplitterDistance" type="System.Int32, mscorlib">
+    <value>344</value>
   </data>
   <data name="tpanel9.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 10.5pt, style=Bold</value>
@@ -2008,8 +2014,8 @@
   <data name="tableLayoutPanel2.TabIndex" type="System.Int32, mscorlib">
     <value>76</value>
   </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
+  <data name="&gt;&gt;TaskNumber.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="tpanel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2038,11 +2044,14 @@
   <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tableLayoutPanel3.Parent" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;AlarmInfoStr.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 14.25pt, style=Bold</value>
   </data>
   <data name="TaskNumber.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2053,17 +2062,17 @@
   <data name="lblAlarmSignal.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lblScrews.Font" type="System.Drawing.Font, System.Drawing">
-    <value>思源黑体 CN Bold, 15pt, style=Bold</value>
+  <data name="AlarmInfoStr.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 24pt, style=Bold</value>
   </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblLoosenSignal.TabIndex" type="System.Int32, mscorlib">
+    <value>106</value>
   </data>
   <data name="tpanel3.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
-  <data name="&gt;&gt;AlarmInfoStr.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;lblTightenSignal.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="&gt;&gt;tpanel7.Name" xml:space="preserve">
     <value>tpanel7</value>
@@ -2071,8 +2080,8 @@
   <data name="tableLayoutPanel4.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="lblBadScrews" Row="1" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label17" Row="1" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="lblGoodScrews" Row="1" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label16" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="lblScrews" Row="0" RowSpan="1" Column="3" ColumnSpan="1" /&gt;&lt;Control Name="label15" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;Control Name="ScrewsTotal" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="label18" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,25,Percent,25,Percent,25,Percent,25" /&gt;&lt;Rows Styles="Percent,28.57143,Percent,28.57143" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="lblLdlingSignal.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="tableLayoutPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="tpanel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -2083,8 +2092,8 @@
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>642</value>
   </data>
-  <data name="&gt;&gt;Column7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
+    <value>splitContainer1</value>
   </data>
   <data name="&gt;&gt;lblCT.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -2095,8 +2104,8 @@
   <data name="&gt;&gt;lblBusySignal.Name" xml:space="preserve">
     <value>lblBusySignal</value>
   </data>
-  <data name="&gt;&gt;LapsNum.Name" xml:space="preserve">
-    <value>LapsNum</value>
+  <data name="&gt;&gt;AlarmInfoStr.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2107,8 +2116,8 @@
   <data name="&gt;&gt;tpanel4.Type" xml:space="preserve">
     <value>ZimaBlueUI.Tpanel, ZimaBlueUI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
+  <data name="&gt;&gt;LapsNum.Name" xml:space="preserve">
+    <value>LapsNum</value>
   </data>
   <data name="&gt;&gt;tbxSnCode.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -2116,8 +2125,8 @@
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 18pt, style=Bold</value>
   </data>
-  <data name="panel3.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
+  <data name="label18.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
   </data>
   <data name="AlarmInfoStr.Text" xml:space="preserve">
     <value>无故障</value>
@@ -2137,11 +2146,8 @@
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>tpanel4</value>
-  </data>
-  <data name="lblScrews.TabIndex" type="System.Int32, mscorlib">
-    <value>206</value>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>思源黑体 CN Bold, 24pt, style=Bold</value>
   </data>
   <data name="PositionView.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>32</value>
@@ -2152,17 +2158,11 @@
   <data name="tpanel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 162</value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>732, 753</value>
-  </data>
   <data name="lblLoosenSignal.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
   <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
   <metadata name="Column6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2173,10 +2173,10 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -54,7 +54,6 @@
             this.receptOutTime = new ZimaBlueUI.ZtextBoxRua();
             this.label13 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.materialButtonpro3 = new MaterialSkin.Controls.MaterialButtonpro();
             this.btnConnect = new MaterialSkin.Controls.MaterialButtonpro();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblMesTextR = new System.Windows.Forms.Label();
@@ -417,24 +416,8 @@
             // panel6
             // 
             resources.ApplyResources(this.panel6, "panel6");
-            this.panel6.Controls.Add(this.materialButtonpro3);
             this.panel6.Controls.Add(this.btnConnect);
             this.panel6.Name = "panel6";
-            // 
-            // materialButtonpro3
-            // 
-            resources.ApplyResources(this.materialButtonpro3, "materialButtonpro3");
-            this.materialButtonpro3.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.materialButtonpro3.ButtonColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Buttonmodel = 0;
-            this.materialButtonpro3.ClickColor = System.Drawing.Color.White;
-            this.materialButtonpro3.Constant = 0;
-            this.materialButtonpro3.Depth = 0;
-            this.materialButtonpro3.MaxV = 0;
-            this.materialButtonpro3.MinV = 0;
-            this.materialButtonpro3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButtonpro3.Name = "materialButtonpro3";
-            this.materialButtonpro3.UseVisualStyleBackColor = true;
             // 
             // btnConnect
             // 
@@ -786,7 +769,6 @@
         private ZimaBlueUI.ZtextBoxRua receptOutTime;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel6;
-        private MaterialSkin.Controls.MaterialButtonpro materialButtonpro3;
         private MaterialSkin.Controls.MaterialButtonpro btnConnect;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label lblMesTextR;

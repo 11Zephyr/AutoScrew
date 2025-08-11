@@ -94,7 +94,7 @@ namespace AutoScrewSys
                 {
                     LanguageManager.SetLanguage(langcode, this, formList);
                 }
-               
+                //FormResize();
                 Settings.Default.Language = langcode;
             };
            
@@ -219,6 +219,12 @@ namespace AutoScrewSys
 
         private void MainFm_Resize(object sender, EventArgs e)
         {
+            FormResize();
+        }
+
+        private void FormResize()
+        {
+
             AutoControlSize.ChangeFormControlSize(this);
 
             if (this.WindowState == FormWindowState.Normal)

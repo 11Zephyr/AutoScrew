@@ -32,6 +32,7 @@ namespace AutoScrewSys
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFm));
             this.tpTitlebar = new ZimaBlueUI.Tpanel();
+            this.lblSoftwareTitle = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new System.Windows.Forms.Panel();
             this.btnMax = new System.Windows.Forms.Panel();
@@ -50,7 +51,6 @@ namespace AutoScrewSys
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioBtnLogin = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lblSoftwareTitle = new System.Windows.Forms.Label();
             this.tpTitlebar.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
@@ -61,6 +61,7 @@ namespace AutoScrewSys
             // 
             // tpTitlebar
             // 
+            resources.ApplyResources(this.tpTitlebar, "tpTitlebar");
             this.tpTitlebar.Alpha = 50;
             this.tpTitlebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpTitlebar.Controls.Add(this.lblSoftwareTitle);
@@ -68,7 +69,6 @@ namespace AutoScrewSys
             this.tpTitlebar.Controls.Add(this.RT_Voltage);
             this.tpTitlebar.Controls.Add(this.LogoPictureBox);
             this.tpTitlebar.Controls.Add(this.RealTVoltage);
-            resources.ApplyResources(this.tpTitlebar, "tpTitlebar");
             this.tpTitlebar.Name = "tpTitlebar";
             this.tpTitlebar.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpTitlebar.PanelBorderColor = System.Drawing.Color.Gray;
@@ -78,12 +78,21 @@ namespace AutoScrewSys
             this.tpTitlebar.PanelText = "";
             this.tpTitlebar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
+            // lblSoftwareTitle
+            // 
+            resources.ApplyResources(this.lblSoftwareTitle, "lblSoftwareTitle");
+            this.lblSoftwareTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.lblSoftwareTitle.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSoftwareTitle.Name = "lblSoftwareTitle";
+            this.lblSoftwareTitle.Tag = "AccessibleName";
+            this.lblSoftwareTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
+            // 
             // flowLayoutPanel2
             // 
+            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
             this.flowLayoutPanel2.Controls.Add(this.btnClose);
             this.flowLayoutPanel2.Controls.Add(this.btnMax);
             this.flowLayoutPanel2.Controls.Add(this.btnToggleSize);
-            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             // 
             // btnClose
@@ -106,33 +115,33 @@ namespace AutoScrewSys
             // 
             // RT_Voltage
             // 
+            resources.ApplyResources(this.RT_Voltage, "RT_Voltage");
             this.RT_Voltage.BackColor = System.Drawing.Color.Transparent;
             this.RT_Voltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(this.RT_Voltage, "RT_Voltage");
             this.RT_Voltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
             this.RT_Voltage.Name = "RT_Voltage";
             // 
             // LogoPictureBox
             // 
-            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
             resources.ApplyResources(this.LogoPictureBox, "LogoPictureBox");
+            this.LogoPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.LogoPictureBox.Name = "LogoPictureBox";
             this.LogoPictureBox.TabStop = false;
             // 
             // RealTVoltage
             // 
+            resources.ApplyResources(this.RealTVoltage, "RealTVoltage");
             this.RealTVoltage.BackColor = System.Drawing.Color.Transparent;
             this.RealTVoltage.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::AutoScrewSys.Properties.Settings.Default, "RTVoltageColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(this.RealTVoltage, "RealTVoltage");
             this.RealTVoltage.ForeColor = global::AutoScrewSys.Properties.Settings.Default.RTVoltageColor;
             this.RealTVoltage.Name = "RealTVoltage";
             // 
             // tpContainer
             // 
+            resources.ApplyResources(this.tpContainer, "tpContainer");
             this.tpContainer.Alpha = 50;
             this.tpContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpContainer.ForeColor = System.Drawing.SystemColors.Window;
-            resources.ApplyResources(this.tpContainer, "tpContainer");
             this.tpContainer.Name = "tpContainer";
             this.tpContainer.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpContainer.PanelBorderColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -143,6 +152,7 @@ namespace AutoScrewSys
             // 
             // flowLayoutPanel1
             // 
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Controls.Add(this.radioBtnRunFrm);
             this.flowLayoutPanel1.Controls.Add(this.radioBtnHistoryData);
@@ -151,7 +161,6 @@ namespace AutoScrewSys
             this.flowLayoutPanel1.Controls.Add(this.radioBtnIOMonitor);
             this.flowLayoutPanel1.Controls.Add(this.radioBtnStatusAction);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // radioBtnRunFrm
@@ -233,8 +242,8 @@ namespace AutoScrewSys
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.radioBtnLogin);
             resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.radioBtnLogin);
             this.panel1.Name = "panel1";
             // 
             // radioBtnLogin
@@ -253,25 +262,16 @@ namespace AutoScrewSys
             // 
             // panel2
             // 
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Controls.Add(this.tpTitlebar);
             this.panel2.Controls.Add(this.tpContainer);
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
-            // 
-            // lblSoftwareTitle
-            // 
-            this.lblSoftwareTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            resources.ApplyResources(this.lblSoftwareTitle, "lblSoftwareTitle");
-            this.lblSoftwareTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSoftwareTitle.Name = "lblSoftwareTitle";
-            this.lblSoftwareTitle.Tag = "AccessibleName";
-            this.lblSoftwareTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
             // MainFm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

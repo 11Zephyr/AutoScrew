@@ -74,7 +74,7 @@ namespace AutoScrewSys.Base
                             }))
                         {
                             isInit = true;
-                            _modbusSyncThread = new Thread(MainThread)
+                              _modbusSyncThread = new Thread(MainThread)
                             {
                                 IsBackground = true,
                                 Priority = ThreadPriority.Highest // 设置为最高优先级
@@ -200,13 +200,13 @@ namespace AutoScrewSys.Base
         {
             isInit = false;
 
-            if (_modbusSyncThread != null && _modbusSyncThread.IsAlive)
+            if (_modbusSyncThread != null )
             {
                 // 最多等待1秒让线程退出
                 if (!_modbusSyncThread.Join(1000))
                 {
                     LogHelper.WriteLog("强制释放线程", LogType.Run);
-                    _modbusSyncThread.Abort(); // 危险，建议避免使用
+                    _modbusSyncThread?.Abort(); // 危险，建议避免使用
                 }
             }
 
