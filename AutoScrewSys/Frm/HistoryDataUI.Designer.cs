@@ -36,6 +36,10 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnHisLog = new ZimaBlueUI.ZRoundButton();
+            this.btnHisData = new ZimaBlueUI.ZRoundButton();
             this.hisFrmTabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -66,10 +70,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbFileList = new MaterialSkin.Controls.MaterialComboBox();
             this.btnClearLog = new MaterialSkin.Controls.MaterialButtonpro();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnHisLog = new ZimaBlueUI.ZRoundButton();
-            this.btnHisData = new ZimaBlueUI.ZRoundButton();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.hisFrmTabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -81,9 +83,47 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartWaveData)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.flowLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel2
+            // 
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.hisFrmTabControl, 1, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // tableLayoutPanel1
+            // 
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            this.tableLayoutPanel1.Controls.Add(this.btnHisLog, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnHisData, 0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            // 
+            // btnHisLog
+            // 
+            resources.ApplyResources(this.btnHisLog, "btnHisLog");
+            this.btnHisLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisLog.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHisLog.EXBorderRadius = 5F;
+            this.btnHisLog.EXButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisLog.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHisLog.Isbackcplor = false;
+            this.btnHisLog.Name = "btnHisLog";
+            this.btnHisLog.ReverseButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisLog.Click += new System.EventHandler(this.btnHisLog_Click);
+            // 
+            // btnHisData
+            // 
+            resources.ApplyResources(this.btnHisData, "btnHisData");
+            this.btnHisData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisData.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHisData.EXBorderRadius = 5F;
+            this.btnHisData.EXButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisData.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHisData.Isbackcplor = false;
+            this.btnHisData.Name = "btnHisData";
+            this.btnHisData.ReverseButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.btnHisData.Click += new System.EventHandler(this.btnHisData_Click);
             // 
             // hisFrmTabControl
             // 
@@ -498,46 +538,6 @@
             this.btnClearLog.UseVisualStyleBackColor = true;
             this.btnClearLog.Click += new System.EventHandler(this.btnClearLog_Click);
             // 
-            // tableLayoutPanel2
-            // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.hisFrmTabControl, 1, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // tableLayoutPanel1
-            // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
-            this.tableLayoutPanel1.Controls.Add(this.btnHisLog, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnHisData, 0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            // 
-            // btnHisLog
-            // 
-            resources.ApplyResources(this.btnHisLog, "btnHisLog");
-            this.btnHisLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisLog.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHisLog.EXBorderRadius = 5F;
-            this.btnHisLog.EXButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisLog.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHisLog.Isbackcplor = false;
-            this.btnHisLog.Name = "btnHisLog";
-            this.btnHisLog.ReverseButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisLog.Click += new System.EventHandler(this.btnHisLog_Click);
-            // 
-            // btnHisData
-            // 
-            resources.ApplyResources(this.btnHisData, "btnHisData");
-            this.btnHisData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHisData.EXBorderRadius = 5F;
-            this.btnHisData.EXButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisData.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnHisData.Isbackcplor = false;
-            this.btnHisData.Name = "btnHisData";
-            this.btnHisData.ReverseButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.btnHisData.Click += new System.EventHandler(this.btnHisData_Click);
-            // 
             // HistoryDataUI
             // 
             resources.ApplyResources(this, "$this");
@@ -546,6 +546,8 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "HistoryDataUI";
             this.Load += new System.EventHandler(this.HistoryDataUI_Load);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.hisFrmTabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -557,8 +559,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartWaveData)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.flowLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

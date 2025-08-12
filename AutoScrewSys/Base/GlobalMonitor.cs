@@ -111,7 +111,7 @@ namespace AutoScrewSys.Base
                 if (!ModbusRtuHelper.Controller)
                 {
                     SettingsUpdater.SetVoltageColor(Color.Red);
-                    SettingsUpdater.SetIfChanged(AddrName.Default, "RealTVoltage", "设备未连接...");
+                    SettingsUpdater.SetIfChanged(AddrName.Default, "RealTVoltage", LangService.Instance.T("设备未连接..."));
                 }
             }
             catch (Exception ex)
@@ -119,6 +119,7 @@ namespace AutoScrewSys.Base
                 LogHelper.WriteLog($"心跳检查报错:{ex.Message}",LogType.Error);
             }
         }
+
         /// <summary>
         /// 主循环线程
         /// </summary>
@@ -226,11 +227,11 @@ namespace AutoScrewSys.Base
                 switch (code)
                 {
                     case 0:
-                        resultStr = "就绪";
+                        resultStr = LangService.Instance.T("就绪");
                         backColor = Color.GreenYellow;
                         break;
                     case 1:
-                        resultStr = "运行中";
+                        resultStr = LangService.Instance.T("运行中");
                         backColor = Color.Orange;
                         break;
                     case 2:
@@ -242,11 +243,11 @@ namespace AutoScrewSys.Base
                         backColor = Color.Red;
                         break;
                     case 4:
-                        resultStr = "未完成";
+                        resultStr = LangService.Instance.T("未完成");
                         backColor = Color.Gray;
                         break;
                     default:
-                        resultStr = "未知";
+                        resultStr = LangService.Instance.T("未知");
                         backColor = Color.Brown;
                         break;
                 }
@@ -327,16 +328,16 @@ namespace AutoScrewSys.Base
             string alarmMsgStr;
             switch (code)
             {
-                case 0: alarmMsgStr = "无报警"; break;
-                case 1: alarmMsgStr = "滑牙"; break;
-                case 2: alarmMsgStr = "浮高"; break;
-                case 3: alarmMsgStr = "过扭力"; break;
-                case 4: alarmMsgStr = "编码器报警"; break;
-                case 5: alarmMsgStr = "过压"; break;
-                case 6: alarmMsgStr = "扭力上限报警"; break;
-                case 7: alarmMsgStr = "扭力下限报警"; break;
-                case 8: alarmMsgStr = "电批报警"; break;
-                default: alarmMsgStr = "未知报警代码"; break;
+                case 0: alarmMsgStr = LangService.Instance.T("无报警"); break;
+                case 1: alarmMsgStr = LangService.Instance.T("滑牙"); break;
+                case 2: alarmMsgStr = LangService.Instance.T("浮高"); break;
+                case 3: alarmMsgStr = LangService.Instance.T("过扭力"); break;
+                case 4: alarmMsgStr = LangService.Instance.T("编码器报警"); break;
+                case 5: alarmMsgStr = LangService.Instance.T("过压"); break;
+                case 6: alarmMsgStr = LangService.Instance.T("扭力上限报警"); break;
+                case 7: alarmMsgStr = LangService.Instance.T("扭力下限报警"); break;
+                case 8: alarmMsgStr = LangService.Instance.T("电批报警"); break;
+                default: alarmMsgStr = LangService.Instance.T("未知报警代码"); break;
             }
 
             SettingsUpdater.SetIfChanged(cfg, "AlarmInfoStr", alarmMsgStr);

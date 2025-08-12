@@ -197,7 +197,7 @@ namespace AutoScrewSys.Modbus
             }
 
             _asyncLock.Release();
-            LogHelper.WriteLog("串口接收超时...", LogType.Run, false);
+            LogHelper.WriteLog(LangService.Instance.T("串口接收超时..."), LogType.Run, false);
             return null;
         }
 

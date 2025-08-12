@@ -54,6 +54,7 @@ namespace AutoScrewSys
         private void MainFm_Load(object sender, EventArgs e)
         {
             LanguageManager.SetCurrentCulture(Settings.Default.Language);
+            LangService.Instance.SetEnglishMode(Settings.Default.LanguageIndex);
 
             LoadFrm loadFrm = new LoadFrm();
             loadFrm.ApplyLanguage();
@@ -123,6 +124,8 @@ namespace AutoScrewSys
             //this.TopMost = true;
             RealTVoltage.DataBindings.Add("Text", AddrName.Default, "RealTVoltage");//实时电压值
             LanguageManager.ApplyLanguage(Settings.Default.Language, this, formList);
+            LangService.Instance.Load();
+
         }
 
 

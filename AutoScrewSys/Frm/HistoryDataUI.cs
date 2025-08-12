@@ -20,12 +20,13 @@ namespace AutoScrewSys.Frm
 {
     public partial class HistoryDataUI : BaseUserControl
     {
-        private readonly Dictionary<string, string> logTypeFolderMap = new Dictionary<string, string>
+        private readonly Dictionary<int, string> logTypeFolderMap = new Dictionary<int, string>
         {
-            { "运行日志", "RunLog" },
-            { "故障日志", "FaultLog" },
-            { "报错日志", "ErrorLog" }
+            { 1, "RunLog" },
+            { 2, "FaultLog" },
+            { 3, "ErrorLog" }
         };
+        private int _selectIndex { get; set; }
         public HistoryDataUI()
         {
             InitializeComponent();
@@ -150,7 +151,7 @@ namespace AutoScrewSys.Frm
             }
 
             // 下拉框不为空且不是“无”或“全部”才过滤
-            if (!string.IsNullOrWhiteSpace(resultFilter) && resultFilter != "无"  && dt.Columns.Count > 6)
+            if (!string.IsNullOrWhiteSpace(resultFilter) && resultFilter != LangService.Instance.T("无") && dt.Columns.Count > 6)
             {
                 filteredRows = filteredRows.Where(row => row.Field<string>(6) == resultFilter);
             }
@@ -169,7 +170,7 @@ namespace AutoScrewSys.Frm
         }
         private void listHisData_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GetHisCsvData(); 
+            GetHisCsvData();
         }
         private void ColorRowsByStatus(DataGridView dgv)
         {
@@ -266,16 +267,15 @@ namespace AutoScrewSys.Frm
                 while (reader.BaseStream.Position < reader.BaseStream.Length)
                     waveform.Add(reader.ReadDouble());
             }
-            Task.Run(() =>{ ShowWaveform(waveform); });
+            Task.Run(() => { ShowWaveform(waveform); });
         }
 
         private void cmbLogType_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbFileList?.Items?.Clear();
             lstLogContent?.Items?.Clear();
-
-            if (cmbLogType.SelectedItem is string logType &&
-                logTypeFolderMap.TryGetValue(logType, out string subFolder))
+            _selectIndex = cmbLogType.SelectedIndex + 1;
+            if (logTypeFolderMap.TryGetValue(_selectIndex, out string subFolder))
             {
                 string folderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log", subFolder);
 
@@ -301,9 +301,8 @@ namespace AutoScrewSys.Frm
         {
             lstLogContent.Items.Clear();
 
-            if (cmbLogType.SelectedItem is string logType &&
-                cmbFileList.SelectedItem is string fileName &&
-                logTypeFolderMap.TryGetValue(logType, out string subFolder))
+            if (cmbFileList.SelectedItem is string fileName &&
+                logTypeFolderMap.TryGetValue(_selectIndex, out string subFolder))
             {
                 string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log", subFolder, fileName);
 
@@ -319,13 +318,13 @@ namespace AutoScrewSys.Frm
         {
             // 1. 获取日志类型
             string selectedType = cmbLogType.SelectedItem?.ToString();
-            if (string.IsNullOrEmpty(selectedType) || !logTypeFolderMap.ContainsKey(selectedType))
+            if (string.IsNullOrEmpty(selectedType) || !logTypeFolderMap.ContainsKey(_selectIndex))
             {
                 MessageBox.Show("请选择有效的日志类型！");
                 return;
             }
 
-            string folderName = logTypeFolderMap[selectedType];
+            string folderName = logTypeFolderMap[_selectIndex];
 
             // 2. 获取选中的日志文件名（例如 20250719.txt）
             string selectedFile = cmbFileList.SelectedItem?.ToString();
@@ -347,8 +346,8 @@ namespace AutoScrewSys.Frm
 
             // 5. 弹出确认删除提示
             var confirmResult = MessageBox.Show(
-                $"确定要删除以下日志文件吗？\n\n{logFilePath}",
-                "确认删除",
+                $"{LangService.Instance.T("确定要删除以下日志文件吗?")}\n\n{logFilePath}",
+                LangService.Instance.T("确认删除"),
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
@@ -359,7 +358,7 @@ namespace AutoScrewSys.Frm
             try
             {
                 File.Delete(logFilePath);
-                MessageBox.Show("日志文件删除成功！");
+                MessageBox.Show(LangService.Instance.T("日志文件删除成功！"));
 
                 // 7. 可选：从 ComboBox 中移除该项
                 cmbFileList.Items.Remove(selectedFile);

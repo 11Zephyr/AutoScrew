@@ -103,7 +103,6 @@
             // 
             // flowLayoutPanel2
             // 
-            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
             this.flowLayoutPanel2.Controls.Add(this.label5);
             this.flowLayoutPanel2.Controls.Add(this.tpanel1);
             this.flowLayoutPanel2.Controls.Add(this.tpanel2);
@@ -113,24 +112,25 @@
             this.flowLayoutPanel2.Controls.Add(this.tpanel6);
             this.flowLayoutPanel2.Controls.Add(this.tpanel7);
             this.flowLayoutPanel2.Controls.Add(this.panel6);
+            resources.ApplyResources(this.flowLayoutPanel2, "flowLayoutPanel2");
             this.flowLayoutPanel2.ForeColor = System.Drawing.SystemColors.WindowText;
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             // 
             // label5
             // 
-            resources.ApplyResources(this.label5, "label5");
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.label5, "label5");
             this.label5.ForeColor = System.Drawing.SystemColors.Window;
             this.label5.Name = "label5";
             this.label5.Tag = "AccessibleName";
             // 
             // tpanel1
             // 
-            resources.ApplyResources(this.tpanel1, "tpanel1");
             this.tpanel1.Alpha = 50;
             this.tpanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel1.Controls.Add(this.label6);
             this.tpanel1.Controls.Add(this.cbxPort);
+            resources.ApplyResources(this.tpanel1, "tpanel1");
             this.tpanel1.Name = "tpanel1";
             this.tpanel1.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel1.PanelBorderColor = System.Drawing.Color.Black;
@@ -140,14 +140,13 @@
             // 
             // label6
             // 
-            resources.ApplyResources(this.label6, "label6");
             this.label6.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label6, "label6");
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label6.Name = "label6";
             // 
             // cbxPort
             // 
-            resources.ApplyResources(this.cbxPort, "cbxPort");
             this.cbxPort.AutoResize = false;
             this.cbxPort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxPort.Borderwidht = 7;
@@ -160,6 +159,7 @@
             this.cbxPort.DropDownWidth = 121;
             this.cbxPort.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxPort.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxPort, "cbxPort");
             this.cbxPort.MouseState = MaterialSkin.MouseState.OUT;
             this.cbxPort.Name = "cbxPort";
             this.cbxPort.ShowScrollbar = false;
@@ -169,11 +169,11 @@
             // 
             // tpanel2
             // 
-            resources.ApplyResources(this.tpanel2, "tpanel2");
             this.tpanel2.Alpha = 50;
             this.tpanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel2.Controls.Add(this.label7);
             this.tpanel2.Controls.Add(this.cbxBaudRate);
+            resources.ApplyResources(this.tpanel2, "tpanel2");
             this.tpanel2.Name = "tpanel2";
             this.tpanel2.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel2.PanelBorderColor = System.Drawing.Color.Black;
@@ -183,14 +183,13 @@
             // 
             // label7
             // 
-            resources.ApplyResources(this.label7, "label7");
             this.label7.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label7, "label7");
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label7.Name = "label7";
             // 
             // cbxBaudRate
             // 
-            resources.ApplyResources(this.cbxBaudRate, "cbxBaudRate");
             this.cbxBaudRate.AutoResize = false;
             this.cbxBaudRate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxBaudRate.Borderwidht = 7;
@@ -203,6 +202,7 @@
             this.cbxBaudRate.DropDownWidth = 121;
             this.cbxBaudRate.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxBaudRate.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxBaudRate, "cbxBaudRate");
             this.cbxBaudRate.MouseState = MaterialSkin.MouseState.OUT;
             this.cbxBaudRate.Name = "cbxBaudRate";
             this.cbxBaudRate.ShowScrollbar = false;
@@ -212,11 +212,11 @@
             // 
             // tpanel3
             // 
-            resources.ApplyResources(this.tpanel3, "tpanel3");
             this.tpanel3.Alpha = 50;
             this.tpanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel3.Controls.Add(this.label8);
             this.tpanel3.Controls.Add(this.cbxParity);
+            resources.ApplyResources(this.tpanel3, "tpanel3");
             this.tpanel3.Name = "tpanel3";
             this.tpanel3.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel3.PanelBorderColor = System.Drawing.Color.Black;
@@ -226,14 +226,13 @@
             // 
             // label8
             // 
-            resources.ApplyResources(this.label8, "label8");
             this.label8.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label8, "label8");
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Name = "label8";
             // 
             // cbxParity
             // 
-            resources.ApplyResources(this.cbxParity, "cbxParity");
             this.cbxParity.AutoResize = false;
             this.cbxParity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxParity.Borderwidht = 7;
@@ -246,6 +245,7 @@
             this.cbxParity.DropDownWidth = 121;
             this.cbxParity.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxParity.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxParity, "cbxParity");
             this.cbxParity.MouseState = MaterialSkin.MouseState.OUT;
             this.cbxParity.Name = "cbxParity";
             this.cbxParity.ShowScrollbar = false;
@@ -255,11 +255,11 @@
             // 
             // tpanel4
             // 
-            resources.ApplyResources(this.tpanel4, "tpanel4");
             this.tpanel4.Alpha = 50;
             this.tpanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel4.Controls.Add(this.label9);
             this.tpanel4.Controls.Add(this.cbxDataBits);
+            resources.ApplyResources(this.tpanel4, "tpanel4");
             this.tpanel4.Name = "tpanel4";
             this.tpanel4.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel4.PanelBorderColor = System.Drawing.Color.Black;
@@ -269,14 +269,13 @@
             // 
             // label9
             // 
-            resources.ApplyResources(this.label9, "label9");
             this.label9.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label9, "label9");
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label9.Name = "label9";
             // 
             // cbxDataBits
             // 
-            resources.ApplyResources(this.cbxDataBits, "cbxDataBits");
             this.cbxDataBits.AutoResize = false;
             this.cbxDataBits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxDataBits.Borderwidht = 7;
@@ -289,6 +288,7 @@
             this.cbxDataBits.DropDownWidth = 121;
             this.cbxDataBits.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxDataBits.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxDataBits, "cbxDataBits");
             this.cbxDataBits.MouseState = MaterialSkin.MouseState.OUT;
             this.cbxDataBits.Name = "cbxDataBits";
             this.cbxDataBits.ShowScrollbar = false;
@@ -298,11 +298,11 @@
             // 
             // tpanel5
             // 
-            resources.ApplyResources(this.tpanel5, "tpanel5");
             this.tpanel5.Alpha = 50;
             this.tpanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel5.Controls.Add(this.label11);
             this.tpanel5.Controls.Add(this.cbxStopBits);
+            resources.ApplyResources(this.tpanel5, "tpanel5");
             this.tpanel5.Name = "tpanel5";
             this.tpanel5.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel5.PanelBorderColor = System.Drawing.Color.Black;
@@ -312,14 +312,13 @@
             // 
             // label11
             // 
-            resources.ApplyResources(this.label11, "label11");
             this.label11.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label11.Name = "label11";
             // 
             // cbxStopBits
             // 
-            resources.ApplyResources(this.cbxStopBits, "cbxStopBits");
             this.cbxStopBits.AutoResize = false;
             this.cbxStopBits.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxStopBits.Borderwidht = 7;
@@ -332,6 +331,7 @@
             this.cbxStopBits.DropDownWidth = 121;
             this.cbxStopBits.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxStopBits.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxStopBits, "cbxStopBits");
             this.cbxStopBits.MouseState = MaterialSkin.MouseState.OUT;
             this.cbxStopBits.Name = "cbxStopBits";
             this.cbxStopBits.ShowScrollbar = false;
@@ -341,11 +341,11 @@
             // 
             // tpanel6
             // 
-            resources.ApplyResources(this.tpanel6, "tpanel6");
             this.tpanel6.Alpha = 50;
             this.tpanel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel6.Controls.Add(this.label12);
             this.tpanel6.Controls.Add(this.sendOutTime);
+            resources.ApplyResources(this.tpanel6, "tpanel6");
             this.tpanel6.Name = "tpanel6";
             this.tpanel6.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel6.PanelBorderColor = System.Drawing.Color.Black;
@@ -355,16 +355,16 @@
             // 
             // label12
             // 
-            resources.ApplyResources(this.label12, "label12");
             this.label12.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label12, "label12");
             this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label12.Name = "label12";
             // 
             // sendOutTime
             // 
-            resources.ApplyResources(this.sendOutTime, "sendOutTime");
             this.sendOutTime.BackColor = System.Drawing.Color.Black;
             this.sendOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "sendOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.sendOutTime, "sendOutTime");
             this.sendOutTime.ForeColor = System.Drawing.SystemColors.Window;
             this.sendOutTime.Name = "sendOutTime";
             this.sendOutTime.ReadOnly = false;
@@ -378,11 +378,11 @@
             // 
             // tpanel7
             // 
-            resources.ApplyResources(this.tpanel7, "tpanel7");
             this.tpanel7.Alpha = 50;
             this.tpanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel7.Controls.Add(this.receptOutTime);
             this.tpanel7.Controls.Add(this.label13);
+            resources.ApplyResources(this.tpanel7, "tpanel7");
             this.tpanel7.Name = "tpanel7";
             this.tpanel7.PanelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.tpanel7.PanelBorderColor = System.Drawing.Color.Black;
@@ -392,9 +392,9 @@
             // 
             // receptOutTime
             // 
-            resources.ApplyResources(this.receptOutTime, "receptOutTime");
             this.receptOutTime.BackColor = System.Drawing.Color.Black;
             this.receptOutTime.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "receptOutTime", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.receptOutTime, "receptOutTime");
             this.receptOutTime.ForeColor = System.Drawing.SystemColors.Window;
             this.receptOutTime.Name = "receptOutTime";
             this.receptOutTime.ReadOnly = false;
@@ -408,26 +408,26 @@
             // 
             // label13
             // 
-            resources.ApplyResources(this.label13, "label13");
             this.label13.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label13, "label13");
             this.label13.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label13.Name = "label13";
             // 
             // panel6
             // 
-            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Controls.Add(this.btnConnect);
+            resources.ApplyResources(this.panel6, "panel6");
             this.panel6.Name = "panel6";
             // 
             // btnConnect
             // 
-            resources.ApplyResources(this.btnConnect, "btnConnect");
             this.btnConnect.AngleColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.btnConnect.ButtonColor = System.Drawing.Color.White;
             this.btnConnect.Buttonmodel = 0;
             this.btnConnect.ClickColor = System.Drawing.Color.White;
             this.btnConnect.Constant = 0;
             this.btnConnect.Depth = 0;
+            resources.ApplyResources(this.btnConnect, "btnConnect");
             this.btnConnect.MaxV = 0;
             this.btnConnect.MinV = 0;
             this.btnConnect.MouseState = MaterialSkin.MouseState.HOVER;
@@ -437,7 +437,6 @@
             // 
             // flowLayoutPanel1
             // 
-            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.Controls.Add(this.lblMesTextR);
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.panel2);
@@ -445,28 +444,28 @@
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.panel5);
             this.flowLayoutPanel1.Controls.Add(this.panel7);
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
             this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.WindowText;
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             // 
             // lblMesTextR
             // 
-            resources.ApplyResources(this.lblMesTextR, "lblMesTextR");
             this.lblMesTextR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            resources.ApplyResources(this.lblMesTextR, "lblMesTextR");
             this.lblMesTextR.ForeColor = System.Drawing.SystemColors.Window;
             this.lblMesTextR.Name = "lblMesTextR";
             this.lblMesTextR.Tag = "AccessibleName";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.cbxTorqueUnit);
             this.panel1.Controls.Add(this.label10);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // cbxTorqueUnit
             // 
-            resources.ApplyResources(this.cbxTorqueUnit, "cbxTorqueUnit");
             this.cbxTorqueUnit.AutoResize = false;
             this.cbxTorqueUnit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxTorqueUnit.Borderwidht = 7;
@@ -480,6 +479,7 @@
             this.cbxTorqueUnit.DropDownWidth = 121;
             this.cbxTorqueUnit.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxTorqueUnit.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxTorqueUnit, "cbxTorqueUnit");
             this.cbxTorqueUnit.Items.AddRange(new object[] {
             resources.GetString("cbxTorqueUnit.Items"),
             resources.GetString("cbxTorqueUnit.Items1"),
@@ -495,24 +495,24 @@
             // 
             // label10
             // 
-            resources.ApplyResources(this.label10, "label10");
             this.label10.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label10, "label10");
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label10.Name = "label10";
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.tbxSaveDataPath);
             this.panel2.Controls.Add(this.label1);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // tbxSaveDataPath
             // 
-            resources.ApplyResources(this.tbxSaveDataPath, "tbxSaveDataPath");
             this.tbxSaveDataPath.BackColor = System.Drawing.Color.Black;
             this.tbxSaveDataPath.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::AutoScrewSys.Properties.Settings.Default, "ProductionDataPath", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(this.tbxSaveDataPath, "tbxSaveDataPath");
             this.tbxSaveDataPath.ForeColor = System.Drawing.SystemColors.Window;
             this.tbxSaveDataPath.Name = "tbxSaveDataPath";
             this.tbxSaveDataPath.ReadOnly = true;
@@ -527,22 +527,21 @@
             // 
             // label1
             // 
-            resources.ApplyResources(this.label1, "label1");
             this.label1.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Name = "label1";
             // 
             // panel3
             // 
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel3.Controls.Add(this.cbxDataStoredTime);
             this.panel3.Controls.Add(this.label2);
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // cbxDataStoredTime
             // 
-            resources.ApplyResources(this.cbxDataStoredTime, "cbxDataStoredTime");
             this.cbxDataStoredTime.AutoResize = false;
             this.cbxDataStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxDataStoredTime.Borderwidht = 7;
@@ -556,6 +555,7 @@
             this.cbxDataStoredTime.DropDownWidth = 121;
             this.cbxDataStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxDataStoredTime.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxDataStoredTime, "cbxDataStoredTime");
             this.cbxDataStoredTime.Items.AddRange(new object[] {
             resources.GetString("cbxDataStoredTime.Items"),
             resources.GetString("cbxDataStoredTime.Items1"),
@@ -574,22 +574,21 @@
             // 
             // label2
             // 
-            resources.ApplyResources(this.label2, "label2");
             this.label2.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Name = "label2";
             // 
             // panel4
             // 
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.cbxLogStoredTime);
             this.panel4.Controls.Add(this.label3);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             // 
             // cbxLogStoredTime
             // 
-            resources.ApplyResources(this.cbxLogStoredTime, "cbxLogStoredTime");
             this.cbxLogStoredTime.AutoResize = false;
             this.cbxLogStoredTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxLogStoredTime.Borderwidht = 7;
@@ -603,6 +602,7 @@
             this.cbxLogStoredTime.DropDownWidth = 121;
             this.cbxLogStoredTime.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxLogStoredTime.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxLogStoredTime, "cbxLogStoredTime");
             this.cbxLogStoredTime.Items.AddRange(new object[] {
             resources.GetString("cbxLogStoredTime.Items"),
             resources.GetString("cbxLogStoredTime.Items1"),
@@ -621,22 +621,21 @@
             // 
             // label3
             // 
-            resources.ApplyResources(this.label3, "label3");
             this.label3.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label3, "label3");
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Name = "label3";
             // 
             // panel5
             // 
-            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel5.Controls.Add(this.cbxLoggedOutTime);
             this.panel5.Controls.Add(this.label4);
+            resources.ApplyResources(this.panel5, "panel5");
             this.panel5.Name = "panel5";
             // 
             // cbxLoggedOutTime
             // 
-            resources.ApplyResources(this.cbxLoggedOutTime, "cbxLoggedOutTime");
             this.cbxLoggedOutTime.AutoResize = false;
             this.cbxLoggedOutTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.cbxLoggedOutTime.Borderwidht = 7;
@@ -650,6 +649,7 @@
             this.cbxLoggedOutTime.DropDownWidth = 121;
             this.cbxLoggedOutTime.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxLoggedOutTime.FormattingEnabled = true;
+            resources.ApplyResources(this.cbxLoggedOutTime, "cbxLoggedOutTime");
             this.cbxLoggedOutTime.Items.AddRange(new object[] {
             resources.GetString("cbxLoggedOutTime.Items"),
             resources.GetString("cbxLoggedOutTime.Items1"),
@@ -668,22 +668,21 @@
             // 
             // label4
             // 
-            resources.ApplyResources(this.label4, "label4");
             this.label4.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label4, "label4");
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Name = "label4";
             // 
             // panel7
             // 
-            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.comboBoxLanguage);
             this.panel7.Controls.Add(this.label14);
+            resources.ApplyResources(this.panel7, "panel7");
             this.panel7.Name = "panel7";
             // 
             // comboBoxLanguage
             // 
-            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
             this.comboBoxLanguage.AutoResize = false;
             this.comboBoxLanguage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.comboBoxLanguage.Borderwidht = 7;
@@ -696,6 +695,7 @@
             this.comboBoxLanguage.DropDownWidth = 121;
             this.comboBoxLanguage.ForeColor = System.Drawing.SystemColors.WindowText;
             this.comboBoxLanguage.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBoxLanguage, "comboBoxLanguage");
             this.comboBoxLanguage.Items.AddRange(new object[] {
             resources.GetString("comboBoxLanguage.Items"),
             resources.GetString("comboBoxLanguage.Items1")});
@@ -708,18 +708,18 @@
             // 
             // label14
             // 
-            resources.ApplyResources(this.label14, "label14");
             this.label14.BackColor = System.Drawing.Color.Transparent;
+            resources.ApplyResources(this.label14, "label14");
             this.label14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Name = "label14";
             // 
             // ParameterSettingUI
             // 
-            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ParameterSettingUI";
+            resources.ApplyResources(this, "$this");
             this.Load += new System.EventHandler(this.ParameterSettingUI_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);

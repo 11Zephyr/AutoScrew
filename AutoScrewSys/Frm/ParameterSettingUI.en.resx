@@ -175,14 +175,77 @@
   <data name="label1.Text" xml:space="preserve">
     <value>Data Path:</value>
   </data>
+  <data name="cbxDataStoredTime.Items" xml:space="preserve">
+    <value>15 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items1" xml:space="preserve">
+    <value>30 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items2" xml:space="preserve">
+    <value>60 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items3" xml:space="preserve">
+    <value>90 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items4" xml:space="preserve">
+    <value>180 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items5" xml:space="preserve">
+    <value>360 days</value>
+  </data>
+  <data name="cbxDataStoredTime.Items6" xml:space="preserve">
+    <value>Forever</value>
+  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Save Time:</value>
+  </data>
+  <data name="cbxLogStoredTime.Items" xml:space="preserve">
+    <value>15 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items1" xml:space="preserve">
+    <value>30 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items2" xml:space="preserve">
+    <value>60 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items3" xml:space="preserve">
+    <value>90 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items4" xml:space="preserve">
+    <value>180 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items5" xml:space="preserve">
+    <value>360 days</value>
+  </data>
+  <data name="cbxLogStoredTime.Items6" xml:space="preserve">
+    <value>Forever</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>184, 56</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Log Period:</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items" xml:space="preserve">
+    <value>1 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items1" xml:space="preserve">
+    <value>3 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items2" xml:space="preserve">
+    <value>5 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items3" xml:space="preserve">
+    <value>10 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items4" xml:space="preserve">
+    <value>30 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items5" xml:space="preserve">
+    <value>60 min</value>
+  </data>
+  <data name="cbxLoggedOutTime.Items6" xml:space="preserve">
+    <value>Forever</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Logout Time:</value>

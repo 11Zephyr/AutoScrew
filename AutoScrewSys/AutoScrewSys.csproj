@@ -101,6 +101,7 @@
     <Compile Include="AutoSize\AutoControlSize.cs" />
     <Compile Include="Base\AutoLogoutManager.cs" />
     <Compile Include="Base\GlobalMonitor.cs" />
+    <Compile Include="Base\LangService.cs" />
     <Compile Include="Base\LanguageManager.cs" />
     <Compile Include="Base\LogHelper.cs" />
     <Compile Include="Base\ModbusAddressConfig.cs" />
@@ -236,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\RunUI.resx">
       <DependentUpon>RunUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm\TaskParametersUI.en.resx">
+      <DependentUpon>TaskParametersUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm\TaskParametersUI.resx">
       <DependentUpon>TaskParametersUI.cs</DependentUpon>

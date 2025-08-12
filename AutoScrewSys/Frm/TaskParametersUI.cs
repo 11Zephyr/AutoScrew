@@ -84,13 +84,13 @@ namespace AutoScrewSys.Frm
                 switch (currentState)
                 {
                     case WorkState.Tighten:
-                        param1 = "Tighten";
+                        param1 = LangService.Instance.T("Tighten");
                         break;
                     case WorkState.Loosen:
-                        param1 = "Loosen";
+                        param1 = LangService.Instance.T("Loosen");
                         break;
                     case WorkState.Free:
-                        param1 = "Free";
+                        param1 = LangService.Instance.T("Free");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -267,16 +267,16 @@ namespace AutoScrewSys.Frm
         private static readonly Dictionary<int, PowerRangeModel> PowerMap = new Dictionary<int, PowerRangeModel>
         {
             //功率                       //扭力范围                //速度
-            { 30,  new PowerRangeModel { TorqueRange = "20-300",       SpeedRange = "10-3000" } },
-            { 50,  new PowerRangeModel { TorqueRange = "60-450",       SpeedRange = "10-3000" } },
-            { 100, new PowerRangeModel { TorqueRange = "100-900",      SpeedRange = "30-3000" } },
-            { 200, new PowerRangeModel { TorqueRange = "300-1800",     SpeedRange = "30-3000" } },
-            { 400, new PowerRangeModel { TorqueRange = "1000-3600",    SpeedRange = "30-2000" } },
-            { 600, new PowerRangeModel { TorqueRange = "1500-5500",    SpeedRange = "30-2000" } }
+            { 30,  new PowerRangeModel { TorqueRange = LangService.Instance.T("20-300"),       SpeedRange = LangService.Instance.T("10-3000") } },
+            { 50,  new PowerRangeModel { TorqueRange = LangService.Instance.T("60-450"),       SpeedRange = LangService.Instance.T("10-3000") } },
+            { 100, new PowerRangeModel { TorqueRange = LangService.Instance.T("100-900"),      SpeedRange = LangService.Instance.T("30-3000") } },
+            { 200, new PowerRangeModel { TorqueRange = LangService.Instance.T("300-1800"),     SpeedRange = LangService.Instance.T("30-3000") } },
+            { 400, new PowerRangeModel { TorqueRange = LangService.Instance.T("1000-3600"),    SpeedRange = LangService.Instance.T("30-2000") } },
+            { 600, new PowerRangeModel { TorqueRange = LangService.Instance.T("1500-5500"),    SpeedRange = LangService.Instance.T("30-2000") } }
         };
         private PowerRangeModel GetPowerRange(int power)
         {
-            return PowerMap.ContainsKey(power) ? PowerMap[power] : new PowerRangeModel { TorqueRange = "1-5000", SpeedRange = "1-5000" }; // 默认值
+            return PowerMap.ContainsKey(power) ? PowerMap[power] : new PowerRangeModel { TorqueRange = LangService.Instance.T("1-5000"), SpeedRange = LangService.Instance.T("1-5000") }; // 默认值
         }
 
         private List<ParamInfo> GetParamList(int power)
@@ -285,23 +285,23 @@ namespace AutoScrewSys.Frm
 
             return new List<ParamInfo>
             {
-                new ParamInfo { Name = "拧紧旋转方向",              Range = "0-1",                 Unit = "None",   Remark = "旋转方向:0正向/1反向" },
-                new ParamInfo { Name = "目标扭力mN.M",              Range = range.TorqueRange,     Unit = "mN.m",   Remark = "拧紧过程目标最大扭力,不可太小" },
-                new ParamInfo { Name = "上限偏差mN.M",              Range = "0-100",               Unit = "None",   Remark = "根据目标扭力判断偏差上限" },
-                new ParamInfo { Name = "下限偏差mN.M",              Range = "0-100",               Unit = "None",   Remark = "根据目标扭力判断偏差下限" },
-                new ParamInfo { Name = "保持时间ms",                Range = "0-100",               Unit = "ms",     Remark = "保持时间" },
-                new ParamInfo { Name = "浮高滑牙检测开关",          Range = "0-1",                 Unit = "None",   Remark = "浮高滑牙检测:0关闭/1开启" },
-                new ParamInfo { Name = "浮高界定圈数（r）",         Range = "0-20",                Unit = "r",      Remark = "Above this = Float" },
-                new ParamInfo { Name = "滑牙界定圈数（r）",         Range = "0-20",                Unit = "r",      Remark = "Below this = Slip" },
-                new ParamInfo { Name = "触发速度切换的扭力比值",    Range = "0-100",               Unit = "%",      Remark = "触发速度切换的扭力比值" },
-                new ParamInfo { Name = "切换后速度(保留参数)",      Range = "0-1000",              Unit = "%",      Remark = "触发速度切换的速度比值。" },
-                new ParamInfo { Name = "扭力补偿值mN.M",            Range = "-100-100",            Unit = "mN.m",   Remark = "扭力补偿" },
-                new ParamInfo { Name = "扭力免检圈数",              Range = "0-100",               Unit = "r",      Remark = "扭力免检圈数。" },
-                new ParamInfo { Name = "免检圈数内扭力限定mN.M",    Range = range.TorqueRange,     Unit = "mN.m",   Remark = "免检圈数扭力" },
-                new ParamInfo { Name = "拧松扭力",                  Range = range.TorqueRange,     Unit = "mN.m",   Remark = "拧松过程目标最大扭力,不可太小" },
-                new ParamInfo { Name = "自由转速度",                Range = range.SpeedRange,      Unit = "r",      Remark = "自由速度" },
-                new ParamInfo { Name = "自由转扭力",                Range = range.TorqueRange,     Unit = "mN.m",   Remark = "自由旋转扭力" },
-                new ParamInfo { Name = "偏移角度",                  Range = "0-3600",              Unit = "0.1°",   Remark = "In 0.1° units" }
+                new ParamInfo { Name = LangService.Instance.T("拧紧旋转方向"),              Range = LangService.Instance.T("0-1"),                 Unit = LangService.Instance.T("None"),   Remark = LangService.Instance.T("旋转方向:0正向/1反向") },
+                new ParamInfo { Name = LangService.Instance.T("目标扭力mN.M"),              Range = range.TorqueRange,                             Unit = LangService.Instance.T("mN.m"),   Remark = LangService.Instance.T("拧紧过程目标最大扭力,不可太小") },
+                new ParamInfo { Name = LangService.Instance.T("上限偏差mN.M"),              Range = LangService.Instance.T("0-100"),               Unit = LangService.Instance.T("None"),   Remark = LangService.Instance.T("根据目标扭力判断偏差上限") },
+                new ParamInfo { Name = LangService.Instance.T("下限偏差mN.M"),              Range = LangService.Instance.T("0-100"),               Unit = LangService.Instance.T("None"),   Remark = LangService.Instance.T("根据目标扭力判断偏差下限") },
+                new ParamInfo { Name = LangService.Instance.T("保持时间ms"),                Range = LangService.Instance.T("0-100"),               Unit = LangService.Instance.T("ms"),     Remark = LangService.Instance.T("保持时间") },
+                new ParamInfo { Name = LangService.Instance.T("浮高滑牙检测开关"),          Range = LangService.Instance.T("0-1"),                 Unit = LangService.Instance.T("None"),   Remark = LangService.Instance.T("浮高滑牙检测:0关闭/1开启") },
+                new ParamInfo { Name = LangService.Instance.T("浮高界定圈数（r）"),         Range = LangService.Instance.T("0-20"),                Unit = LangService.Instance.T("r"),      Remark = LangService.Instance.T("Above this = Float") },
+                new ParamInfo { Name = LangService.Instance.T("滑牙界定圈数（r）"),         Range = LangService.Instance.T("0-20"),                Unit = LangService.Instance.T("r"),      Remark = LangService.Instance.T("Below this = Slip") },
+                new ParamInfo { Name = LangService.Instance.T("触发速度切换的扭力比值"),    Range = LangService.Instance.T("0-100"),               Unit = LangService.Instance.T("%"),      Remark = LangService.Instance.T("触发速度切换的扭力比值") },
+                new ParamInfo { Name = LangService.Instance.T("切换后速度(保留参数)"),      Range = LangService.Instance.T("0-1000"),              Unit = LangService.Instance.T("%"),      Remark = LangService.Instance.T("触发速度切换的速度比值") },
+                new ParamInfo { Name = LangService.Instance.T("扭力补偿值mN.M"),            Range = LangService.Instance.T("-100-100"),            Unit = LangService.Instance.T("mN.m"),   Remark = LangService.Instance.T("扭力补偿") },
+                new ParamInfo { Name = LangService.Instance.T("扭力免检圈数"),              Range = LangService.Instance.T("0-100"),               Unit = LangService.Instance.T("r"),      Remark = LangService.Instance.T("扭力免检圈数") },
+                new ParamInfo { Name = LangService.Instance.T("免检圈数内扭力限定mN.M"),    Range = range.TorqueRange,                             Unit = LangService.Instance.T("mN.m"),   Remark = LangService.Instance.T("免检圈数扭力") },
+                new ParamInfo { Name = LangService.Instance.T("拧松扭力"),                  Range = range.TorqueRange,                             Unit = LangService.Instance.T("mN.m"),   Remark = LangService.Instance.T("拧松过程目标最大扭力,不可太小") },
+                new ParamInfo { Name = LangService.Instance.T("自由转速度"),                Range = range.SpeedRange,                              Unit = LangService.Instance.T("r"),      Remark = LangService.Instance.T("自由速度") },
+                new ParamInfo { Name = LangService.Instance.T("自由转扭力"),                Range = range.TorqueRange,                             Unit = LangService.Instance.T("mN.m"),   Remark = LangService.Instance.T("自由旋转扭力") },
+                new ParamInfo { Name = LangService.Instance.T("偏移角度"),                  Range = LangService.Instance.T("0-3600"),              Unit = LangService.Instance.T("0.1°"),  Remark = LangService.Instance.T("In 0.1° units") }
             };
         }
 
@@ -419,12 +419,12 @@ namespace AutoScrewSys.Frm
 
                 if (currentState == WorkState.Tighten)
                 {
-                    section = "Tighten";
+                    section = LangService.Instance.T("Tighten");
                     offset = columnIndex == 1 ? rowIndex * 2 : rowIndex * 2 + 1;
                 }
                 else if (currentState == WorkState.Loosen)
                 {
-                    section = "Loosen";
+                    section = LangService.Instance.T("Loosen");
                     offset = columnIndex == 1 ? rowIndex * 2 + 1 : rowIndex * 2;
                 }
 

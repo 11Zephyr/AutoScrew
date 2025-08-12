@@ -1,4 +1,5 @@
-﻿using AutoScrewSys.Properties;
+﻿using AutoScrewSys.Base;
+using AutoScrewSys.Properties;
 using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
@@ -137,7 +138,7 @@ namespace ZimaBlueScrew.Frm
             else
             {
                 Infocom.SelectedIndex = 1;
-                Settings.Default.UserLevel = "未登录";
+                Settings.Default.UserLevel = LangService.Instance.T("未登录");
                 Settings.Default.Login = 0;
                 passBox.Text = "";
                 passlable.ForeColor = Color.Red;
@@ -172,7 +173,7 @@ namespace ZimaBlueScrew.Frm
         private void Logout_Click(object sender, EventArgs e)//注销
         {
             Settings.Default.Login = 0;
-            Settings.Default.UserLevel = "未登录";
+            Settings.Default.UserLevel = LangService.Instance.T("未登录");
             Close();
         }
     }

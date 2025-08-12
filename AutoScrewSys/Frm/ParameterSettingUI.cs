@@ -26,6 +26,7 @@ namespace AutoScrewSys.Frm
         public ParameterSettingUI()
         {
             InitializeComponent();
+            comboBoxLanguage.SelectedIndex = Settings.Default.LanguageIndex;
         }
 
         private void btnConnect_Click(object sender, EventArgs e)
@@ -34,12 +35,12 @@ namespace AutoScrewSys.Frm
                  () =>
                  {
                      //SettingsUpdater.SetVoltageColor(System.Drawing.Color.Green);
-                     MessageBox.Show("程序启动成功!");
+                     MessageBox.Show(LangService.Instance.T("程序启动成功!"));
                  },
                  (msg) =>
                  {
                      SettingsUpdater.SetVoltageColor(System.Drawing.Color.Red);
-                     MessageBox.Show(msg, "异常提示");
+                     MessageBox.Show(msg, LangService.Instance.T("异常提示"));
                  });
         }
 
@@ -74,15 +75,15 @@ namespace AutoScrewSys.Frm
                 LoadSerialPortSettings();
 
                 // 清理数据文件夹
-                if (Settings.Default.DataStoredTime != "永久")
+                if (Settings.Default.DataStoredTime != LangService.Instance.T("永久"))
                 {
-                    CleanFolder(Settings.Default.ProductionDataPath, Settings.Default.DataStoredTime, "数据文件");
+                    CleanFolder(Settings.Default.ProductionDataPath, Settings.Default.DataStoredTime, LangService.Instance.T("数据文件"));
                 }
                 // 清理日志文件夹
 
-                if (Settings.Default.LogStoredTime != "永久")
+                if (Settings.Default.LogStoredTime != LangService.Instance.T("永久"))
                 {
-                    CleanFolder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log"), Settings.Default.LogStoredTime, "日志文件");
+                    CleanFolder(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Log"), Settings.Default.LogStoredTime, LangService.Instance.T("日志文件"));
                 }
 
 
@@ -264,23 +265,21 @@ namespace AutoScrewSys.Frm
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             string langCode = "zh-CN"; // 默认值
-
-            switch (comboBoxLanguage.SelectedIndex)
+            int selectedIndex = comboBoxLanguage.SelectedIndex;
+            switch (selectedIndex)
             {
                 case 0:
                     langCode = "zh-CN";
-                    Settings.Default.LanguageIndex = 0;
                     break;
                 case 1:
                     langCode = "en";
-                    Settings.Default.LanguageIndex = 1;
                     break;
                 default:
                     langCode = "zh-CN"; // 默认
-                    Settings.Default.LanguageIndex = 0;
-
                     break;
             }
+            Settings.Default.LanguageIndex = (ushort)selectedIndex;
+            LangService.Instance.SetEnglishMode(selectedIndex);
             LanguageChanged?.Invoke(langCode);
         }
 

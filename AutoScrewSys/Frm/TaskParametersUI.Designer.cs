@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskParametersUI));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -42,12 +41,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvParam = new System.Windows.Forms.DataGridView();
-            this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Range = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.TaskLists = new System.Windows.Forms.ListBox();
@@ -62,6 +58,11 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParamName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Range = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParam)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // dgvParam
             // 
+            resources.ApplyResources(this.dgvParam, "dgvParam");
             this.dgvParam.AllowUserToAddRows = false;
             this.dgvParam.AllowUserToDeleteRows = false;
             this.dgvParam.AllowUserToResizeColumns = false;
@@ -88,7 +90,6 @@
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvParam.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvParam.ColumnHeadersHeight = 32;
             this.dgvParam.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ParamName,
             this.Value,
@@ -103,10 +104,8 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvParam.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvParam.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvParam.EnableHeadersVisualStyles = false;
             this.dgvParam.GridColor = System.Drawing.Color.Black;
-            this.dgvParam.Location = new System.Drawing.Point(3, 226);
             this.dgvParam.MultiSelect = false;
             this.dgvParam.Name = "dgvParam";
             this.dgvParam.ReadOnly = true;
@@ -119,166 +118,74 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvParam.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvParam.RowHeadersVisible = false;
-            this.dgvParam.RowHeadersWidth = 20;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvParam.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvParam.RowTemplate.Height = 30;
-            this.dgvParam.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvParam.ShowCellErrors = false;
             this.dgvParam.ShowCellToolTips = false;
             this.dgvParam.ShowEditingIcon = false;
             this.dgvParam.ShowRowErrors = false;
-            this.dgvParam.Size = new System.Drawing.Size(1219, 518);
-            this.dgvParam.TabIndex = 69;
             this.dgvParam.TabStop = false;
             this.dgvParam.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParam_CellClick);
             // 
-            // ParamName
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ParamName.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ParamName.HeaderText = "名称";
-            this.ParamName.MinimumWidth = 6;
-            this.ParamName.Name = "ParamName";
-            this.ParamName.ReadOnly = true;
-            this.ParamName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ParamName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Value
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Value.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Value.HeaderText = "参数";
-            this.Value.MinimumWidth = 6;
-            this.Value.Name = "Value";
-            this.Value.ReadOnly = true;
-            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Range
-            // 
-            this.Range.HeaderText = "范围";
-            this.Range.MinimumWidth = 6;
-            this.Range.Name = "Range";
-            this.Range.ReadOnly = true;
-            this.Range.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Range.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "单位";
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            // 
-            // Remark
-            // 
-            this.Remark.HeaderText = "备注";
-            this.Remark.Name = "Remark";
-            this.Remark.ReadOnly = true;
-            // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.7402F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.2598F));
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1378, 753);
-            this.tableLayoutPanel2.TabIndex = 71;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
             this.tableLayoutPanel1.Controls.Add(this.TaskLists, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.561753F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.43825F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(141, 747);
-            this.tableLayoutPanel1.TabIndex = 71;
             // 
             // TaskLists
             // 
+            resources.ApplyResources(this.TaskLists, "TaskLists");
             this.TaskLists.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.TaskLists.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TaskLists.ForeColor = System.Drawing.SystemColors.Window;
             this.TaskLists.FormattingEnabled = true;
-            this.TaskLists.ItemHeight = 29;
-            this.TaskLists.Location = new System.Drawing.Point(3, 74);
             this.TaskLists.Name = "TaskLists";
-            this.TaskLists.Size = new System.Drawing.Size(135, 670);
-            this.TaskLists.TabIndex = 201;
             this.TaskLists.SelectedIndexChanged += new System.EventHandler(this.TaskLists_SelectedIndexChanged);
             // 
             // label9
             // 
+            resources.ApplyResources(this.label9, "label9");
             this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 71);
-            this.label9.TabIndex = 200;
-            this.label9.Text = "任务列表";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            resources.ApplyResources(this.tableLayoutPanel3, "tableLayoutPanel3");
             this.tableLayoutPanel3.Controls.Add(this.dgvParam, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(150, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.85275F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.14725F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1225, 747);
-            this.tableLayoutPanel3.TabIndex = 72;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.53512F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.46488F));
+            resources.ApplyResources(this.tableLayoutPanel4, "tableLayoutPanel4");
             this.tableLayoutPanel4.Controls.Add(this.flowLayoutPanel3, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.dgvStepView, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1219, 217);
-            this.tableLayoutPanel4.TabIndex = 75;
             // 
             // flowLayoutPanel3
             // 
+            resources.ApplyResources(this.flowLayoutPanel3, "flowLayoutPanel3");
             this.flowLayoutPanel3.Controls.Add(this.btnTighten);
             this.flowLayoutPanel3.Controls.Add(this.btnLoosen);
             this.flowLayoutPanel3.Controls.Add(this.btnFree);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(436, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(780, 65);
-            this.flowLayoutPanel3.TabIndex = 70;
             // 
             // btnTighten
             // 
+            resources.ApplyResources(this.btnTighten, "btnTighten");
             this.btnTighten.AngleColor = System.Drawing.Color.Transparent;
             this.btnTighten.ButtonColor = System.Drawing.Color.White;
             this.btnTighten.Buttonmodel = 0;
@@ -286,19 +193,16 @@
             this.btnTighten.Constant = 0;
             this.btnTighten.Depth = 0;
             this.btnTighten.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnTighten.Location = new System.Drawing.Point(3, 3);
             this.btnTighten.MaxV = 0;
             this.btnTighten.MinV = 0;
             this.btnTighten.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnTighten.Name = "btnTighten";
-            this.btnTighten.Size = new System.Drawing.Size(274, 53);
-            this.btnTighten.TabIndex = 0;
-            this.btnTighten.Text = "拧紧";
             this.btnTighten.UseVisualStyleBackColor = true;
             this.btnTighten.Click += new System.EventHandler(this.btnTighten_Click);
             // 
             // btnLoosen
             // 
+            resources.ApplyResources(this.btnLoosen, "btnLoosen");
             this.btnLoosen.AngleColor = System.Drawing.Color.Transparent;
             this.btnLoosen.ButtonColor = System.Drawing.Color.White;
             this.btnLoosen.Buttonmodel = 0;
@@ -306,38 +210,31 @@
             this.btnLoosen.Constant = 0;
             this.btnLoosen.Depth = 0;
             this.btnLoosen.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnLoosen.Location = new System.Drawing.Point(283, 3);
             this.btnLoosen.MaxV = 0;
             this.btnLoosen.MinV = 0;
             this.btnLoosen.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLoosen.Name = "btnLoosen";
-            this.btnLoosen.Size = new System.Drawing.Size(276, 53);
-            this.btnLoosen.TabIndex = 1;
-            this.btnLoosen.Text = "拧松";
             this.btnLoosen.UseVisualStyleBackColor = true;
             this.btnLoosen.Click += new System.EventHandler(this.btnLoosen_Click);
             // 
             // btnFree
             // 
+            resources.ApplyResources(this.btnFree, "btnFree");
             this.btnFree.AngleColor = System.Drawing.Color.Transparent;
             this.btnFree.ButtonColor = System.Drawing.Color.White;
             this.btnFree.Buttonmodel = 0;
             this.btnFree.ClickColor = System.Drawing.Color.White;
             this.btnFree.Constant = 0;
             this.btnFree.Depth = 0;
-            this.btnFree.Location = new System.Drawing.Point(3, 62);
             this.btnFree.MaxV = 0;
             this.btnFree.MinV = 0;
             this.btnFree.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnFree.Name = "btnFree";
-            this.btnFree.Size = new System.Drawing.Size(263, 53);
-            this.btnFree.TabIndex = 2;
-            this.btnFree.Text = "自由";
             this.btnFree.UseVisualStyleBackColor = true;
-            this.btnFree.Visible = false;
             // 
             // dgvStepView
             // 
+            resources.ApplyResources(this.dgvStepView, "dgvStepView");
             this.dgvStepView.AllowUserToAddRows = false;
             this.dgvStepView.AllowUserToDeleteRows = false;
             this.dgvStepView.AllowUserToResizeColumns = false;
@@ -353,7 +250,6 @@
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStepView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvStepView.ColumnHeadersHeight = 32;
             this.dgvStepView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
@@ -366,10 +262,8 @@
             dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStepView.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvStepView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStepView.EnableHeadersVisualStyles = false;
             this.dgvStepView.GridColor = System.Drawing.Color.Black;
-            this.dgvStepView.Location = new System.Drawing.Point(3, 3);
             this.dgvStepView.MultiSelect = false;
             this.dgvStepView.Name = "dgvStepView";
             this.dgvStepView.ReadOnly = true;
@@ -382,20 +276,16 @@
             dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStepView.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvStepView.RowHeadersVisible = false;
-            this.dgvStepView.RowHeadersWidth = 20;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(142)))), ((int)(((byte)(211)))));
             dataGridViewCellStyle14.Font = new System.Drawing.Font("思源黑体 CN Bold", 11.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvStepView.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvStepView.RowTemplate.Height = 30;
-            this.dgvStepView.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvStepView.ShowCellErrors = false;
             this.dgvStepView.ShowCellToolTips = false;
             this.dgvStepView.ShowEditingIcon = false;
             this.dgvStepView.ShowRowErrors = false;
-            this.dgvStepView.Size = new System.Drawing.Size(427, 211);
-            this.dgvStepView.TabIndex = 69;
             this.dgvStepView.TabStop = false;
             this.dgvStepView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvStepView_CellClick);
             // 
@@ -403,8 +293,7 @@
             // 
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn4.HeaderText = "步骤";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -414,8 +303,7 @@
             // 
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn5.HeaderText = "圈数";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn5, "dataGridViewTextBoxColumn5");
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -423,21 +311,59 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "速度";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            resources.ApplyResources(this.dataGridViewTextBoxColumn6, "dataGridViewTextBoxColumn6");
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // ParamName
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ParamName.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.ParamName, "ParamName");
+            this.ParamName.Name = "ParamName";
+            this.ParamName.ReadOnly = true;
+            this.ParamName.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ParamName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Value
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Value.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.Value, "Value");
+            this.Value.Name = "Value";
+            this.Value.ReadOnly = true;
+            this.Value.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Value.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Range
+            // 
+            resources.ApplyResources(this.Range, "Range");
+            this.Range.Name = "Range";
+            this.Range.ReadOnly = true;
+            this.Range.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Range.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Unit
+            // 
+            resources.ApplyResources(this.Unit, "Unit");
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // Remark
+            // 
+            resources.ApplyResources(this.Remark, "Remark");
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            // 
             // TaskParametersUI
             // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Font = new System.Drawing.Font("思源黑体 CN Bold", 15F, System.Drawing.FontStyle.Bold);
             this.Name = "TaskParametersUI";
-            this.Size = new System.Drawing.Size(1378, 753);
             this.Load += new System.EventHandler(this.TaskParametersUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvParam)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -452,11 +378,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvParam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ParamName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Range;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ListBox TaskLists;
@@ -468,6 +389,11 @@
         private MaterialSkin.Controls.MaterialButtonpro btnLoosen;
         private MaterialSkin.Controls.MaterialButtonpro btnFree;
         private System.Windows.Forms.DataGridView dgvStepView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ParamName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Value;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Range;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
