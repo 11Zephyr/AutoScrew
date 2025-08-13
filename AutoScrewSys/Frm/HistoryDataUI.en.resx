@@ -134,8 +134,22 @@ a
 t
 a</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="listHisData.ItemHeight" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="listHisData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 66</value>
+  </data>
+  <data name="listHisData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 634</value>
+  </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Data List</value>
+  </data>
+  <data name="tableLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 703</value>
   </data>
   <data name="comboBoxResult.Items" xml:space="preserve">
     <value>None</value>
@@ -143,24 +157,47 @@ a</value>
   <data name="comboBoxResult.Items3" xml:space="preserve">
     <value>Incomplete</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="comboBoxResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>131, 51</value>
+  </data>
   <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 52</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Result:</value>
   </data>
+  <data name="textBoxTorque.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 46</value>
+  </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 52</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>torque:</value>
   </data>
+  <data name="textBoxCircle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 46</value>
+  </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>思源黑体 CN Bold, 12pt, style=Bold</value>
   </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 52</value>
+  </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Turns:</value>
+  </data>
+  <data name="tbxSnSearchBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 46</value>
+  </data>
+  <data name="lblScrews.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 52</value>
   </data>
   <data name="lblScrews.Text" xml:space="preserve">
     <value>SN:</value>
@@ -169,14 +206,56 @@ a</value>
   <data name="btnRefreshListBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnRefreshListBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 46</value>
+  </data>
   <data name="btnRefreshListBox.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
   <data name="btnSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 46</value>
+  </data>
   <data name="btnSearch.Text" xml:space="preserve">
     <value>Search</value>
+  </data>
+  <data name="tableLayoutPanel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1151, 52</value>
+  </data>
+  <data name="PositionView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1145, 313</value>
+  </data>
+  <data name="chartWaveData.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 321</value>
+  </data>
+  <data name="chartWaveData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1145, 316</value>
+  </data>
+  <data name="tableLayoutPanel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 61</value>
+  </data>
+  <data name="tableLayoutPanel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1151, 639</value>
+  </data>
+  <data name="tableLayoutPanel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1157, 703</value>
+  </data>
+  <data name="tableLayoutPanel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1299, 709</value>
+  </data>
+  <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 28</value>
+  </data>
+  <data name="tabPage1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1305, 715</value>
+  </data>
+  <data name="lstLogContent.ItemHeight" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="lstLogContent.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1299, 651</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Log operations</value>
@@ -201,5 +280,11 @@ a</value>
   </data>
   <data name="btnClearLog.Text" xml:space="preserve">
     <value>Clear Log</value>
+  </data>
+  <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 28</value>
+  </data>
+  <data name="tabPage2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1305, 715</value>
   </data>
 </root>
